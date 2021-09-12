@@ -51,14 +51,30 @@ TG_CHANN = str(TG_CHANNEL) if TG_CHANNEL else "Not Yet😁😁"
 
 from userbot import CMD_LIST
 
-pm_caption = "**BLACK LIGHTNING is on fire**\n\n"
-pm_caption += f"**MASTER**           : {DEFAULTUSER}\n"
-pm_caption += "**VERSION**        : 1.17.5\n"
-pm_caption += "**CHANNEL**        : [CHANNEL](https://t.me/black_lightning_channel)\n"
-pm_caption += "**Support Group**           : [SUPPORT GROUP](https://t.me/lightning_support_group)\n"
-
-pm_caption += "[┏┓━┏┓━━━━┏┓━┏┓━━━━━\n┃┃━┃┃━━━━┃┃━┃┃━━━━━\n┃┗━┛┃┏━━┓┃┃━┃┃━┏━━┓\n┃┏━┓┃┃┏┓┃┃┃━┃┃━┃┏┓┃\n┃┃━┃┃┃┃━┫┃┗┓┃┗┓┃┗┛┃\n┗┛━┗┛┗━━┛┗━┛┗━┛┗━━┛](https://t.me/black_lightning_channel)"
-
+pm_caption = """
+𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫𝐛𝐨𝐭
+This is [{wews}](t.me/{weds})
+𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫𝐛𝐨𝐭
+✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵
+╔════❰ Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ ❱═❍⊱❁۪۪
+║╭━━━━━━━━━━━━━━━➣ 
+║┣⪼ Ⲟⲱⲛⲉʀ - 
+║┣⪼ Ⲋⲧⲁⲧυⲋ - Ⲟⲛⳑⲓⲛⲉ
+║┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - 1.9.8
+║┣⪼ Ⳙⲣⲧⲓⲙⲉ - 5m:45s
+║┣⪼[┏┓━┏┓━━━━┏┓━┏┓━━━━━
+║┣⪼┃┃━┃┃━━━━┃┃━┃┃━━━━━
+║┣⪼┃┗━┛┃┏━━┓┃┃━┃┃━┏━━┓
+║┣⪼┃┏━┓┃┃┏┓┃┃┃━┃┃━┃┏┓┃
+║┣⪼┃┃━┃┃┃┃━┫┃┗┓┃┗┓┃┗┛┃
+║┣⪼┗┛━┗┛┗━━┛┗━┛┗━┛┗━━┛](https://t.me/DarkFussion)
+║┣⪼ Ⲃⲟⲧ Ⲣⲓⲛⳋ - 253.572
+║┣⪼ Ⲣⲩⲧⲏⲟⲛ - 3.9.96
+║┣⪼ Ⲧⲉⳑⲉⲧⲏⲟⲛ - 1.23.0
+║┣⪼ [✨Đ₳Ɽ₭ Ƒմʂʂìօղ✨](https://t.me/DarkFussion)
+║╰━━━━━━━━━━━━━━━➣ 
+╚══════════════════❍⊱❁۪۪
+"""
 @borg.on(lightning_cmd(pattern=r"alive"))
 @borg.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
 async def lightning(alive):
