@@ -57,7 +57,7 @@ pm_caption += "𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫�
 pm_caption += "✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵\n"
 pm_caption += "╔════❰ Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ ❱═❍⊱❁۪۪\n"
 pm_caption += "║╭━━━━━━━━━━━━━━━➣\n"
-pm_caption += f"║┣⪼ **Ⲟⲱⲛⲉʀ** - {DEFAULTUSER}\n"
+pm_caption += f"║┣⪼ Ⲟⲱⲛⲉʀ - {DEFAULTUSER}\n"
 pm_caption += 
 
 @borg.on(lightning_cmd(pattern=r"alive"))
