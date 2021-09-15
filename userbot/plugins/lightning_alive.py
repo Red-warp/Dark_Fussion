@@ -53,12 +53,11 @@ from userbot import CMD_LIST
 
 pm_caption = "**𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫𝐛𝐨𝐭**\n"
 pm_caption += f"**This is** {DEFAULTUSER}\n"
-pm_caption += f"**MASTER**           : House\n"
-pm_caption += "**VERSION**        : 1.17.5\n"
-pm_caption += "**CHANNEL**        : [CHANNEL](https://t.me/black_lightning_channel)\n"
-pm_caption += "**Support Group**           : [SUPPORT GROUP](https://t.me/lightning_support_group)\n"
-
-pm_caption += "[┏┓━┏┓━━━━┏┓━┏┓━━━━━\n┃┃━┃┃━━━━┃┃━┃┃━━━━━\n┃┗━┛┃┏━━┓┃┃━┃┃━┏━━┓\n┃┏━┓┃┃┏┓┃┃┃━┃┃━┃┏┓┃\n┃┃━┃┃┃┃━┫┃┗┓┃┗┓┃┗┛┃\n┗┛━┗┛┗━━┛┗━┛┗━┛┗━━┛](https://t.me/black_lightning_channel)"
+pm_caption += f"**𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫𝐛𝐨𝐭**\n"
+pm_caption += "**✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵**\n"
+pm_caption += "**╔════❰ Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ ❱═❍⊱❁۪۪**\n"
+pm_caption += "**║╭━━━━━━━━━━━━━━━➣**\n"
+pm_caption += f"**║┣⪼ Ⲟⲱⲛⲉʀ -** {DEFAULTUSER}\n"
 
 @borg.on(lightning_cmd(pattern=r"alive"))
 @borg.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
