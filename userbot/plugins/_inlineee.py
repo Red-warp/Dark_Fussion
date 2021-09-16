@@ -185,7 +185,7 @@ async def _(event):
 
 BOT_MSG = os.environ.get("BOT_MSG", None)
 if BOT_MSG is None:
-    BOT_LIT = f"**My Master** {LIGHTNINGUSER} **is busy Right now!**\n\n"
+    BOT_LIT = f"**My Master {LIGHTNINGUSER} is busy Right now!**\n\n"
 else:
     BOT_LIT = BOT_MSG   
 
