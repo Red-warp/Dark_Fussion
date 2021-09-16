@@ -197,7 +197,6 @@ if LIGHTNING_WARN is None:
     WARNING = (
     f"**{BOT_LIT}"
     f"**This is The VIP acount of the Pro User {LIGHTNINGUSER}**\n\n"
-    f"**My master {LIGHTNINGUSER} is busy right now !**\n\n"
     f"**Please let me know why you came here.**\n"
     f"**Also choose your Original reason Else you will be blocked**  \n\n"
     f"**But don't spam otherwise you will be blocked [Don't Understimate]**"
