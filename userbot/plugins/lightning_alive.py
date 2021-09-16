@@ -51,15 +51,22 @@ TG_CHANN = str(TG_CHANNEL) if TG_CHANNEL else "Not Yet😁😁"
 
 from userbot import CMD_LIST
 
-pm_caption = "𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫𝐛𝐨𝐭\n"
-pm_caption += f"This is {DEFAULTUSER}\n"
-pm_caption += "𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫𝐛𝐨𝐭\n"
-pm_caption += "✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵\n"
-pm_caption += "╔════❰ Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ ❱═❍⊱❁۪۪\n"
-pm_caption += "║╭━━━━━━━━━━━━━━━➣\n"
-pm_caption += f"║┣⪼ Ⲟⲱⲛⲉʀ - `{DEFAULTUSER}`\n"
-pm_caption += "║┣⪼ Ⲋⲧⲁⲧυⲋ - `Ⲟⲛⳑⲓⲛⲉ`\n"
-pm_caption += "║┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - `1.2.0`\n"
+pm_caption = """
+**𝐁𝐥𝐚𝐜𝐤-𝐋𝐢𝐠𝐡𝐭𝐧𝐢𝐧𝐠 𝐔𝐬𝐞𝐫𝐛𝐨𝐭**
+This is {DEFAULTUSER}
+✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵
+╔════❰ Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ ❱═❍⊱❁۪۪
+║╭━━━━━━━━━━━━━━━➣ 
+║┣⪼ **Ⲟⲱⲛⲉʀ** - `{}` 
+║┣⪼ **Ⲋⲧⲁⲧυⲋ** - `Ⲟⲛⳑⲓⲛⲉ`
+║┣⪼ **Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ** - `{}`
+║┣⪼ **Ⳙⲣⲧⲓⲙⲉ** - `{}` 
+║┣⪼ **Ⲃⲟⲧ Ⲣⲓⲛⳋ** - `{}`
+║┣⪼ **Ⲣⲩⲧⲏⲟⲛ** - `{}` 
+║┣⪼ **Ⲧⲉⳑⲉⲧⲏⲟⲛ** - `{}` 
+║┣⪼ [✨𝐁𝐥𝐚𝐜𝐤-𝐋𝐢𝐠𝐡𝐭𝐧𝐢𝐧𝐠 𝐔𝐬𝐞𝐫𝐛𝐨𝐭✨](https://github.com/KeinShin/Black-Lightning/)
+║╰━━━━━━━━━━━━━━━➣ ╚══════════════════❍⊱❁۪۪
+"""
 
 @borg.on(lightning_cmd(pattern=r"alive"))
 @borg.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
