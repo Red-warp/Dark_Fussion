@@ -64,7 +64,7 @@ pm_caption += f"║┣⪼ **Ⳙⲣⲧⲓⲙⲉ** - `2m.42s`\n"
 pm_caption += f"║┣⪼ **Ⲃⲟⲧ Ⲣⲓⲛⳋ** - `0.004`\n"
 pm_caption += f"║┣⪼ **Ⲣⲩⲧⲏⲟⲛ** - `3.9.96`\n"
 pm_caption += f"║┣⪼ **Ⲧⲉⳑⲉⲧⲏⲟⲛ** - `1.23.0`\n"
-pm_caption += "║┣⪼ [**Đ₳Ɽ₭ Ƒմʂʂìօղ**](https://t.me/DarkFussion)\n"
+pm_caption += "║┣⪼ **[Đ₳Ɽ₭ Ƒմʂʂìօղ]**(https://t.me/DarkFussion)\n"
 pm_caption += "║╰━━━━━━━━━━━━━━━➣\n"
 pm_caption += "╚══════════════════❍⊱❁۪۪ "
 
