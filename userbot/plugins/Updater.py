@@ -46,7 +46,7 @@ async def updateme_requirements():
 @borg.on(lightning_cmd(pattern="update ?(.*)"))
 async def upstream(ups):
     "For .update command, check if the bot is up to date, update if specified"
-    await ups.edit("** Checking for new updates 🧐🧐**")
+    await ups.edit("**✨Checking for new updates✨**")
     conf = ups.pattern_match.group(1)
     off_repo = UPSTREAM_REPO_URL
     force_updateme = False
@@ -129,7 +129,7 @@ async def upstream(ups):
     else:
         await ups.edit('`Updating your` Đ₳Ɽ₭ Ƒմʂʂìօղ `please wait for a while`')
         await asyncio.sleep(4)
-        await ups.edit('Updated Sur✨\nRestarting it please have patience and enjoy botless life for a while\nIncase restart structs join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/DarkFussion_chat) ')
+        await ups.edit('Updated Sur✨\nRestarting it please have patience and enjoy botless life for a while\nIncase restart structs join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat) ')
         await borg.disconnect()
     os.execl(sys.executable, sys.executable, *sys.argv)
     # You probably don't need it but whatever
