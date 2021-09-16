@@ -185,7 +185,7 @@ async def _(event):
 
 BOT_MSG = os.environ.get("BOT_MSG", None)
 if BOT_MSG is None:
-    BOT_LIT = f"**My Master** {LIGHTNINGUSER} **is busy Right now!**"
+    BOT_LIT = f"**My Master** {LIGHTNINGUSER} **is busy Right now!**\n\n"
 else:
     BOT_LIT = BOT_MSG   
 
@@ -196,7 +196,7 @@ LIGHTNING_BOT_PIC = os.environ.get("LIGHTNING_BOT_PIC", None)
 if LIGHTNING_WARN is None:
     WARNING = (
     f"**{BOT_LIT}"
-    f"\n\n**This is The VIP acount of the Pro User** {LIGHTNINGUSER}\n\n"
+    f"**This is The VIP acount of the Pro User** {LIGHTNINGUSER}\n\n"
     f"**My master {LIGHTNINGUSER} is busy right now !** \n"
     f"Please let me know why you came here. "
     f"**Choose your desired reason from below.**  \n\n"
