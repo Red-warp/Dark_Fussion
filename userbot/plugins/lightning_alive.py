@@ -43,7 +43,7 @@ def lightning_Read_time(seconds: int) -> str:
 
     return kirsh
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "вℓα¢к ℓιgнтηιηg"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Đ₳Ɽ₭ Ƒմʂʂìօղ"
 
 TG = str(TG_GRUP) if TG_GRUP else "Not  Yet😁😁"
 TG_CHANN = str(TG_CHANNEL) if TG_CHANNEL else "Not Yet😁😁"
@@ -52,7 +52,7 @@ TG_CHANN = str(TG_CHANNEL) if TG_CHANNEL else "Not Yet😁😁"
 from userbot import CMD_LIST
 
 pm_caption = "𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫𝐛𝐨𝐭\n"
-pm_caption += f"This is {DEFAULTUSER}\n"
+pm_caption += f"**This is** {DEFAULTUSER}\n"
 pm_caption += "𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫𝐛𝐨𝐭\n"
 pm_caption += "✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵\n"
 pm_caption += "╔════❰ Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ ❱═❍⊱❁۪۪\n"
@@ -64,7 +64,7 @@ pm_caption += f"║┣⪼ **Ⳙⲣⲧⲓⲙⲉ** - `2m.42s`\n"
 pm_caption += f"║┣⪼ **Ⲃⲟⲧ Ⲣⲓⲛⳋ** - `0.004`\n"
 pm_caption += f"║┣⪼ **Ⲣⲩⲧⲏⲟⲛ** - `3.9.96`\n"
 pm_caption += f"║┣⪼ **Ⲧⲉⳑⲉⲧⲏⲟⲛ** - `1.23.0`\n"
-pm_caption += "║┣⪼ ✨Đ₳Ɽ₭ Ƒմʂʂìօղ✨\n"
+pm_caption += "║┣⪼ [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/DarkFussion)\n"
 pm_caption += "║╰━━━━━━━━━━━━━━━➣\n"
 pm_caption += "╚══════════════════❍⊱❁۪۪ "
 
