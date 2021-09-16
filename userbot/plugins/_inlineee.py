@@ -185,7 +185,7 @@ async def _(event):
 
 BOT_MSG = os.environ.get("BOT_MSG", None)
 if BOT_MSG is None:
-    BOT_LIT = f"Hey! This is adavanced PM Protection by [𝐁𝐥𝐚𝐜𝐤 𝐋𝐢𝐠𝐡𝐭𝐧𝐢𝐧𝐠](https://t.me/lightning_support_group). "
+    BOT_LIT = f"𝗠𝘆 𝗺𝗮𝘀𝘁𝗲𝗿 {DEFAULTUSER} 𝗶𝘀 𝗯𝘂𝘀𝘆 𝗿𝗶𝗴𝗵𝘁 𝗻𝗼𝘄!."
 else:
     BOT_LIT = BOT_MSG   
 
