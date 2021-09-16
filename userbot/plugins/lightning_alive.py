@@ -58,7 +58,6 @@ pm_caption += "✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵\n"
 pm_caption += "╔════❰ Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ ❱═❍⊱❁۪۪\n"
 pm_caption += "║╭━━━━━━━━━━━━━━━➣\n"
 pm_caption += f"║┣⪼ Ⲟⲱⲛⲉʀ - {DEFAULTUSER}\n"
-pm_caption += 
 
 @borg.on(lightning_cmd(pattern=r"alive"))
 @borg.on(sudo_cmd(pattern=r"alive", allow_sudo=True))
