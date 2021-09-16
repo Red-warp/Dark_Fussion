@@ -10,8 +10,6 @@ LIGHTNING_ALV_IMG = os.environ.get("LIGHTNING_ALV_IMG", None)
 if not LIGHTNING_ALV_IMG:
     LIGHTNING_ALV_IMG = "https://telegra.ph/file/b01cd4ef19edc14195648.mp4"
 
-
-
 version = "4.5"
 python_version = "3.8.5"
 
@@ -57,14 +55,14 @@ pm_caption += "𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫�
 pm_caption += "✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵\n"
 pm_caption += "╔════❰ Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ ❱═❍⊱❁۪۪\n"
 pm_caption += "║╭━━━━━━━━━━━━━━━➣\n"
-pm_caption += f"║┣⪼ **Ⲟⲱⲛⲉʀ** - `{DEFAULTUSER}`\n"
-pm_caption += f"║┣⪼ **Ⲋⲧⲁⲧυⲋ** - `Ⲟⲛⳑⲓⲛⲉ`\n"
-pm_caption += f"║┣⪼ **Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ** - `1.2.7`\n"
-pm_caption += f"║┣⪼ **Ⳙⲣⲧⲓⲙⲉ** - `2m.42s`\n"
-pm_caption += f"║┣⪼ **Ⲃⲟⲧ Ⲣⲓⲛⳋ** - `0.004`\n"
-pm_caption += f"║┣⪼ **Ⲣⲩⲧⲏⲟⲛ** - `3.9.96`\n"
-pm_caption += f"║┣⪼ **Ⲧⲉⳑⲉⲧⲏⲟⲛ** - `1.23.0`\n"
-pm_caption += f"║┣⪼ **[Đ₳Ɽ₭ Ƒմʂʂìօղ]**(https://t.me/DarkFussion)\n"
+pm_caption += f"║┣⪼ Ⲟⲱⲛⲉʀ - {DEFAULTUSER}\n"
+pm_caption += f"║┣⪼ Ⲋⲧⲁⲧυⲋ - Ⲟⲛⳑⲓⲛⲉ\n"
+pm_caption += f"║┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - 1.2.7\n"
+pm_caption += f"║┣⪼ Ⳙⲣⲧⲓⲙⲉ - 2m.42s\n"
+pm_caption += f"║┣⪼ Ⲃⲟⲧ Ⲣⲓⲛⳋ - 0.004\n"
+pm_caption += f"║┣⪼ Ⲣⲩⲧⲏⲟⲛ - 3.9.96\n"
+pm_caption += f"║┣⪼ Ⲧⲉⳑⲉⲧⲏⲟⲛ - 1.23.0\n"
+pm_caption += f"║┣⪼ [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/DarkFussion)\n"
 pm_caption += "║╰━━━━━━━━━━━━━━━➣\n"
 pm_caption += "╚══════════════════❍⊱❁۪۪ "
 
