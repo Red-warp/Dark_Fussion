@@ -21,8 +21,8 @@ from . import *
 
 #### Variables ####
 
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "ʙʟᴀᴄᴋ-ʟɪɢʜᴛɴɪɴɢ ᴜꜱᴇʀ "
-ALIVE_MSG = f"This is {DEFAULTUSER}'s 𝐁𝐥𝐚𝐜𝐤-𝐋𝐢𝐠𝐡𝐭𝐧𝐢𝐧𝐠 𝐔𝐬𝐞𝐫𝐛𝐨𝐭"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Ƒմʂʂìօղ ᴜꜱᴇʀ "
+ALIVE_MSG = f"This is {DEFAULTUSER}'s"
 
 ALIVE_PIC = Config.ALIVE_PHOTTO
 
@@ -93,7 +93,7 @@ async def alive(e):
 
     cap = """
 𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫𝐛𝐨𝐭
-This is {DEFAULTUSER}
+`{}`
 𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫𝐛𝐨𝐭
 ✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵✵
 ╔════❰ Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ ❱═❍⊱❁۪۪
