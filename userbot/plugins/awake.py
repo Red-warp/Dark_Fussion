@@ -16,13 +16,23 @@ DEFAULTUSER = (
 
 ALIVE_MESSAGE = Var.ALIVE_MESSAGE
 if not ALIVE_MESSAGE:
-    ALIVE_MESSAGE = "**✨𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫𝐛𝐨𝐭✨ \n\n**"
-    ALIVE_MESSAGE += "`My Bot Status \n\n`"
-    ALIVE_MESSAGE += f"`Telethon: TELETHON-15.0.0 \n\n`"
-    ALIVE_MESSAGE += f"`Python: PYTHON-3.9.96 \n\n`"
-    ALIVE_MESSAGE += "`I'll Be With You Master Till My Dyno Ends!!☠ \n\n`"
-    ALIVE_MESSAGE += f"`Support Channel` : @Dark_Fussion_chat \n\n"
-    ALIVE_MESSAGE += f"`MY BOSS🤗`: {DEFAULTUSER} \n\n "
+    ALIVE_MESSAGE = "✨𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫𝐛𝐨𝐭✨\n\n"
+ALIVE_MESSAGE += "╔┓┏╦━╦┓╔┓╔━━╗"
+ALIVE_MESSAGE += "║┗┛║┗╣┃║┃║X X║"
+ALIVE_MESSAGE += "║┏┓║┏╣┗╣┗╣╰╯║"
+ALIVE_MESSAGE += "╚┛┗╩━╩━╩━╩━━╝"
+
+ALIVE_MESSAGE += f"**┏┛My Bot Status**" 
+
+ALIVE_MESSAGE += f"**┏┛TELETHON** - `15.0.0`"
+
+ALIVE_MESSAGE += f"**┏┛PYTHON** - `3.9.96`" 
+
+ALIVE_MESSAGE += f"**┏┛I'll Be With You Master Till My Dyno Ends!!☠**" 
+
+ALIVE_MESSAGE += f"**┏┛Support Channel** - @Dark_Fussion_chat" 
+
+ALIVE_MESSAGE += f"**┏┛MY BOSS** : ཞ𝔼𝔻 𝕎𝔸ℝℙ"
 else:
     ALIVE_MESSAGE = ALIVE_MESSAGE
 
