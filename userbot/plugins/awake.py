@@ -32,7 +32,7 @@ ALIVE_MESSAGE += f"**┏┛I'll Be With You Master Till My Dyno Ends!!☠**"
 
 ALIVE_MESSAGE += f"**┏┛Support Channel** - @Dark_Fussion_chat" 
 
-ALIVE_MESSAGE += f"**┏┛MY BOSS** : ཞ𝔼𝔻 𝕎𝔸ℝℙ"
+ALIVE_MESSAGE += f"**┏┛MY BOSS** : `{DEFAULTUSER}`"
 else:
     ALIVE_MESSAGE = ALIVE_MESSAGE
 
