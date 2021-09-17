@@ -46,7 +46,7 @@ def get_readable_time(seconds: int) -> str:
 uptime = get_readable_time((time.time() - Lastupdate))
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Unknown"
 
-pm_caption = "**Đ₳Ɽ₭ Ƒմʂʂìօղ IZ Ⲟⲛⳑⲓⲛⲉ**\n\n"
+pm_caption = "**Đ₳Ɽ₭ Ƒմʂʂìօղ - Ⲟⲛⳑⲓⲛⲉ**\n\n"
 pm_caption += "➥ **SYSTEMS STATS**\n"
 pm_caption += "➥ **Telethon Version:** `1.21.0` \n"
 pm_caption += "➥ **Python:** `3.9.96` \n"
@@ -55,12 +55,12 @@ pm_caption += "➥ **Database Status:**  `Functional`\n"
 pm_caption += "➥ **Current Branch** : `master`\n"
 pm_caption += f"➥ **Version** : `{currentversion}`\n"
 pm_caption += f"➥ **My Boss** : {DEFAULTUSER} \n"
-pm_caption += "➥ **Heroku Database** : `AWS - Working Properly`\n\n"
+pm_caption += "➥ **Heroku Database** : `AWS - Working`\n\n"
 pm_caption += "➥ **License** : [GNU General Public License v3.0](https://github.com/TeamFussion/Dark_Fussion/master/LICENSE)\n"
 pm_caption += "➥ **Copyright** : By [ཞ𝔼𝔻 𝕎𝔸ℝℙ](GitHub.com/TeamFussion)\n"
 pm_caption += "➥ **Check Stats By Doing** `.status`. \n\n"
 pm_caption += (
-    "[Deploy Đ₳Ɽ₭ Ƒմʂʂìօղ](Github.com/TeamFussion/Dark_Fussion)"
+    "[Đ₳Ɽ₭ Ƒմʂʂìօղ](Github.com/TeamFussion/Dark_Fussion)"
 )
 
 
