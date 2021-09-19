@@ -154,7 +154,7 @@ kraken = bot.uid
 pm_caption = "__**🔥🔥Đ₳Ɽ₭ Ƒմʂʂìօղ ɨs օռʟɨռɛ🔥🔥**__\n\n"
 
 pm_caption += (
-    f"               __↼🄼🄰🅂🅃🄴🅁⇀__\n\n**『[{DEFAULTUSER}](tg://user?id={kraken})』**\n\n"
+    f"               __↼🄼🄰🅂🅃🄴🅁⇀__\n\n **『[{DEFAULTUSER}](tg://user?id={kraken})』**\n\n"
 )
 
 pm_caption += "╭━━━━━━━━━━━━━━━➣\n"
@@ -167,11 +167,11 @@ pm_caption += f"┣⪼**⚜️Sudo⚜️**            : `{sudou}`\n"
 
 pm_caption += f"┣⪼**⚠️CHANNEL⚠️**   : [ᴊᴏɪɴ](https://t.me/DarkFussion)\n"
 
-pm_caption += f"┣⪼**🔥CREATOR🔥**    : [Nub](https://t.me/Red_warp)\n\n"
+pm_caption += f"┣⪼**🔥CREATOR🔥**    : [Nub](https://t.me/Red_warp)\n"
 
 pm_caption += "╰━━━━━━━━━━━━━━━➣\n"
 
-pm_caption += f"    **[✨REPO✨](https://github.com/TeamFussion/Dark_Fussion) 🔹 [📜License📜](https://github.com/TeamFussion/Dark_Fussion/blob/master/LICENSE)**\n"
+pm_caption += f"    **[✨REPO✨](https://github.com/TeamFussion/Dark_Fussion)  🔹  [📜License📜](https://github.com/TeamFussion/Dark_Fussion/blob/master/LICENSE)**\n"
 
 
 @borg.on(lightning_cmd(outgoing=True, pattern="halive$"))
