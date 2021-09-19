@@ -47,6 +47,7 @@ uptime = get_readable_time((time.time() - Lastupdate))
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Unknown"
 
 pm_caption = "**Đ₳Ɽ₭ Ƒմʂʂìօղ - Ⲟⲛⳑⲓⲛⲉ**\n\n"
+pm_caption += "══════𝐒𝐘𝐒𝐓𝐄𝐌 𝐒𝐓𝐀𝐓𝐔𝐒═══════\n\n"
 pm_caption += "➥ **SYSTEMS STATS**\n"
 pm_caption += "➥ **Telethon Version:** `1.21.0` \n"
 pm_caption += "➥ **Python:** `3.9.96` \n"
@@ -59,9 +60,7 @@ pm_caption += "➥ **Heroku Database** : `AWS - Working`\n\n"
 pm_caption += "➥ **License** : [GNU General Public License v3.0](https://github.com/TeamFussion/Dark_Fussion/master/LICENSE)\n"
 pm_caption += "➥ **Copyright** : By [ཞ𝔼𝔻 𝕎𝔸ℝℙ](GitHub.com/TeamFussion)\n"
 pm_caption += "➥ **Check Stats By Doing** `.status`. \n\n"
-pm_caption += (
-    "[Đ₳Ɽ₭ Ƒմʂʂìօղ](Github.com/TeamFussion/Dark_Fussion)"
-)
+pm_caption += "══════𝐒𝐘𝐒𝐓𝐄𝐌 𝐒𝐓𝐀𝐓𝐔𝐒═══════"
 
 
 @borg.on(lightning_cmd(pattern=r"falive"))
