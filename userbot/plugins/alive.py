@@ -169,7 +169,7 @@ pm_caption += f"┣⪼**⚠️CHANNEL⚠️**   : [ᴊᴏɪɴ](https://t.me/Dark
 
 pm_caption += f"┣⪼**🔥CREATOR🔥**    : [Nub](https://t.me/Red_warp)\n\n"
 
-pm_caption += f┣⪼"    [**✨REPO✨**](https://github.com/TeamFussion/Dark_Fussion) 🔹 **[📜License📜]**(https://github.com/TeamFussion/Dark_Fussion/blob/master/LICENSE)\n"
+pm_caption += f"┣⪼    [**✨REPO✨**](https://github.com/TeamFussion/Dark_Fussion) 🔹 [**📜License📜**](https://github.com/TeamFussion/Dark_Fussion/blob/master/LICENSE)\n"
 
 pm_caption += "╰━━━━━━━━━━━━━━━➣"
 
