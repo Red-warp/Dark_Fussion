@@ -24,15 +24,6 @@ ALIVE_MESSAGE += "╚┛┗╩━╩━╩━╩━━╝"
 
 ALIVE_MESSAGE += f"**┏┛My Bot Status**" 
 
-ALIVE_MESSAGE += f"**┏┛TELETHON** - `15.0.0`"
-
-ALIVE_MESSAGE += f"**┏┛PYTHON** - `3.9.96`" 
-
-ALIVE_MESSAGE += f"**┏┛I'll Be With You Master Till My Dyno Ends!!☠**" 
-
-ALIVE_MESSAGE += f"**┏┛Support Channel** - @Dark_Fussion_chat" 
-
-ALIVE_MESSAGE += f"**┏┛MY BOSS** : `{DEFAULTUSER}`"
 else:
     ALIVE_MESSAGE = ALIVE_MESSAGE
 
