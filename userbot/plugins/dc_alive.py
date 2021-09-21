@@ -29,16 +29,19 @@ file2 = "https://telegra.ph/file/daab59e1648754652576b.jpg"
 file3 = "https://telegra.ph/file/181bac8d3ad0c505306af.jpg"
 file4 = "https://telegra.ph/file/181bac8d3ad0c505306af.jpg"
 """ =======================CONSTANTS====================== """
-pm_caption = "** 𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤 𝙸𝚂 🅾🅽🅻🅸🅽🅴**\n\n"
+pm_caption = "** Đ₳Ɽ₭ Ƒմʂʂìօղ 𝙸𝚂 🅾🅽🅻🅸🅽🅴**\n\n"
 
 pm_caption += "✘ About My System ✘\n\n"
-pm_caption += "➾ **`ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀꜱɪᴏɴ`** ☞ 1.17.5\n"
-pm_caption += "➾ **`ꜱᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ`** ☞ [ᴊᴏɪɴ](https://t.me/blacklightningot)\n"
-pm_caption += "➾ **`ʟɪᴄᴇɴꜱᴇ`**  ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin)\n"
-pm_caption += "➾ **`ᴄᴏᴘʏʀɪɢʜᴛ ʙʏ`** ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin/Black-Lightning)\n\n"
-pm_caption += "➾ **Spammer Go Away Im His Assitant"
-pm_caption += f"➾ **ᴍʏ ᴍᴀsᴛᴇʀ** ☞ [{DEFAULTUSER}](tg://user?id={ghanti})\n"
-
+pm_caption += "╔════════════════════❍⊱❁۪۪\n"
+pm_caption += "║╭━━━━━━━━━━━━━━━➣\n"
+pm_caption += "║┣➾ **`ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀꜱɪᴏɴ`** ☞ 1.17.5\n"
+pm_caption += "║┣➾ **`ꜱᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ`** ☞ [ᴊᴏɪɴ](https://t.me/blacklightningot)\n"
+pm_caption += "║┣➾ **`ʟɪᴄᴇɴꜱᴇ`**  ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin)\n"
+pm_caption += "║┣➾ **`ᴄᴏᴘʏʀɪɢʜᴛ ʙʏ`** ☞ [𝔅𝔩𝔞𝔠𝔨 𝔏𝔦𝔤𝔥𝔱𝔫𝔦𝔫𝔤](https://github.com/KeinShin/Black-Lightning)\n\n"
+pm_caption += "║┣➾ **Spammer Go Away Im His Assitant"
+pm_caption += f"║┣➾ **ᴍʏ ᴍᴀsᴛᴇʀ** ☞ [{DEFAULTUSER}](tg://user?id={ghanti})\n"
+pm_caption += "║╰━━━━━━━━━━━━━━━➣\n"
+pm_caption += "╚════════════════════❍⊱❁۪۪"
 
 @borg.on(lightning_cmd(pattern=r"dalive"))
 @borg.on(sudo_cmd(pattern=r"dalive", allow_sudo=True))
