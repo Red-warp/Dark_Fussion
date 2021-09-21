@@ -38,7 +38,6 @@ pm_caption += "║┣➾ `ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀꜱɪᴏɴ` ☞ 1.17.5\n
 pm_caption += "║┣➾ `ꜱᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ` ☞ [ᴊᴏɪɴ](https://t.me/DarkFussion)\n"
 pm_caption += "║┣➾ `ʟɪᴄᴇɴꜱᴇ` ☞ [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://github.com/TeamFussion)\n"
 pm_caption += "║┣➾ `ᴄᴏᴘʏʀɪɢʜᴛ ʙʏ` ☞ [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://github.com/TeamFussion/Dark_Fussion)\n"
-pm_caption += "║┣➾ **Spammer Go Away Im His Assitant\n"
 pm_caption += "║┣➾ **ᴍʏ ᴍᴀsᴛᴇʀ** ☞ [{DEFAULTUSER}](tg://user?id={ghanti})\n"
 pm_caption += "║╰━━━━━━━━━━━━━━━➣\n"
 pm_caption += "╚════════════════════❍⊱❁۪۪"
