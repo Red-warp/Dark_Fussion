@@ -17,12 +17,12 @@ DEFAULTUSER = (
 ALIVE_MESSAGE = Var.ALIVE_MESSAGE
 if not ALIVE_MESSAGE:
     ALIVE_MESSAGE = "✨𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫𝐛𝐨𝐭✨\n\n"
-ALIVE_MESSAGE += "╔┓┏╦━╦┓╔┓╔━━╗"
-ALIVE_MESSAGE += "║┗┛║┗╣┃║┃║X X║"
-ALIVE_MESSAGE += "║┏┓║┏╣┗╣┗╣╰╯║"
-ALIVE_MESSAGE += "╚┛┗╩━╩━╩━╩━━╝"
+ALIVE_MESSAGE += "╔┓┏╦━╦┓╔┓╔━━╗\n"
+ALIVE_MESSAGE += "║┗┛║┗╣┃║┃║X X║\n"
+ALIVE_MESSAGE += "║┏┓║┏╣┗╣┗╣╰╯║\n"
+ALIVE_MESSAGE += "╚┛┗╩━╩━╩━╩━━╝\n"
 
-ALIVE_MESSAGE += f"**┏┛My Bot Status**" 
+ALIVE_MESSAGE += f"*┏┛My Bot Status**" 
 
 else:
     ALIVE_MESSAGE = ALIVE_MESSAGE
