@@ -165,7 +165,7 @@ LIGHTNING_BOT_PIC = os.environ.get("LIGHTNING_BOT_PIC", None)
 if LIGHTNING_WARN is None:
     WARNING = (
     f"**{BOT_LIT}"
-    f"This is The VIP acount of the Pro User {LIGHTNINGUSER}\n\n"
+    f"This is The VIP acount of the Pro User [{wews}](t.me/{weds})\n\n"
     f"Please let me know why you came here.\n"
     f"Also choose your Original reason Else you will be blocked \n\n"
     f"**But don't spam otherwise you will be blocked [Don't Understimate]**"
@@ -330,7 +330,7 @@ async def lightning_pugins_query_hndlr(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"what?")))
 async def what(lightning):
     if lightning.query.user_id == bot.uid:
-        fck_bit = "**Black Lightning Heres With The Detailed Help For CMDs** 😉😉 ! "
+        fck_bit = "**Đ₳Ɽ₭ Ƒմʂʂìօղ Heres With The Detailed Help For CMDs** 🙂! "
         buttons = lightnings_menu_for_help(0, CMD_LIST, "helpme")
         await lightning.edit(fck_bit, buttons=buttons)
     else:
