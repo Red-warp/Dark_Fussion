@@ -57,7 +57,9 @@ async def start(event):
     else:
         if already_added(event.sender_id):
             pass
-        
+        elif not already_added(event.sender_id):
+            add_usersid_in_db(event.sender_id)
+
 
 # Data's
 
