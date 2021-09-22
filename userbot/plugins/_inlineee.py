@@ -210,7 +210,8 @@ async def inline_handler(lightning):
                 [custom.Button.inline("Help Menu", data="what?"),
                 custom.Button.inline("Ping", data="bitch")],
                 [Button.url("Support Group", "https://t.me/Dark_Fussio_chat")],
-            ],
+                [Button.url("Channel" , "https://t.me/DarkFussion")],
+           ],
         )
         await lightning.answer([result])
 
@@ -278,7 +279,7 @@ async def lightning_pugins_query_hndlr(lightning):
        
        lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n{CMD_HELP[light_pulu_name]}"
        lightning_is_best = lightning_help_strin 
-       lightning_is_best += "\n\n**In Case Any Problem**[Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat) ".format(light_pulu_name)
+       lightning_is_best += f"\n\n**In Case Any Problem** [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat) ".format(light_pulu_name)
     
     else:
        lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n`{CMD_LIST[light_pulu_name]}`\n\n**Ask at @Dark_Fussion_chat"
@@ -295,7 +296,7 @@ async def lightning_pugins_query_hndlr(lightning):
                f"Pasted {light_pulu_name} to {lig_url}",
                link_preview=False,
                buttons=[
-                [custom.Button.inline("🇸‌🇵‌🇪‌🇨‌🇮‌🇦‌🇱‌", data="krish")],
+                [custom.Button.inline("Special", data="krish")],
                 [custom.Button.inline("Ⴆαƈƙ 💢", data="lghtback")]],
          )
     else:
@@ -398,7 +399,7 @@ async def lightning_is_better(lightning):
         wews = bot.me.first_name
         weds = bot.me.username
         if lightning.query.user_id == bot.uid:
-          fck_bit = f"꧁ Pong! ꧂\n\n⚘ Ping Time:- {ping}\n\n⚘ My Lightning Master [{wews}](t.me/{weds})"
+          fck_bit = f"꧁ Pong! ꧂\n\n⚘ Ping Time:- {ping}\n\n⚘ My Fussion Master [{wews}](t.me/{weds})"
           await lightning.edit(fck_bit, link_preview=False, buttons=[Button.inline("Back", data="wtshit")])
         else: 
            await lightning.answer(f"I am {LIGHTNINGUSER}'s Assistant not your", alert=True)
@@ -547,20 +548,19 @@ async def hmm(lightning):
 async def lmaao(lightning):
     if lightning.query.user_id == bot.uid:
         await lightning.edit(
-            "Hi Master,\nPlss lemme know in which section you need my help..!!",
+            f"**Hi Master,\nPlss lemme know in which section you need my help..!!**",
             buttons=[
-                [custom.Button.inline("Help Menu", data="what?"),
-                custom.Button.inline("Ping", data="bitch")],
-                [Button.url("Support Group", "https://t.me/Dark_Fussion_chat")],
+                [custom.Button.inline("Help Menu", data="what?")],
+                [custom.Button.inline("Ping", data="bitch")],
+                [Button.url("Channel", "https://t.me/DarkFussion")],
+                [Button.url("Support Group" , "https://t.me/Dark_Fussion_chat")]
             ]
         )
     else:
         fukoff = "You Don't belong to my master's category. So, why should i follow your orders\nHence, Fuck off" 
         await lightning.answer(fukoff, alert=True)
 
-"""
-Thanks To Friday Userbot and @Midhun_xD For This idea
-"""
+
 import requests
 
 
@@ -573,10 +573,10 @@ async def ho(event):
         await event.answer(how, cache_time=0, alert=True)
         return
     await event.answer("( ͡🔥 ͜ʖ ͡🔥)", cache_time=0, alert=False)
-    # This Is Copy of Above Code. (C) @SpEcHiDe
+    # This Is Copy of Above Code. (C) link_preview=False
     buttons = lightnings_menu_for_help(0, CMD_LIST, "helpme")
-    ho = f"""Black Lightning Is Here With Stunning Help !\n
-In Case Any Problem [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat) \nTottal Plugs( ͡🔥 ͜ʖ ͡🔥): {len(CMD_LIST)}"""
+    ho = f"""Đ₳Ɽ₭ Ƒմʂʂìօղ Is Here With Stunning Help !\n
+In Case Any Problem [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat) \nTottal Plugs : {len(CMD_LIST)}"""
     await event.edit(message=ho, buttons=buttons)
 
 
