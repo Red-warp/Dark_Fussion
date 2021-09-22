@@ -514,13 +514,13 @@ async def yes_ucan(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lemme_ban")))
 async def yes_ucan(lightning):
     if lightning.query.user_id == bot.uid:
-           lmaoo = "You Are Not Requesting , Lol."
+           lmaoo = "You Are Not Requesting , Lol.."
            await lightning.answer(lmaoo, cache_time=0, alert=True)
            return    
     await lightning.get_chat()
     await asyncio.sleep(2)
-    await lightning.edit("Get Lost Retard")
-    ban = "Get Lost Goin To Block You" 
+    await lightning.edit("Get Lost Reward")
+    ban = "Get Lost Going To Block You" 
     await bot.send_message(
          lightning.query.user_id, ban)
     await bot(functions.contacts.BlockRequest(lightning.query.user_id))
