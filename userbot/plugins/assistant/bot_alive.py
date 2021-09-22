@@ -27,7 +27,7 @@ pm_caption += "► **Copyright** : [Đ₳Ɽ₭ Ƒմʂʂìօղ](GitHub.com/TeamF
 light = [[Button.url("✧Repo✧", "https://github.com/TeamFussion/DarkFussion"), Button.url("✧Deploy✧", "https://heroku.com/deploy?template=https://github.com/TeamFussion/Dark_Fussion")]]
 light +=[[Button.url("✧Channel✧", "https://t.me/DarkFussion") , Button.url("✧Group✧", "https://t.me/Dark_Fussion_chat")]]
 light +=[[Button.url("✧Devoloper✧" , "https://github.com/TeamFussion")]]
-light +=[[custom.Button.inline("✧Devoloper✧" , "https://t.me/DarkFussion")]]
+light +=[[custom.Button.inline("✧Devoloper✧" , data = "https://t.me/DarkFussion")]]
 @tgbot.on(events.NewMessage(pattern="^/alive" , func=lambda e: e.sender_id == bot.uid))
 async def _(event):
     await tgbot.send_file(event.chat_id, PM_IMG, caption=pm_caption, buttons=light)
