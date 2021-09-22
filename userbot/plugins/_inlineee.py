@@ -551,8 +551,8 @@ async def lmaao(lightning):
         await lightning.edit(
             f"**Hi {LIGHTNINGUSER},\nPlss lemme know in which section you need my help..!!**",
             buttons=[
-                [custom.Button.inline("✧Help Menu✧", data="what?")],
-                [custom.Button.inline("✧Ping✧", data="bitch")],
+                [custom.Button.inline("✧Help Menu✧", data="what?"),
+                 custom.Button.inline("✧Ping✧", data="bitch")],
                 [Button.url("✧Channel✧", "https://t.me/DarkFussion"),
                 Button.url("✧Support Group✧" , "https://t.me/Dark_Fussion_chat")],
             ],
