@@ -554,8 +554,8 @@ async def lmaao(lightning):
                 [custom.Button.inline("Help Menu", data="what?")],
                 [custom.Button.inline("Ping", data="bitch")],
                 [Button.url("Channel", "https://t.me/DarkFussion"),
-                Button.url("Support Group" , "https://t.me/Dark_Fussion_chat")]
-            ]
+                Button.url("Support Group" , "https://t.me/Dark_Fussion_chat")],
+            ],
         )
     else:
         fukoff = "You Don't belong to my master's category. So, why should i follow your orders\nHence, Fuck off" 
