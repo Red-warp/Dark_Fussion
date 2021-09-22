@@ -33,7 +33,7 @@ pm_caption += "┣► **License** : [General Public License](https://github.com/
 pm_caption += "┣► **Copyright** : [Đ₳Ɽ₭ Ƒմʂʂìօղ](GitHub.com/TeamFussion/Dark_Fussion)\n"
 pm_caption += "╰━━━━━━━━━━━━━━━➣\n\n"
 pm_caption += f"**Powered by ~ [👨‍💻 Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/DarkFussion)**"
-light = [[Button.url("✧Repo✧", "https://github.com/TeamFussion/DarkFussion"), Button.url("✧Deploy✧", "https://heroku.com/deploy?template=https://github.com/TeamFussion/Dark_Fussion")]]
+light = [[Button.url("✧Repo✧", "https://github.com/TeamFussion/Dark_Fussion"), Button.url("✧Deploy✧", "https://heroku.com/deploy?template=https://github.com/TeamFussion/Dark_Fussion")]]
 light +=[[Button.url("✧Channel✧", "https://t.me/DarkFussion") , Button.url("✧Group✧", "https://t.me/Dark_Fussion_chat")]]
 light +=[[Button.url("✧Devoloper✧" , "https://github.com/TeamFussion")]]
 @tgbot.on(events.NewMessage(pattern="^/alive" , func=lambda e: e.sender_id == bot.uid))
