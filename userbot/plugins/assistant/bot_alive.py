@@ -17,9 +17,8 @@ else:
      PM_IMG = ASSIS_PIC
 
 
-pm_caption = " ►**Đ₳Ɽ₭ Ƒմʂʂìօղ IS ONLINE**\n\n"
-pm_caption += "╔══════════════❍⊱❁۪۪\n"
-pm_caption += "║╔┓┏╦━╦┓╔┓╔━━╗\n"
+pm_caption = "**Đ₳Ɽ₭ Ƒմʂʂìօղ IS ONLINE**\n\n"
+pm_caption += "╔┓┏╦━╦┓╔┓╔━━╗\n"
 pm_caption += "║┗┛║┗╣┃║┃║X X║\n"
 pm_caption += "║┏┓║┏╣┗╣┗╣╰╯║\n"
 pm_caption += "╚┛┗╩━╩━╩━╩━━╝\n"
