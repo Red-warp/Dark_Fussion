@@ -211,7 +211,7 @@ async def inline_handler(lightning):
                 custom.Button.inline("Ping", data="bitch")],
                 [Button.url("Channel", "https://t.me/DarkFussion"),
                  Button.url("Group" , "https://t.me/Dark_Fussion_chat")],
-                [Button.ulr("Developer" , "https://github.com/TeamFussion")]  
+                [Button.url("Developer" , "https://github.com/TeamFussion")]  
            ],
         )
         await lightning.answer([result])
