@@ -209,8 +209,9 @@ async def inline_handler(lightning):
             buttons=[
                 [custom.Button.inline("Help Menu", data="what?"),
                 custom.Button.inline("Ping", data="bitch")],
-                [Button.url("Support Group", "https://t.me/Dark_Fussio_chat")],
-                [Button.url("Channel" , "https://t.me/DarkFussion")],
+                [Button.url("Channel", "https://t.me/DarkFussion"),
+                 Button.url("Group" , "https://t.me/Dark_Fussion_chat")],
+                [Button.ulr("Developer" , "https://github.com/TeamFussion")]  
            ],
         )
         await lightning.answer([result])
@@ -297,14 +298,14 @@ async def lightning_pugins_query_hndlr(lightning):
                link_preview=False,
                buttons=[
                 [custom.Button.inline("Special", data="krish")],
-                [custom.Button.inline("Ⴆαƈƙ 💢", data="lghtback")]],
+                [custom.Button.inline("Ⴆαƈƙ", data="lghtback")]],
          )
     else:
            await lightning.edit(
             message=lightning_is_best,
             buttons=[
-                [custom.Button.inline("🇸‌🇵‌🇪‌🇨‌🇮‌🇦‌🇱‌", data="krish")],
-                [custom.Button.inline("Ⴆαƈƙ 💢", data="lghtback")],
+                [custom.Button.inline("Special", data="krish")],
+                [custom.Button.inline("Ⴆαƈƙ", data="lghtback")],
             ],
         )
 
@@ -527,7 +528,7 @@ async def yes_ucan(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stta")))
 async def hmm(lightning):
     if lightning.query.user_id == bot.uid:
-        text = "🇲‌🇾‌ 🇭‌🇪‌🇱‌🇵‌ 🇸‌🇹‌🇦‌🇹‌🇸‌\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/\nTottal Plugs: {}".format(len(CMD_LIST))
+        text = "My Stats\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/\nTottal Plugs: {}".format(len(CMD_LIST))
         await lightning.answer(text, alert=True)
     else:
         txt = f"Stats For {LIGHTNINGUSER} Not For You :)"
@@ -548,12 +549,12 @@ async def hmm(lightning):
 async def lmaao(lightning):
     if lightning.query.user_id == bot.uid:
         await lightning.edit(
-            f"**Hi Master,\nPlss lemme know in which section you need my help..!!**",
+            f"**Hi {LIGHTNINGUSER},\nPlss lemme know in which section you need my help..!!**",
             buttons=[
                 [custom.Button.inline("Help Menu", data="what?")],
                 [custom.Button.inline("Ping", data="bitch")],
-                [Button.url("Channel", "https://t.me/DarkFussion")],
-                [Button.url("Support Group" , "https://t.me/Dark_Fussion_chat")]
+                [Button.url("Channel", "https://t.me/DarkFussion"),
+                Button.url("Support Group" , "https://t.me/Dark_Fussion_chat")]
             ]
         )
     else:
