@@ -205,13 +205,13 @@ async def inline_handler(lightning):
     elif lightning.query.user_id == bot.uid and query.startswith("**Black") or query.startswith("Black"):
         result = builder.article(
             title="Cool",
-            text=f"**How If Face Problem {LIGHTNINGUSER}** \nChoose Your Problem For Help ",
+            text=f"**How If Face Problem {LIGHTNINGUSER} \nChoose Your Problem For Help** ",
             buttons=[
-                [custom.Button.inline("Help Menu", data="what?"),
-                custom.Button.inline("Ping", data="bitch")],
-                [Button.url("Channel", "https://t.me/DarkFussion"),
-                 Button.url("Group" , "https://t.me/Dark_Fussion_chat")],
-                [Button.url("Developer" , "https://github.com/TeamFussion")]  
+                [custom.Button.inline("✧Help Menu✧", data="what?"),
+                custom.Button.inline("✧Ping✧", data="bitch")],
+                [Button.url("✧Channel✧", "https://t.me/DarkFussion"),
+                 Button.url("✧Group✧" , "https://t.me/Dark_Fussion_chat")],
+                [Button.url("✧Developer✧" , "https://github.com/TeamFussion")]  
            ],
         )
         await lightning.answer([result])
@@ -297,15 +297,15 @@ async def lightning_pugins_query_hndlr(lightning):
                f"Pasted {light_pulu_name} to {lig_url}",
                link_preview=False,
                buttons=[
-                [custom.Button.inline("Special", data="krish")],
-                [custom.Button.inline("Ⴆαƈƙ", data="lghtback")]],
+                [custom.Button.inline("✧Special✧", data="krish")],
+                [custom.Button.inline("✧Ⴆαƈƙ✧", data="lghtback")]],
          )
     else:
            await lightning.edit(
             message=lightning_is_best,
             buttons=[
-                [custom.Button.inline("Special", data="krish")],
-                [custom.Button.inline("Ⴆαƈƙ", data="lghtback")],
+                [custom.Button.inline("✧Special✧", data="krish")],
+                [custom.Button.inline("✧Ⴆαƈƙ✧", data="lghtback")],
             ],
         )
 
@@ -401,7 +401,7 @@ async def lightning_is_better(lightning):
         weds = bot.me.username
         if lightning.query.user_id == bot.uid:
           fck_bit = f"꧁ Pong! ꧂\n\n⚘ Ping Time:- {ping}\n\n⚘ My Fussion Master [{wews}](t.me/{weds})"
-          await lightning.edit(fck_bit, link_preview=False, buttons=[Button.inline("Back", data="wtshit")])
+          await lightning.edit(fck_bit, link_preview=False, buttons=[Button.inline("✧Back✧", data="wtshit")])
         else: 
            await lightning.answer(f"I am {LIGHTNINGUSER}'s Assistant not your", alert=True)
     
@@ -482,8 +482,8 @@ async def lightning_is_better(lightning):
     await asyncio.sleep(2)
     await lightning.edit(
         "You Will Spam?", buttons= [
-        [Button.inline("Yes", data="lemme_ban")],
-        [Button.inline("No", data="hmm")],
+        [Button.inline("✧Yes✧", data="lemme_ban")],
+        [Button.inline("✧No✧", data="hmm")],
         ],
     )
 
@@ -528,7 +528,7 @@ async def yes_ucan(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stta")))
 async def hmm(lightning):
     if lightning.query.user_id == bot.uid:
-        text = "My Stats\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/\nTottal Plugs: {}".format(len(CMD_LIST))
+        text = "✧My Stats✧\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/\nTottal Plugs: {}".format(len(CMD_LIST))
         await lightning.answer(text, alert=True)
     else:
         txt = f"Stats For {LIGHTNINGUSER} Not For You :)"
@@ -551,10 +551,10 @@ async def lmaao(lightning):
         await lightning.edit(
             f"**Hi {LIGHTNINGUSER},\nPlss lemme know in which section you need my help..!!**",
             buttons=[
-                [custom.Button.inline("Help Menu", data="what?")],
-                [custom.Button.inline("Ping", data="bitch")],
-                [Button.url("Channel", "https://t.me/DarkFussion"),
-                Button.url("Support Group" , "https://t.me/Dark_Fussion_chat")],
+                [custom.Button.inline("✧Help Menu✧", data="what?")],
+                [custom.Button.inline("✧Ping✧", data="bitch")],
+                [Button.url("✧Channel✧", "https://t.me/DarkFussion"),
+                Button.url("✧Support Group✧" , "https://t.me/Dark_Fussion_chat")],
             ],
         )
     else:
