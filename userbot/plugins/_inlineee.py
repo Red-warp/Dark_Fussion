@@ -1,34 +1,3 @@
-#    Copyright (C) 2021 KeinShin
-
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-
-
-"""Thanks To 
-@Midhun_xD
-@keinshin
-@Shivam_Patel
-@NOOBIzBack
-"""
-
-
-
-
-
-
-
-
-
 import os
 
 import re
@@ -58,7 +27,7 @@ DELETE_TIMEOUT = 5
 
 thumb_image_path = "./resources/541200.png"
 
-LIGHTNINGUSER = str(ALIVE_NAME) if ALIVE_NAME else "ℓιgнтηιηg мαѕтєя"
+LIGHTNINGUSER = str(ALIVE_NAME) if ALIVE_NAME else "Ƒմʂʂìօղ мαѕтєя"
 LIGHTNINGBOT = Var.TG_BOT_TOKEN_BF_HER
 
 
@@ -196,9 +165,9 @@ LIGHTNING_BOT_PIC = os.environ.get("LIGHTNING_BOT_PIC", None)
 if LIGHTNING_WARN is None:
     WARNING = (
     f"**{BOT_LIT}"
-    f"**This is The VIP acount of the Pro User {LIGHTNINGUSER}**\n\n"
-    f"**Please let me know why you came here.**\n"
-    f"**Also choose your Original reason Else you will be blocked**  \n\n"
+    f"This is The VIP acount of the Pro User {LIGHTNINGUSER}\n\n"
+    f"Please let me know why you came here.\n"
+    f"Also choose your Original reason Else you will be blocked \n\n"
     f"**But don't spam otherwise you will be blocked [Don't Understimate]**"
    )
 else:
@@ -236,16 +205,11 @@ async def inline_handler(lightning):
     elif lightning.query.user_id == bot.uid and query.startswith("**Black") or query.startswith("Black"):
         result = builder.article(
             title="Cool",
-            text=f"**How If Face Problem \n{LIGHTNINGUSER}** \nChoose Your Problem For Help ",
+            text=f"**How If Face Problem {LIGHTNINGUSER}** \nChoose Your Problem For Help ",
             buttons=[
-                [custom.Button.inline("Help Menu😎", data="what?"),
-                custom.Button.inline("Ping🙃", data="bitch")],
-                [Button.url("Support Group🥺", "https://t.me/lightning_support_group")],
-                [Button.url("Help Article🤓", "https://app.gitbook.com/@poxsisofficial/s/help/")],
-                [Button.url("Get Updates😅",
-                    "https://t.me/black_lightning_channel"
-                    )
-                ], 
+                [custom.Button.inline("Help Menu", data="what?"),
+                custom.Button.inline("Ping", data="bitch")],
+                [Button.url("Support Group", "https://t.me/Dark_Fussio_chat")],
             ],
         )
         await lightning.answer([result])
@@ -255,17 +219,17 @@ async def inline_handler(lightning):
             file=LIGHTNING_BOT_PIC,
             text=WARNING,
             buttons=[
-                [custom.Button.inline("Wanna Spam Something?😉", data="lightning_is_here_cant_spam")],
+                [custom.Button.inline("Wanna Spam Something?", data="lightning_is_here_cant_spam")],
                 [
                     custom.Button.inline(
-                        "My Friend❤️❤️",
+                        "My Friend",
                         data="he_sucks",
                     )
                 ],
-                [custom.Button.inline("Requesting🙏", data="fck_ask")],
+                [custom.Button.inline("Requesting", data="fck_ask")],
                 [
                     custom.Button.inline(
-                        "Lemme In :)", 
+                        "Lemme In", 
                         data="lol_u_think_so",
                         
                     )
@@ -314,12 +278,12 @@ async def lightning_pugins_query_hndlr(lightning):
        
        lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n{CMD_HELP[light_pulu_name]}"
        lightning_is_best = lightning_help_strin 
-       lightning_is_best += "\n\n**In Case Any Problem**[𝐁𝐥𝐚𝐜𝐤 𝐋𝐢𝐠𝐡𝐭𝐧𝐢𝐧𝐠](https://t.me/lightning_support_group) ".format(light_pulu_name)
+       lightning_is_best += "\n\n**In Case Any Problem**[Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat) ".format(light_pulu_name)
     
     else:
-       lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n`{CMD_LIST[light_pulu_name]}`\n\n**Ask at @Lightning_Support_Group"
+       lightning_help_strin  = f"**🔺 NAME 🔺 :** `{light_pulu_name}` \n\n`{CMD_LIST[light_pulu_name]}`\n\n**Ask at @Dark_Fussion_chat"
        lightning_is_best = lightning_help_strin 
-       lightning_is_best += "\n\n**In Case Any Problem @Lightning_support_Group** ".format(light_pulu_name)
+       lightning_is_best += "\n\n**In Case Any Problem @Dark_Fussion_chat** ".format(light_pulu_name)
     if len(lightning_is_best) >= 4096:
           keinshin = "`Wait.( ͡🔥 ͜ʖ ͡🔥)`"
           await lightning.answer(keinshin, cache_time=0, alert=True)
@@ -414,10 +378,10 @@ async def lightning_is_better(lightning):
         await lightning.edit(
         "Which Alive You Wanna See?", buttons= [
         (Button.inline("Friday Alive", data="falive"),
-        Button.inline("Dark Cobra Alive", data="dalive"))
-        , [Button.inline("Lightning Alive", data="alive"),
-            Button.inline("Hell Alive", data="halive")],[
-            Button.inline("Venom Alive", data="valive"
+        Button.inline("Alive", data="dalive"))
+        , [Button.inline("Alive", data="alive"),
+            Button.inline("Alive", data="halive")],[
+            Button.inline("Alive", data="valive"
             )
             ]
     ])
@@ -510,9 +474,9 @@ async def lightning_is_better(lightning):
         return
     await lightning.get_chat()
     lightning_id = lightning.query.user_id
-    await lightning.edit("Okay let Me Think🤫")
+    await lightning.edit("Okay let Me Think")
     await asyncio.sleep(2)
-    await lightning.edit("Okay Giving You A Chance🤨")
+    await lightning.edit("Okay Giving You A Chance")
     await asyncio.sleep(2)
     await lightning.edit(
         "You Will Spam?", buttons= [
@@ -583,16 +547,11 @@ async def hmm(lightning):
 async def lmaao(lightning):
     if lightning.query.user_id == bot.uid:
         await lightning.edit(
-            "Hi Master,\nPlss lemme know in which section you need my help🤨",
+            "Hi Master,\nPlss lemme know in which section you need my help..!!",
             buttons=[
-                [custom.Button.inline("Help Menu😎", data="what?"),
-                custom.Button.inline("Ping🙃", data="bitch")],
-                [Button.url("Support Group🥺", "https://t.me/lightning_support_group")],
-                [Button.url("Help Article🤓", "https://app.gitbook.com/@poxsisofficial/s/help/")],
-                [Button.url("Get Updates😅",
-                    "https://t.me/lightning_support_group" ,
-                    )
-                ], 
+                [custom.Button.inline("Help Menu", data="what?"),
+                custom.Button.inline("Ping", data="bitch")],
+                [Button.url("Support Group", "https://t.me/Dark_Fussion_chat")],
             ]
         )
     else:
@@ -610,14 +569,14 @@ import requests
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lghtback")))
 async def ho(event):
     if event.query.user_id != bot.uid:
-        how = "Not For You Idiot 🖕( ͡❛ ͜ʖ ͡❛)."
+        how = "Not For You Idiot ( ͡❛ ͜ʖ ͡❛)."
         await event.answer(how, cache_time=0, alert=True)
         return
     await event.answer("( ͡🔥 ͜ʖ ͡🔥)", cache_time=0, alert=False)
     # This Is Copy of Above Code. (C) @SpEcHiDe
     buttons = lightnings_menu_for_help(0, CMD_LIST, "helpme")
     ho = f"""Black Lightning Is Here With Stunning Help !\n
-In Case Any Problem [𝐁𝐥𝐚𝐜𝐤 𝐋𝐢𝐠𝐡𝐭𝐧𝐢𝐧𝐠](https://t.me/lightning_support_group) \nTottal Plugs( ͡🔥 ͜ʖ ͡🔥): {len(CMD_LIST)}"""
+In Case Any Problem [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat) \nTottal Plugs( ͡🔥 ͜ʖ ͡🔥): {len(CMD_LIST)}"""
     await event.edit(message=ho, buttons=buttons)
 
 
