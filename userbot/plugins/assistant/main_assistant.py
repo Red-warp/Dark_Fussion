@@ -47,12 +47,15 @@ async def start(event):
             buttons=[
                 [
                     Button.url(
-                        "Add Me to Group 👥", f"t.me/{bot_username}?startgroup=true"
+                        "✧Add Me to Group✧", f"t.me/{bot_username}?startgroup=true"
                     )
                 ],
-                [custom.Button.inline("Users List", data="users"),
-                 custom.Button.inline("Commands", data="gibcmd")],
-            ],
+                [custom.Button.inline("✧Users List✧", data="users"),
+                 custom.Button.inline("✧Commands✧", data="gibcmd")],
+                [Button.url("✧Help✧" , "https://t.me/Dark_Fussion_chat),  
+                Button.url("✧Updates✧" , "https://t.me/DarkFussion)],
+                [Button.url("✧Repository✧" , "https://github.com/Dark_Fussion")]
+            ],               
         )
     else:
         if already_added(event.sender_id):
