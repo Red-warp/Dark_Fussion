@@ -54,7 +54,7 @@ async def start(event):
                  custom.Button.inline("✧Commands✧", data="gibcmd")],
                 [Button.url("✧Help✧" , "https://t.me/Dark_Fussion_chat"),  
                  Button.url("✧Updates✧" , "https://t.me/DarkFussion")],
-                [Button.url("✧Repository✧" , "https://github.com/Dark_Fussion")],
+                [Button.url("✧Repository✧" , "https://github.com/TeamFussion/Dark_Fussion")],
             ],               
         )
     else:
@@ -62,17 +62,7 @@ async def start(event):
             pass
         elif not already_added(event.sender_id):
             add_usersid_in_db(event.sender_id)
-        await tgbot.send_message(
-            event.chat_id,
-            message=starttext,
-            link_preview=False,
-            buttons=[
-                [custom.Button.inline("Deploy your BL ", data="deploy")],
-                [Button.url("Help Me ❓", "https://t.me/lightning_support_group")],
-                [Button.url("Lightning Web💫", "https://lightninguserbot.blogspot.com")],
-            ],
-        )
-
+      
 
 # Data's
 
