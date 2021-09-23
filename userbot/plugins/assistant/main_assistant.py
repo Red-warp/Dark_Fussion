@@ -52,8 +52,8 @@ async def start(event):
                 ],
                 [custom.Button.inline("✧Users List✧", data="users"),
                  custom.Button.inline("✧Commands✧", data="gibcmd")],
-                [Button.url("✧Help✧" , "https://t.me/Dark_Fussion_chat),  
-                 Button.url("✧Updates✧" , "https://t.me/DarkFussion)],
+                [Button.url("✧Help✧" , "https://t.me/Dark_Fussion_chat"),  
+                 Button.url("✧Updates✧" , "https://t.me/DarkFussion")],
                 [Button.url("✧Repository✧" , "https://github.com/Dark_Fussion")],
             ],               
         )
