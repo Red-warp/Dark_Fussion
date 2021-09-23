@@ -45,13 +45,13 @@ async def start(event):
             vent,
             message=f"Hi Master, It's Me {bot_id}, Your Assistant ! \nWhat You Wanna Do today ?",
             buttons=[
-                [custom.Button.inline("Users List", data="users")],
-                [custom.Button.inline("Help & Commands", data="gibcmd")],
                 [
                     Button.url(
                         "Add Me to Group 👥", f"t.me/{bot_username}?startgroup=true"
                     )
                 ],
+                [custom.Button.inline("Users List", data="users"),
+                 custom.Button.inline("Commands", data="gibcmd")],
             ],
         )
     else:
