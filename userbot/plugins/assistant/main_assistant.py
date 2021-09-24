@@ -123,7 +123,7 @@ async def sed(event):
         if event.raw_text.startswith("/"):
             pass
         else:
-            #await tgbot.send_message(user_id, msg_s)
+            await tgbot.send_message(user_id, msg_s)
 
 
 # broadcast
