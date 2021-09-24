@@ -113,17 +113,17 @@ async def all_messages_catcher(event):
         add_me_in_db(sed.id, event.sender_id, event.id)
 
 
-@tgbot.on(events.NewMessage(func=lambda e: e.is_private))
-async def sed(event):
-    msg = await event.get_reply_message()
-    msg.id
-    msg_s = event.raw_text
-    user_id, reply_message_id = his_userid(msg.id)
-    if event.sender_id == bot.uid:
-        if event.raw_text.startswith("/"):
-            pass
-        else:
-            await tgbot.send_message(user_id, msg_s)
+#@tgbot.on(events.NewMessage(func=lambda e: e.is_private))
+#async def sed(event):
+    #msg = await event.get_reply_message()
+    #msg.id
+    #msg_s = event.raw_text
+    #user_id, reply_message_id = his_userid(msg.id)
+    #if event.sender_id == bot.uid:
+        #if event.raw_text.startswith("/"):
+            #pass
+        #else:
+            #await tgbot.send_message(user_id, msg_s)
 
 
 # broadcast
