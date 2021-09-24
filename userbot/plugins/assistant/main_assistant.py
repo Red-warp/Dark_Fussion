@@ -118,7 +118,7 @@ async def sed(event):
     msg = await event.get_reply_message()
     #msg.id
     msg_s = event.raw_text
-    user_id, reply_message_id = his_userid(msg.id)
+    #user_id, reply_message_id = his_userid(msg.id)
     if event.sender_id == bot.uid:
         if event.raw_text.startswith("/"):
             pass
