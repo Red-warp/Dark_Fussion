@@ -47,7 +47,7 @@ async def start(event):
             buttons=[
                     Button.url(
                         "✧Add Me to Group✧", f"t.me/{bot_username}?startgroup=true"
-                    )
+                    ),
                 ],
                 [custom.Button.inline("✧Users List✧", data="users"),
                  custom.Button.inline("✧Commands✧", data="gibcmd")],
