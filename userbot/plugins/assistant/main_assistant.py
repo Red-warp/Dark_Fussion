@@ -45,7 +45,6 @@ async def start(event):
             vent,
             message=f"Hi Master, It's Me {bot_id}, Your Assistant ! \nWhat You Wanna Do today ?",
             buttons=[
-                [
                     Button.url(
                         "✧Add Me to Group✧", f"t.me/{bot_username}?startgroup=true"
                     )
@@ -55,16 +54,46 @@ async def start(event):
                 [Button.url("✧Help✧" , "https://t.me/Dark_Fussion_chat"),  
                  Button.url("✧Updates✧" , "https://t.me/DarkFussion")],
                 [Button.url("✧Repository✧" , "https://github.com/TeamFussion/Dark_Fussion")],
-            ],               
+            ],
         )
     else:
         if already_added(event.sender_id):
             pass
         elif not already_added(event.sender_id):
             add_usersid_in_db(event.sender_id)
-      
+        await tgbot.send_message(
+            event.chat_id,
+            message=starttext,
+            link_preview=False,
+            buttons=[
+                [custom.Button.inline("Deploy your BL ", data="deploy")],
+                [Button.url("Help Me ❓", "https://t.me/lightning_support_group")],
+                [Button.url("Lightning Web💫", "https://lightninguserbot.blogspot.com")],
+            ],
+        )
+
 
 # Data's
+
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"deploy")))
+async def help(event):
+    await event.delete()
+    if event.query.user_id is not bot.uid:
+        await tgbot.send_message(
+            event.chat_id,
+            message="You Can Deploy Black Lightning In Heroku By Following Steps Bellow, You Can See Some Quick Guides On Support Channel Or On Your Own Assistant Bot. \nThank You For Contacting Me.",
+            buttons=[
+                [
+                    Button.url(
+                        "Deploy Tutorial 📺",
+                        "https://www.youtube.com/watch?v=GfZMqrCAqxI",
+                    )
+                ],
+                [Button.url("Need Help ❓", "https://t.me/lightning_support_group")],
+                [Button.url("Lightning Web💫", "https://lightninguserbot.blogspot.com")],
+            ],
+        )
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"users")))
@@ -116,9 +145,9 @@ async def all_messages_catcher(event):
 @tgbot.on(events.NewMessage(func=lambda e: e.is_private))
 async def sed(event):
     msg = await event.get_reply_message()
-    #msg.id
+    msg.id
     msg_s = event.raw_text
-    #user_id, reply_message_id = his_userid(msg.id)
+    user_id, reply_message_id = his_userid(msg.id)
     if event.sender_id == bot.uid:
         if event.raw_text.startswith("/"):
             pass
