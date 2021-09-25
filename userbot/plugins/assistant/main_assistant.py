@@ -45,15 +45,15 @@ async def start(event):
             vent,
             message=f"Hi Master, It's Me {bot_id}, Your Assistant ! \nWhat You Wanna Do today ?",
             buttons=[
+                [
                     Button.url(
-                        "✧Add Me to Group✧", f"t.me/{bot_username}?startgroup=true"
-                    ),
+                        "Add Me to Group", f"t.me/{bot_username}?startgroup=true"
+                    )
                 ],
-                [custom.Button.inline("✧Users List✧", data="users"),
-                 custom.Button.inline("✧Commands✧", data="gibcmd")],
-                [Button.url("✧Help✧" , "https://t.me/Dark_Fussion_chat"),  
-                 Button.url("✧Updates✧" , "https://t.me/DarkFussion")],
-                [Button.url("✧Repository✧" , "https://github.com/TeamFussion/Dark_Fussion")],
+                [custom.Button.inline("Users List", data="users"),
+                custom.Button.inline("Commands", data="gibcmd")],
+                [Button.url("✧Help✧" , "https://t.me/Dark_Fussion_chat"),
+                  Button.url("✧Updates✧" , "https://t.me/DarkFussion")],
             ],
         )
     else:
