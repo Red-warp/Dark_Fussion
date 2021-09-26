@@ -221,12 +221,12 @@ async def inline_handler(lightning):
             file=LIGHTNING_BOT_PIC,
             text=WARNING,
             buttons=[
-                [custom.Button.inline("Wanna Spam Something?", data="lightning_is_here_cant_spam")],
+                [custom.Button.inline("✧Wanna Spam Something?✧", data="lightning_is_here_cant_spam")],
               
-                [custom.Button.inline("Requesting", data="fck_ask"),
+                [custom.Button.inline("✧Requesting✧", data="fck_ask"),
               
                     custom.Button.inline(
-                        "Lemme In", 
+                        "✧Let me In✧", 
                         data="lol_u_think_so",
                         
                     )
@@ -234,7 +234,7 @@ async def inline_handler(lightning):
                 ],
 [
                     custom.Button.inline(
-                        "My Friend",
+                        "✧My Friend✧",
                         data="he_sucks",
                     )
                 ],
@@ -419,8 +419,8 @@ async def lightning_is_better(lightning):
     await asyncio.sleep(2)
     await lightning.edit(
         "Name Which Type Of Friend?", buttons= [
-        [Button.inline("School Friend", data="school")], 
-        [Button.inline("Tg Causal Friend", data="tg_okay")],
+        [Button.inline("✧School Friend✧", data="school")], 
+        [Button.inline("✧Causal Friend✧", data="tg_okay")],
         ],
     )
     light_text = "`Warning`- ❗️⚠️Don't send any message now wait kindly!!!❗️⚠️"
@@ -444,7 +444,7 @@ async def yeahbaba(lightning):
         await bot.send_message(lightning.query.user_id, light_text)
         await bot.send_message(
         LIGHT_LOGS,
-        message=f"Hello, Master  [Friend](tg://user?id={lightning_id}). \nYour Casual School Friend His Here To Chat. \npls See The Message [Tg Friend](tg://user?id={lightning_id}) Is Waiting.",
+        message=f"Hii {LIGHTNINGUSER}..!!\nYour School friend is waiting..!!\nPlease talk to him if necessary..!!\nYour friend - [Here](tg://user?id={lightning_id})",
     
     )    
     
@@ -455,16 +455,16 @@ async def yeahbaba(lightning):
             fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} "
             await lightning.answer(fck_bit, cache_time=0, alert=True)
             return
-        light_text = "**So You  Are TG Friend** Okay wait"
+        light_text = "**So You  Are Causal Friend** Okay wait"
         lightning_id = lightning.query.user_id
         await asyncio.sleep(2)
-        await lightning.edit(f"`Informing To Master {LIGHTNINGUSER}`")
+        await lightning.edit(f"`Informing To My Master {LIGHTNINGUSER}`")
         await asyncio.sleep(2)
         await lightning.edit("`Done Informed`")
         await bot.send_message(lightning.query.user_id, light_text)
         await bot.send_message(
         LIGHT_LOGS,
-        message=f"Hello, Master  [Friend](tg://user?id={lightning_id}). \nYour Casual Telegram Friend His Here To Chat. \nplease See The Message [Tg Friend](tg://user?id={lightning_id}) Is Waiting.",
+        message=f"Hii {LIGHTNINGUSER}..!!\nYour Causal friend is waiting..!!\nPlease talk to him if necessary..!!\nYour friend - [Here](tg://user?id={lightning_id})",
     
     )
 
