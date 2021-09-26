@@ -419,9 +419,9 @@ async def lightning_is_better(lightning):
     await asyncio.sleep(2)
     await lightning.edit(
         "Name Which Type Of Friend?", buttons= [
-        [Button.inline("School", data="school")],
+        [Button.inline("School Friend", data="school")], 
         [Button.inline("Tg Causal Friend", data="tg_okay")],
-        ], 
+        ],
     )
     light_text = "`Warning`- ❗️⚠️Don't send any message now wait kindly!!!❗️⚠️"
     await bot.send_message(lightning.query.user_id, light_text)
@@ -429,7 +429,24 @@ async def lightning_is_better(lightning):
     
     
     
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"school")))
+async def yeahbaba(lightning):
+        if lightning.query.user_id == bot.uid:
+            fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} "
+            await lightning.answer(fck_bit, cache_time=0, alert=True)
+            return
+        light_text = "**So You  Are TG Friend** Okay wait"
+        lightning_id = lightning.query.user_id
+        await asyncio.sleep(2)
+        await lightning.edit(f"`Informing To Master {LIGHTNINGUSER}`")
+        await asyncio.sleep(2)
+        await lightning.edit("`Done Informed`")
+        await bot.send_message(lightning.query.user_id, light_text)
+        await bot.send_message(
+        LIGHT_LOGS,
+        message=f"Hello, Master  [Friend](tg://user?id={lightning_id}). Your Casual Telegram Friend His Here To Chat pls See The Message [Tg Friend](tg://user?id={lightning_id}) Is Waiting.",
     
+    )    
     
     
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"tg_okay")))
@@ -450,23 +467,6 @@ async def yeahbaba(lightning):
         message=f"Hello, Master  [Friend](tg://user?id={lightning_id}). Your Casual Telegram Friend His Here To Chat pls See The Message [Tg Friend](tg://user?id={lightning_id}) Is Waiting.",
     
     )
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"School")))
-async def yeahbaba(lightning):
-        if lightning.query.user_id == bot.uid:
-            fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} "
-            await lightning.answer(fck_bit, cache_time=0, alert=True)
-            return
-        light_text = "**So You  Are  Friend** Okay wait"
-        lightning_id = lightning.query.user_id
-        await asyncio.sleep(2)
-        await lightning.edit(f"`Informing To Master {LIGHTNINGUSER}`")
-        await asyncio.sleep(2)
-        await lightning.edit("`Done Informed`")
-        await bot.send_message(lightning.query.user_id, light_text)
-        await bot.send_message(
-        LIGHT_LOGS,
-        message=f"Hello, Master  [Friend](tg://user?id={lightning_id}). Your Casual Telegram Friend His Here To Chat pls See The Message [Tg Friend](tg://user?id={lightning_id}) Is Waiting.",
-        )
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fck_ask")))
@@ -540,7 +540,7 @@ async def hmm(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"krish")))
 async def hmm(lightning):
     if lightning.query.user_id == bot.uid:
-        text = "Bot Alright Master if in case of any Problems reach out to support group;)"
+        text = "Bot Alright Master if in case of any Problems reach out to support group..!!"
         await lightning.answer(text, alert=True)
     else:
         txt = f"For {LIGHTNINGUSER} Not For You :)"
