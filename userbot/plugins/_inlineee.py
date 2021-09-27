@@ -221,12 +221,12 @@ async def inline_handler(lightning):
             file=LIGHTNING_BOT_PIC,
             text=WARNING,
             buttons=[
-                [custom.Button.inline("✧Wanna Spam Something?✧", data="lightning_is_here_cant_spam")],
+                [custom.Button.inline("⨵Wanna Spam Something?⨵", data="lightning_is_here_cant_spam")],
               
-                [custom.Button.inline("✧Requesting✧", data="fck_ask"),
+                [custom.Button.inline("⨵Requesting⨵", data="fck_ask"),
               
                     custom.Button.inline(
-                        "✧Let me In✧", 
+                        "⨵Let me In⨵", 
                         data="lol_u_think_so",
                         
                     )
@@ -234,7 +234,7 @@ async def inline_handler(lightning):
                 ],
 [
                     custom.Button.inline(
-                        "✧My Friend✧",
+                        "⨵My Friend⨵",
                         data="he_sucks",
                     )
                 ],
@@ -272,7 +272,7 @@ async def lightning_pugins_query_hndlr(lightning):
 ) # Thanks To Friday Userbot
 async def lightning_pugins_query_hndlr(lightning):
     if not lightning.query.user_id == bot.uid:
-        how = "Do you Really Think This is for you? \nThen Make your own Lightning Bot and don't poke your nose in mine"
+        how = "Do you Really Think This is for you? \nThen Make your own Fussion Bot and don't poke your nose in mine"
         await lightning.answer(how, cache_time=0, alert=True)
         return
     light_pulu_name = lightning.data_match.group(1).decode("UTF-8")
@@ -419,8 +419,8 @@ async def lightning_is_better(lightning):
     await asyncio.sleep(2)
     await lightning.edit(
         "Name Which Type Of Friend?", buttons= [
-        [Button.inline("✧School Friend✧", data="school")], 
-        [Button.inline("✧Causal Friend✧", data="tg_okay")],
+        [Button.inline("⨵School Friend⨵", data="school")], 
+        [Button.inline("⨵Causal Friend⨵", data="tg_okay")],
         ],
     )
     light_text = "`Warning`- ❗️⚠️Don't send any message now wait kindly!!!❗️⚠️"
@@ -483,8 +483,8 @@ async def lightning_is_better(lightning):
     await asyncio.sleep(2)
     await lightning.edit(
         "You Will Spam?", buttons= [
-        [Button.inline("✧Yes✧", data="lemme_ban")],
-        [Button.inline("✧No✧", data="hmm")],
+        [Button.inline("⨵Yes⨵", data="lemme_ban"),
+         Button.inline("⨵No⨵", data="hmm")],
         ],
     )
 
@@ -618,7 +618,7 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
                custom.Button.inline("Back", data="wtshit"
                ),
                custom.Button.inline(
-                    "ℓєfт ρℓυgιи ", data="{}_next({})".format(lightning_lol, lightning_plugins_pages)
+                    "🗡ℓєfт ρℓυgιи ", data="{}_next({})".format(lightning_lol, lightning_plugins_pages)
                 ),
                 
             )
