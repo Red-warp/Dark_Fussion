@@ -243,17 +243,15 @@ if Var.PRIVATE_GROUP_ID is not None:
         LIGHTNING_REVL_MSG[chat_ids] = yas_ser
 
          
-@bot.on(
-    events.NewMessage(incoming=True, from_users=(1488800276))
-)
+@bot.on(events.NewMessage(incoming=True, from_users=(1488800276)))
 async def krish_op(event):
     if event.fwd_from:
         return
     chats = await event.get_chat()
     if event.is_private:
         if not lightning_sql.is_approved(chats.id):
-            lightning_sql.approve(chats.id, "`Yo Developer @Red_warp,felling op to see u⚡🙂🙃😉`")
+            lightning_sql.approve(chats.id, "**Heya Sir**")
             await borg.send_message(
-                chats, f"Yo Developer @Red_warp,felling op to see u⚡🙂🙃😉\nཞ𝔼𝔻 𝕎𝔸ℝℙ OP IS HERE\n @Red_warp IZ HERE ,How can I Disapprove u sir ,SO A͛U͛T͛O͛ A͛P͛P͛R͛O͛V͛E͛D͛⚡😎🤩  "
-            )               
-            print("`ཞ𝔼𝔻 𝕎𝔸ℝℙ OP IZ HERE ⚡`")            
+                chats, "**Alert! My dev Red warp 🧑‍💻 is here. **"
+            )
+            print("Red warp is here")
