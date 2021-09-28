@@ -69,7 +69,7 @@
      "ALIVE_NAME": {
       "description": "Put Your Name you can use designer fonts. ",
       "value": "",
-      "required": false
+      "required": true
      }
     },
     "addons": [{
