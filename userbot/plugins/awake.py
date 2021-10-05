@@ -16,13 +16,13 @@ DEFAULTUSER = (
 
 ALIVE_MESSAGE = Var.ALIVE_MESSAGE
 if not ALIVE_MESSAGE:
-ALIVE_MESSAGE = "✨𝐃𝐚𝐫𝐤 𝐅𝐮𝐬𝐬𝐢𝐨𝐧 𝐔𝐬𝐞𝐫𝐛𝐨𝐭✨"
-ALIVE_MESSAGE += "╔┓┏╦━╦┓╔┓╔━━╗"
-ALIVE_MESSAGE += "║┗┛║┗╣┃║┃║X X║"
-ALIVE_MESSAGE += "║┏┓║┏╣┗╣┗╣╰╯║"
-ALIVE_MESSAGE += "╚┛┗╩━╩━╩━╩━━╝"
-ALIVE_MESSAGE += f"**┏┛My Bot Status**" 
-
+    ALIVE_MESSAGE = "**🔱Black Lightning IS Awake🔱 \n\n\n**"
+    ALIVE_MESSAGE += "`My Bot Status \n\n\n`"
+    ALIVE_MESSAGE += f"`Telethon: TELETHON-15.0.0 \n\n`"
+    ALIVE_MESSAGE += f"`Python: PYTHON-3.8.5 \n\n`"
+    ALIVE_MESSAGE += "`I'll Be With You Master Till My Dyno Ends!!☠ \n\n`"
+    ALIVE_MESSAGE += f"`Support Channel` : @blacklightningot \n\n"
+    ALIVE_MESSAGE += f"`MY BOSS🤗`: {DEFAULTUSER} \n\n "
 else:
     ALIVE_MESSAGE = ALIVE_MESSAGE
 
