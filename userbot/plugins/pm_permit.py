@@ -1,5 +1,5 @@
-#    @keinshin a.k.a KeinShin
-#    Copyright (C) 2020 KeinShin
+#    @Red_warp a.k.a Red warp
+#    Copyright (C) 2021 Red warp
 
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as published by
@@ -43,7 +43,7 @@ if LIGHTNING_PM is None:
     CUSTOM_LIGHTNING_PM_PIC = "https://telegra.ph/file/53aed76a90e38779161b1.jpg"
 else:
     CUSTOM_LIGHTNING_PM_PIC = LIGHTNING_PM
-FUCK_OFF_WARN = f"**Blocked You As You Spammed {LIGHTNINGUSER}'s DM\n\n **IDC**"
+FUCK_OFF_WARN = f"**Ewww Blocked You As You Spammed {LIGHTNINGUSER}'s DM\n\n **IDC**"
 
 
 
@@ -69,7 +69,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             if not lightning_sql.is_approved(chat.id):
                 if not chat.id in LIGHTNING_WRN:
                     lightning_sql.approve(chat.id, "outgoing")
-                    bruh = "Auto-approved bcuz outgoing 😄😄"
+                    bruh = "Auto-approved bcuz outgoing..!!"
                     rko = await borg.send_message(event.chat_id, bruh)
                     await asyncio.sleep(3)
                     await rko.delete()  
@@ -209,7 +209,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                 await LIGHTNING_REVL_MSG[chat_ids].delete()
             LIGHTNING_REVL_MSG[chat_ids] = lemme
             lightn_msg = ""
-            lightn_msg += "#Some Retards 😑\n\n"
+            lightn_msg += "#Noob Retards 😂\n\n"
             lightn_msg += f"[User](tg://user?id={chat_ids}): {chat_ids}\n"
             lightn_msg += f"Message Counts: {LIGHTNING_WRN[chat_ids]}\n"
             # lightn_msg += f"Media: {message_media}"
@@ -252,6 +252,6 @@ async def krish_op(event):
         if not lightning_sql.is_approved(chats.id):
             lightning_sql.approve(chats.id, "**Heya Sir**")
             await borg.send_message(
-                chats, f"**Hello {LIGHTNINGUSER}\nཞ𝔼𝔻 𝕎𝔸ℝℙ Is my Dev🧑‍💻..!!\nཞ𝔼𝔻 𝕎𝔸ℝℙ OP IS HERE✨\nHow can I Disapprove u sir,\nSO A͛U͛T͛O͛ A͛P͛P͛R͛O͛V͛E͛D͛⚡😎🤩 **"
+                chats, f"**Hello {LIGHTNINGUSER}\nཞ𝔼𝔻 𝕎𝔸ℝℙ OP IS HERE✨\nHe Is my Dev🧑‍💻..!!\n\nHow can I Disapprove u sir,\nSO A͛U͛T͛O͛ A͛P͛P͛R͛O͛V͛E͛D͛⚡😎🤩 **"
             )
             print("Red warp is here")
