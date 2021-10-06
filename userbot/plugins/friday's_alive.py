@@ -9,7 +9,7 @@ from userbot.utils import lightning_cmd, sudo_cmd
 
 FRI_IMAGE = os.environ.get("FRI_IMAGE", None)
 if FRI_IMAGE is None:
-    FRI_IMG = "https://telegra.ph/file/00f60d92a8e02db2a9877.mp4"
+    FRI_IMG = "https://telegra.ph/file/ca4103beeb02849708ec7.mp4"
 else:
     FRI_IMG = FRI_IMAGE
 
@@ -57,7 +57,7 @@ pm_caption += "║⪼ **Current Branch** : `master`\n"
 pm_caption += f"║⪼ **Version** : `{currentversion}`\n"
 pm_caption += f"║⪼ **My Boss** : {DEFAULTUSER} \n"
 pm_caption += "║⪼ **Heroku Database** : `AWS - Working`\n"
-pm_caption += "║⪼ **License** : [General Public License](https://github.com/TeamFussion/Dark_Fussion/master/LICENSE)\n"
+pm_caption += "║⪼ **License** : [GNU](https://github.com/TeamFussion/Dark_Fussion/master/LICENSE)\n"
 pm_caption += "║⪼ **Copyright** : By [ཞ𝔼𝔻 𝕎𝔸ℝℙ](GitHub.com/TeamFussion)\n"
 pm_caption += "║⪼ **Check Stats By Doing** `.status`. \n"
 pm_caption += "║\n"
