@@ -1,134 +1,101 @@
-""".admin Plugin for @UniBorg"""
-from telethon.tl.types import ChannelParticipantsAdmins
 
-from userbot.utils import lightning_cmd
+import html
+
+from userbot import catub
+
+from ..core.managers import edit_or_reply
+from ..sql_helper import warns_sql as sql
+
+plugin_category = "admin"
 
 
-@borg.on(lightning_cmd("warn1"))
+@catub.cat_cmd(
+    pattern="warn(?:\s|$)([\s\S]*)",
+    command=("warn", plugin_category),
+    info={
+        "header": "To warn a user.",
+        "description": "will warn the replied user.",
+        "usage": "{tr}warn <reason>",
+    },
+)
 async def _(event):
-    if event.fwd_from:
-        return
-    mentions = (
-        "`You Have  1/3  warnings...\nWatch out!....\nReason for warn: Not given`"
+    "To warn a user"
+    warn_reason = event.pattern_match.group(1)
+    if not warn_reason:
+        warn_reason = "No reason"
+    reply_message = await event.get_reply_message()
+    limit, soft_warn = sql.get_warn_setting(event.chat_id)
+    num_warns, reasons = sql.warn_user(
+        reply_message.sender_id, event.chat_id, warn_reason
     )
-    chat = await event.get_input_chat()
-    async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
-        mentions += f""
-    reply_message = None
-    if event.reply_to_msg_id:
-        reply_message = await event.get_reply_message()
-        await reply_message.reply(mentions)
+    if num_warns >= limit:
+        sql.reset_warns(reply_message.sender_id, event.chat_id)
+        if soft_warn:
+            logger.info("TODO: kick user")
+            reply = "{} warnings, [user](tg://user?id={}) has to bee kicked!".format(
+                limit, reply_message.sender_id
+            )
+        else:
+            logger.info("TODO: ban user")
+            reply = "{} warnings, [user](tg://user?id={}) has to bee banned!".format(
+                limit, reply_message.sender_id
+            )
     else:
-        await event.reply(mentions)
-    await event.delete()
+        reply = "[user](tg://user?id={}) has {}/{} warnings... watch out!".format(
+            reply_message.sender_id, num_warns, limit
+        )
+        if warn_reason:
+            reply += "\nReason for last warn:\n{}".format(html.escape(warn_reason))
+    await edit_or_reply(event, reply)
 
 
-""".admin Plugin for @UniBorg"""
-from telethon.tl.types import ChannelParticipantsAdmins
-
-from uniborg.util import lightning_cmd
-
-
-@borg.on(lightning_cmd("warn2"))
+@catub.cat_cmd(
+    pattern="warns",
+    command=("warns", plugin_category),
+    info={
+        "header": "To get users warns list.",
+        "usage": "{tr}warns <reply>",
+    },
+)
 async def _(event):
-    if event.fwd_from:
-        return
-    mentions = (
-        "`You Have  2/3  warnings...\nWatch out!....\nReason for last warn: Not given`"
+    "To get users warns list"
+    reply_message = await event.get_reply_message()
+    if not reply_message:
+        return await edit_delete(event, "__Reply to user to get his warns.__")
+    result = sql.get_warns(reply_message.sender_id, event.chat_id)
+    if not result or result[0] == 0:
+        return await edit_or_reply(event, "this user hasn't got any warnings!")
+    num_warns, reasons = result
+    limit, soft_warn = sql.get_warn_setting(event.chat_id)
+    if not reasons:
+        return await edit_or_reply(
+            event,
+            "this user has {} / {} warning, but no reasons for any of them.".format(
+                num_warns, limit
+            ),
+        )
+
+    text = "This user has {}/{} warnings, for the following reasons:".format(
+        num_warns, limit
     )
-    chat = await event.get_input_chat()
-    async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
-        mentions += f""
-    reply_message = None
-    if event.reply_to_msg_id:
-        reply_message = await event.get_reply_message()
-        await reply_message.reply(mentions)
-    else:
-        await event.reply(mentions)
-    await event.delete()
+    text += "\r\n"
+    text += reasons
+    await event.edit(text)
 
 
-""".admin Plugin for @UniBorg"""
-from telethon.tl.types import ChannelParticipantsAdmins
-
-from uniborg.util import lightning_cmd
-
-
-@borg.on(lightning_cmd("warn3"))
+@catub.cat_cmd(
+    pattern="r(eset)?warns$",
+    command=("resetwarns", plugin_category),
+    info={
+        "header": "To reset warns of the replied user",
+        "usage": [
+            "{tr}rwarns",
+            "{tr}resetwarns",
+        ],
+    },
+)
 async def _(event):
-    if event.fwd_from:
-        return
-    mentions = "`You Have  3/3  warnings...\nBanned!!!....\nReason for ban: Not given`"
-    chat = await event.get_input_chat()
-    async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
-        mentions += f""
-    reply_message = None
-    if event.reply_to_msg_id:
-        reply_message = await event.get_reply_message()
-        await reply_message.reply(mentions)
-    else:
-        await event.reply(mentions)
-    await event.delete()
-
-
-""".admin Plugin for @UniBorg"""
-from telethon.tl.types import ChannelParticipantsAdmins
-
-from uniborg.util import lightning_cmd
-
-
-@borg.on(lightning_cmd("warn0"))
-async def _(event):
-    if event.fwd_from:
-        return
-    mentions = "`Warning Resetted By Admin...\nYou Have  0/3  warnings`"
-    chat = await event.get_input_chat()
-    async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
-        mentions += f""
-    reply_message = None
-    if event.reply_to_msg_id:
-        reply_message = await event.get_reply_message()
-        await reply_message.reply(mentions)
-    else:
-        await event.reply(mentions)
-    await event.delete()
-
-
-""".admin Plugin for @UniBorg"""
-from telethon.tl.types import ChannelParticipantsAdmins
-
-from uniborg.util import lightning_cmd
-
-
-@borg.on(lightning_cmd("ocb"))
-async def _(event):
-    if event.fwd_from:
-        return
-    mentions = "**Warning..\n\nBattery Low, Please Charge Your Phone**"
-    chat = await event.get_input_chat()
-    async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
-        mentions += f""
-    reply_message = None
-    if event.reply_to_msg_id:
-        reply_message = await event.get_reply_message()
-        await reply_message.reply(mentions)
-    else:
-        await event.reply(mentions)
-    await event.delete()
-
-
-@borg.on(lightning_cmd("fw"))
-async def _(event):
-    if event.fwd_from:
-        return
-    mentions = "`U Got A FloodWait:\nReason:telethon.errors.rpcerrorlist.FloodWaitError: A wait of 546578265716823 seconds is required (caused by EditMessageRequest)`"
-    chat = await event.get_input_chat()
-    async for x in borg.iter_participants(chat, filter=ChannelParticipantsAdmins):
-        mentions += f""
-    reply_message = None
-    if event.reply_to_msg_id:
-        reply_message = await event.get_reply_message()
-        await reply_message.reply(mentions)
-    else:
-        await event.reply(mentions)
-    await event.delete()
+    "To reset warns"
+    reply_message = await event.get_reply_message()
+    sql.reset_warns(reply_message.sender_id, event.chat_id)
+    await edit_or_reply(event, "__Warnings have been reset!__")
