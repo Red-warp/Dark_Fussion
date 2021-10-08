@@ -296,18 +296,16 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "вℓα¢к ℓιgнтηιηg"
 
 CMD_HELP.update(
     {
-        "alive": "**alive**\
-        \n\n**Syntax : **`.halive For Hellbot's Alive`\
-        \n**Function : **__ Hellbot's Alive__\
-        \nFor above two commands use `.bigspam` instead of spam for spamming more than 50 messages\
-        \n\n**Syntax : **`.falive`\
-        \n**Function : **__ Fridays's Alive.__\
-        \n\n**Syntax : **`.halive `\
-        \n**Function : **__ .hell Uerbot's Alive.__\
-        \n\n**Syntax : **`.alive `\
-        \n**Function : **__ .Lightning Uerbot's Alive.__\
-        \n\n**Syntax : **`.awake `\
-        \n**Function : **__ .Awake.__\
-        \n\n\n**NOTE : All Credits To Thier Respective !!**"
+        f"✘ **Cmd:** `.alive`
+        \n➥ **Info:** __A kind of showing bot details__
+        \n\n✘ **Cmd:** `.falive`
+        \n➥ **Info:** __A kind of showing bot details__
+        \n\n✘ **Cmd :** `halive`
+       \n➥ **Info:** __A kind of showing bot details__
+        \n\n✘ **Cmd:** `.valive`
+       \n➥ **Info:** __A kind of showing bot details__
+       \n\n✘ **Cmd:** `.dalive`
+       \n➥ **Info:** __A kind of showing bot details__
+       \n\n✘ **Cmd:** `.dalive`
     }
 )
