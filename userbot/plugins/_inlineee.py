@@ -272,19 +272,19 @@ async def lightning_pugins_query_hndlr(lightning):
 ) # Thanks To Friday Userbot
 async def lightning_pugins_query_hndlr(lightning):
     if not lightning.query.user_id == bot.uid:
-        how = "Do you Really Think This is for you? \nThen Make your own Fussion Bot and don't poke your nose in mine"
+        how = "Do you Really Think This is for you? \nThen Make your own Fussion Bot and don't poke your nose in mine.!"
         await lightning.answer(how, cache_time=0, alert=True)
         return
     light_pulu_name = lightning.data_match.group(1).decode("UTF-8")
    
     if light_pulu_name in CMD_HELP.keys():
        
-       lightning_help_strin  = f"**✘Commands Available✘**" 
-       lightning_help_strin  += "✘Name✘ : `{light_pulu_name}` \n\n{CMD_HELP[light_pulu_name]}"
+       lightning_help_strin  = f"**✘Commands Available✘**\n" 
+       lightning_help_strin  += f"✘Name✘ : `{light_pulu_name}` \n\n{CMD_HELP[light_pulu_name]}"
        lightning_is_best = lightning_help_strin 
     
     else:
-       lightning_help_strin  = f"**✘Name✘ : ** `{light_pulu_name}` \n\n`{CMD_LIST[light_pulu_name]}`\n\n**Ask at @Dark_Fussion_chat"
+       lightning_help_strin  = f"**✘Name✘ : ** `{light_pulu_name}` \n\n`{CMD_LIST[light_pulu_name]}`\n\nAsk at @Dark_Fussion_chat**"
        lightning_is_best = lightning_help_strin 
     if len(lightning_is_best) >= 4096:
           keinshin = "`Wait.( ͡🔥 ͜ʖ ͡🔥)`"
