@@ -299,13 +299,13 @@ CMD_HELP.update(
          "alive": "\
         f"✘ **Cmd:** `.alive`
         \n➥ **Info:** __A kind of showing bot details__\
-        \n\n✘ **Cmd:** `.falive`
+        \n\n✘ **Cmd:** `.falive`\
         \n➥ **Info:** __A kind of showing bot details__\
-        \n\n✘ **Cmd :** `halive`
+        \n\n✘ **Cmd :** `halive`\
        \n➥ **Info:** __A kind of showing bot details__\
-        \n\n✘ **Cmd:** `.valive`
+        \n\n✘ **Cmd:** `.valive`\
        \n➥ **Info:** __A kind of showing bot details__\
-       \n\n✘ **Cmd:** `.dalive`
+       \n\n✘ **Cmd:** `.dalive`\
        \n➥ **Info:** __A kind of showing bot details__\
        \n\n✘ **Cmd:** `.dalive`"
     }
