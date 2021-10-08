@@ -306,6 +306,6 @@ CMD_HELP.update(
        \n➥ **Info:** __A kind of showing bot details__
        \n\n✘ **Cmd:** `.dalive`
        \n➥ **Info:** __A kind of showing bot details__
-       \n\n✘ **Cmd:** `.dalive`
+       \n\n✘ **Cmd:** `.dalive`"
     }
 )
