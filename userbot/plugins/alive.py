@@ -296,6 +296,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "вℓα¢к ℓιgнтηιηg"
 
 CMD_HELP.update(
     {
+         "alive":
         f"✘ **Cmd:** `.alive`
         \n➥ **Info:** __A kind of showing bot details__
         \n\n✘ **Cmd:** `.falive`
