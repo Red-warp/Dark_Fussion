@@ -296,7 +296,7 @@ DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "вℓα¢к ℓιgнтηιηg"
 
 CMD_HELP.update(
     {
-         "alive": "\✘ **Cmd: ** `.alive`\
+         "alive": "✘ **Cmd: ** `.alive`\
         \n➥ **Info: ** __A kind of showing bot details__\
         \n\n✘ **Cmd: ** `.falive`\
         \n➥ **Info: ** __A kind of showing bot details__\
@@ -305,6 +305,7 @@ CMD_HELP.update(
         \n\n✘ **Cmd: ** `.valive`\
        \n➥ **Info: ** __A kind of showing bot details__\
        \n\n✘ **Cmd: ** `.dalive`\
-       \n➥ **Info: ** __A kind of showing bot details__"
+       \n➥ **Info: ** __A kind of showing bot details__\
+       \n\n👩‍💻 Usage : __To check userbot if it is alive"
     }
 )
