@@ -55,6 +55,7 @@ async def start(event):
                 [Button.url("✧Help✧" , "https://t.me/Dark_Fussion_chat"),
                   Button.url("✧Updates✧" , "https://t.me/DarkFussion")],
                  [Button.url("✧Repository✧" , "https://github.com/TeamFussion/Dark_Fussion")],
+                [custom.Button.inline("✧Settings✧" , data="alive")],
             ],
         )
     else:
