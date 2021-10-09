@@ -300,7 +300,7 @@ CMD_HELP.update(
         \n➥ **Info: ** __A kind of showing bot details__\
         \n\n✘ **Cmd: ** `.falive`\
         \n➥ **Info: ** __A kind of showing bot details__\
-        \n\n✘ **Cmd : ** `halive`\
+        \n\n✘ **Cmd : ** `.halive`\
        \n➥ **Info: ** __A kind of showing bot details__\
         \n\n✘ **Cmd: ** `.valive`\
        \n➥ **Info: ** __A kind of showing bot details__\
