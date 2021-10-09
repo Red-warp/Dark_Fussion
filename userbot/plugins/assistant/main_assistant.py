@@ -81,14 +81,14 @@ async def start(event):
 async def lightning_is_better(lightning):
     if lightning.query.user_id == bot.uid:
         await lightning.edit(
-        "Which type of setting do you want to edit?\nYou can anything from these..!!\nAny kind for help do join @Dark_Fussion_chat", buttons= [
-        (Button.inline("Alive", data="alive"),
-        Button.inline("Pm Permit", data="permit"))
-        , [Button.inline("Vc Bot", data="vc"),
-            Button.inline("Chat Bot", data="chat_bot")],
-         [
-    ])
-
+        "Which type of setting do you want to edit?\nYou can anything from these..!!\nAny kind for help do join @Dark_Fussion_chat", buttons=
+        [Button.inline("✧Alive✧", data="alive"), 
+        Button.inline("✧Pm Permit✧", data="permit")], 
+        [Button.inline("✧Chat Bot✧", data="chat")], 
+        [Button.inline("✧Vc Bot✧", data="Vc_Bot")], 
+        [Button.inline("✧Main Menu✧", data="school")], 
+            ],
+        )
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"deploy")))
 async def help(event):
