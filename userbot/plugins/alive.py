@@ -306,6 +306,6 @@ CMD_HELP.update(
        \n➥ **Info: ** __A kind of showing bot details__\
        \n\n✘ **Cmd: ** `.dalive`\
        \n➥ **Info: ** __A kind of showing bot details__\
-       \n\n👩‍💻 Usage : __To check userbot if it is alive"
+       \n\n👩‍💻 **Usage : __To check userbot if it is alive.__**"
     }
 )
