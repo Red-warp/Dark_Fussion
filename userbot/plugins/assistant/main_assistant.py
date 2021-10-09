@@ -84,8 +84,8 @@ async def lightning_is_better(lightning):
         "Which type of setting do you want to edit?\nYou can anything from these..!!\nAny kind for help do join @Dark_Fussion_chat", buttons=
         [Button.inline("✧Alive✧", data="alive"), 
         Button.inline("✧Pm Permit✧", data="permit")], 
-        [Button.inline("✧Chat Bot✧", data="chat")], 
-        [Button.inline("✧Vc Bot✧", data="Vc_Bot")], 
+        [Button.inline("✧Chat Bot✧", data="chat"), 
+        Button.inline("✧Vc Bot✧", data="Vc_Bot")], 
         [Button.inline("✧Main Menu✧", data="school")], 
             ],
         )
