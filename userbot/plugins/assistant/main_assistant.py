@@ -78,9 +78,9 @@ async def start(event):
 # Data's
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"settings")))
-async def lightning_is_better(lightning):
-    if lightning.query.user_id == bot.uid:
-        await lightning.edit(
+async def users(event):
+    if event.query.user_id == bot.uid:
+        await event.edit(
         "Which type of setting do you want to edit?\nYou can anything from these..!!\nAny kind for help do join @Dark_Fussion_chat", buttons=
         [custom.Button.inline("✧Alive✧", data="alive"), 
         custom.Button.inline("✧Pm Permit✧", data="permit")], 
