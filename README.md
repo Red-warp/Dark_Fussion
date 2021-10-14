@@ -1,6 +1,6 @@
 <h2 align="center"><b>Devoloper: <a href="https://telegram.dog/Red_warp">ཞ𝔼𝔻 𝕎𝔸ℝℙ</a></b></h2>
 <br>
-<p align="center"><a href="https://t.me/DarkFussion"><img src="https://telegra.ph/file/15a227a1db39c5fef05f5.jpg"></a></p> 
+<p align="center"><a href="https://t.me/DarkFussion"><img src="https://telegra.ph/file/62fa5d70a65f9ce0d0170.jpg"></a></p> 
 </p>
 <h1>Đ₳Ɽ₭ Ƒմʂʂìօղ</h1>
 <b>A Powerful, Smart And Simple Userbot In Telethon.</b>
