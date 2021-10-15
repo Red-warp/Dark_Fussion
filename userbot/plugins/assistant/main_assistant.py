@@ -87,7 +87,11 @@ async def lightning_is_better(lightning):
         [custom.Button.inline("✧Chat Bot✧", data="chat")], 
         custom.Button.inline("✧Vc Bot✧", data="Vc_Bot")], 
         [custom.Button.inline("✧Main Menu✧", data="school")], 
-        )
+          )
+
+   else:
+        pass
+
 
 
 
