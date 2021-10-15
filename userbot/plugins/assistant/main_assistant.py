@@ -83,9 +83,9 @@ async def users(event):
         "Which type of setting do you want to edit?\nYou can anything from these..!!\nAny kind for help do join @Dark_Fussion_chat", buttons=[
         [custom.Button.inline("✧Alive✧", data="alive"), 
         custom.Button.inline("✧Pm Permit✧", data="permit")], 
-        [custom.Button.inline("✧Chat Bot✧", data="chat")], 
+        [custom.Button.inline("✧Chat Bot✧", data="chat"), 
         custom.Button.inline("✧Vc Bot✧", data="Vc_Bot")], 
-        [custom.Button.inline("✧Main Menu✧", data="school")], 
+        [custom.Button.inline("✧Main Menu✧", data="menu")], 
          ],
   )
 
