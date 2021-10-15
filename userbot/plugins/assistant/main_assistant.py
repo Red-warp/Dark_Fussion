@@ -77,18 +77,7 @@ async def start(event):
 
 # Data's
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"settings")))
-async def users(event):
-    if event.query.user_id == bot.uid:
-        await event.edit(
-        "Which", buttons=
-        [Button.inline("✧Alive✧", data="alive"), 
-        Button.inline("✧Pm Permit✧", data="permit")], 
-        [Button.inline("✧Chat Bot✧", data="chat"), 
-        Button.inline("✧Vc Bot✧", data="Vc_Bot")], 
-        [Button.inline("✧Main Menu✧", data="main")], 
-            ],
-        )
+
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"deploy")))
