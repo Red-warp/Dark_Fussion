@@ -79,13 +79,15 @@ async def start(event):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"settings")))
 async def users(event):
     if event.query.user_id == bot.uid:
-        await event.edit()
-        "Which type of setting do you want to edit?\nYou can anything from these..!!\nAny kind for help do join @Dark_Fussion_chat", buttons=
+        await event.edit(
+        "Which type of setting do you want to edit?\nYou can anything from these..!!\nAny kind for help do join @Dark_Fussion_chat", buttons=[
         [custom.Button.inline("✧Alive✧", data="alive"), 
         custom.Button.inline("✧Pm Permit✧", data="permit")], 
         [custom.Button.inline("✧Chat Bot✧", data="chat")], 
         custom.Button.inline("✧Vc Bot✧", data="Vc_Bot")], 
         [custom.Button.inline("✧Main Menu✧", data="school")], 
+         ],
+  )
 
    else:
         pass
