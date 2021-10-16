@@ -147,20 +147,32 @@ async def help(event):
         [Button.inline("🚫 Cancel 🚫", data="settings")], 
             ],
         )
-
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"settings")))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"img")))
 async def help(event):
     await event.delete()
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message="Which type of setting do you want to edit?\nYou can anything from these..!!\nAny kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)",
+            message="**Which Alive pic do you want to change?\nFor Any kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)**",
             buttons=[
-        [Button.inline("✘ Alive ✘", data="alive"), 
-         Button.inline("✘ Falive ✘", data="permit")], 
-        [Button.inline("✘ Halive ✘", data="chat"), 
-         Button.inline("✘ Dalive ✘", data="Vc_Bot")], 
-        [Button.inline("✘ Back ✘", data="back")], 
+        [Button.inline("✘ Alive ✘", data="aliveimg"), 
+         Button.inline("✘ Falive ✘", data="falive")], 
+        [Button.inline("✘ Halive ✘", data="halive"), 
+         Button.inline("✘ Dalive ✘", data="dalive")], 
+        [Button.inline("✘ Back ✘", data="alive")], 
+        [Button.inline("🚫 Cancel 🚫", data="settings")], 
+            ],
+        )
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"name")))
+async def help(event):
+    await event.delete()
+    if event.query.user_id == bot.uid:
+       await tgbot.send_message(
+            event.chat_id,
+            message=f"**You can change Alive Name..!! \n Just follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)**",
+            buttons=[
+       [Button.inline("🚫 Cancel 🚫", data="settings")],  
             ],
         )
 
