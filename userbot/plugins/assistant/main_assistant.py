@@ -126,11 +126,11 @@ async def help(event):
             message=f"Hi Master, It's Me {bot_id}, Your Assistant ! \nWhat You Wanna Do today ?",
             buttons=[
                 [Button.url("✘ Add Me to Group ✘", f"t.me/{bot_username}?startgroup=true")],
-                [custom.Button.inline("✘ Users List ✘", data="users"),
-                custom.Button.inline("✘ Commands ✘", data="gibcmd")],
+                [Button.inline("✘ Users List ✘", data="users"),
+                 Button.inline("✘ Commands ✘", data="gibcmd")],
                 [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),  
                 Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
-                [custom.Button.inline("✘ Settings ✘" , data="settings")],
+                [Button.inline("✘ Settings ✘" , data="settings")],
               ],
           )
 
