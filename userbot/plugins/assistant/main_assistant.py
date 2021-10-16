@@ -50,12 +50,12 @@ async def start(event):
                         "✧Add Me to Group✧", f"t.me/{bot_username}?startgroup=true"
                     )
                 ],
-                [custom.Button.inline("✧Users List✧", data="users"),
-                custom.Button.inline("✧Commands✧", data="gibcmd")],
-                [Button.url("✧Help✧" , "https://t.me/Dark_Fussion_chat"),
-                  Button.url("✧Updates✧" , "https://t.me/DarkFussion")],
-                 [Button.url("✧Repository✧" , "https://github.com/TeamFussion/Dark_Fussion")],
-                [custom.Button.inline("✧Settings✧" , data="settings")],
+                [custom.Button.inline("✘ Users List ✘", data="users"),
+                custom.Button.inline("✘ Commands ✘", data="gibcmd")],
+                [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),
+                  Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
+                 [Button.url("✘ Repository ✘" , "https://github.com/TeamFussion/Dark_Fussion")],
+                [custom.Button.inline("✘ Settings ✘" , data="settings")],
             ],
         )
     else:
