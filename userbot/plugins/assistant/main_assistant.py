@@ -122,15 +122,15 @@ async def users(event):
 async def help(event):
     await event.edit()
     if event.query.user_id == bot.uid:
-       #await tgbot.send_message(
+       await tgbot.send_message(
             event.chat_id,
-            message="You Can Deploy Black Lightning In Heroku By Following Steps Bellow, You Can See Some Quick Guides On Support Channel Or On Your Own Assistant Bot. \nThank You For Contacting Me.",
+            message="Which type of setting do you want to edit?\nYou can anything from these..!!\nAny kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)",
             buttons=[
-        [Button.inline("✧Alive✧", data="alive"), 
-         Button.inline("✧Pm Permit✧", data="permit")], 
-        [Button.inline("✧Chat Bot✧", data="chat"), 
-         Button.inline("✧Vc Bot✧", data="Vc_Bot")], 
-        [Button.inline("✧Back✧", data="menu")], 
+        [Button.inline("✘ Alive ✘", data="alive"), 
+         Button.inline("✘ Pm Permit ✘", data="permit")], 
+        [Button.inline("✘ Chat Bot ✘", data="chat"), 
+         Button.inline("✘ Vc Bot ✘", data="Vc_Bot")], 
+        [Button.inline("✘ Back ✘", data="back")], 
             ],
         )
 
