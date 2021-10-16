@@ -170,9 +170,9 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**You can change Alive Name for `.alive`\nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_NAME <Telegraph Link>`\n\nRemove <> this.l**",
+            message=f"**You can change Alive Name..!!\nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_NAME <Telegraph Link>`\n\nRemove <> this.l**",
             buttons=[
-       [Button.inline("✘ Back ✘", data="img")],
+       [Button.inline("✘ Back ✘", data="alive")],
        [Button.inline("🚫 Cancel 🚫", data="settings")],  
             ],
         )
@@ -183,7 +183,7 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**You can change Alive Pic for `.alive\nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_PIC <Telegraph Link>`\n\nRemove <> this.**",
+            message=f"**You can change Alive Pic for `.alive`\nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_PIC <Telegraph Link>`\n\nRemove <> this.**",
             buttons=[
        [Button.inline("✘ Back ✘", data="img")],
        [Button.inline("🚫 Cancel 🚫", data="settings")],  
