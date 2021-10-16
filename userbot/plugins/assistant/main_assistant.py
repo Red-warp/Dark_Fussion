@@ -142,12 +142,27 @@ async def help(event):
             event.chat_id,
             message="What do you want to edit in Alive?\nYou can anything from these..!!\nAny kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)",
             buttons=[
-        [Button.inline("✘ Alive Name ✘", data="alive_name"), 
-         Button.inline("✘ Alive Pic ✘", data="alive_img")], 
+        [Button.inline("✘ Alive Name ✘", data="name"), 
+         Button.inline("✘ Alive Pic ✘", data="img")], 
         [Button.inline("🚫 Cancel 🚫", data="settings")], 
             ],
         )
 
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"settings")))
+async def help(event):
+    await event.delete()
+    if event.query.user_id == bot.uid:
+       await tgbot.send_message(
+            event.chat_id,
+            message="Which type of setting do you want to edit?\nYou can anything from these..!!\nAny kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)",
+            buttons=[
+        [Button.inline("✘ Alive ✘", data="alive"), 
+         Button.inline("✘ Falive ✘", data="permit")], 
+        [Button.inline("✘ Halive ✘", data="chat"), 
+         Button.inline("✘ Dalive ✘", data="Vc_Bot")], 
+        [Button.inline("✘ Back ✘", data="back")], 
+            ],
+        )
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"gibcmd")))
 async def users(event):
