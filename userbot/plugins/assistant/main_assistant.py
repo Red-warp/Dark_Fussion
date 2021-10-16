@@ -117,21 +117,31 @@ async def users(event):
         pass
 
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"settings")))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"back")))
 async def help(event):
     await event.delete()
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**Which type of setting do you want to edit?\nYou can anything from these..!!\nAny kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)**",
+            message=f"Hi Master, It's Me {bot_id}, Your Assistant ! \nWhat You Wanna Do today ?",
             buttons=[
-        [Button.inline("✘ Alive ✘", data="alive"), 
-         Button.inline("✘ Pm Permit ✘", data="permit")], 
-        [Button.inline("✘ Chat Bot ✘", data="chat"), 
-         Button.inline("✘ Vc Bot ✘", data="Vc_Bot")], 
-        [Button.inline("✘ Back ✘", data="back")], 
-            ],
-        )
+        [
+                    Button.url(
+                        "✘ Add Me to Group ✘", f"t.me/{bot_username}?startgroup=true"
+                    )
+                ],
+                [custom.Button.inline("✘ Users List ✘", data="users"),
+                custom.Button.inline("✘ Commands ✘", data="gibcmd")],
+                [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),
+                  Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
+                [custom.Button.inline("✘ Settings ✘" , data="settings")],
+                [custom.Button.inline("🚫 Close 🚫" , data="close")],
+              ],
+          )
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
+async def help(event):
+    await event.delete()
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"alive")))
 async def help(event):
@@ -248,7 +258,7 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**You can change Pic permit Pic..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var HELL_IMG <Telegraph Link>`\n\nRemove <> this.**",
+            message=f"**You can change Pic permit Pic..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var LIGHTNING_BOT_PIC <Telegraph Link>`\n\nRemove <> this.**",
             buttons=[
        [Button.inline("✘ Back ✘", data="permit")],
        [Button.inline("🚫 Cancel 🚫", data="settings")],  
@@ -256,7 +266,21 @@ async def help(event):
         )
 
 
-
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"settings")))
+async def help(event):
+    await event.delete()
+    if event.query.user_id == bot.uid:
+       await tgbot.send_message(
+            event.chat_id,
+            message=f"**Which type of setting do you want to edit?\nYou can anything from these..!!\nAny kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)**",
+            buttons=[
+        [Button.inline("✘ Alive ✘", data="alive"), 
+         Button.inline("✘ Pm Permit ✘", data="permit")], 
+        [Button.inline("✘ Chat Bot ✘", data="chat"), 
+         Button.inline("✘ Vc Bot ✘", data="Vc_Bot")], 
+        [Button.inline("✘ Back ✘", data="back")], 
+            ],
+        )
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"gibcmd")))
 async def users(event):
