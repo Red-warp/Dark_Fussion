@@ -234,7 +234,7 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**What do you want to edit in Pm Permit?\nFor Any kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var HELL_IMG <Telegraph Link>`\n\nRemove <> this.**",
+            message=f"**What do you want to edit in Pm Permit?\nFor Any kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)**",
             buttons=[
        [Button.inline("✘ Pm permit Text ✘", data="text"),
        Button.inline("✘ Pm permit Media ✘", data="media")],
@@ -248,7 +248,7 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**You can change Pic permit Pic..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)**",
+            message=f"**You can change Pic permit Pic..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var HELL_IMG <Telegraph Link>`\n\nRemove <> this.**",
             buttons=[
        [Button.inline("✘ Back ✘", data="permit")],
        [Button.inline("🚫 Cancel 🚫", data="settings")],  
