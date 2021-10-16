@@ -135,13 +135,9 @@ async def help(event):
                 [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),
                   Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
                 [custom.Button.inline("✘ Settings ✘" , data="settings")],
-                [custom.Button.inline("🚫 Close 🚫" , data="close")],
               ],
           )
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
-async def help(event):
-    await event.delete()
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"alive")))
 async def help(event):
