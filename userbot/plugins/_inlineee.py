@@ -206,12 +206,12 @@ async def inline_handler(lightning):
             title="Cool",
             text=f"**Bᴏᴛ Oғ ཞ𝔼𝔻 𝕎𝔸ℝℙ\n\nMᴀɪɴ Mᴇɴᴜ\n\nⲂⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n┏━━━━━━━━━━━━━━━━━━━━━\n┣ Owner: ཞ𝔼𝔻 𝕎𝔸ℝℙ\n┣ Version: 0.0.9\n┣ 𝚄pTime: 2021.08.28\n┣ Telethon: 3.9.5\n┗━━━━━━━━━━━━━━━━━━━━━\n\nPʟᴜɢɪɴs ~ 85**",
             buttons=[
-               [Button.inline("✘ Plugins ✘", data="what?"),
-                 Button.inline("✘ Ping ✘", data="bitch")],
+               [custom.Button.inline("✘ Plugins ✘", data="what?"),
+                custom.Button.inline("✘ Ping ✘", data="bitch")],
                 [Button.url("✘ Updates ✘", "https://t.me/DarkFussion"),
                 Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat")],
-                [Button.inline("✘ Settings ✘", data ="settings")],
-                [Button.inline"✘ Close Menu ✘", data="close")]
+                [custom.Button.inline("✘ Settings ✘", data ="fusion")],
+                [custom.Button.inline"✘ Close Menu ✘", data="redwarp")]
            ],
         )
         await lightning.answer([result])
@@ -555,8 +555,8 @@ async def lmaao(lightning):
                  Button.inline("✘ Ping ✘", data="bitch")],
                 [Button.url("✘ Updates ✘", "https://t.me/DarkFussion"),
                 Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat")],
-                [Button.inline("✘ Settings ✘", data ="settings")],
-                [Button.inline"✘ Close Menu ✘", data="close")]
+                [Button.inline("✘ Settings ✘", data ="fusion")],
+                [Button.inline"✘ Close Menu ✘", data="redwarp")]
                 ],
         )
     else:
