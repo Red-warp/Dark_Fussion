@@ -117,21 +117,24 @@ async def users(event):
     else:
         pass
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"settings")))
-async def users(event):
-    if event.query.user_id == bot.uid:
-        await event.edit(
-        "Which type of setting do you want to edit?\nYou can anything from these..!!\nAny kind for help do join @Dark_Fussion_chat", buttons=[
-        [custom.Button.inline("✧Alive✧", data="alive"), 
-        custom.Button.inline("✧Pm Permit✧", data="permit")], 
-        [custom.Button.inline("✧Chat Bot✧", data="chat"), 
-        custom.Button.inline("✧Vc Bot✧", data="Vc_Bot")], 
-        [custom.Button.inline("✧Main Menu✧", data="menu")], 
-                       ],
-                )
 
-   else:
-        pass
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"settings")))
+async def help(event):
+    await event.delete()
+    if event.query.user_id == bot.uid:
+        await tgbot.send_message(
+            event.chat_id,
+            message="You Can Deploy Black Lightning In Heroku By Following Steps Bellow, You Can See Some Quick Guides On Support Channel Or On Your Own Assistant Bot. \nThank You For Contacting Me.",
+            buttons=[
+                [
+                    Button.url(
+                        "Deploy Tutorial 📺",
+                        "https://www.youtube.com/watch?v=GfZMqrCAqxI",
+                    )
+                ],
+            ],
+        )
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"gibcmd")))
 async def users(event):
