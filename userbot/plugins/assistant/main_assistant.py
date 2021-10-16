@@ -248,7 +248,7 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**You can change Pic permit Pic..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var LIGHTNING_BOT_PIC <Telegraph Link>`\n\nRemove <> this.**",
+            message=f"**You can change Pic permit Pic..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)**",
             buttons=[
        [Button.inline("✘ Back ✘", data="permit")],
        [Button.inline("🚫 Cancel 🚫", data="settings")],  
