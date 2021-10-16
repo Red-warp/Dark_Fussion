@@ -223,10 +223,40 @@ async def help(event):
             event.chat_id,
             message=f"**You can change Alive Pic for .halive..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var HELL_IMG <Telegraph Link>`\n\nRemove <> this.**",
             buttons=[
-       [Button.inline("✘ Back ✘", data="alive")],
+       [Button.inline("✘ Back ✘", data="img")],
        [Button.inline("🚫 Cancel 🚫", data="settings")],  
             ],
         )
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"permit")))
+async def help(event):
+    await event.delete()
+    if event.query.user_id == bot.uid:
+       await tgbot.send_message(
+            event.chat_id,
+            message=f"**What do you want to edit in Pm Permit?\nFor Any kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var HELL_IMG <Telegraph Link>`\n\nRemove <> this.**",
+            buttons=[
+       [Button.inline("✘ Pm permit Text ✘", data="text"),
+       Button.inline("✘ Pm permit Media ✘", data="media")],
+       [Button.inline("🚫 Cancel 🚫", data="settings")],  
+            ],
+        )
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"media")))
+async def help(event):
+    await event.delete()
+    if event.query.user_id == bot.uid:
+       await tgbot.send_message(
+            event.chat_id,
+            message=f"**You can change Pic permit Pic..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var LIGHTNING_BOT_PIC <Telegraph Link>`\n\nRemove <> this.**",
+            buttons=[
+       [Button.inline("✘ Back ✘", data="permit")],
+       [Button.inline("🚫 Cancel 🚫", data="settings")],  
+            ],
+        )
+
+
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"gibcmd")))
 async def users(event):
