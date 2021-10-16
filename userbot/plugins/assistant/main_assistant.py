@@ -47,14 +47,13 @@ async def start(event):
             buttons=[
                 [
                     Button.url(
-                        "✧Add Me to Group✧", f"t.me/{bot_username}?startgroup=true"
+                        "✘ Add Me to Group ✘", f"t.me/{bot_username}?startgroup=true"
                     )
                 ],
                 [custom.Button.inline("✘ Users List ✘", data="users"),
                 custom.Button.inline("✘ Commands ✘", data="gibcmd")],
                 [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),
                   Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
-                 [Button.url("✘ Repository ✘" , "https://github.com/TeamFussion/Dark_Fussion")],
                 [custom.Button.inline("✘ Settings ✘" , data="settings")],
             ],
         )
@@ -157,7 +156,7 @@ async def help(event):
             buttons=[
         [Button.inline("✘ Fussion Alive ✘", data="aimg"), 
          Button.inline("✘ Friday Alive ✘", data="fimg")], 
-        [Button.inline("✘ Halive ✘", data="halive"), 
+        [Button.inline("✘ Hell_bot Alive ✘", data="halive"), 
          Button.inline("✘ DC_Alive ✘", data="dalive")], 
         [Button.inline("✘ Back ✘", data="alive")], 
         [Button.inline("🚫 Cancel 🚫", data="settings")], 
