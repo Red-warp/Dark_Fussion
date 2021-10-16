@@ -209,14 +209,25 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**You can change Alive Pic for .dlive..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_PHOTTO <Telegraph Link>`\n\nRemove <> this.**",
+            message=f"**You can change Alive Pic for .dalive..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_PHOTTO <Telegraph Link>`\n\nRemove <> this.**",
             buttons=[
        [Button.inline("✘ Back ✘", data="alive")],
        [Button.inline("🚫 Cancel 🚫", data="settings")],  
             ],
         )
 
-
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"halive")))
+async def help(event):
+    await event.delete()
+    if event.query.user_id == bot.uid:
+       await tgbot.send_message(
+            event.chat_id,
+            message=f"**You can change Alive Pic for .halive..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var HELL_IMG <Telegraph Link>`\n\nRemove <> this.**",
+            buttons=[
+       [Button.inline("✘ Back ✘", data="alive")],
+       [Button.inline("🚫 Cancel 🚫", data="settings")],  
+            ],
+        )
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"gibcmd")))
 async def users(event):
