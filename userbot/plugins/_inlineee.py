@@ -206,11 +206,12 @@ async def inline_handler(lightning):
             title="Cool",
             text=f"**How If Face Problem {LIGHTNINGUSER} \nChoose Your Problem For Help** ",
             buttons=[
-                [custom.Button.inline("✧Help Menu✧", data="what?"),
-                custom.Button.inline("✧Ping✧", data="bitch")],
-                [Button.url("✧Channel✧", "https://t.me/DarkFussion"),
-                 Button.url("✧Group✧" , "https://t.me/Dark_Fussion_chat")],
-                [Button.url("✧Developer✧" , "https://github.com/TeamFussion")]  
+                [custom.Button.inline("✘ Plugins ✘", data="what?"),
+                custom.Button.inline("✘ Ping ✘", data="bitch")],
+                [Button.url("✘ Updates ✘", "https://t.me/DarkFussion"),
+                 Button.url("✘ Support ✘", "https://t.me/Dark_Fussion_chat")],
+                [custom.Button.inline("✘ Settings ✘" , data="redwarp")]  
+                [custom.Button.inline("✘ Close ✘" , data="arp")]
            ],
         )
         await lightning.answer([result])
@@ -295,16 +296,16 @@ async def lightning_pugins_query_hndlr(lightning):
           await lightning.edit(
                f"Pasted {light_pulu_name} to {lig_url}",
                link_preview=False,
-               buttons=[
-                [custom.Button.inline("✧Special✧", data="krish")],
-                [custom.Button.inline("✧Ⴆαƈƙ✧", data="lghtback")]],
+               buttons=[ 
+                [custom.Button.inline("✘ Special ✘", data="krish")],
+                [custom.Button.inline("✘ Ⴆαƈƙ ✘", data="lghtback")]],
          )
     else:
            await lightning.edit(
             message=lightning_is_best,
             buttons=[
-                [custom.Button.inline("✧Special✧", data="krish")],
-                [custom.Button.inline("✧Ⴆαƈƙ✧", data="lghtback")],
+                [custom.Button.inline("✘ Stats ✘", data="krish")],
+                [custom.Button.inline("✘ Ⴆαƈƙ ✘", data="lghtback")],
             ],
         )
 
@@ -550,10 +551,12 @@ async def lmaao(lightning):
         await lightning.edit(
             f"**Hi {LIGHTNINGUSER},\nPlss lemme know in which section you need my help..!!**",
             buttons=[
-                [custom.Button.inline("✧Help Menu✧", data="what?"),
-                 custom.Button.inline("✧Ping✧", data="bitch")],
-                [Button.url("✧Channel✧", "https://t.me/DarkFussion"),
-                Button.url("✧Support Group✧" , "https://t.me/Dark_Fussion_chat")],
+                [custom.Button.inline("✘ Plugins ✘", data="what?"),
+                custom.Button.inline("✘ Ping ✘", data="bitch")],
+                [Button.url("✘ Updates ✘", "https://t.me/DarkFussion"),
+                 Button.url("✘ Support ✘", "https://t.me/Dark_Fussion_chat")],
+                [custom.Button.inline("✘ Settings ✘" , data="redwarp")]  
+                [custom.Button.inline("✘ Close ✘" , data="arp")]
             ],
         )
     else:
