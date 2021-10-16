@@ -155,7 +155,7 @@ async def help(event):
             event.chat_id,
             message=f"**Which Alive pic do you want to change?\nFor Any kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)**",
             buttons=[
-        [Button.inline("✘ Alive ✘", data="aliveimg"), 
+        [Button.inline("✘ Alive ✘", data="img"), 
          Button.inline("✘ Falive ✘", data="falive")], 
         [Button.inline("✘ Halive ✘", data="halive"), 
          Button.inline("✘ Dalive ✘", data="dalive")], 
@@ -177,7 +177,7 @@ async def help(event):
             ],
         )
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"aliveimg")))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"aimg")))
 async def help(event):
     await event.delete()
     if event.query.user_id == bot.uid:
