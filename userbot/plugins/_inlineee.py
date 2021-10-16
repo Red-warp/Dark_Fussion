@@ -221,12 +221,12 @@ async def inline_handler(lightning):
             file=LIGHTNING_BOT_PIC,
             text=WARNING,
             buttons=[
-                [custom.Button.inline("⨵Wanna Spam Something?⨵", data="lightning_is_here_cant_spam")],
+                [custom.Button.inline("✘ Wanna Spam Something? ✘", data="lightning_is_here_cant_spam")],
               
-                [custom.Button.inline("⨵Requesting⨵", data="fck_ask"),
+                [custom.Button.inline("✘ Requesting ✘", data="fck_ask"),
               
                     custom.Button.inline(
-                        "⨵Let me In⨵", 
+                        "✘ Let me In ✘", 
                         data="lol_u_think_so",
                         
                     )
@@ -234,7 +234,7 @@ async def inline_handler(lightning):
                 ],
 [
                     custom.Button.inline(
-                        "⨵My Friend⨵",
+                        "✘ My Friend ✘",
                         data="he_sucks",
                     )
                 ],
@@ -418,8 +418,8 @@ async def lightning_is_better(lightning):
     await asyncio.sleep(2)
     await lightning.edit(
         "Name Which Type Of Friend?", buttons= [
-        [Button.inline("⨵School Friend⨵", data="school")], 
-        [Button.inline("⨵Causal Friend⨵", data="tg_okay")],
+        [Button.inline("✘ School Friend ✘", data="school")], 
+        [Button.inline("✘ Causal Friend ✘", data="tg_okay")],
         ],
     )
     light_text = "`Warning`- ❗️⚠️Don't send any message now wait kindly!!!❗️⚠️"
@@ -482,8 +482,8 @@ async def lightning_is_better(lightning):
     await asyncio.sleep(2)
     await lightning.edit(
         "You Will Spam?", buttons= [
-        [Button.inline("⨵Yes⨵", data="lemme_ban"),
-         Button.inline("⨵No⨵", data="hmm")],
+        [Button.inline("✘ Yes ✘", data="lemme_ban"),
+         Button.inline("✘ No ✘", data="hmm")],
         ],
     )
 
