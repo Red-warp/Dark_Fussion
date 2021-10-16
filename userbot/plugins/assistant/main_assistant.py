@@ -262,6 +262,9 @@ async def help(event):
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"settings")))
 async def help(event):
+    await event.delete()
+   if event.query.user_id == bot.uid:
+       await tgbot.send_message(
             event.chat_id,
             message=f"**Which type of setting do you want to edit?\nYou can anything from these..!!\nAny kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)**",
             buttons=[
