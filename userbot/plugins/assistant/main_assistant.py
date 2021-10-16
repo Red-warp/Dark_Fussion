@@ -117,7 +117,7 @@ async def users(event):
         pass
 
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"warp")))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"back")))
 async def help(event):
     await event.delete()
     if event.query.user_id == bot.uid:
@@ -274,7 +274,7 @@ async def help(event):
          Button.inline("✘ Pm Permit ✘", data="permit")], 
         [Button.inline("✘ Chat Bot ✘", data="chat"), 
          Button.inline("✘ Vc Bot ✘", data="Vc_Bot")], 
-        [Button.inline("✘ Back ✘", data="warp")], 
+        [Button.inline("✘ Back ✘", data="back")], 
             ],
         )
 
