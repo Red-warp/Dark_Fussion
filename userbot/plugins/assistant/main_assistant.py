@@ -120,7 +120,7 @@ async def users(event):
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"settings")))
 async def help(event):
-    await event.edit()
+    await event.delete()
     if event.query.user_id == bot.uid:
         await tgbot.send_message(
             event.chat_id,
