@@ -204,13 +204,14 @@ async def inline_handler(lightning):
     elif lightning.query.user_id == bot.uid and query.startswith("**Black") or query.startswith("Black"):
         result = builder.article(
             title="Cool",
-            text=f"**How If Face Problem {LIGHTNINGUSER} \nChoose Your Problem For Help** ",
+            text=f"**Bᴏᴛ Oғ ཞ𝔼𝔻 𝕎𝔸ℝℙ\n\nMᴀɪɴ Mᴇɴᴜ\n\nⲂⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n┏━━━━━━━━━━━━━━━━━━━━━\n┣ Owner: ཞ𝔼𝔻 𝕎𝔸ℝℙ\n┣ Version: 0.0.9\n┣ 𝚄pTime: 2021.08.28\n┣ Telethon: 3.9.5\n┗━━━━━━━━━━━━━━━━━━━━━\n\nPʟᴜɢɪɴs ~ 85**",
             buttons=[
-                [custom.Button.inline("✧Help Menu✧", data="what?"),
-                custom.Button.inline("✧Ping✧", data="bitch")],
-                [Button.url("✧Channel✧", "https://t.me/DarkFussion"),
-                 Button.url("✧Group✧" , "https://t.me/Dark_Fussion_chat")],
-                [Button.url("✧Developer✧" , "https://github.com/TeamFussion")]  
+               [Button.inline("✘ Plugins ✘", data="what?"),
+                 Button.inline("✘ Ping ✘", data="bitch")],
+                [Button.url("✘ Updates ✘", "https://t.me/DarkFussion"),
+                Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat")],
+                [Button.inline("✘ Settings ✘", data ="settings")],
+                [Button.inline"✘ Close Menu ✘", data="close")]
            ],
         )
         await lightning.answer([result])
@@ -548,13 +549,15 @@ async def hmm(lightning):
 async def lmaao(lightning):
     if lightning.query.user_id == bot.uid:
         await lightning.edit(
-            f"**Hi {LIGHTNINGUSER},\nPlss lemme know in which section you need my help..!!**",
+            f"**Bᴏᴛ Oғ ཞ𝔼𝔻 𝕎𝔸ℝℙ\n\nMᴀɪɴ Mᴇɴᴜ\n\nⲂⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n┏━━━━━━━━━━━━━━━━━━━━━\n┣ Owner: ཞ𝔼𝔻 𝕎𝔸ℝℙ\n┣ Version: 0.0.9\n┣ 𝚄pTime: 2021.08.28\n┣ Telethon: 3.9.5\n┗━━━━━━━━━━━━━━━━━━━━━\n\nPʟᴜɢɪɴs ~ 85**",
             buttons=[
-                [custom.Button.inline("✧Help Menu✧", data="what?"),
-                 custom.Button.inline("✧Ping✧", data="bitch")],
-                [Button.url("✧Channel✧", "https://t.me/DarkFussion"),
-                Button.url("✧Support Group✧" , "https://t.me/Dark_Fussion_chat")],
-            ],
+                [Button.inline("✘ Plugins ✘", data="what?"),
+                 Button.inline("✘ Ping ✘", data="bitch")],
+                [Button.url("✘ Updates ✘", "https://t.me/DarkFussion"),
+                Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat")],
+                [Button.inline("✘ Settings ✘", data ="settings")],
+                [Button.inline"✘ Close Menu ✘", data="close")]
+                ],
         )
     else:
         fukoff = "You Don't belong to my master's category. So, why should i follow your orders\nHence, Fuck off" 
