@@ -117,7 +117,7 @@ async def users(event):
         pass
 
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"back")))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"red")))
 async def help(event):
     await event.delete()
     if event.query.user_id == bot.uid:
@@ -125,15 +125,11 @@ async def help(event):
             event.chat_id,
             message=f"Hi Master, It's Me {bot_id}, Your Assistant ! \nWhat You Wanna Do today ?",
             buttons=[
-        [
-                    Button.url(
-                        "✘ Add Me to Group ✘", f"t.me/{bot_username}?startgroup=true"
-                    )
-                ],
+                [Button.url("✘ Add Me to Group ✘", f"t.me/{bot_username}?startgroup=true")],
                 [custom.Button.inline("✘ Users List ✘", data="users"),
                 custom.Button.inline("✘ Commands ✘", data="gibcmd")],
-                [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),
-                  Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
+                [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),  
+                Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
                 [custom.Button.inline("✘ Settings ✘" , data="settings")],
               ],
           )
@@ -274,7 +270,7 @@ async def help(event):
          Button.inline("✘ Pm Permit ✘", data="permit")], 
         [Button.inline("✘ Chat Bot ✘", data="chat"), 
          Button.inline("✘ Vc Bot ✘", data="Vc_Bot")], 
-        [Button.inline("✘ Back ✘", data="back")], 
+        [Button.inline("✘ Back ✘", data="red")], 
             ],
         )
 
