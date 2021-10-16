@@ -120,10 +120,9 @@ async def users(event):
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"settings")))
 async def help(event):
-   # await event.edit()
+    await event.edit()
     if event.query.user_id == bot.uid:
-        #await tgbot.send_message(
-await event.edit(
+        await tgbot.send_message(
             event.chat_id,
             message="You Can Deploy Black Lightning In Heroku By Following Steps Bellow, You Can See Some Quick Guides On Support Channel Or On Your Own Assistant Bot. \nThank You For Contacting Me.",
             buttons=[
