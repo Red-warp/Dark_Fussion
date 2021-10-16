@@ -134,6 +134,20 @@ async def help(event):
             ],
         )
 
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"alive")))
+async def help(event):
+    await event.delete()
+    if event.query.user_id == bot.uid:
+       await tgbot.send_message(
+            event.chat_id,
+            message="What do you want to edit in Alive?\nYou can anything from these..!!\nAny kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)",
+            buttons=[
+        [Button.inline("✘ Alive Name ✘", data="alive_name"), 
+         Button.inline("✘ Alive Pic ✘", data="alive_img")], 
+        [Button.inline("🚫 Cancel 🚫", data="settings")], 
+            ],
+        )
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"gibcmd")))
 async def users(event):
