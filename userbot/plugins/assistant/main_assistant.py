@@ -155,10 +155,10 @@ async def help(event):
             event.chat_id,
             message=f"**Which Alive pic do you want to change?\nFor Any kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)**",
             buttons=[
-        [Button.inline("✘ Alive ✘", data="aimg"), 
-         Button.inline("✘ Falive ✘", data="fimg")], 
+        [Button.inline("✘ Fussion Alive ✘", data="aimg"), 
+         Button.inline("✘ Friday Alive ✘", data="fimg")], 
         [Button.inline("✘ Halive ✘", data="halive"), 
-         Button.inline("✘ Dalive ✘", data="dalive")], 
+         Button.inline("✘ DC_Alive ✘", data="dalive")], 
         [Button.inline("✘ Back ✘", data="alive")], 
         [Button.inline("🚫 Cancel 🚫", data="settings")], 
             ],
@@ -197,6 +197,19 @@ async def help(event):
        await tgbot.send_message(
             event.chat_id,
             message=f"**You can change Alive Pic for .falive..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var FRI_IMAGE <Telegraph Link>`\n\nRemove <> this.**",
+            buttons=[
+       [Button.inline("✘ Back ✘", data="alive")],
+       [Button.inline("🚫 Cancel 🚫", data="settings")],  
+            ],
+        )
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"dalive")))
+async def help(event):
+    await event.delete()
+    if event.query.user_id == bot.uid:
+       await tgbot.send_message(
+            event.chat_id,
+            message=f"**You can change Alive Pic for .dlive..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_PHOTTO <Telegraph Link>`\n\nRemove <> this.**",
             buttons=[
        [Button.inline("✘ Back ✘", data="alive")],
        [Button.inline("🚫 Cancel 🚫", data="settings")],  
