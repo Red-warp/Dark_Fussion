@@ -202,7 +202,7 @@ async def inline_handler(lightning):
         )
         await lightning.answer([result] if result else None)
     elif lightning.query.user_id == bot.uid and query.startswith("**Black") or query.startswith("Black"):
-        result = builder.article(
+        result = builder.photo(
             title="Cool",
             file="https://te.legra.ph/file/c284c2c263795753516b9.jpg",
             text=f"** Bᴏᴛ Oғ {LIGHTNINGUSER}\n\n Mᴀɪɴ Mᴇɴᴜ\n Pʟᴜɢɪɴs ~ {len(CMD_LIST)}\n\n Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n┏━━━━━━━━━━━━━━━━━━━\n┣ Owner: {LIGHTNINGUSER}\n┣ 𝚄pTime: 2021.08.28\n┣ Telethon: 3.9.5\n┗━━━━━━━━━━━━━━━━━━━** ",
