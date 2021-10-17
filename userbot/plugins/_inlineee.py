@@ -297,14 +297,14 @@ async def lightning_pugins_query_hndlr(lightning):
                f"Pasted {light_pulu_name} to {lig_url}",
                link_preview=False,
                buttons=[ 
-                [custom.Button.inline("✘ Special ✘", data="krish")],
+                [custom.Button.inline("✘ Status ✘", data="stta")],
                 [custom.Button.inline("✘ Ⴆαƈƙ ✘", data="lghtback")]],
          )
     else:
            await lightning.edit(
             message=lightning_is_best,
             buttons=[
-                [custom.Button.inline("✘ Stats ✘", data="krish")],
+                [custom.Button.inline("✘ Status ✘", data="stta")],
                 [custom.Button.inline("✘ Ⴆαƈƙ ✘", data="lghtback")],
             ],
         )
@@ -372,21 +372,6 @@ async def lightning_is_better(lightning):
         LIGHT_LOGS,
         f"Hey Master Sorry Disturb You, [Noob](tg://user?id={lightning_id}) Tryin To Enter With Out approval😂 \n.",
     )
-
-
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"coming_soon")))
-async def lightning_is_better(lightning):
-    if lightning.query.user_id == bot.uid:
-        await lightning.edit(
-        "Which Alive You Wanna See?", buttons= [
-        (Button.inline("Friday Alive", data="falive"),
-        Button.inline("Alive", data="dalive"))
-        , [Button.inline("Alive", data="alive"),
-            Button.inline("Alive", data="halive")],[
-            Button.inline("Alive", data="valive"
-            )
-            ]
-    ])
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"bitch")))
