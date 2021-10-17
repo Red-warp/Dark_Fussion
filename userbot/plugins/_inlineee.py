@@ -598,7 +598,7 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
     lightning_plugins = sorted(lightning_plugins)
     plugins = [
         custom.Button.inline(
-            "{} {} {}".format("⨵", x, "⨵"), data="_lightning_plugins_{}".format(x)
+            "{} {} {}".format("✘ ", x, "✘ "), data="_lightning_plugins_{}".format(x)
         )
         for x in lightning_plugins
     ]
