@@ -528,7 +528,7 @@ async def yes_ucan(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stta")))
 async def hmm(lightning):
     if lightning.query.user_id == bot.uid:
-        text = "✧My Stats✧\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/\nTottal Plugs: {}".format(len(CMD_LIST))
+        text = "✘ My Stats ✘\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/\nTottal Plugs: {}".format(len(CMD_LIST))
         await lightning.answer(text, alert=True)
     else:
         txt = f"Stats For {LIGHTNINGUSER} Not For You :)"
@@ -613,13 +613,13 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
         ] + [
             (
                 custom.Button.inline(
-                    "🗡яιgнт ρℓυgιи", data="{}_prev({})".format(lightning_lol, lightning_plugins_pages)
+                    "✘ яιgнт ρℓυgιи ✘", data="{}_prev({})".format(lightning_lol, lightning_plugins_pages)
                 ),
                # Thanks To Friday For This Idea
-               custom.Button.inline("Back", data="wtshit"
+               custom.Button.inline("✘ Back ✘", data="wtshit"
                ),
                custom.Button.inline(
-                    "🗡ℓєfт ρℓυgιи ", data="{}_next({})".format(lightning_lol, lightning_plugins_pages)
+                    "✘ ℓєfт ρℓυgιи ✘", data="{}_next({})".format(lightning_lol, lightning_plugins_pages)
                 ),
                 
             )
