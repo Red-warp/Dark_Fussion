@@ -537,10 +537,9 @@ async def lmaao(lightning):
         fukoff = "You Don't belong to my master's category. So, why should i follow your orders\nHence, Fuck off" 
         await lightning.answer(fukoff, alert=True)
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"sett"))) 
-async def lmaao(lightning):
-    if lightning.query.user_id == bot.uid:
-        await lightning.delete()
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"sett")))
+async def help(event):
+    await event.delete()
 
 
 import requests
