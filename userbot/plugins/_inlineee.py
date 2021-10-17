@@ -159,7 +159,7 @@ else:
     BOT_LIT = BOT_MSG   
 
 
-LIGHTNING_WARN = os.environ.get("LIGHTNING_WARN", None)
+FUSSION_BOT_IMG = os.environ.get("FUSSION_BOT_IMG", None)
 
 if LIGHTNING_WARN is None:
     WARNING = (
@@ -172,9 +172,9 @@ else:
     WARNING = LIGHTNING_WARN
 
 
-LIGHTNING_BOT_PIC = os.environ.get("LIGHTNING_BOT_PIC", None)
-if not LIGHTNING_BOT_PIC:
-    LIGHTNING_BOT_PIC = "https://te.legra.ph/file/4f3b41e4334791ced9180.mp4"
+FUSSION_BOT_IMG = os.environ.get("FUSSION_BOT_IMG", None)
+if not FUSSION_BOT_IMG:
+    FUSSION_BOT_IMG = "https://te.legra.ph/file/4f3b41e4334791ced9180.mp4"
 
 
 @tgbot.on(events.InlineQuery)
