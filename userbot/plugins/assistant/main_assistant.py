@@ -115,24 +115,23 @@ async def users(event):
             )
     else:
         pass
-
-
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"red")))
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"alive")))
 async def help(event):
     await event.delete()
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"Hi Master, It's Me {bot_id}, Your Assistant ! \nWhat You Wanna Do today ?",
+            message=Hi Master, It's Me {bot_id}, Your Assistant ! \nWhat You Wanna Do today ?",
             buttons=[
-                [Button.url("✘ Add Me to Group ✘", f"t.me/{bot_username}?startgroup=true")],
-                [Button.inline("✘ Users List ✘", data="users"),
-                 Button.inline("✘ Commands ✘", data="gibcmd")],
-                [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),  
-                Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
-                [Button.inline("✘ Settings ✘" , data="settings")],
-              ],
-          )
+         [
+                    Button.url(
+                        "✘ Add Me to Group ✘", f"t.me/{bot_username}?startgroup=true"
+                    )
+                ],
+        ],
+  )
+
+
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"alive")))
@@ -277,7 +276,7 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**Which type of setting do you want to edit?\nYou can anything from these..!!\nAny kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)**",
+            message=f"**Which type of setting do you want to edit?\nYou can change anything from these..!!\nAny kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)**",
             buttons=[
         [Button.inline("✘ Alive ✘", data="alive"), 
          Button.inline("✘ Pm Permit ✘", data="permit")], 
