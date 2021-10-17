@@ -154,27 +154,36 @@ async def _(event):
 
 BOT_MSG = os.environ.get("BOT_MSG", None)
 if BOT_MSG is None:
-    BOT_LIT = f"**__My Master {LIGHTNINGUSER} is busy Right now!__**\n\n"
+    BOT_LIT = f"**__My Master {LIGHTNINGUSER} is busy Right now!__**\n"
 else:
     BOT_LIT = BOT_MSG   
 
 
-FUSSION_BOT_IMG = os.environ.get("FUSSION_BOT_IMG", None)
+LIGHTNING_WARN = os.environ.get("LIGHTNING_WARN", None)
+LIGHTNING_BOT_PIC = os.environ.get("LIGHTNING_BOT_PIC", None)
 
 if LIGHTNING_WARN is None:
     WARNING = (
     f"**{BOT_LIT}"
-    f"__Please let me know why you came here.__\n"
-    f"__Also choose your Original reason Else you will be blocked__\n\n"
-    f"__But don't spam otherwise you will be blocked [Don't Understimate]**__"
+    f"Please let me know why you came here.\n"
+    f"Also choose your Original reason Else you will be blocked \n\n"
+    f"But don't spam otherwise you will be blocked [Don't Understimate]**"
    )
 else:
     WARNING = LIGHTNING_WARN
 
+LIGHTNING_BOT_PIC = (
+    LIGHTNING_BOT_PIC
+    if LIGHTNING_BOT_PIC
+    else "https://telegra.ph/file/ff90ed0b44221a7b438b7.jpg"
+)
 
-FUSSION_BOT_IMG = os.environ.get("FUSSION_BOT_IMG", None)
-if not FUSSION_BOT_IMG:
-    FUSSION_BOT_IMG = "https://te.legra.ph/file/4f3b41e4334791ced9180.mp4"
+
+
+
+
+
+
 
 
 @tgbot.on(events.InlineQuery)
