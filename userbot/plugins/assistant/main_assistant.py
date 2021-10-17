@@ -171,7 +171,7 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**You can change Alive Name..!!\nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_NAME <Telegraph Link>`\n\nRemove <> this.l**",
+            message=f"**You can change Alive Name..!!\nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_NAME <Telegraph Link>`\n\nRemove `<>` this.**",
             buttons=[
        [Button.inline("✘ Back ✘", data="alive")],
        [Button.inline("🚫 Cancel 🚫", data="settings")],  
@@ -184,7 +184,7 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**You can change Alive Pic for `.alive`\nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_PIC <Telegraph Link>`\n\nRemove <> this.**",
+            message=f"**You can change Alive Pic for `.alive`\nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_PIC <Telegraph Link>`\n\nRemove `<>` this.**",
             buttons=[
        [Button.inline("✘ Back ✘", data="img")],
        [Button.inline("🚫 Cancel 🚫", data="settings")],  
@@ -197,7 +197,7 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**You can change Alive Pic for `.falive`\nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var FRI_IMAGE <Telegraph Link>`\n\nRemove <> this.**",
+            message=f"**You can change Alive Pic for `.falive`\nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var FRI_IMAGE <Telegraph Link>`\n\nRemove `<>` this.**",
             buttons=[
        [Button.inline("✘ Back ✘", data="img")],
        [Button.inline("🚫 Cancel 🚫", data="settings")],  
@@ -210,7 +210,7 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**You can change Alive Pic for `.dalive` \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_PHOTTO <Telegraph Link>`\n\nRemove <> this.**",
+            message=f"**You can change Alive Pic for `.dalive` \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_PHOTTO <Telegraph Link>`\n\nRemove `<>` this.**",
             buttons=[
        [Button.inline("✘ Back ✘", data="img")],
        [Button.inline("🚫 Cancel 🚫", data="settings")],  
@@ -223,7 +223,7 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**You can change Alive Pic for .halive..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var HELL_IMG <Telegraph Link>`\n\nRemove <> this.**",
+            message=f"**You can change Alive Pic for .halive..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var HELL_IMG <Telegraph Link>`\n\nRemove `<>` this.**",
             buttons=[
        [Button.inline("✘ Back ✘", data="img")],
        [Button.inline("🚫 Cancel 🚫", data="settings")],  
@@ -250,7 +250,20 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**You can change Pic permit Pic..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var LIGHTNING_BOT_PIC <Telegraph Link>`\n\nRemove <> this.**",
+            message=f"**You can change Pic permit Pic..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var LIGHTNING_BOT_PIC <Telegraph Link>`\n\nRemove `<>` this.**",
+            buttons=[
+       [Button.inline("✘ Back ✘", data="permit")],
+       [Button.inline("🚫 Cancel 🚫", data="settings")],  
+            ],
+        )
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"text")))
+async def help(event):
+    await event.delete()
+    if event.query.user_id == bot.uid:
+       await tgbot.send_message(
+            event.chat_id,
+            message=f"**You can change Pic permit message..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var LIGHTNING_WARN <Telegraph Link>`\n\nRemove `<>` this.**",
             buttons=[
        [Button.inline("✘ Back ✘", data="permit")],
        [Button.inline("🚫 Cancel 🚫", data="settings")],  
