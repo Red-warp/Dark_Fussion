@@ -210,7 +210,6 @@ async def inline_handler(lightning):
                 custom.Button.inline("✘ Ping ✘", data="bitch")],
                 [Button.url("✘ Updates ✘", "https://t.me/DarkFussion"),
                  Button.url("✘ Support ✘", "https://t.me/Dark_Fussion_chat")],  
-                [custom.Button.inline("✘ Close ✘" , data="bitch")]
            ],
         )
         await lightning.answer([result])
@@ -554,8 +553,6 @@ async def lmaao(lightning):
                 custom.Button.inline("✘ Ping ✘", data="bitch")],
                 [Button.url("✘ Updates ✘", "https://t.me/DarkFussion"),
                  Button.url("✘ Support ✘", "https://t.me/Dark_Fussion_chat")],
-                [custom.Button.inline("✘ Settings ✘" , data="bitch")]  
-                [custom.Button.inline("✘ Close ✘" , data="bitch")]
             ],
         )
     else:
