@@ -160,7 +160,6 @@ else:
 
 
 LIGHTNING_WARN = os.environ.get("LIGHTNING_WARN", None)
-LIGHTNING_BOT_PIC = os.environ.get("LIGHTNING_BOT_PIC", None)
 
 if LIGHTNING_WARN is None:
     WARNING = (
@@ -172,18 +171,10 @@ if LIGHTNING_WARN is None:
 else:
     WARNING = LIGHTNING_WARN
 
-LIGHTNING_BOT_PIC = (
-    LIGHTNING_BOT_PIC
-    if LIGHTNING_BOT_PIC
-    else "https://telegra.ph/file/ff90ed0b44221a7b438b7.jpg"
-)
 
-
-
-
-
-
-
+LIGHTNING_BOT_PIC = os.environ.get("LIGHTNING_BOT_PIC", None)
+if not LIGHTNING_BOT_PIC:
+    LIGHTNING_BOT_PIC = "https://te.legra.ph/file/4f3b41e4334791ced9180.mp4"
 
 
 @tgbot.on(events.InlineQuery)
