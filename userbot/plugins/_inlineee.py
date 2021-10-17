@@ -540,7 +540,7 @@ async def lmaao(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"sett"))) 
 async def lmaao(lightning):
     if lightning.query.user_id == bot.uid:
-        await lightning.delete
+        await lightning.delete()
 
 
 import requests
