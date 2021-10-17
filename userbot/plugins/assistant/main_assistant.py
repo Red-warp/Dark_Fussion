@@ -121,27 +121,6 @@ async def users(event):
     else:
         pass
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"red")))
-async def help(event):
-    await event.delete()
-    if event.query.user_id == bot.uid:
-       await tgbot.send_message(
-            event.chat_id,
-            message="Hi Master, It's Me {bot_id}, Your Assistant ! \nWhat You Wanna Do today ?",
-            buttons=[
-         [
-                [custom.Button.inline("✘ Users List ✘", data="users"),
-                custom.Button.inline("✘ Commands ✘", data="gibcmd")],
-                [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),
-                  Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
-                [custom.Button.inline("✘ Settings ✘" , data="settings")],
-                [custom.Button.inline("🚫 Close 🚫" , data="close")],
-        ],
-  )
-
-
-
-
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"alive")))
 async def help(event):
     await event.delete()
