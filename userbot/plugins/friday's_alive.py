@@ -9,7 +9,7 @@ from userbot.utils import lightning_cmd, sudo_cmd
 
 FRI_IMAGE = os.environ.get("FRI_IMAGE", None)
 if FRI_IMAGE is None:
-    FRI_IMG = "https://telegra.ph/file/ca4103beeb02849708ec7.mp4"
+    FRI_IMG = "https://te.legra.ph/file/91e5001521689a5967b0a.mp4"
 else:
     FRI_IMG = FRI_IMAGE
 
