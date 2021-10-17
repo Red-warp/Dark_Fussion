@@ -96,10 +96,10 @@ async def help(event):
             ],
         )
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
-async def users(event):
-    if event.query.user_id == bot.uid:
-        await event.delete()
+#@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
+#async def users(event):
+  #  if event.query.user_id == bot.uid:
+      #  await event.delete()
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"users")))
 async def users(event):
@@ -120,6 +120,7 @@ async def users(event):
             )
     else:
         pass
+
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"red")))
 async def help(event):
     await event.delete()
