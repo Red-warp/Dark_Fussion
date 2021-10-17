@@ -514,22 +514,11 @@ async def yes_ucan(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stta")))
 async def hmm(lightning):
     if lightning.query.user_id == bot.uid:
-        text = "✘ My Stats ✘\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good :/\nTottal Plugs: {}".format(len(CMD_LIST))
+        text = "✘ My Stats ✘\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good ✔\nTottal Plugs: {}".format(len(CMD_LIST))
         await lightning.answer(text, alert=True)
     else:
         txt = f"Stats For {LIGHTNINGUSER} Not For You :)"
         await lightning.answer(txt, alert=True)
-
-
-
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"krish")))
-async def hmm(lightning):
-    if lightning.query.user_id == bot.uid:
-        text = "Bot Alright Master if in case of any Problems reach out to support group..!!"
-        await lightning.answer(text, alert=True)
-    else:
-        txt = f"For {LIGHTNINGUSER} Not For You :)"
-        await lightning.answer(txt, alert=True)   
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"wtshit"))) 
 async def lmaao(lightning):
