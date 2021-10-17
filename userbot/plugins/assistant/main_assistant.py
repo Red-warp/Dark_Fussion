@@ -55,6 +55,7 @@ async def start(event):
                 [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),
                   Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
                 [custom.Button.inline("✘ Settings ✘" , data="settings")],
+                [custom.Button.inline("🚫 Close 🚫" , data="close")],
             ],
         )
     else:
@@ -95,6 +96,10 @@ async def help(event):
             ],
         )
 
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
+async def users(event):
+    if event.query.user_id == bot.uid:
+        await event.delete()
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"users")))
 async def users(event):
@@ -124,10 +129,12 @@ async def help(event):
             message="Hi Master, It's Me {bot_id}, Your Assistant ! \nWhat You Wanna Do today ?",
             buttons=[
          [
-                    Button.url(
-                        "✘ Add Me to Group ✘", f"t.me/{bot_username}?startgroup=true"
-                    )
-                ],
+                [custom.Button.inline("✘ Users List ✘", data="users"),
+                custom.Button.inline("✘ Commands ✘", data="gibcmd")],
+                [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),
+                  Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
+                [custom.Button.inline("✘ Settings ✘" , data="settings")],
+                [custom.Button.inline("🚫 Close 🚫" , data="close")],
         ],
   )
 
