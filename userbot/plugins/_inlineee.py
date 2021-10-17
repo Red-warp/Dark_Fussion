@@ -204,7 +204,7 @@ async def inline_handler(lightning):
     elif lightning.query.user_id == bot.uid and query.startswith("**Black") or query.startswith("Black"):
         result = builder.article(
             title="Cool",
-            text=f"**How If Face Problem {LIGHTNINGUSER} \nChoose Your Problem For Help** ",
+            text=f"**Bᴏᴛ Oғ {LIGHTNINGUSER}\n\nMᴀɪɴ Mᴇɴᴜ\nPʟᴜɢɪɴs ~ 85\n\nⲂⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n┏━━━━━━━━━━━━━━━━━━━\n┣ Owner: {LIGHTNINGUSER}\n┣ 𝚄pTime: 2021.08.28\n┣ Telethon: 3.9.5\n┗━━━━━━━━━━━━━━━━━━━** ",
             buttons=[
                 [custom.Button.inline("✘ Plugins ✘", data="what?"),
                 custom.Button.inline("✘ Ping ✘", data="bitch")],
@@ -549,7 +549,7 @@ async def hmm(lightning):
 async def lmaao(lightning):
     if lightning.query.user_id == bot.uid:
         await lightning.edit(
-            f"**Hi {LIGHTNINGUSER},\nPlss lemme know in which section you need my help..!!**",
+            f"**Bᴏᴛ Oғ {LIGHTNINGUSER}\n\nMᴀɪɴ Mᴇɴᴜ\nPʟᴜɢɪɴs ~ 85\n\nⲂⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n┏━━━━━━━━━━━━━━━━━━━\n┣ Owner: {LIGHTNINGUSER}\n┣ 𝚄pTime: 2021.08.28\n┣ Telethon: 3.9.5\n┗━━━━━━━━━━━━━━━━━━━**",
             buttons=[
                 [custom.Button.inline("✘ Plugins ✘", data="what?"),
                 custom.Button.inline("✘ Ping ✘", data="bitch")],
