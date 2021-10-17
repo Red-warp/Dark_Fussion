@@ -211,6 +211,7 @@ async def inline_handler(lightning):
                 [Button.url("✘ Updates ✘", "https://t.me/DarkFussion"),
                  Button.url("✘ Support ✘", "https://t.me/Dark_Fussion_chat")],  
                 [custom.Button.inline("✘ Settings ✘" , data="sett")],
+                [custom.Button.inline("✘ Settings ✘" , data="sett")],
            ],
         )
         await lightning.answer([result])
