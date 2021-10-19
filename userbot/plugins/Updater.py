@@ -7,7 +7,7 @@ import sys, os
 import os
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
-
+from userbot.cmdhelp import CmdHelp
 from userbot import CMD_HELP, bot 
 from userbot import bot as borg
 from userbot.utils import *
