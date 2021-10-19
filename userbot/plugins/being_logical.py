@@ -583,8 +583,17 @@ from userbot import CMD_HELP
 
 CMD_HELP.update(
     {
-        "belo": "**belo**\
-        \n\n**Syntax : **`.halive For Hellbot's Alive`\n
-        \n\n\n**NOTE : All Credits To Thier Respective !!**"
+         "belo": "✘** Cmds** ✘: `5`\
+        \n\n✘ **Cmd: ** `.alive`\
+        \n➥ **Info: ** __A kind of showing bot details__\
+        \n\n✘ **Cmd: ** `.falive`\
+        \n➥ **Info: ** __A kind of showing bot details__\
+        \n\n✘ **Cmd : ** `.halive`\
+       \n➥ **Info: ** __A kind of showing bot details__\
+        \n\n✘ **Cmd: ** `.valive`\
+       \n➥ **Info: ** __A kind of showing bot details__\
+       \n\n✘ **Cmd: ** `.dalive`\
+       \n➥ **Info: ** __A kind of showing bot details__\
+       \n\n👩‍💻 **Usage : __To check userbot if it is alive.__**"
     }
 )
