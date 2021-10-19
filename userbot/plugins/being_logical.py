@@ -583,18 +583,8 @@ from userbot import CMD_HELP
 
 CMD_HELP.update(
     {
-        "belo": "**alive**\
-        \n\n**Syntax : **`.halive For Hellbot's Alive`\
-        \n**Function : **__ Hellbot's Alive__\
-        \nFor above two commands use `.bigspam` instead of spam for spamming more than 50 messages\
-        \n\n**Syntax : **`.falive`\
-        \n**Function : **__ Fridays's Alive.__\
-        \n\n**Syntax : **`.halive `\
-        \n**Function : **__ .hell Uerbot's Alive.__\
-        \n\n**Syntax : **`.alive `\
-        \n**Function : **__ .Lightning Uerbot's Alive.__\
-        \n\n**Syntax : **`.awake `\
-        \n**Function : **__ .Awake.__\
+        "belo": "**belo**\
+        \n\n**Syntax : **`.halive For Hellbot's Alive`\n
         \n\n\n**NOTE : All Credits To Thier Respective !!**"
     }
 )
