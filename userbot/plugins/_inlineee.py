@@ -603,3 +603,32 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
             )
         ]
     return pairs
+
+
+
+from userbot.cmdhelp import *
+async def commands(event):
+        cmd = event.data_match.group(1).decode("UTF-8")
+        page = int(event.data_match.group(2).decode("UTF-8"))
+        commands = event.data_match.group(3).decode("UTF-8")
+        result = f"**📗 𝙵𝚒𝚕𝚎 :**  `{cmd}`\n"
+        if CMD_HELP_BOT[cmd]["info"]["info"] == "":
+            if not CMD_HELP_BOT[cmd]["info"]["warning"] == "":
+                result += f"**⚠️ 𝚆𝚊𝚛𝚗𝚒𝚗𝚐 :**  {CMD_HELP_BOT[cmd]['info']['warning']}\n\n"
+            result += f"**📍 Type :**  {CMD_HELP_BOT[cmd]['info']['type']}\n\n"
+        else:
+            if not CMD_HELP_BOT[cmd]["info"]["warning"] == "":
+                result += f"**⚠️ 𝚆𝚊𝚛𝚗𝚒𝚗𝚐 :**  {CMD_HELP_BOT[cmd]['info']['warning']}\n"
+            result += f"**📍 Type :**  {CMD_HELP_BOT[cmd]['info']['type']}\n"
+            result += f"**ℹ️ 𝙸𝚗𝚏𝚘 :**  {CMD_HELP_BOT[cmd]['info']['info']}\n"
+            
+        command = CMD_HELP_BOT[cmd]["commands"][commands]
+        if command["params"] is None:
+            result += f"**🛠 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 :**  `{COMMAND_HAND_LER[:1]}{command['command']}`\n"
+        else:
+            result += f"**🛠 𝙲𝚘𝚖𝚖𝚊𝚗𝚍𝚜 :**  `{COMMAND_HAND_LER[:1]}{command['command']} {command['params']}`\n"
+        if command["example"] is None:
+            result += f"**💬 𝙴𝚡𝚙𝚕𝚊𝚗𝚊𝚝𝚒𝚘𝚗 :**  `{command['usage']}`\n\n"
+        else:
+            result += f"**💬 𝙴𝚡𝚙𝚕𝚊𝚗𝚊𝚝𝚒𝚘𝚗 :**  `{command['usage']}`\n"
+            result += f"**⌨️ 𝙵𝚘𝚛 𝙴𝚡𝚊𝚖𝚙𝚕𝚎 :**  `{COMMAND_HAND_LER[:1]}{command['example']}`\n\n"
