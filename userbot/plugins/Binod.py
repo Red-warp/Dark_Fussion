@@ -16,7 +16,7 @@ async def bid(event):
     
 CMD_HELP.update(
     {
-        "bid": "**✘ Cmds ✘** : `1`\
+        "binod": "**✘ Cmds ✘** : `1`\
 ✘ **Cmd:**  `.bid`\
 ➥ **Info:**  __Fun Plugin__\
 👩‍💻 **Usage : __Just for Fun__**"
