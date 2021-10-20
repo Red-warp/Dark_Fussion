@@ -541,7 +541,9 @@ async def lmaao(lightning):
 async def lmaao(lightning):
     if lightning.query.user_id == bot.uid:
         await lightning.delete()
-
+   else:
+        fukoff = "You Don't belong to my master's category. So, why should i follow your orders\nHence, Fuck off" 
+        await lightning.answer(fukoff, alert=True)
 
 import requests
 
@@ -576,7 +578,7 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
     lightning_plugins = sorted(lightning_plugins)
     plugins = [
         custom.Button.inline(
-            "{} {} {}".format("🏆 ", x, "🏆 "), data="_lightning_plugins_{}".format(x)
+            "{} {} {}".format("🔸 ", x, "🔸 "), data="_lightning_plugins_{}".format(x)
         )
         for x in lightning_plugins
     ]
