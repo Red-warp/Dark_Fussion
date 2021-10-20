@@ -537,9 +537,10 @@ async def lmaao(lightning):
         fukoff = "You Don't belong to my master's category. So, why should i follow your orders\nHence, Fuck off" 
         await lightning.answer(fukoff, alert=True)
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"sett")))
-async def help(event):
-    await event.delete()
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"sett"))) 
+async def lmaao(lightning):
+    if lightning.query.user_id == bot.uid:
+        await lightning.delete()
 
 
 import requests
@@ -556,8 +557,7 @@ async def ho(event):
     await event.answer("( ͡🔥 ͜ʖ ͡🔥)", cache_time=0, alert=False)
     # This Is Copy of Above Code. (C) link_preview=False
     buttons = lightnings_menu_for_help(0, CMD_LIST, "helpme")
-    ho = f"""Đ₳Ɽ₭ Ƒմʂʂìօղ Is Here With Stunning Help !\n
-In Case Any Problem [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat) \nTottal Plugs : {len(CMD_LIST)}"""
+    ho = f"""Đ₳Ɽ₭ Ƒմʂʂìօղ Is Here With Stunning Help ! In Case Any Problem [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat) \nTottal Plugs : {len(CMD_LIST)}"""
     await event.edit(message=ho, buttons=buttons)
 
 
@@ -576,7 +576,7 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
     lightning_plugins = sorted(lightning_plugins)
     plugins = [
         custom.Button.inline(
-            "{} {} {}".format("✘ ", x, "✘ "), data="_lightning_plugins_{}".format(x)
+            "{} {} {}".format("🏆 ", x, "🏆 "), data="_lightning_plugins_{}".format(x)
         )
         for x in lightning_plugins
     ]
