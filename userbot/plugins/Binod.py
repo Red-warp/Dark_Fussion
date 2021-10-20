@@ -1,7 +1,7 @@
 from userbot.utils import lightning_cmd
 
 from userbot import CMD_HELP
-@borg.on(events.NewMessage(pattern=r"\.bid", outgoing=True))
+@borg.on(lightning_cmd(pattern=r"bid ?(.*)"))
 async def bid(event):
     giveVar = event.text
     bid = giveVar[4:5]
@@ -16,9 +16,8 @@ async def bid(event):
     
 CMD_HELP.update(
     {
-        "binod": "**✘ Cmds ✘** : `1`\
-✘ **Cmd:**  `.bid`\
-➥ **Info:**  __Fun Plugin__\
-👩‍💻 **Usage : __Just for Fun__**"
+        "bid": "__**PLUGIN NAME :** Afk__\
+\n\n ** CMD ** `.bid` [Emoji]\
+\n**USAGE  :  **Binod**"
     }
 )
