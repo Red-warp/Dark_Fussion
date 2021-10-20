@@ -154,7 +154,7 @@ async def _(event):
 
 BOT_MSG = os.environ.get("BOT_MSG", None)
 if BOT_MSG is None:
-    BOT_LIT = f"**__My Master {LIGHTNINGUSER} is busy Right now!__**\n\n"
+    BOT_LIT = f"**𝙷𝚎𝚕𝚕𝚘 𝚂𝚞𝚛,\n𝙸'𝚖 {LIGHTNINGUSER} 's 𝚊𝚜𝚜𝚒𝚜𝚝𝚊𝚗𝚝..!!**\n\n"
 else:
     BOT_LIT = BOT_MSG   
 
@@ -165,9 +165,10 @@ LIGHTNING_BOT_PIC = os.environ.get("LIGHTNING_BOT_PIC", None)
 if LIGHTNING_WARN is None:
     WARNING = (
     f"**{BOT_LIT}"
-    f"__Please let me know why you came here.__\n"
-    f"__Also choose your Original reason Else you will be blocked__\n\n"
-    f"__But don't spam otherwise you will be blocked [Don't Understimate]__**"
+    f"𝙳𝚘𝚗'𝚝 𝚝𝚛𝚢 𝚝𝚘 𝚂𝚙𝚊𝚖 𝚑𝚎𝚛𝚎.\n"
+    f"𝙾𝚝𝚑𝚎𝚛𝚠𝚒𝚜𝚎 𝚢𝚘𝚞'𝚕𝚕 𝚋𝚎 𝚋𝚕𝚘𝚌𝚔𝚎𝚍..!!"
+    f"𝙸 𝚠𝚒𝚕𝚕 𝚁𝚎𝚙𝚕𝚢 𝚞 𝚊𝚏𝚝𝚎𝚛 𝚌𝚘𝚖𝚎 𝚋𝚊𝚌𝚔 𝙾𝚗𝚕𝚒𝚗𝚎..!!\n\n"
+    f"𝙲𝚑𝚘𝚘𝚜𝚎 𝚢𝚘𝚞𝚛 𝚘𝚛𝚒𝚐𝚒𝚗𝚊𝚕 𝚁𝚎𝚊𝚜𝚘𝚗 𝚠𝚑𝚢 𝚢𝚘𝚞 𝚌𝚊𝚖𝚎 𝚑𝚎𝚛𝚎..!!"
    )
 else:
     WARNING = LIGHTNING_WARN
