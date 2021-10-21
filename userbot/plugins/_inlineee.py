@@ -227,8 +227,8 @@ async def inline_handler(lightning):
                 [custom.Button.inline("✘ Requesting ✘", data="fck_ask"),
               
                     custom.Button.inline(
-                        "✘ Let me In ✘", 
-                        data="lol_u_think_so",
+                        "✘ Chat ✘", 
+                        data="fck_niigaaaaa_noob",
                         
                     )
                         
@@ -483,6 +483,33 @@ async def lightning_is_better(lightning):
         message=f"Hello, Master  [Nibba](tg://user?id={lightning_id}). Wants To Request Something.",
         buttons=[Button.url("Contact Him", f"tg://user?id={lightning_id}")],
     )
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fck_niigaaaaa_noob")))
+async def lightning_is_better(lightning):
+    if lightning.query.user_id == bot.uid:
+        fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch 😁✌️"
+        await lightning.answer(fck_bit, cache_time=0, alert=True)
+        return
+    await lightning.get_chat()
+    lightning_id = lightning.query.user_id
+    await lightning.edit("Okay Giving You A Chance")
+    await asyncio.sleep(2)
+    await lightning.edit(
+        "Will You Spam?", buttons= [
+        [Button.inline("✘ Yes ✘", data="lemme_ban"),
+         Button.inline("✘ No ✘", data="hmm")],
+        ],
+    )
+
+    
+    reqws = "You can chat with {LIGHTNINGUSER} when he'll online\n`Warning`- ❗️⚠️Don't send any message now wait kindly!!!❗️⚠️"
+
+
+    await bot.send_message(lightning.query.user_id, reqws)
+    await bot.send_message(
+        LIGHT_LOGS,
+        message=f"Hello, Master  [Nibba](tg://user?id={lightning_id}). Wants To chat with you")
+
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"hmm")))
 async def yes_ucan(lightning):
