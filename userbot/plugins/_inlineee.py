@@ -239,6 +239,14 @@ async def inline_handler(lightning):
                         data="he_sucks",
                     )
                 ],
+[
+                    custom.Button.inline(
+                        "✘ Lemme In ✘", 
+                        data="lol_u_think_so",
+                        
+                    )
+                        
+                ],
 
             ],
             )
