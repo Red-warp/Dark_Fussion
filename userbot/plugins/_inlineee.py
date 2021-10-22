@@ -222,20 +222,20 @@ async def inline_handler(lightning):
             file=LIGHTNING_BOT_PIC,
             text=WARNING,
             buttons=[
-                [custom.Button.inline("✘ Wanna Spam Something? ✘", data="lightning_is_here_cant_spam")],
+                [custom.Button.inline("✘ Spammer ✘", data="lightning_is_here_cant_spam"),
               
-                [custom.Button.inline("✘ Requesting ✘", data="fck_ask"),
-              
-                    custom.Button.inline(
+                custom.Button.inline("✘ Requester ✘", data="fck_ask")],
+   
+                    [custom.Button.inline(
                         "✘ Chat ✘", 
                         data="fck_niigaaaaa_noob",
                         
                     )
                         
-                ],
-[
+                ,
+
                     custom.Button.inline(
-                        "✘ My Friend ✘",
+                        "✘ Friend ✘",
                         data="he_sucks",
                     )
                 ],
