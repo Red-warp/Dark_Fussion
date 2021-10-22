@@ -154,7 +154,7 @@ async def _(event):
 
 BOT_MSG = os.environ.get("BOT_MSG", None)
 if BOT_MSG is None:
-    BOT_LIT = f"𝙷𝚎𝚕𝚕𝚘 𝚂𝚞𝚛,\n𝙸'𝚖 {LIGHTNINGUSER} 's 𝚊𝚜𝚜𝚒𝚜𝚝𝚊𝚗𝚝..!!\n\n"
+    BOT_LIT = f"ʜᴇʟʟᴏ ꜱᴜʀ/ᴍᴀᴍ,\nɪ'ᴍ {LIGHTNINGUSER}'s ᴀꜱꜱɪꜱᴛᴀɴᴛ..!!\n\n"
 else:
     BOT_LIT = BOT_MSG   
 
@@ -164,11 +164,11 @@ LIGHTNING_BOT_PIC = os.environ.get("LIGHTNING_BOT_PIC", None)
 
 if LIGHTNING_WARN is None:
     WARNING = (
-    f"**{BOT_LIT}"
-    f"𝙳𝚘𝚗'𝚝 𝚝𝚛𝚢 𝚝𝚘 𝚂𝚙𝚊𝚖 𝚑𝚎𝚛𝚎.\n"
-    f"𝙾𝚝𝚑𝚎𝚛𝚠𝚒𝚜𝚎 𝚢𝚘𝚞'𝚕𝚕 𝚋𝚎 𝚋𝚕𝚘𝚌𝚔𝚎𝚍..!!"
-    f"𝙸 𝚠𝚒𝚕𝚕 𝚁𝚎𝚙𝚕𝚢 𝚞 𝚊𝚏𝚝𝚎𝚛 𝚌𝚘𝚖𝚎 𝚋𝚊𝚌𝚔 𝙾𝚗𝚕𝚒𝚗𝚎..!!\n\n"
-    f"𝙲𝚑𝚘𝚘𝚜𝚎 𝚢𝚘𝚞𝚛 𝚘𝚛𝚒𝚐𝚒𝚗𝚊𝚕 𝚁𝚎𝚊𝚜𝚘𝚗 𝚠𝚑𝚢 𝚢𝚘𝚞 𝚌𝚊𝚖𝚎 𝚑𝚎𝚛𝚎..!!"
+    f"{BOT_LIT}"
+    f"ᴅᴏɴ'ᴛ ᴛʀʏ ᴛᴏ ꜱᴘᴀᴍ ʜᴇʀᴇ.\n"
+    f"ᴏᴛʜᴇʀᴡɪꜱᴇ ʏᴏᴜ ᴡɪʟʟ ʙᴇ ʙʟᴏᴄᴋᴇᴅ ᴀɴᴅ ʀᴇᴘᴏʀᴛᴇᴅ./n"
+    f"ɪ ᴡɪʟʟ ʏᴏᴜ ʀᴇᴘʟʏ ᴜ ᴀꜰᴛᴇʀ, ᴄᴏᴍᴇ ʙᴀᴄᴋ ᴏɴʟɪɴᴇ..!\n\n"
+    f"ᴄʜᴏᴏꜱᴇ ʏᴏᴜʀ ᴏʀɪɢɪɴᴀʟ ʀᴇᴀꜱᴏɴ ᴡʜʏ ʏᴏᴜ ᴄᴀᴍ ʜᴇʀᴇ..!!"
    )
 else:
     WARNING = LIGHTNING_WARN
@@ -204,7 +204,7 @@ async def inline_handler(lightning):
         await lightning.answer([result] if result else None)
     elif lightning.query.user_id == bot.uid and query.startswith("**Black") or query.startswith("Black"):
         result = builder.photo(
-            file="https://te.legra.ph/file/7764974550122172ef810.jpg",
+            file="https://te.legra.ph/file/1f544dc95acc035c4ab21.jpg",
             text=f"** Bᴏᴛ Oғ {LIGHTNINGUSER}\n\n Mᴀɪɴ Mᴇɴᴜ\n Pʟᴜɢɪɴs ~ {len(CMD_LIST)}\n\n Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n╭━━━━━━━━━━━━━━━➣\n┣⪼ Ⲟⲱⲛⲉʀ - {LIGHTNINGUSER}\n┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - 1.2.7\n┣⪼ Ⳙⲣⲧⲓⲙⲉ - 2m.42s\n┣⪼ Ⲣⲩⲧⲏⲟⲛ - 3.9.96\n┣⪼ Ⲧⲉⳑⲉⲧⲏⲟⲛ - 1.23.0\n╰━━━━━━━━━━━━━━━➣** ",
             buttons=[
                 [custom.Button.inline("✘ Plugins ✘", data="what?"),
