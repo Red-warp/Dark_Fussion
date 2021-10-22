@@ -176,7 +176,7 @@ else:
 LIGHTNING_BOT_PIC = (
     LIGHTNING_BOT_PIC
     if LIGHTNING_BOT_PIC
-    else "https://te.legra.ph/file/d4a96b95ef63eed7d97a0.jpg"
+    else "https://te.legra.ph/file/1b87bff0d89a0ba1f71f4.jpg"
 )
 
 
