@@ -154,7 +154,7 @@ async def _(event):
 
 BOT_MSG = os.environ.get("BOT_MSG", None)
 if BOT_MSG is None:
-    BOT_LIT = f"ʜᴇʟʟᴏ ꜱᴜʀ/ᴍᴀᴍ,\nɪ'ᴍ {LIGHTNINGUSER}'s ᴀꜱꜱɪꜱᴛᴀɴᴛ..!!\n\n"
+    BOT_LIT = f"**ʜᴇʟʟᴏ ꜱᴜʀ,\nɪ'ᴍ ᴀꜱꜱɪꜱᴛᴀɴᴛ..!!**\n\n"
 else:
     BOT_LIT = BOT_MSG   
 
@@ -165,10 +165,10 @@ LIGHTNING_BOT_PIC = os.environ.get("LIGHTNING_BOT_PIC", None)
 if LIGHTNING_WARN is None:
     WARNING = (
     f"{BOT_LIT}"
-    f"ɖօռ'ȶ ȶʀʏ ȶօ ֆքǟʍ ɦɛʀɛ.\n"
-    f"օȶɦɛʀաɨֆɛ ʏօʊ աɨʟʟ ɮɛ ɮʟօƈӄɛɖ ǟռɖ ʀɛքօʀȶɛɖ.\n"
-    f"ɨ աɨʟʟ ʏօʊ ʀɛքʟʏ ʊ ǟʄȶɛʀ, ƈօʍɛ ɮǟƈӄ օռʟɨռɛ..!\n\n"
-    f"ᴄʜᴏᴏꜱᴇ ʏᴏᴜʀ ᴏʀɪɢɪɴᴀʟ ʀᴇᴀꜱᴏɴ ᴡʜʏ ʏᴏᴜ ᴄᴀᴍ ʜᴇʀᴇ..!!"
+    f"**ɖօռ'ȶ ȶʀʏ ȶօ ֆքǟʍ ɦɛʀɛ.**\n"
+    f"**օȶɦɛʀաɨֆɛ ʏօʊ աɨʟʟ ɮɛ ɮʟօƈӄɛɖ ǟռɖ ʀɛքօʀȶɛɖ.**\n"
+    f"**ɨ աɨʟʟ ʏօʊ ʀɛքʟʏ ʊ ǟʄȶɛʀ, ƈօʍɛ ɮǟƈӄ օռʟɨռɛ..!**\n\n"
+    f"**ᴄʜᴏᴏꜱᴇ ʏᴏᴜʀ ᴏʀɪɢɪɴᴀʟ ʀᴇᴀꜱᴏɴ ᴡʜʏ ʏᴏᴜ ᴄᴀᴍ ʜᴇʀᴇ..!!**"
    )
 else:
     WARNING = LIGHTNING_WARN
