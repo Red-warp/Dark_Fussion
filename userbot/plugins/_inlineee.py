@@ -222,6 +222,15 @@ async def inline_handler(lightning):
             file=LIGHTNING_BOT_PIC,
             text=WARNING,
             buttons=[
+[
+                    custom.Button.inline(
+                        "✘ Lemme In ✘", 
+                        data="lol_u_think_so",
+                        
+                    )
+                        
+                ],
+
                 [custom.Button.inline("✘ Spammer ✘", data="lightning_is_here_cant_spam"),
               
                 custom.Button.inline("✘ Requester ✘", data="fck_ask")],
@@ -239,15 +248,6 @@ async def inline_handler(lightning):
                         data="he_sucks",
                     )
                 ],
-[
-                    custom.Button.inline(
-                        "✘ Lemme In ✘", 
-                        data="lol_u_think_so",
-                        
-                    )
-                        
-                ],
-
             ],
             )
         await lightning.answer([result] if result else None)
