@@ -207,12 +207,12 @@ async def inline_handler(lightning):
             file="https://te.legra.ph/file/1f544dc95acc035c4ab21.jpg",
             text=f"** Bᴏᴛ Oғ {LIGHTNINGUSER}\n\n Mᴀɪɴ Mᴇɴᴜ\n Pʟᴜɢɪɴs ~ {len(CMD_LIST)}\n\n Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n╭━━━━━━━━━━━━━━━➣\n┣⪼ Ⲟⲱⲛⲉʀ - {LIGHTNINGUSER}\n┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - 1.2.7\n┣⪼ Ⳙⲣⲧⲓⲙⲉ - 2m.42s\n┣⪼ Ⲣⲩⲧⲏⲟⲛ - 3.9.96\n┣⪼ Ⲧⲉⳑⲉⲧⲏⲟⲛ - 1.23.0\n╰━━━━━━━━━━━━━━━➣** ",
             buttons=[
-                [custom.Button.inline("✘ Plugins ✘", data="what?"),
-                custom.Button.inline("✘ Ping ✘", data="bitch")],
-                [Button.url("✘ Updates ✘", "https://t.me/DarkFussion"),
-                 Button.url("✘ Support ✘", "https://t.me/Dark_Fussion_chat")],  
-                [Button.url("✘ Settings ✘" , "https://t.me/Red_warp_bot")],
-                [custom.Button.inline("🚫 Cancel 🚫" , data="sett")],
+                [custom.Button.inline("✘ ᴘʟᴜɢɪɴs ✘", data="what?"),
+                custom.Button.inline("✘ ᴘɪɴɢ ✘", data="bitch")],
+                [Button.url("✘ ᴜᴘᴅᴀᴛᴇs ✘", "https://t.me/DarkFussion"),
+                 Button.url("✘ ᴜᴘᴅᴀᴛᴇs ✘", "https://t.me/Dark_Fussion_chat")],  
+                [Button.url("✘ sᴇᴛᴛɪɴɢs ✘" , "https://t.me/Red_warp_bot")],
+                [custom.Button.inline("🚫 ᴄᴀɴᴄᴇʟ 🚫" , data="sett")],
            ],
         )
         await lightning.answer([result])
@@ -510,21 +510,20 @@ async def lightning_is_better(lightning):
     )
 
     
-    reqws = "You can chat with {LIGHTNINGUSER} when he'll online\n`Warning`- ❗️⚠️Don't send any message now wait kindly!!!❗️⚠️"
+    reqws = f"You can chat with {LIGHTNINGUSER} when he'll online\n`Warning`- ❗️⚠️Don't send any message now wait kindly!!!❗️⚠️"
 
 
     await bot.send_message(lightning.query.user_id, reqws)
     await bot.send_message(
         LIGHT_LOGS,
-        message=f"Hello, Master  [Nibba](tg://user?id={lightning_id}). Wants To chat with you")
-
-
+        message=f"#Chatter\n\nʜᴇʟʟᴏ {LIGHTNINGUSER},\nɴɪʙʙᴀ ᴡᴀɴᴛs ᴛᴏ ᴄʜᴀᴛ ᴡɪᴛʜ ʏᴏᴜ..!! 😁😂\n\nɪғ ʜᴇ ɪs ᴀ ɢᴏᴏᴅ ᴍᴀɴ ᴛʜᴇɴ ᴛᴀʟᴋ ᴡɪᴛʜ ʜɪᴍ..\nɪғ ʏᴏᴜ ᴛʜɪɴᴋ ʜᴇ ɪs sᴘᴀᴀᴍᴇʀ ᴛʜᴇɴ  ʙʟᴏᴄᴋ ᴛʜɪs ɴɪʙʙᴀ.!\n\nsᴏʀʀʏ ғᴏʀ ᴅɪsᴛᴜʀʙɪɴɢ ʏᴏᴜ..! 😁,\nsᴏʀʀʏ ғᴏʀ ᴅɪsᴛᴜʀʙɪɴɢ ʏᴏᴜ..! 😁" , buttons=[[Button.url("✘ ɴᴏᴏʙ ✘" , "tg://user?id={lightning_id}"),],)
+    
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"hmm")))
 async def yes_ucan(lightning):
     if lightning.query.user_id == bot.uid:
            lmaoo = "You Are Not Requesting , Lol."
            await lightning.answer(lmaoo, cache_time=0, alert=True)
-           return          
+           return 
     await lightning.get_chat()
     await asyncio.sleep(2)
     await lightning.edit("Okay You Can Wait Till Wait")
@@ -549,10 +548,10 @@ async def yes_ucan(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stta")))
 async def hmm(lightning):
     if lightning.query.user_id == bot.uid:
-        text = "✘ My Stats ✘\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good ✔\nTottal Plugs: {}".format(len(CMD_LIST))
+        text = "✘ My Stats ✘\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good ✔"
         await lightning.answer(text, alert=True)
     else:
-        txt = f"Stats For {LIGHTNINGUSER} Not For You :)"
+        txt = f"Stats For {LIGHTNINGUSER} Not For You Nigga\nDon't Poke your Nose Please"
         await lightning.answer(txt, alert=True)
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"wtshit"))) 
@@ -561,16 +560,16 @@ async def lmaao(lightning):
         await lightning.edit(
             f"** Bᴏᴛ Oғ {LIGHTNINGUSER}\n\n Mᴀɪɴ Mᴇɴᴜ\n Pʟᴜɢɪɴs ~ {len(CMD_LIST)}\n\n Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n╭━━━━━━━━━━━━━━━➣\n┣⪼ Ⲟⲱⲛⲉʀ - {LIGHTNINGUSER}\n┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - 1.2.7\n┣⪼ Ⳙⲣⲧⲓⲙⲉ - 2m.42s\n┣⪼ Ⲣⲩⲧⲏⲟⲛ - 3.9.96\n┣⪼ Ⲧⲉⳑⲉⲧⲏⲟⲛ - 1.23.0\n╰━━━━━━━━━━━━━━━➣**",
             buttons=[
-                [custom.Button.inline("✘ Plugins ✘", data="what?"),
-                custom.Button.inline("✘ Ping ✘", data="bitch")],
-                [Button.url("✘ Updates ✘", "https://t.me/DarkFussion"),
-                 Button.url("✘ Support ✘", "https://t.me/Dark_Fussion_chat")],
-                [Button.url("✘ Settings ✘" , "https://t.me/Red_warp_bot")],
-                [custom.Button.inline("🚫 Cancel 🚫" , data="sett")],
+                [custom.Button.inline("✘ ᴘʟᴜɢɪɴs ✘", data="what?"),
+                custom.Button.inline("✘ ᴘɪɴɢ ✘", data="bitch")],
+                [Button.url("✘ ᴜᴘᴅᴀᴛᴇs ✘", "https://t.me/DarkFussion"),
+                 Button.url("✘ sᴜᴘᴘᴏʀᴛ ✘", "https://t.me/Dark_Fussion_chat")],
+                [Button.url("✘ sᴇᴛᴛɪɴɢs ✘" , "https://t.me/Red_warp_bot")],
+                [custom.Button.inline("🚫 ᴄᴀɴᴄᴇʟ 🚫" , data="sett")],
             ],
         )
     else:
-        fukoff = "You Don't belong to my master's category. So, why should i follow your orders\nHence, Fuck off" 
+        fukoff = "You Don't belong to my master's category. So, why should i follow your orders\nHence, Fuck off Noob" 
         await lightning.answer(fukoff, alert=True)
 
 import requests
