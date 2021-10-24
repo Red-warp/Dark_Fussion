@@ -516,7 +516,7 @@ async def lightning_is_better(lightning):
     await bot.send_message(lightning.query.user_id, reqws)
     await bot.send_message(
         LIGHT_LOGS,
-        message=f"#Chatter\n\nʜᴇʟʟᴏ {LIGHTNINGUSER},\nɴɪʙʙᴀ ᴡᴀɴᴛs ᴛᴏ ᴄʜᴀᴛ ᴡɪᴛʜ ʏᴏᴜ..!! 😁😂\n\nɪғ ʜᴇ ɪs ᴀ ɢᴏᴏᴅ ᴍᴀɴ ᴛʜᴇɴ ᴛᴀʟᴋ ᴡɪᴛʜ ʜɪᴍ..\nɪғ ʏᴏᴜ ᴛʜɪɴᴋ ʜᴇ ɪs sᴘᴀᴀᴍᴇʀ ᴛʜᴇɴ  ʙʟᴏᴄᴋ ᴛʜɪs ɴɪʙʙᴀ.!\n\nsᴏʀʀʏ ғᴏʀ ᴅɪsᴛᴜʀʙɪɴɢ ʏᴏᴜ..! 😁,\nʜᴀᴠᴇ ᴀ ɴɪᴄᴇ ᴅᴀʏ 🙂")
+        message=f"#Chatter\n\nʜᴇʟʟᴏ {LIGHTNINGUSER},\nɴɪʙʙᴀ ᴡᴀɴᴛs ᴛᴏ ᴄʜᴀᴛ ᴡɪᴛʜ ʏᴏᴜ..!! 😁😂\n\nɪғ ʜᴇ ɪs ᴀ ɢᴏᴏᴅ ᴍᴀɴ ᴛʜᴇɴ ᴛᴀʟᴋ ᴡɪᴛʜ ʜɪᴍ..\nɪғ ʏᴏᴜ ᴛʜɪɴᴋ ʜᴇ ɪs sᴘᴀᴀᴍᴇʀ ᴛʜᴇɴ  ʙʟᴏᴄᴋ ᴛʜɪs ɴɪʙʙᴀ.!\n\nsᴏʀʀʏ ғᴏʀ ᴅɪsᴛᴜʀʙɪɴɢ ʏᴏᴜ..! 😁,\nʜᴀᴠᴇ ᴀ ɴɪᴄᴇ ᴅᴀʏ 🙂" , Button.url("✘ Chatter ✘", "tg://user?id={lightning_id}")],)
     
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"hmm")))
 async def yes_ucan(lightning):
