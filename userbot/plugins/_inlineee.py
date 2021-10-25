@@ -154,7 +154,7 @@ async def _(event):
 
 BOT_MSG = os.environ.get("BOT_MSG", None)
 if BOT_MSG is None:
-    BOT_LIT = f"**ʜᴇʟʟᴏ ꜱᴜʀ,\nɪ'ᴍ ᴀꜱꜱɪꜱᴛᴀɴᴛ..!!**\n\n"
+    BOT_LIT = f"**Hᴇʟʟᴏ\nI'ᴍ Aꜱꜱɪꜱᴛᴀɴᴛ..!!**\n\n"
 else:
     BOT_LIT = BOT_MSG   
 
@@ -168,7 +168,7 @@ if LIGHTNING_WARN is None:
     f"**ɖօռ'ȶ ȶʀʏ ȶօ ֆքǟʍ ɦɛʀɛ.**\n"
     f"**օȶɦɛʀաɨֆɛ ʏօʊ աɨʟʟ ɮɛ ɮʟօƈӄɛɖ ǟռɖ ʀɛքօʀȶɛɖ.**\n"
     f"**ɨ աɨʟʟ ʏօʊ ʀɛքʟʏ ʊ ǟʄȶɛʀ, ƈօʍɛ ɮǟƈӄ օռʟɨռɛ..!**\n\n"
-    f"**ᴄʜᴏᴏꜱᴇ ʏᴏᴜʀ ᴏʀɪɢɪɴᴀʟ ʀᴇᴀꜱᴏɴ ᴡʜʏ ʏᴏᴜ ᴄᴀᴍ ʜᴇʀᴇ..!!**"
+    f"**Cʜᴏᴏꜱᴇ Yᴏᴜʀ Oʀɪɢɪɴᴀʟ Rᴇᴀꜱᴏɴ Wʜʏ Yᴏᴜ Cᴏᴇ Hᴇʀᴇ..!!**"
    )
 else:
     WARNING = LIGHTNING_WARN
@@ -207,12 +207,12 @@ async def inline_handler(lightning):
             file="https://te.legra.ph/file/1f544dc95acc035c4ab21.jpg",
             text=f"** Bᴏᴛ Oғ {LIGHTNINGUSER}\n\n Mᴀɪɴ Mᴇɴᴜ\n Pʟᴜɢɪɴs ~ {len(CMD_LIST)}\n\n Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n╭━━━━━━━━━━━━━━━➣\n┣⪼ Ⲟⲱⲛⲉʀ - {LIGHTNINGUSER}\n┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - 1.2.7\n┣⪼ Ⳙⲣⲧⲓⲙⲉ - 2m.42s\n┣⪼ Ⲣⲩⲧⲏⲟⲛ - 3.9.96\n┣⪼ Ⲧⲉⳑⲉⲧⲏⲟⲛ - 1.23.0\n╰━━━━━━━━━━━━━━━➣** ",
             buttons=[
-                [custom.Button.inline("✘ ᴘʟᴜɢɪɴs ✘", data="what?"),
-                custom.Button.inline("✘ ᴘɪɴɢ ✘", data="bitch")],
-                [Button.url("✘ ᴜᴘᴅᴀᴛᴇs ✘", "https://t.me/DarkFussion"),
-                 Button.url("✘ ᴜᴘᴅᴀᴛᴇs ✘", "https://t.me/Dark_Fussion_chat")],  
-                [Button.url("✘ sᴇᴛᴛɪɴɢs ✘" , "https://t.me/Red_warp_bot")],
-                [custom.Button.inline("🚫 ᴄᴀɴᴄᴇʟ 🚫" , data="sett")],
+                [custom.Button.inline("✘ Pʟᴜɢɪɴs ✘", data="what?"),
+                custom.Button.inline("✘ Pɪɴɢ ✘", data="bitch")],
+                [Button.url("✘ Uᴘᴅᴀᴛᴇs ✘", "https://t.me/DarkFussion"),
+                 Button.url("✘ Sᴜᴘᴘᴏʀᴛ ✘", "https://t.me/Dark_Fussion_chat")],  
+                [Button.url("✘ Sᴇᴛᴛɪɴɢs ✘" , "https://t.me/Red_warp_bot")],
+                [custom.Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫" , data="sett")],
            ],
         )
         await lightning.answer([result])
@@ -548,7 +548,7 @@ async def yes_ucan(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"stta")))
 async def hmm(lightning):
     if lightning.query.user_id == bot.uid:
-        text = "✘ My Stats ✘\n\nᴘʟᴜɢɪɴ-- All Good ✔\nʜᴇʀᴏᴋᴜ - Connected ✔\nʟᴏɢs -- Looks Good ✔"
+        text = "✘ My Stats ✘\n\nPʟᴜɢɪɴ-- All Good ✔\nHᴇʀᴏᴋᴜ - Connected ✔\nLᴏɢs -- Looks Good ✔"
         await lightning.answer(text, alert=True)
     else:
         txt = f"Stats For {LIGHTNINGUSER} Not For You Nigga\nDon't Poke your Nose Please"
@@ -561,11 +561,11 @@ async def lmaao(lightning):
             f"** Bᴏᴛ Oғ {LIGHTNINGUSER}\n\n Mᴀɪɴ Mᴇɴᴜ\n Pʟᴜɢɪɴs ~ {len(CMD_LIST)}\n\n Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n╭━━━━━━━━━━━━━━━➣\n┣⪼ Ⲟⲱⲛⲉʀ - {LIGHTNINGUSER}\n┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - 1.2.7\n┣⪼ Ⳙⲣⲧⲓⲙⲉ - 2m.42s\n┣⪼ Ⲣⲩⲧⲏⲟⲛ - 3.9.96\n┣⪼ Ⲧⲉⳑⲉⲧⲏⲟⲛ - 1.23.0\n╰━━━━━━━━━━━━━━━➣**",
             buttons=[
                 [custom.Button.inline("✘ ᴘʟᴜɢɪɴs ✘", data="what?"),
-                custom.Button.inline("✘ ᴘɪɴɢ ✘", data="bitch")],
-                [Button.url("✘ ᴜᴘᴅᴀᴛᴇs ✘", "https://t.me/DarkFussion"),
-                 Button.url("✘ sᴜᴘᴘᴏʀᴛ ✘", "https://t.me/Dark_Fussion_chat")],
-                [Button.url("✘ sᴇᴛᴛɪɴɢs ✘" , "https://t.me/Red_warp_bot")],
-                [custom.Button.inline("🚫 ᴄᴀɴᴄᴇʟ 🚫" , data="sett")],
+                custom.Button.inline("✘ Pɪɴɢ ✘", data="bitch")],
+                [Button.url("✘ Uᴘᴅᴀᴛᴇs ✘", "https://t.me/DarkFussion"),
+                 Button.url("✘ Sᴜᴘᴘᴏʀᴛ ✘", "https://t.me/Dark_Fussion_chat")],
+                [Button.url("✘ Sᴇᴛᴛɪɴɢs ✘" , "https://t.me/Red_warp_bot")],
+                [custom.Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫" , data="sett")],
             ],
         )
     else:
