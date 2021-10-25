@@ -223,12 +223,12 @@ async def inline_handler(lightning):
             text=WARNING,
             buttons=[
 
-                [custom.Button.inline("🚫 Spam🚫", data="lightning_is_here_cant_spam"),
+                [custom.Button.inline("🚫 Sᴘᴀᴍ 🚫", data="lightning_is_here_cant_spam"),
               
-                custom.Button.inline("📝 Request 📝", data="fck_ask")],
+                custom.Button.inline("📝 Rᴇǫᴜᴇsᴛ 📝", data="fck_ask")],
    
                     [custom.Button.inline(
-                        "💬 Chat 💬", 
+                        "💬 Cʜᴀᴛ 💬", 
                         data="fck_niigaaaaa_noob",
                         
                     )
@@ -236,13 +236,13 @@ async def inline_handler(lightning):
                 ,
 
                     custom.Button.inline(
-                        "⭐ Friend ⭐",
+                        "⭐ Fʀɪᴇɴᴅ ⭐",
                         data="he_sucks",
                     )
                 ],
 [
                     custom.Button.inline(
-                        "❌ Let me in ❌", 
+                        "❌ Lᴇᴛ Mᴇ Iɴ ❌", 
                         data="lol_u_think_so",
                         
                     )
@@ -412,9 +412,8 @@ async def lightning_is_better(lightning):
     await asyncio.sleep(2)
     await lightning.edit(
         "Name Which Type Of Friend?", buttons= [
-        [Button.inline("✘ School Friend ✘", data="school")], 
-        [Button.inline("✘ Causal Friend ✘", data="tg_okay")],
-        ],
+        [Button.inline("✘ Sᴄʜᴏᴏʟ ᴏʀ Cʟᴏsᴇ Fʀɪᴇɴᴅ ✘", data="school")], 
+        [Button.inline("✘ Cᴀᴜsᴀʟ Fʀɪᴇɴᴅ ✘" , data="tg_okay")],],
     )
     light_text = "`Warning`- ❗️⚠️Don't send any message now wait kindly!!!❗️⚠️"
     await bot.send_message(lightning.query.user_id, light_text)
@@ -476,8 +475,8 @@ async def lightning_is_better(lightning):
     await asyncio.sleep(2)
     await lightning.edit(
         "You Will Spam?", buttons= [
-        [Button.inline("✘ Yes ✘", data="lemme_ban"),
-         Button.inline("✘ No ✘", data="hmm")],
+        [Button.inline("✘ Yᴇs ✘", data="lemme_ban"),
+         Button.inline("✘ Nᴏ ✘", data="hmm")],
         ],
     )
 
@@ -504,8 +503,8 @@ async def lightning_is_better(lightning):
     await asyncio.sleep(2)
     await lightning.edit(
         "Will You Spam?", buttons= [
-        [Button.inline("✘ Yes ✘", data="lemme_ban"),
-         Button.inline("✘ No ✘", data="hmm")],
+        [Button.inline("✘ Yᴇs ✘", data="lemme_ban"),
+         Button.inline("✘ Nᴏ ✘", data="hmm")],
         ],
     )
 
