@@ -362,7 +362,7 @@ async def lightning_is_better(lightning):
     await lightning.edit("😛 Bye idiot")
     await bot.send_message(
         LIGHT_LOGS,
-        f"#Spammer\n\nHᴇʟʟᴏ {LIGHTNINGUSER},\nNɪʙʙᴀ Tʀʏɪɴɢ Tᴏ Sᴘᴀᴍ..😁😏\n**Sᴏ Bʟᴏᴄᴋᴇᴅ** 😏\n\nSᴏʀʀʏ Fᴏʀ Dɪsᴛᴜʀʙɪɴɢ Yᴏᴜ..! 😁,\nHᴀᴠᴇ ᴀ Nɪᴄᴇ Dᴀʏ 🙂" , buttons=[[Button.url("Spammer", "https://t.me/red_warp")], ],
+        f"#Spammer\n\nHᴇʟʟᴏ {LIGHTNINGUSER},\nNɪʙʙᴀ Tʀʏɪɴɢ Tᴏ Sᴘᴀᴍ..😁😏\n\n**Sᴏ Bʟᴏᴄᴋᴇᴅ** 😏\n\nSᴏʀʀʏ Fᴏʀ Dɪsᴛᴜʀʙɪɴɢ Yᴏᴜ..! 😁,\nHᴀᴠᴇ ᴀ Nɪᴄᴇ Dᴀʏ 🙂" , buttons=[[Button.url("Spammer", "https://t.me/red_warp")], ],
     )
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lol_u_think_so")))
