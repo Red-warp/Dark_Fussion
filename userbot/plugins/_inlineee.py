@@ -362,7 +362,7 @@ async def lightning_is_better(lightning):
     await lightning.edit("😛")
     await bot.send_message(
         LIGHT_LOGS,
-        f"Hey Master Sorry Disturb You, [Noob](tg://user?id={lightning_id}) Trying To Spam 😂\n\n**So Blocked**.",
+        f"#Spammer\n\nHᴇʟʟᴏ {LIGHTNINGUSER},\nNɪʙʙᴀ Tʀʏɪɴɢ Tᴏ Sᴘᴀᴍ..😁😏\n**Sᴏ Bʟᴏᴄᴋᴇᴅ** 😏\n\nSᴏʀʀʏ Fᴏʀ Dɪsᴛᴜʀʙɪɴɢ Yᴏᴜ..! 😁,\nHᴀᴠᴇ ᴀ Nɪᴄᴇ Dᴀʏ 🙂",
     )
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lol_u_think_so")))
