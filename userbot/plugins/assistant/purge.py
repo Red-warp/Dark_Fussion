@@ -62,9 +62,9 @@ async def purge(event):
                 msgs = []
 
         await tgbot.delete_messages(chat, msgs)
-        del_res = await tgbot.send_message(
-            event.chat_id, f"Fast Purged {count} messages."
-        )
+      #  del_res = await tgbot.send_message(
+      #      event.chat_id, f"Fast Purged {count} messages."
+      #  )
 
         await asyncio.sleep(4)
         await del_res.delete()
