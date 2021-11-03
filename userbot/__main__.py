@@ -96,27 +96,6 @@ else:
     sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Installed Sucessfully !")
     sed.info("You Can Visit @Dark_Fussion_chat For Any Support Or Doubts")
 
-hl = Config.HANDLER
-HELL_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/ea9e11f7c9db21c1b8d5e.mp4"
-
-
-async def hell_is_on():
-    try:
-        if Config.COMBINED_GROUP_ID != 0:
-            await bot.send_file(
-                Config.COMBINED_GROUP_ID,
-                HELL_PIC,
-                caption=f"#START \n\nDeployed Hêllẞø† Successfully\n\n**Hêllẞø† - {hellver}**\n\nType `{hl}ping` or `{hl}alive` to check! \n\nJoin [Hêllẞø† Channel](t.me/Its_HellBot) for Updates & [Hêllẞø† Chat](t.me/userbot_chat) for any query regarding Hêllẞø†",
-            )
-    except Exception as e:
-        LOGS.info(str(e))
-
-# Join HellBot Channel after deploying 🤐😅
-    try:
-        await bot(JoinChannelRequest("@Its_HellBot"))
-    except BaseException:
-        pass
-
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:
