@@ -59,6 +59,12 @@ async def start(event):
             ],
         )
     else:
+starkbot = await tgbot.get_me()
+    bot_id = starkbot.first_name
+    bot_username = starkbot.username
+    replied_user = await event.client(GetFullUserRequest(event.sender_id))
+    firstname = replied_user.user.first_name
+    vent = event.chat_id
         if already_added(event.sender_id):
             pass
         elif not already_added(event.sender_id):
