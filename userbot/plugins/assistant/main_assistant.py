@@ -59,11 +59,6 @@ async def start(event):
             ],
         )
     else:
-starkbot = await tgbot.get_me()
-    bot_id = starkbot.first_name
-    bot_username = starkbot.username
-    replied_user = await event.client(GetFullUserRequest(event.sender_id))
-    firstname = replied_user.user.first_name
         if already_added(event.sender_id):
             pass
         elif not already_added(event.sender_id):
@@ -73,7 +68,6 @@ starkbot = await tgbot.get_me()
             message=starttext,
             link_preview=False,
             buttons=[
-                [Button.url("My Mᴀꜱᴛᴇʀ ", "tg://user?id={bot.uid}")],
                 [custom.Button.inline("Rᴜʟᴇꜱ", data="rules")],
             ],
         )
