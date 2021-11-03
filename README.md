@@ -1,4 +1,6 @@
-<h2 align="center"><b>Devoloper: <a href="https://telegram.dog/Red_warp">ཞ𝔼𝔻 𝕎𝔸ℝℙ</a></b></h2>
+<h2 align="center"><b>Owner: <a href="https://telegram.dog/Red_warp">ཞ𝔼𝔻 𝕎𝔸ℝℙ</a></b></h2>
+<br>
+<h2 align="center"><b>Owner 2.0: <a href="https://telegram.dog/Akki_ThePro">𝔸𝕜𝕤𝕙𝕒𝕥 𝕂𝕦𝕞𝕒𝕣</a></b></h2>
 <br>
 <p align="center"><a href="https://t.me/DarkFussion"><img src="https://te.legra.ph/file/a79a59f2a605412324bba.jpg"></a></p> 
 </p>
