@@ -39,7 +39,7 @@ async def start(event):
     replied_user = await event.client(GetFullUserRequest(event.sender_id))
     firstname = replied_user.user.first_name
     vent = event.chat_id
-    starttext = f"Hᴇʟʟᴏ {firstname} ❤️\nHᴇy Myꜱᴇʟꜰ {bot_id} , Aꜱꜱɪꜱᴛᴀɴᴛ Bᴏᴛ Oꜰ My Mᴀꜱᴛᴇʀ\nU Cᴀɴ Cᴏɴᴛᴀᴄᴛ My Mᴀꜱᴛᴇʀ Tʜʀᴏᴜɢʜ Mᴇ ...🥰\nFᴇᴇʟ Fʀᴇᴇ Tᴏ Mᴇꜱꜱᴀɢᴇ.....\n➖➖➖➖➖➖➖➖➖➖➖➖➖\nRᴇᴀᴅ Tʜᴇ Rᴜʟᴇꜱ Bᴇʟᴏᴡ......⚠️\n🔰 Wʜᴇɴ I Gᴇᴛ Fʀᴇᴇ Tɪᴍᴇ , I ʟʟ Rᴇᴩʟy U 💯✅"
+    starttext = f"Hᴇʟʟᴏ {firstname} ❤️\nHᴇy Myꜱᴇʟꜰ {bot_id} , Aꜱꜱɪꜱᴛᴀɴᴛ Bᴏᴛ Oꜰ My Mᴀꜱᴛᴇʀ\nU Cᴀɴ Cᴏɴᴛᴀᴄᴛ My Mᴀꜱᴛᴇʀ Tʜʀᴏᴜɢʜ Mᴇ ...🥰\nFᴇᴇʟ Fʀᴇᴇ Tᴏ Mᴇꜱꜱᴀɢᴇ.....\n➖➖➖➖➖➖➖➖➖➖➖➖➖\nRᴇᴀᴅ Tʜᴇ Rᴜʟᴇꜱ Bᴇʟᴏᴡ......⚠️\n\n🔰 Wʜᴇɴ I Gᴇᴛ Fʀᴇᴇ Tɪᴍᴇ , I ʟʟ Rᴇᴩʟy U 💯✅"
     if event.sender_id == bot.uid:
         await tgbot.send_message(
             vent,
