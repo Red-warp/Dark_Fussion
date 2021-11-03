@@ -97,6 +97,10 @@ else:
     sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Installed Sucessfully !")
     sed.info("You Can Visit @Dark_Fussion_chat For Any Support Or Doubts")
 
+hl = Config.HANDLER
+HELL_PIC = Config.ALIVE_PIC or "https://telegra.ph/file/ea9e11f7c9db21c1b8d5e.mp4"
+
+
 async def hell_is_on():
     try:
         if Config.COMBINED_GROUP_ID != 0:
