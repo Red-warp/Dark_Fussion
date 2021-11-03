@@ -39,7 +39,7 @@ async def start(event):
     replied_user = await event.client(GetFullUserRequest(event.sender_id))
     firstname = replied_user.user.first_name
     vent = event.chat_id
-    starttext = f"Hello, {firstname} ! Nice To Meet You, Well I Am {bot_id}, An Powerfull Assistant Bot. \n\nMy [➤ Master](tg://user?id={bot.uid}) \nYou Can Talk/Contact My Master Using This Bot. \n\nIf You Want Your Own Assistant You Can Deploy From Button Below. \n\nPowered By [вℓα¢к ℓιgнтηιηg](https://t.me/lightning_support_group)"
+    starttext = f"Hᴇʟʟᴏ {FIRSTNAME} ❤️\nHᴇy Myꜱᴇʟꜰ {bot_id} , Aꜱꜱɪꜱᴛᴀɴᴛ Bᴏᴛ Oꜰ My Mᴀꜱᴛᴇʀ\nU Cᴀɴ Cᴏɴᴛᴀᴄᴛ My Mᴀꜱᴛᴇʀ Tʜʀᴏᴜɢʜ Mᴇ ...🥰\nFᴇᴇʟ Fʀᴇᴇ Tᴏ Mᴇꜱꜱᴀɢᴇ.....\n➖➖➖➖➖➖➖➖➖➖➖➖➖\nRᴇᴀᴅ Tʜᴇ Rᴜʟᴇꜱ Bᴇʟᴏᴡ......⚠️\n🔰 Wʜᴇɴ I Gᴇᴛ Fʀᴇᴇ Tɪᴍᴇ , I ʟʟ Rᴇᴩʟy U 💯✅"
     if event.sender_id == bot.uid:
         await tgbot.send_message(
             vent,
