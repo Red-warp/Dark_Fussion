@@ -99,9 +99,9 @@ else:
 
 async def hell_is_on():
     try:
-        if Config.LOGGER_ID != 0:
+        if Config.COMBINED_GROUP_ID != 0:
             await bot.send_file(
-                Config.LOGGER_ID,
+                Config.COMBINED_GROUP_ID,
                 HELL_PIC,
                 caption=f"#START \n\nDeployed Hêllẞø† Successfully\n\n**Hêllẞø† - {hellver}**\n\nType `{hl}ping` or `{hl}alive` to check! \n\nJoin [Hêllẞø† Channel](t.me/Its_HellBot) for Updates & [Hêllẞø† Chat](t.me/userbot_chat) for any query regarding Hêllẞø†",
             )
