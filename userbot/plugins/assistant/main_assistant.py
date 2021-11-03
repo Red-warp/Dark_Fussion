@@ -69,7 +69,7 @@ async def start(event):
             link_preview=False,
             buttons=[
                 [Button.url("My Mᴀꜱᴛᴇʀ ", "tg://user?id={bot.uid}")],
-                [custom.Button.inline("Rᴜʟᴇꜱ", "data="rules")],
+                [custom.Button.inline("Rᴜʟᴇꜱ", data="rules")],
             ],
         )
 
