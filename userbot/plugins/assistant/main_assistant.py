@@ -43,7 +43,7 @@ async def start(event):
     if event.sender_id == bot.uid:
         await tgbot.send_message(
             vent,
-            message=f"Hi Master, It's Me {bot_id}, Your Assistant ! \nWhat You Wanna Do today ?",
+            message=f"Hi Master, It's Me {bot_id}, Your Assistant ! \nWhat You Want Do today ?",
             buttons=[
                 [
                     Button.url(
@@ -68,7 +68,7 @@ async def start(event):
             message=starttext,
             link_preview=False,
             buttons=[
-                [custom.Button.inline("Deploy your BL ", data="deploy")],
+                [custom.Button.inline("Deploy your Dark Fussion", data="deploy")],
                 [Button.url("Help Me ❓", "https://t.me/lightning_support_group")],
                 [Button.url("Lightning Web💫", "https://lightninguserbot.blogspot.com")],
             ],
