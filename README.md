@@ -3,7 +3,7 @@
 <p align="center"><a href="https://t.me/DarkFussion"><img src="https://te.legra.ph/file/56615a80e56dcca9dcfa0.jpg"></a></p> 
 </p>
 
-<!# Deploy-->
+<!--# Deploy-->
 
 [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?)
 
