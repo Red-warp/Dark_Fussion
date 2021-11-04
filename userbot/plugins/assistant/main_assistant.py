@@ -47,15 +47,15 @@ async def start(event):
             buttons=[
                 [
                     Button.url(
-                        "✘ Add Me to Group ✘", f"t.me/{bot_username}?startgroup=true"
+                        "✘ Aᴅᴅ Mᴇ Tᴏ Yᴏᴜʀ Gʀᴏᴜᴘ ✘", f"t.me/{bot_username}?startgroup=true"
                     )
                 ],
-                [custom.Button.inline("✘ Users List ✘", data="users"),
-                custom.Button.inline("✘ Commands ✘", data="gibcmd")],
-                [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),
-                  Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
-                [custom.Button.inline("✘ Settings ✘" , data="settings")],
-                [custom.Button.inline("🚫 Close 🚫" , data="close")],
+                [custom.Button.inline("✘ Usᴇʀs Lɪsᴛ ✘", data="users"),
+                custom.Button.inline("✘ Cᴏᴍᴍᴀɴᴅs ✘", data="gibcmd")],
+               # [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),
+                #  Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
+                [custom.Button.inline("✘ Sᴇᴛᴛɪɴɢs ✘" , data="settings")],
+                [custom.Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫" , data="close")],
             ],
         )
     else:
@@ -296,12 +296,12 @@ async def help(event):
             event.chat_id,
                message=f"Hi Master, It's Me {bot_id}, Your Assistant ! \nWhat You Wanna Do today ?",
                buttons=[
-                [custom.Button.inline("✘ Users List ✘", data="users"),
-                custom.Button.inline("✘ Commands ✘", data="gibcmd")],
-                [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),
-                  Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
-                [custom.Button.inline("✘ Settings ✘" , data="settings")],
-                [custom.Button.inline("🚫 Close 🚫" , data="close")],
+                [custom.Button.inline("✘ Usᴇʀs Lɪsᴛ ✘", data="users"),
+                custom.Button.inline("✘ Cᴏᴍᴍᴀɴᴅs ✘", data="gibcmd")],
+               # [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),
+               #   Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
+                [custom.Button.inline("✘ Sᴇᴛᴛɪɴɢs ✘" , data="settings")],
+                [custom.Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫" , data="close")],
             ],
         )
 
