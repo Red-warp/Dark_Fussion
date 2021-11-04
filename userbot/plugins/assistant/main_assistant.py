@@ -85,7 +85,7 @@ async def help(event):
             buttons=[
                 [
                     custom.Button.inline(
-                        "Back",
+                        "Bᴀᴄᴋ",
                         data="bcck",
                     )
                 ],
