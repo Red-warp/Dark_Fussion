@@ -1,4 +1,4 @@
-# Created by Red warp..!!
+# Created by Red warp and Akshat7678..!!
 
 import os
 from telethon import events, Button, custom
@@ -6,7 +6,7 @@ from userbot.thunderconfig import Config
 
 from userbot import ALIVE_NAME, bot 
 
-currentversion = "2.1"
+currentversion = "1.0"
 
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Đ₳Ɽ₭ Ƒմʂʂìօղ"
