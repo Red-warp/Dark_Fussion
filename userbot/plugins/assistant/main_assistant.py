@@ -144,9 +144,9 @@ async def help(event):
             event.chat_id,
             message=f"**What do you want to edit in Alive?\nYou can anything from these..!!\nAny kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)**",
             buttons=[
-        [Button.inline("✘ Alive Name ✘", data="name"), 
-         Button.inline("✘ Alive Pic ✘", data="img")], 
-        [Button.inline("🚫 Cancel 🚫", data="settings")], 
+        [Button.inline("✘ Aʟɪᴠᴇ Nᴀᴍᴇ ✘", data="name"), 
+         Button.inline("✘ Aʟɪᴠᴇ Pɪᴄ ✘", data="img")], 
+        [Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫", data="settings")], 
             ],
         )
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"img")))
@@ -157,12 +157,12 @@ async def help(event):
             event.chat_id,
             message=f"**Which Alive pic do you want to change?\nFor Any kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)**",
             buttons=[
-        [Button.inline("✘ Fussion Alive ✘", data="aimg"), 
-         Button.inline("✘ Friday Alive ✘", data="fimg")], 
-        [Button.inline("✘ Hell_bot Alive ✘", data="halive"), 
-         Button.inline("✘ DC_Alive ✘", data="dalive")], 
-        [Button.inline("✘ Back ✘", data="alive")], 
-        [Button.inline("🚫 Cancel 🚫", data="settings")], 
+        [Button.inline("✘ Dᴇғᴀᴜʟᴛ Aʟɪᴠᴇ ✘", data="aimg"), 
+         Button.inline("✘ Fʀɪᴅᴀʏ's Aʟɪᴠᴇ ✘", data="fimg")], 
+        [Button.inline("✘ Hᴇʟʟ Bᴏᴛ's Aʟɪᴠᴇ ✘", data="halive"), 
+         Button.inline("✘ Dᴄ's Aʟɪᴠᴇ ✘", data="dalive")], 
+        [Button.inline("✘ Bᴀᴄᴋ ✘", data="alive")], 
+        [Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫", data="settings")], 
             ],
         )
 
@@ -174,8 +174,8 @@ async def help(event):
             event.chat_id,
             message=f"**You can change Alive Name..!!\nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_NAME <Name>`\n\nRemove `<>` this.**",
             buttons=[
-       [Button.inline("✘ Back ✘", data="alive")],
-       [Button.inline("🚫 Cancel 🚫", data="settings")],  
+       [Button.inline("✘ Bᴀᴄᴋ ✘", data="alive")],
+       [Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫", data="settings")],  
             ],
         )
 
@@ -187,8 +187,8 @@ async def help(event):
             event.chat_id,
             message=f"**You can change Alive Pic for `.alive`\nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_PIC <Telegraph Link>`\n\nRemove `<>` this**",
             buttons=[
-       [Button.inline("✘ Back ✘", data="img")],
-       [Button.inline("🚫 Cancel 🚫", data="settings")],  
+       [Button.inline("✘ Bᴀᴄᴋ ✘", data="img")],
+       [Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫", data="settings")],  
             ],
         )
 
@@ -200,8 +200,8 @@ async def help(event):
             event.chat_id,
             message=f"**You can change Alive Pic for `.falive`\nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var FRI_IMAGE <Telegraph Link>`\n\nRemove `<>` this.**",
             buttons=[
-       [Button.inline("✘ Back ✘", data="img")],
-       [Button.inline("🚫 Cancel 🚫", data="settings")],  
+       [Button.inline("✘ Bᴀᴄᴋ ✘", data="img")],
+       [Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫", data="settings")],  
             ],
         )
 
@@ -213,8 +213,8 @@ async def help(event):
             event.chat_id,
             message=f"**You can change Alive Pic for `.dalive` \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var ALIVE_PHOTTO <Telegraph Link>`\n\nRemove `<>` this.**",
             buttons=[
-       [Button.inline("✘ Back ✘", data="img")],
-       [Button.inline("🚫 Cancel 🚫", data="settings")],  
+       [Button.inline("✘ Bᴀᴄᴋ ✘", data="img")],
+       [Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫", data="settings")],  
             ],
         )
 
@@ -226,8 +226,8 @@ async def help(event):
             event.chat_id,
             message=f"**You can change Alive Pic for `.halive`\nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var HELL_IMG <Telegraph Link>`\n\nRemove `<>` this.**",
             buttons=[
-       [Button.inline("✘ Back ✘", data="img")],
-       [Button.inline("🚫 Cancel 🚫", data="settings")],  
+       [Button.inline("✘ Bᴀᴄᴋ ✘", data="img")],
+       [Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫", data="settings")],  
             ],
         )
 
@@ -239,9 +239,9 @@ async def help(event):
             event.chat_id,
             message=f"**What do you want to edit in Pm Permit?\nFor Any kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)**",
             buttons=[
-       [Button.inline("✘ Pm permit Text ✘", data="text"),
-       Button.inline("✘ Pm permit Media ✘", data="media")],
-       [Button.inline("🚫 Cancel 🚫", data="settings")],  
+       [Button.inline("✘ Pᴍ Pᴇʀᴍɪᴛ Tᴇxᴛ ✘", data="text"),
+       Button.inline("✘ Pᴍ Pᴇʀᴍɪᴛ Mᴇᴅɪᴀ ✘", data="media")],
+       [Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫", data="settings")],  
             ],
         )
 
@@ -253,8 +253,8 @@ async def help(event):
             event.chat_id,
             message=f"**You can change Pic permit Pic..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var LIGHTNING_BOT_PIC <Telegraph Link>`\n\nRemove `<>` this.**",
             buttons=[
-       [Button.inline("✘ Back ✘", data="permit")],
-       [Button.inline("🚫 Cancel 🚫", data="settings")],  
+       [Button.inline("✘ Bᴀᴄᴋ ✘", data="permit")],
+       [Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫", data="settings")],  
             ],
         )
 
@@ -266,8 +266,8 @@ async def help(event):
             event.chat_id,
             message=f"**You can change Pic permit message..!! \nJust follow the steps.!\nAny kind of Problem or doubt do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](t.me/Dark_Fussion_chat)\n\nJust type\n\n`.set var LIGHTNING_WARN <Text>`\n\nRemove `<>` this.**",
             buttons=[
-       [Button.inline("✘ Back ✘", data="permit")],
-       [Button.inline("🚫 Cancel 🚫", data="settings")],  
+       [Button.inline("✘ Bᴀᴄᴋ ✘", data="permit")],
+       [Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫", data="settings")],  
             ],
         )
 
@@ -280,11 +280,11 @@ async def help(event):
             event.chat_id,
             message=f"**Which type of setting do you want to edit?\nYou can change anything from these..!!\nAny kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)**",
             buttons=[
-        [Button.inline("✘ Alive ✘", data="alive"), 
-         Button.inline("✘ Pm Permit ✘", data="permit")], 
-        [Button.inline("✘ Chat Bot ✘", data="chat"), 
+        [Button.inline("✘ Aʟɪᴠᴇ ✘", data="alive"), 
+         Button.inline("✘ Pᴍ Pᴇʀᴍɪᴛ ✘", data="permit")], 
+       # [Button.inline("✘ Chat Bot ✘", data="chat"), 
        #  Button.inline("✘ Vc Bot ✘", data="Vc_Bot")], 
-        #[Button.inline("✘ Back ✘", data="redwarp")], 
+        [Button.inline("✘ Bᴀᴄᴋ ✘", data="redwarp")], 
             ],
         )
 
