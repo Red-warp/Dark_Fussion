@@ -62,24 +62,6 @@
 
 16. And Many More CMDS 
 
-
-
-## Note-: 
-
-This is a userbot made for telegram. I made this userbot with help of all other userbots available in telegram. All credits goes to its Respective Owners.......
-
-# Requirements 
-* Python 3.8 or Higher
-* Telegram [API Keys](https://my.telegram.org/apps)
-* String [Gernate from here](https://repl.it/@Anmol10H/Lightning-Repl#main.py)
-
-
-# How To
-
-<a href="https://youtu.be/xfHcm_e92eQ"><img src="https://img.shields.io/badge/How%20To-Deploy-red.svg?logo=Youtube"></a>
-
-<a href="https://app.gitbook.com/@poxsisofficial/s/blackĐ₳Ɽ₭ Ƒմʂʂìօղ /"><img src="https://img.shields.io/badge/Read%20More-GitBook-red.svg"></a>
-
 # Deploy
 
 [![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?)
