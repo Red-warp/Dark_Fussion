@@ -283,8 +283,8 @@ async def help(event):
         [Button.inline("✘ Alive ✘", data="alive"), 
          Button.inline("✘ Pm Permit ✘", data="permit")], 
         [Button.inline("✘ Chat Bot ✘", data="chat"), 
-         Button.inline("✘ Vc Bot ✘", data="Vc_Bot")], 
-        [Button.inline("✘ Back ✘", data="redwarp")], 
+       #  Button.inline("✘ Vc Bot ✘", data="Vc_Bot")], 
+        #[Button.inline("✘ Back ✘", data="redwarp")], 
             ],
         )
 
