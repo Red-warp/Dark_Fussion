@@ -12,7 +12,7 @@ currentversion = "1.0"
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Đ₳Ɽ₭ Ƒմʂʂìօղ"
 ASSIS_PIC = os.environ.get("ASSIS_PIC", None)
 if ASSIS_PIC is None:
-     PM_IMG = "https://telegra.ph/file/beb843ce962a738c52cad.jpg"
+     PM_IMG = "https://telegra.ph/file/62fa5d70a65f9ce0d0170.jpg"
 else:
      PM_IMG = ASSIS_PIC
 
