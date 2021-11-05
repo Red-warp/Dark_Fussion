@@ -288,12 +288,12 @@ async def lightning_pugins_query_hndlr(lightning):
    
     if light_pulu_name in CMD_HELP.keys():
        
-       lightning_help_strin  = f"**Commands Available ✘**\n" 
-       lightning_help_strin  += f"**✘ Command Name ✘ :** `{light_pulu_name}` \n{CMD_HELP[light_pulu_name]}"
+       lightning_help_strin  = f"**✘ Commands Available ✘**\n" 
+       lightning_help_strin  += f"**✘ Name ✘ :** `{light_pulu_name}` \n{CMD_HELP[light_pulu_name]}"
        lightning_is_best = lightning_help_strin 
     
     else:
-       lightning_help_strin  = f"**✘ Commands Available ✘\n✘ Command Name ✘ : ** `{light_pulu_name}` \nCommands:`{CMD_LIST[light_pulu_name]}`"
+       lightning_help_strin  = f"**✘ Commands Available ✘\n✘ Name ✘ : ** `{light_pulu_name}` \n`{CMD_LIST[light_pulu_name]}`"
        lightning_is_best = lightning_help_strin 
     if len(lightning_is_best) >= 4096:
           keinshin = "`Wait.( ͡🔥 ͜ʖ ͡🔥)`"
@@ -314,7 +314,7 @@ async def lightning_pugins_query_hndlr(lightning):
             message=lightning_is_best,
             buttons=[
                 [custom.Button.inline("✘ Status ✘", data="stta")],
-                [custom.Button.inline("✘ Bαƈƙ ✘", data="lghtback")],
+                [custom.Button.inline("✘ Ⴆαƈƙ ✘", data="lghtback")],
             ],
         )
 
@@ -515,7 +515,7 @@ async def lightning_is_better(lightning):
     await bot.send_message(lightning.query.user_id, reqws)
     await bot.send_message(
         LIGHT_LOGS,
-        message=f"#Chatter\n\nʜᴇʟʟᴏ {LIGHTNINGUSER},\nɴɪʙʙᴀ ᴡᴀɴᴛs ᴛᴏ ᴄʜᴀᴛ ᴡɪᴛʜ ʏᴏᴜ..!! 😁😂\n\nɪғ ʜᴇ ɪs ᴀ ɢᴏᴏᴅ ᴍᴀɴ ᴛʜᴇɴ ᴛᴀʟᴋ ᴡɪᴛʜ ʜɪᴍ..\nɪғ ʏᴏᴜ ᴛʜɪɴᴋ ʜᴇ ɪs sᴘᴀᴀᴍᴇʀ ᴛʜᴇɴ ʙʟᴏᴄᴋ ᴛʜɪs ɴɪʙʙᴀ.!\n\nsᴏʀʀʏ ғᴏʀ ᴅɪsᴛᴜʀʙɪɴɢ ʏᴏᴜ..! 😁,\nʜᴀᴠᴇ ᴀ ɴɪᴄᴇ ᴅᴀʏ 🙂" , buttons=[[Button.url("✘ ᴄʜᴀᴛᴛᴇʀ ✘", "tg://user?id={lightning_id}")],],)
+        message=f"#Chatter\n\nʜᴇʟʟᴏ {LIGHTNINGUSER},\nɴɪʙʙᴀ ᴡᴀɴᴛs ᴛᴏ ᴄʜᴀᴛ ᴡɪᴛʜ ʏᴏᴜ..!! 😁😂\n\nɪғ ʜᴇ ɪs ᴀ ɢᴏᴏᴅ ᴍᴀɴ ᴛʜᴇɴ ᴛᴀʟᴋ ᴡɪᴛʜ ʜɪᴍ..\nɪғ ʏᴏᴜ ᴛʜɪɴᴋ ʜᴇ ɪs sᴘᴀᴀᴍᴇʀ ᴛʜᴇɴ  ʙʟᴏᴄᴋ ᴛʜɪs ɴɪʙʙᴀ.!\n\nsᴏʀʀʏ ғᴏʀ ᴅɪsᴛᴜʀʙɪɴɢ ʏᴏᴜ..! 😁,\nʜᴀᴠᴇ ᴀ ɴɪᴄᴇ ᴅᴀʏ 🙂" , buttons=[[Button.url("✘ ᴄʜᴀᴛᴛᴇʀ ✘", "tg://user?id={lightning_id}")],],)
     
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"hmm")))
 async def yes_ucan(lightning):
@@ -559,12 +559,12 @@ async def lmaao(lightning):
         await lightning.edit(
             f"** Bᴏᴛ Oғ {LIGHTNINGUSER}\n\n Mᴀɪɴ Mᴇɴᴜ\n Pʟᴜɢɪɴs ~ {len(CMD_LIST)}\n\n Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n╭━━━━━━━━━━━━━━━➣\n┣⪼ Ⲟⲱⲛⲉʀ - {LIGHTNINGUSER}\n┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - 1.2.7\n┣⪼ Ⳙⲣⲧⲓⲙⲉ - 2m.42s\n┣⪼ Ⲣⲩⲧⲏⲟⲛ - 3.9.96\n┣⪼ Ⲧⲉⳑⲉⲧⲏⲟⲛ - 1.23.0\n╰━━━━━━━━━━━━━━━➣**",
             buttons=[
-                [custom.Button.inline("📃 ᴘʟᴜɢɪɴs ", data="what?"),
-                custom.Button.inline("🔔 Pɪɴɢ ", data="bitch")],
-                [Button.url(" Uᴘᴅᴀᴛᴇs ", "https://t.me/DarkFussion_official"),
-                 Button.url("✘ Sᴜᴘᴘᴏʀᴛ ", "https://t.me/DarkFussion_helpchat")],
-                [Button.url("🛠️ Talk Developer " , "https://telegram.dog/Akki_ThePro")],
-                [custom.Button.inline("Cᴀɴᴄᴇʟ 🚫" , data="sett")],
+                [custom.Button.inline("✘ ᴘʟᴜɢɪɴs ✘", data="what?"),
+                custom.Button.inline("✘ Pɪɴɢ ✘", data="bitch")],
+                [Button.url("✘ Uᴘᴅᴀᴛᴇs ✘", "https://t.me/DarkFussion"),
+                 Button.url("✘ Sᴜᴘᴘᴏʀᴛ ✘", "https://t.me/Dark_Fussion_chat")],
+                [Button.url("✘ Sᴇᴛᴛɪɴɢs ✘" , "https://t.me/Red_warp_bot")],
+                [custom.Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫" , data="sett")],
             ],
         )
     else:
@@ -585,7 +585,7 @@ async def ho(event):
     await event.answer("( ͡🔥 ͜ʖ ͡🔥)", cache_time=0, alert=False)
     # This Is Copy of Above Code. (C) link_preview=False
     buttons = lightnings_menu_for_help(0, CMD_LIST, "helpme")
-    ho = f"""Đ₳Ɽ₭ Ƒմʂʂìօղ Is Here With Op Help ! In Case Any Problem message in [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/DarkFussion_helpchat) \nTottal Plugs : {len(CMD_LIST)}"""
+    ho = f"""Đ₳Ɽ₭ Ƒմʂʂìօղ Is Here With Stunning Help ! In Case Any Problem [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat) \nTottal Plugs : {len(CMD_LIST)}"""
     await event.edit(message=ho, buttons=buttons)
 
 
@@ -604,7 +604,7 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
     lightning_plugins = sorted(lightning_plugins)
     plugins = [
         custom.Button.inline(
-            "{} {} {}".format("🎵", x, "🎧"), data="_lightning_plugins_{}".format(x)
+            "{} {} {}".format("🏆", x, "🏆"), data="_lightning_plugins_{}".format(x)
         )
         for x in lightning_plugins
     ]
@@ -619,16 +619,15 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
         ] + [
             (
                 custom.Button.inline(
-                    "Right ▶️", data="{}_prev({})".format(lightning_lol, lightning_plugins_pages)
+                    "⚜️ яιgнт ⚜️", data="{}_prev({})".format(lightning_lol, lightning_plugins_pages)
                 ),
                # Thanks To Friday For This Idea
                custom.Button.inline("🚫 Back 🚫", data="wtshit"
                ),
                custom.Button.inline(
-                    "Left ◀️", data="{}_next({})".format(lightning_lol, lightning_plugins_pages)
+                    "⚜️ ℓєfт ⚜️", data="{}_next({})".format(lightning_lol, lightning_plugins_pages)
                 ),
                 
             )
         ]
     return pairs
-
