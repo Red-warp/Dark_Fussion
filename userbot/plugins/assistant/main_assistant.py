@@ -129,7 +129,7 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**What do you want to edit in Alive?\nYou can anything from these..!!\nAny kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)**",
+            message=f"**Wʜᴀᴛ Dᴏ Yᴏᴜ Wᴀɴᴛ Yᴏ Eᴅɪᴛ Iɴ Aʟɪᴠᴇ?\nFᴏʀ Aɴʏ Kɪɴᴅ Oғ Hᴇʟᴘ Dᴏ Jᴏɪɴ [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)**",
             buttons=[
         [Button.inline("✘ Aʟɪᴠᴇ Nᴀᴍᴇ ✘", data="name"), 
          Button.inline("✘ Aʟɪᴠᴇ Pɪᴄ ✘", data="img")], 
@@ -142,7 +142,7 @@ async def help(event):
     if event.query.user_id == bot.uid:
        await tgbot.send_message(
             event.chat_id,
-            message=f"**Which Alive pic do you want to change?\nFor Any kind for help do join [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)**",
+            message=f"**Wʜɪᴄʜ Aʟɪᴠᴇ Pɪᴄ Dᴏ Yᴏᴜ Wᴀɴᴛ Tᴏ Cʜᴀɴɢᴇ?\nFᴏʀ Aɴʏ Kɪɴᴅ Oғ Hᴇʟᴘ Dᴏ Jᴏɪɴ [Đ₳Ɽ₭ Ƒմʂʂìօղ](https://t.me/Dark_Fussion_chat)**",
             buttons=[
         [Button.inline("✘ Dᴇғᴀᴜʟᴛ Aʟɪᴠᴇ ✘", data="aimg"), 
          Button.inline("✘ Fʀɪᴅᴀʏ's Aʟɪᴠᴇ ✘", data="fimg")], 
