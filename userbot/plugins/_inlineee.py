@@ -293,7 +293,7 @@ async def lightning_pugins_query_hndlr(lightning):
        lightning_is_best = lightning_help_strin 
     
     else:
-       lightning_help_strin  = f"**✘ Commands Present✘\n✘ Plugin Name : ** `{light_pulu_name}` \nCommands for this Plug. : `{CMD_LIST[light_pulu_name]}`"
+       lightning_help_strin  = f"**✘ Commands Present ** \n\n🧾 Plugin Name : `{light_pulu_name}` \nCommands Available : `{CMD_LIST[light_pulu_name]}`"
        lightning_is_best = lightning_help_strin 
     if len(lightning_is_best) >= 4096:
           keinshin = "`Wait.( ͡🔥 ͜ʖ ͡🔥)`"
