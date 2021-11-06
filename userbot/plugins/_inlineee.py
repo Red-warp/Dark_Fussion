@@ -553,11 +553,6 @@ async def hmm(lightning):
         txt = f"Stats For {LIGHTNINGUSER} Not For You Nigga\nDon't Poke your Nose Please"
         await lightning.answer(txt, alert=True)
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"sett_fuck_close"))) 
-async def lmaao(lightning):
-    if lightning.query.user_id == bot.uid:
-        await lightning.delete()
-
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"wtshit"))) 
 async def lmaao(lightning):
