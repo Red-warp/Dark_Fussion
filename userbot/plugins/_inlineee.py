@@ -212,7 +212,7 @@ async def inline_handler(lightning):
                 [Button.url("✘ Uᴘᴅᴀᴛᴇs ✘", "https://t.me/DarkFussion"),
                  Button.url("✘ Sᴜᴘᴘᴏʀᴛ ✘", "https://t.me/Dark_Fussion_chat")],  
                 [Button.url("✘ Sᴇᴛᴛɪɴɢs ✘" , "https://t.me/Red_warp_bot")],
-                [custom.Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫" , data="sett")],
+                [custom.Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫" , data="sett_fuck_close")],
            ],
         )
         await lightning.answer([result])
@@ -553,6 +553,15 @@ async def hmm(lightning):
         txt = f"Stats For {LIGHTNINGUSER} Not For You Nigga\nDon't Poke your Nose Please"
         await lightning.answer(txt, alert=True)
 
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"sett_fuck_close"))) 
+async def lmaao(lightning):
+    if lightning.query.user_id == bot.uid:
+        await lightning.delete()
+else:
+        bsdkfuckerbcc = "You Don't belong to my master's category. So, why should i follow your orders\nHence, Fuck off Noob" 
+        await lightning.answer(bsdkfuckerbcc, alert=True)
+
+
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"wtshit"))) 
 async def lmaao(lightning):
     if lightning.query.user_id == bot.uid:
@@ -564,7 +573,7 @@ async def lmaao(lightning):
                 [Button.url("✘ Uᴘᴅᴀᴛᴇs ✘", "https://t.me/DarkFussion"),
                  Button.url("✘ Sᴜᴘᴘᴏʀᴛ ✘", "https://t.me/Dark_Fussion_chat")],
                 [Button.url("✘ Sᴇᴛᴛɪɴɢs ✘" , "https://t.me/Red_warp_bot")],
-                [custom.Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫" , data="sett")],
+                [custom.Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫" , data="sett_fuck_close")],
             ],
         )
     else:
