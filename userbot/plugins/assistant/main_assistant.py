@@ -271,27 +271,9 @@ async def help(event):
          Button.inline("✘ Pᴍ Pᴇʀᴍɪᴛ ✘", data="permit")], 
        # [Button.inline("✘ Chat Bot ✘", data="chat"), 
        #  Button.inline("✘ Vc Bot ✘", data="Vc_Bot")], 
-        [Button.inline("✘ Bᴀᴄᴋ ✘", data="redwarp")], 
+        [Button.inline("✘ Cʟᴏsᴇ ✘", data="close")], 
             ],
         )
-
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"redwarp")))
-async def help(event):
-    await event.delete()
-    if event.query.user_id == bot.uid:
-       await tgbot.send_message(
-            event.chat_id,
-               message=f"Hi Master, It's Me {bot_id}, Your Assistant ! \nWhat You Wanna Do today ?",
-               buttons=[
-                [custom.Button.inline("🙇 Usᴇʀs Lɪsᴛ 🙇", data="users"),
-                custom.Button.inline("👾 Cᴏᴍᴍᴀɴᴅs 👾", data="gibcmd")],
-               # [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),
-               #   Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
-                [custom.Button.inline("⚙️ Sᴇᴛᴛɪɴɢs ⚙" , data="settings")],
-                [custom.Button.inline("🚫 Cʟᴏsᴇ 🚫" , data="close")],
-            ],
-        )
-
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"gibcmd")))
