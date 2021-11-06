@@ -85,8 +85,8 @@ async def help(event):
             buttons=[
                 [
                     custom.Button.inline(
-                        "Cʟᴏsᴇ",
-                        data="close_bcc",
+                        "Bᴀᴄᴋ",
+                        data="back_bcc",
                     )
                 ],
             ],
@@ -99,13 +99,6 @@ async def help(event):
         await tgbot.send_message(
             event.chat_id,
             message=f"Hᴇʟʟᴏ {firstname} ❤️\nHᴇy Myꜱᴇʟꜰ **{bot_id}** , Aꜱꜱɪꜱᴛᴀɴᴛ Bᴏᴛ Oꜰ My Mᴀꜱᴛᴇʀ\nU Cᴀɴ Cᴏɴᴛᴀᴄᴛ My Mᴀꜱᴛᴇʀ Tʜʀᴏᴜɢʜ Mᴇ ...🥰\nFᴇᴇʟ Fʀᴇᴇ Tᴏ Mᴇꜱꜱᴀɢᴇ.....\n➖➖➖➖➖➖➖➖➖➖➖➖➖\nRᴇᴀᴅ Tʜᴇ Rᴜʟᴇꜱ Bᴇʟᴏᴡ......⚠️\n\n🔰 Wʜᴇɴ I Gᴇᴛ Fʀᴇᴇ Tɪᴍᴇ , I ʟʟ Rᴇᴩʟy U 💯✅",)
-
-
-
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close_bcc")))
-async def users(event):
-    if event.query.user_id != bot.uid:
-       await event.delete()
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close")))
