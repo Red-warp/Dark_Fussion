@@ -16,7 +16,7 @@ from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRe
 TELE = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
 LOAD_MYBOT = Var.LOAD_MYBOT
-sed = logging.getLogger("Black Lightning")
+sed = logging.getLogger("Dark Fussion")
 
 async def add_bot(bot_token):
     await bot.start(bot_token)
@@ -95,6 +95,8 @@ if Config.ENABLE_ASSISTANTBOT == "ENABLE":
 else:
     sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Installed Sucessfully !")
     sed.info("You Can Visit @Dark_Fussion_chat For Any Support Or Doubts")
+
+await event.client.send_message(PRIVATE_GROUP_ID, "Message")
 
 await event.client.send_message(LOG_GROUP_ID, 'Message')
 if len(argv) not in (1, 3, 4):
