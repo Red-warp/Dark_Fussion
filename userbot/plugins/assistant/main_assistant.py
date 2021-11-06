@@ -288,7 +288,7 @@ async def help(event):
                # [Button.url("✘ Support ✘" , "https://t.me/Dark_Fussion_chat"),
                #   Button.url("✘ Updates ✘" , "https://t.me/DarkFussion")],
                 [custom.Button.inline("⚙️ Sᴇᴛᴛɪɴɢs ⚙" , data="settings")],
-                [custom.Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫" , data="close")],
+                [custom.Button.inline("🚫 Cʟᴏsᴇ 🚫" , data="close")],
             ],
         )
 
