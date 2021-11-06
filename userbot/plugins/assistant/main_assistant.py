@@ -68,7 +68,7 @@ async def start(event):
             message=starttext,
             link_preview=False,
             buttons=[
-                [custom.Button.inline("✘ Rᴜʟᴇꜱ ✘", data="rules")],
+                [custom.Button.inline("📝 Rᴜʟᴇꜱ 📝", data="rules"),custom.Button.inline("🚫 Cʟᴏsᴇ 🚫" , data="close_vcc")],
             ],
         )
 
@@ -85,7 +85,7 @@ async def help(event):
             buttons=[
                 [
                     custom.Button.inline(
-                        "✘ Cʟᴏsᴇ ✘",
+                        "🚫 Cʟᴏsᴇ 🚫",
                         data="close_vcc",
                     )
                 ],
