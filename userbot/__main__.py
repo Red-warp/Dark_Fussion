@@ -96,6 +96,8 @@ else:
     sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Installed Sucessfully !")
     sed.info("You Can Visit @Dark_Fussion_chat For Any Support Or Doubts")
 
+await event.client.send_message(LOG_GROUP_ID, 'Message')
+
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:
