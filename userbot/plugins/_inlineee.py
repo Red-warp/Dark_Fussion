@@ -204,7 +204,7 @@ async def inline_handler(lightning):
         await lightning.answer([result] if result else None)
     elif lightning.query.user_id == bot.uid and query.startswith("**Black") or query.startswith("Black"):
         result = builder.photo(
-            file="https://te.legra.ph/file/1f544dc95acc035c4ab21.jpg",
+            file="https://te.legra.ph/file/de1eb7e29a6553d8e3670.jpg",
             text=f"** Bᴏᴛ Oғ {LIGHTNINGUSER}\n\n Mᴀɪɴ Mᴇɴᴜ\n Pʟᴜɢɪɴs ~ {len(CMD_LIST)}\n\n Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n╭━━━━━━━━━━━━━━━➣\n┣⪼ Ⲟⲱⲛⲉʀ - {LIGHTNINGUSER}\n┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - 1.2.7\n┣⪼ Ⳙⲣⲧⲓⲙⲉ - 2m.42s\n┣⪼ Ⲣⲩⲧⲏⲟⲛ - 3.9.96\n┣⪼ Ⲧⲉⳑⲉⲧⲏⲟⲛ - 1.23.0\n╰━━━━━━━━━━━━━━━➣** ",
             buttons=[
                 [custom.Button.inline("✘ Pʟᴜɢɪɴs ✘", data="what?"),
