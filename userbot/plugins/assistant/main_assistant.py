@@ -85,7 +85,7 @@ async def help(event):
             buttons=[
                 [
                     custom.Button.inline(
-                        "Bᴀᴄᴋ",
+                        "Cʟᴏsᴇ",
                         data="close_vcc",
                     )
                 ],
