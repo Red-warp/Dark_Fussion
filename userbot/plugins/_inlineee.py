@@ -557,9 +557,6 @@ async def hmm(lightning):
 async def lmaao(lightning):
     if lightning.query.user_id == bot.uid:
         await lightning.delete()
-else:
-        bsdkfuckerbcc = "You Don't belong to my master's category. So, why should i follow your orders\nHence, Fuck off Noob" 
-        await lightning.answer(bsdkfuckerbcc, alert=True)
 
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"wtshit"))) 
