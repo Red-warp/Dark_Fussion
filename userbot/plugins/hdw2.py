@@ -4,7 +4,7 @@
 
 from . import *
 
-@bot.on(admin_cmd(pattern=r"hdw$"))
+@bot.on(lightning_cmd(pattern=r"hdw2$"))
 @bot.on(sudo_cmd(pattern="hdw$", allow_sudo=True))
 
 async def _(event):
