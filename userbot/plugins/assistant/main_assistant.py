@@ -1,15 +1,4 @@
-#    Copyright (C) Midhun KM 2020
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#    Copyright (C) Akshat7678 KM 2021
 
 import asyncio
 import io
@@ -269,8 +258,8 @@ async def help(event):
             buttons=[
         [Button.inline("✘ Aʟɪᴠᴇ ✘", data="alive"), 
          Button.inline("✘ Pᴍ Pᴇʀᴍɪᴛ ✘", data="permit")], 
-       # [Button.inline("✘ Chat Bot ✘", data="chat"), 
-       #  Button.inline("✘ Vc Bot ✘", data="Vc_Bot")], 
+        [Button.inline("✘ Chat Bot ✘", data="chat"), 
+         Button.inline("✘ Vc Bot ✘", data="Vc_Bot")], 
         [Button.inline("✘ Cʟᴏsᴇ ✘", data="close")], 
             ],
         )
