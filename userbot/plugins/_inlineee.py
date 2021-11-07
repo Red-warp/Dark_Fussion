@@ -211,8 +211,8 @@ async def inline_handler(lightning):
                 custom.Button.inline("✘ Pɪɴɢ ✘", data="bitch")],
                 [Button.url("✘ Uᴘᴅᴀᴛᴇs ✘", "https://t.me/DarkFussion"),
                  Button.url("✘ Sᴜᴘᴘᴏʀᴛ ✘", "https://t.me/Dark_Fussion_chat")],  
-                [Button.url("✘ Sᴇᴛᴛɪɴɢs ✘" , "https://t.me/Red_warp_bot")],
-                [custom.Button.inline("🚫 Cᴀɴᴄᴇʟ 🚫" , data="sett_fuck_close")],
+                [Button.url("✘ Report Issue ✘" , "https://t.me/Dark_Fussion_Chat")],
+                [Button.url("More Pʟᴜɢɪɴs" , "https://t.me/DarkFussion_Plugins")],
            ],
         )
         await lightning.answer([result])
@@ -313,7 +313,7 @@ async def lightning_pugins_query_hndlr(lightning):
            await lightning.edit(
             message=lightning_is_best,
             buttons=[
-                [custom.Button.inline("✘ Status ✘", data="stta")],
+                [custom.Button.inline("✘ Check Status ✘", data="stta")],
                 [custom.Button.inline("✘ Ⴆαƈƙ ✘", data="lghtback")],
             ],
         )
