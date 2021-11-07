@@ -6,7 +6,7 @@ from userbot.utils import admin_cmd
 import importlib.util
 import random, re
 
-@borg.on(admin_cmd(pattern="diwali$"))
+@borg.on(lightning_cmd(pattern=r"hdw ?(.*)"))
 
 async def _(event):
     if event.fwd_from:
