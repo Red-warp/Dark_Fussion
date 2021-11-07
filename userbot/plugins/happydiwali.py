@@ -20,6 +20,7 @@ async def _(event):
               "💜happy💜diwali💜\n💜happy💜diwali💜\n💜happy💜diwali💜\n💜happy💜diwali💜\n💜happy💜diwali💜\n💜happy💜diwali💜\n💜happy💜diwali💜\n💜happy💜diwali💜\n💜happy💜diwali💜\n💜happy💜diwali💜\n💜happy💜diwali💜\n💜happy💜diwali💜\n💜happy💜diwali💜\n💜happy💜diwali💜",
               "💖happy💖diwali💖\n💖happy💖diwali💖\n💖happy💖diwali💖\n💖happy💖diwali💖\n💖happy💖diwali💖\n💖happy💖diwali💖\n💖happy💖diwali💖\n💖happy💖diwali💖\n💖happy💖diwali💖\n💖happy💖diwali💖\n💖happy💖diwali💖\n💖happy💖diwali💖\n💖happy💖diwali💖\n💖happy💖diwali💖\n💖happy💖diwali💖\n💖happy💖diwali💖\n💖happy💖diwali💖",
               "💚happy💚diwali💚\n💚happy💚diwali💚\n💚happy💚diwali💚\n💚happy💚diwali💚\n💚happy💚diwali💚\n💚happy💚diwali💚\n💚happy💚diwali💚\n💚happy💚diwali💚\n💚happy💚diwali💚\n💚happy💚diwali💚\n💚happy💚diwali💚\n💚happy💚diwali💚\n💚happy💚diwali💚\n💚happy💚diwali💚\n💚happy💚diwali💚\n💚happy💚diwali💚\n💚happy💚diwali💚",
+              "🏆A happy diwali from #TeamFussion",
               
               "[ㅤ](https://telegra.ph/file/0bd9215efcd23a55dd115.mp4)"
           ]
