@@ -1,7 +1,7 @@
 from userbot.utils import lightning_cmd
 
 from userbot import CMD_HELP
-@borg.on(lightning_cmd(pattern=r".bid"))
+@borg.on(lightning_cmd(pattern=r"bid"))
 async def bid(event):
     giveVar = event.text
     bid = giveVar[4:5]
@@ -17,7 +17,7 @@ async def bid(event):
 CMD_HELP.update(
     {
         "bid": "__**PLUGIN NAME :** Afk__\
-\n\n ** CMD ** `.bid` [Emoji]\
+\n\n ** CMD ** `bid` [Emoji]\
 \n**USAGE  :  **Fun..**"
     }
 )
