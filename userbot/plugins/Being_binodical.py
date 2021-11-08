@@ -21,7 +21,7 @@ async def bid(event):
     )
     
     
-    
+from userbot import CMD_HELP   
     
 CMD_HELP.update(
     {
