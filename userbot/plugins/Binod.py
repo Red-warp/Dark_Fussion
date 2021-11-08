@@ -2,7 +2,7 @@
 from userbot import CMD_HELP
 from telethon import events
 
-@borg.on(lightning_cmd(outgoing=True, pattern="bid"))
+@borg.on(lightning_cmd(outgoing=True, pattern=".bid"))
 async def bid(event):
     giveVar = event.text
     bid = giveVar[4:5]
