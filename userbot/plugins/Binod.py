@@ -19,17 +19,6 @@ CMD_HELP.update(
     {
          "bid": "✘** Cmds** ✘: `5`\
          \n\n✘ **Cmd: ** `.bid`\ 
-         \n➥ **Info: ** __FUN__\
-        \n\n✘ **Cmd: ** `.alive`\
-        \n➥ **Info: ** __A kind of showing bot details__\
-        \n\n✘ **Cmd: ** `.falive`\
-        \n➥ **Info: ** __A kind of showing bot details__\
-        \n\n✘ **Cmd : ** `.halive`\
-       \n➥ **Info: ** __A kind of showing bot details__\
-        \n\n✘ **Cmd: ** `.valive`\
-       \n➥ **Info: ** __A kind of showing bot details__\
-       \n\n✘ **Cmd: ** `.dalive`\
-       \n➥ **Info: ** __A kind of showing bot details__\
-       \n\n👩‍💻 **Usage : __To check userbot if it is alive.__**"
+         \n➥ **Info: ** __FUN__"
     }
 )
