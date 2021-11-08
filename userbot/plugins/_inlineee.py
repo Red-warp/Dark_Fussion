@@ -290,9 +290,9 @@ async def lightning_pugins_query_hndlr(lightning):
        lightning_help_strin  += f"**✘ Name ✘ :** `{light_pulu_name}` \n{CMD_HELP[light_pulu_name]}"
        lightning_is_best = lightning_help_strin 
     
-    else:
-       lightning_help_strin  = f"**✘ Commands Available ✘\n✘ Name ✘ : ** `{light_pulu_name}` \n`{CMD_LIST[light_pulu_name]}`"
-       lightning_is_best = lightning_help_strin 
+  #  else:
+     #  lightning_help_strin  = f"**✘ Commands Available ✘\n✘ Name ✘ : ** `{light_pulu_name}` \n`{CMD_LIST[light_pulu_name]}`"
+      # lightning_is_best = lightning_help_strin 
     if len(lightning_is_best) >= 4096:
           keinshin = "`Wait.( ͡🔥 ͜ʖ ͡🔥)`"
           await lightning.answer(keinshin, cache_time=0, alert=True)
