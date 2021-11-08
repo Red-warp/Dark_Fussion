@@ -25,7 +25,7 @@ from userbot import CMD_HELP
     
 CMD_HELP.update(
     {
-         "alive": "✘** Cmds** ✘: `5`\
+         "binod": "✘** Cmds** ✘: `5`\
         \n\n✘ **Cmd: ** `.alive`\
         \n➥ **Info: ** __A kind of showing bot details__\
         \n\n✘ **Cmd: ** `.falive`\
