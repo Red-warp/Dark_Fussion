@@ -10,7 +10,7 @@ Quotes credits: Being logical Channel
 from telethon import events
 
 
-@borg.on(events.NewMessage(pattern=r"\.binod", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.bid", outgoing=True))
 async def bid(event):
     giveVar = event.text
     bid = giveVar[4:5]
