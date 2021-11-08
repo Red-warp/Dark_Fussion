@@ -1,5 +1,6 @@
 #from userbot.utils import lightning_cmd
 from userbot import CMD_HELP
+from telethon import events
 
 @borg.on(events.NewMessage(pattern=r"\.bid", outgoing=True))
 async def bid(event):
