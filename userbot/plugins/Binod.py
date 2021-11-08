@@ -18,6 +18,8 @@ async def bid(event):
 CMD_HELP.update(
     {
          "bid": "✘** Cmds** ✘: `5`\
+         \n\n✘ **Cmd: ** `.bid`\ 
+         \n➥ **Info: ** __FUN__\
         \n\n✘ **Cmd: ** `.alive`\
         \n➥ **Info: ** __A kind of showing bot details__\
         \n\n✘ **Cmd: ** `.falive`\
