@@ -15,7 +15,10 @@ async def bid(event):
     
     
 CMD_HELP.update(
-    {"""
+    {
+    """
     **Command** : bid
-    **Usage**   : fun"""}
+    **Usage**   : fun
+    """
+    }
 )
