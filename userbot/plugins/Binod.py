@@ -18,6 +18,7 @@ CMD_HELP.update(
     {
         "bid": "__**PLUGIN NAME :** Afk__\
 \n\n ** CMD ** `.bid` [Emoji]\
-\n**USAGE  :  **Binod**"
+\n**USAGE  :  **Binod**\
+\n **INFO** : **Fun**"
     }
 )
