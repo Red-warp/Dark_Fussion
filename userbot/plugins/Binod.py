@@ -1,8 +1,7 @@
-#from userbot.utils import lightning_cmd
-from userbot import CMD_HELP
-from telethon import events
+from userbot.utils import lightning_cmd
 
-@borg.on(lightning_cmd(outgoing=True, pattern=".bid"))
+from userbot import CMD_HELP
+@borg.on(lightning_cmd(pattern=r"bid ?(.*)"))
 async def bid(event):
     giveVar = event.text
     bid = giveVar[4:5]
@@ -17,8 +16,8 @@ async def bid(event):
     
 CMD_HELP.update(
     {
-         "bid": "✘** Cmds** ✘: `5`\
-         \n\n✘ **Cmd: ** `.bid`\ 
-         \n➥ **Info: ** __FUN__"
+        "bid": "__**PLUGIN NAME :** Afk__\
+\n\n ** CMD ** `.bid` [Emoji]\
+\n**USAGE  :  **Binod**"
     }
 )
