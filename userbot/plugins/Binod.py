@@ -15,10 +15,7 @@ async def bid(event):
     
     
 CMD_HELP.update(
-    {
-        "bid": "__**PLUGIN NAME :** Afk__\
-\n\n ** CMD ** `.bid` [Emoji]\
-\n**USAGE  :  **Binod**\
-\n **INFO** : **Fun**"
-    }
+    {"""
+    **Command** : bid
+    **Usage**   : fun"""}
 )
