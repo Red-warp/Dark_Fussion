@@ -23,7 +23,7 @@ async def add_bot(bot_token):
     bot.uid = telethon.utils.get_peer_id(bot.me)
 
 
-async def startupmessage():
+async def startup_log_all_done():
     try:
         await bot.send_message(
             GROUP,
