@@ -594,8 +594,8 @@ async def ho(event):
 
     
 def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
-    lightning_no_rows = 7
-    lightning_no_coulmns = 3
+    lightning_no_rows = 5
+    lightning_no_coulmns = 5
     lightning_plugins = []
     for p in lightning_plugs:
         if not p.startswith("_"):
