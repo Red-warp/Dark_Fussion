@@ -3,6 +3,8 @@ import logging
 import os
 from pathlib import Path
 from sys import argv
+from ..core.session import catub
+from userbot import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
 
 import telethon.utils
 from telethon import TelegramClient
@@ -95,6 +97,19 @@ if Config.ENABLE_ASSISTANTBOT == "ENABLE":
 else:
     sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Installed Sucessfully !")
     sed.info("You Can Visit @Dark_Fussion_chat For Any Support Or Doubts")
+
+async def startupmessage():
+    """
+    Start up message in telegram logger group
+    """
+    try:
+        if BOTLOG:
+            Config.CATUBLOGO = await catub.tgbot.send_file(
+                BOTLOG_CHATID,
+                "https://telegra.ph/file/4e3ba8e8f7e535d5a2abe.jpg",
+                caption="**Your CatUserbot has been started successfully.**",
+                buttons=[(Button.url("Support", "https://t.me/catuserbot"),)],
+            )
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
