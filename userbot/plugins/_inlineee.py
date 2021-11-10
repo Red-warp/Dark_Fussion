@@ -305,7 +305,7 @@ async def lightning_pugins_query_hndlr(lightning):
                link_preview=False,
                buttons=[ 
                 [custom.Button.inline("✘ Status ✘", data="stta")],
-                [custom.Button.inline("✘ Ⴆαƈƙ ✘", data="lghtback"],
+                [custom.Button.inline("✘ Ⴆαƈƙ ✘", data="lghtback")]],
          )
     else:
            await lightning.edit(
