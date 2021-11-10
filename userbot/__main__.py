@@ -45,6 +45,18 @@ async def add_bot(bot_token):
     bot.me = await bot.get_me()
     bot.uid = telethon.utils.get_peer_id(bot.me)
 
+async def startupmessage():
+    """
+    Start up message in telegram logger group
+    """
+    try:
+        if BOTLOG:
+            Config.CATUBLOGO = await catub.tgbot.send_file(
+                BOTLOG_CHATID,
+                "https://telegra.ph/file/4e3ba8e8f7e535d5a2abe.jpg",
+                caption="**Your CatUserbot has been started successfully.**",
+                buttons=[(Button.url("Support", "https://t.me/catuserbot"),)],
+            )
 
 async def startup_log_all_done():
     try:
@@ -87,19 +99,6 @@ for name in files:
 print("Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed! ")
 
 print("Setting up Đ₳Ɽ₭ Ƒմʂʂìօղ")
-
-async def startupmessage():
-    """
-    Start up message in telegram logger group
-    """
-    try:
-        if BOTLOG:
-            Config.CATUBLOGO = await catub.tgbot.send_file(
-                BOTLOG_CHATID,
-                "https://telegra.ph/file/4e3ba8e8f7e535d5a2abe.jpg",
-                caption="**Your CatUserbot has been started successfully.**",
-                buttons=[(Button.url("Support", "https://t.me/catuserbot"),)],
-            )
 
 
 if Config.ENABLE_ASSISTANTBOT == "ENABLE":
