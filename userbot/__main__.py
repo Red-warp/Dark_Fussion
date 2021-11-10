@@ -22,29 +22,17 @@ async def add_bot(bot_token):
     bot.me = await bot.get_me()
     bot.uid = telethon.utils.get_peer_id(bot.me)
 
-async def startupmessage():
-    """
-    Start up message in telegram logger group
-    """
-    try:
-        if GROUP:
-             await bot.send_file(
-                GROUP,
-                "https://telegra.ph/file/4e3ba8e8f7e535d5a2abe.jpg",
-                caption="**Your CatUserbot has been started successfully.**",
-                buttons=[(Button.url("Support", "https://t.me/catuserbot"),)],
-            )
 
 
 
-#async def startup_log_all_done():
-  # try:
-  #     await bot.send_message(
-      #      GROUP,
-     #       f"**Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend** `{CMD_HNDLR}alive` **to see if the bot is working.\n\nAdd** @{BOTNAME} **to this group and make it admin for enabling all the features of userbot**",
-  #      )
-  #  except BaseException:
-   #     print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
+async def startup_log_all_done():
+ try:
+      await bot.send_message(
+           GROUP,
+            f"**Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend** `{CMD_HNDLR}alive` **to see if the bot is working.\n\nAdd** @{BOTNAME} **to this group and make it admin for enabling all the features of userbot**",
+       )
+   except BaseException:
+      print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
 
 
 if len(argv) not in (1, 3, 4):
