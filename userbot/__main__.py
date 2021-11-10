@@ -68,6 +68,19 @@ print("Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed! ")
 
 print("Setting up Đ₳Ɽ₭ Ƒմʂʂìօղ")
 
+async def startupmessage():
+    """
+    Start up message in telegram logger group
+    """
+    try:
+        if BOTLOG:
+            Config.CATUBLOGO = await catub.tgbot.send_file(
+                BOTLOG_CHATID,
+                "https://telegra.ph/file/4e3ba8e8f7e535d5a2abe.jpg",
+                caption="**Your CatUserbot has been started successfully.**",
+                buttons=[(Button.url("Support", "https://t.me/catuserbot"),)],
+            )
+
 
 if Config.ENABLE_ASSISTANTBOT == "ENABLE":
     path = "userbot/plugins/assistant/*.py"
@@ -98,18 +111,6 @@ else:
     sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Installed Sucessfully !")
     sed.info("You Can Visit @Dark_Fussion_chat For Any Support Or Doubts")
 
-async def startupmessage():
-    """
-    Start up message in telegram logger group
-    """
-    try:
-        if BOTLOG:
-            Config.CATUBLOGO = await catub.tgbot.send_file(
-                BOTLOG_CHATID,
-                "https://telegra.ph/file/4e3ba8e8f7e535d5a2abe.jpg",
-                caption="**Your CatUserbot has been started successfully.**",
-                buttons=[(Button.url("Support", "https://t.me/catuserbot"),)],
-            )
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
