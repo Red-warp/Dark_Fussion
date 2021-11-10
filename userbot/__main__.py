@@ -3,15 +3,7 @@ import logging
 import os
 from pathlib import Path
 from sys import argv
-from userbot import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
-import sys
-from asyncio.exceptions import CancelledError
-from datetime import timedelta
-from pathlib import Path
 
-import requests
-from telethon import Button, functions, types, utils
-from userbot import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
 import telethon.utils
 from telethon import TelegramClient
 
@@ -19,8 +11,6 @@ from userbot import CMD_HNDLR, bot
 from userbot.Config import Var
 from userbot.thunderconfig import Config
 from userbot.utils import load_assistant, load_module, start_assistant
-from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
-
 TELE = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
 LOAD_MYBOT = Var.LOAD_MYBOT
