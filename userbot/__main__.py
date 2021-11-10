@@ -45,20 +45,8 @@ async def add_bot(bot_token):
     bot.me = await bot.get_me()
     bot.uid = telethon.utils.get_peer_id(bot.me)
 
-async def startupmessage():
-    """
-    Start up message in telegram logger group
-    """
-    try:
-        if TELE:
-            Config.TELE = await lightning.tgbot.send_file(
-                TELE,
-                "https://telegra.ph/file/4e3ba8e8f7e535d5a2abe.jpg",
-                caption="**Your CatUserbot has been started successfully.**",
-                buttons=[(Button.url("Support", "https://t.me/catuserbot"),)],
-            )
 
-async def startup_log_all_done():
+async def startupmessage():
     try:
         await bot.send_message(
             TELE,
