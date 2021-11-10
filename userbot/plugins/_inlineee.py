@@ -221,7 +221,7 @@ async def inline_handler(lightning):
             text=WARNING,
             buttons=[
 
-                [custom.Button.inline("🚫 Sᴘᴀᴍ 🚫", data="lightning_is_here_cant_spam"),
+                [custom.Button.inline("🚫 Sᴘᴀᴍ 🚫", data="fussion_bc_fucker"),
               
                 custom.Button.inline("📝 Rᴇǫᴜᴇsᴛ 📝", data="fck_ask")],
    
@@ -345,23 +345,6 @@ async def what(lightning):
         await lightning.answer(txt, alert=True)
 
 
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lightning_is_here_cant_spam")))
-async def lightning_is_better(lightning):
-    if lightning.query.user_id == bot.uid:
-        fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
-        await lightning.answer(fck_bit, cache_time=0, alert=True)
-        return
-    await lightning.get_chat()
-    lightning_id = lightning.query.user_id
-    text1 = f"LOL **You Think So You Can**😂😂\n\n**[Idiot](tg://user?id={lightning_id}) Bye I'm going to block you.**😂😂"
-    await lightning.edit("Off Course Go To Hell Dude")
-    await bot.send_message(lightning.query.user_id, text1)
-    await bot(functions.contacts.BlockRequest(lightning.query.user_id))
-    await lightning.edit("😛 Bye idiot")
-    await bot.send_message(
-        LIGHT_LOGS,
-        f"#Spammer\n\nHᴇʟʟᴏ {LIGHTNINGUSER},\nNɪʙʙᴀ Tʀʏɪɴɢ Tᴏ Sᴘᴀᴍ..😁😏\n\n**Sᴏ Bʟᴏᴄᴋᴇᴅ** 😏\n\nSᴏʀʀʏ Fᴏʀ Dɪsᴛᴜʀʙɪɴɢ Yᴏᴜ..! 😁,\nHᴀᴠᴇ ᴀ Nɪᴄᴇ Dᴀʏ 🙂" , buttons=[[Button.url("Spammer", "(tg://user?id={lightning_id})")], ]
-    )
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lol_u_think_so")))
 async def lightning_is_better(lightning):
@@ -567,6 +550,25 @@ async def lmaao(lightning):
     else:
         fukoff = "You Don't belong to my master's category. So, why should i follow your orders\nHence, Fuck off Noob" 
         await lightning.answer(fukoff, alert=True)
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fussion_bc_fucker")))
+async def lightning_is_better(lightning):
+    if lightning.query.user_id == bot.uid:
+        fck_bit = f"Oh! C'mon Master {LIGHTNINGUSER} Im Try To Get Rid Of This Nigga Pls Dont Touch"
+        await lightning.answer(fck_bit, cache_time=0, alert=True)
+        return
+    await lightning.get_chat()
+    lightning_id = lightning.query.user_id
+    text1 = f"LOL **You Think So You Can**😂😂\n\n**[Idiot](tg://user?id={lightning_id}) Bye I'm going to block you.**😂😂"
+    await lightning.edit("Off Course Go To Hell Dude")
+    await bot.send_message(lightning.query.user_id, text1)
+    await bot(functions.contacts.BlockRequest(lightning.query.user_id))
+    await lightning.edit("😛 Bye idiot")
+    await bot.send_message(
+        LIGHT_LOGS,
+        f"#Spammer\n\nHᴇʟʟᴏ {LIGHTNINGUSER},\nNɪʙʙᴀ Tʀʏɪɴɢ Tᴏ Sᴘᴀᴍ..😁😏\n\n**Sᴏ Bʟᴏᴄᴋᴇᴅ** 😏\n\nSᴏʀʀʏ Fᴏʀ Dɪsᴛᴜʀʙɪɴɢ Yᴏᴜ..! 😁,\nHᴀᴠᴇ ᴀ Nɪᴄᴇ Dᴀʏ 🙂" , buttons=[[Button.url("Spammer", "(tg://user?id={lightning_id})")], ]
+    )
+
 
 import requests
 
