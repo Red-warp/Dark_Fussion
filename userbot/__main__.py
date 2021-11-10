@@ -14,7 +14,7 @@ from userbot.utils import load_assistant, load_module, start_assistant
 TELE = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
 LOAD_MYBOT = Var.LOAD_MYBOT
-GROUP = var.COMBINED_GROUP_ID
+GROUP = Var.COMBINED_GROUP_ID
 sed = logging.getLogger("Dark Fussion")
 
 async def add_bot(bot_token):
