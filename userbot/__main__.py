@@ -11,10 +11,11 @@ from userbot import CMD_HNDLR, bot
 from userbot.Config import Var
 from userbot.thunderconfig import Config
 from userbot.utils import load_assistant, load_module, start_assistant
+from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
+
 TELE = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
 LOAD_MYBOT = Var.LOAD_MYBOT
-GROUP = Var.COMBINED_GROUP_ID
 sed = logging.getLogger("Dark Fussion")
 
 async def add_bot(bot_token):
@@ -23,16 +24,14 @@ async def add_bot(bot_token):
     bot.uid = telethon.utils.get_peer_id(bot.me)
 
 
-
-
 async def startup_log_all_done():
- try:
-      await bot.send_message(
-           GROUP,
+    try:
+        await bot.send_message(
+            TELE,
             f"**Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend** `{CMD_HNDLR}alive` **to see if the bot is working.\n\nAdd** @{BOTNAME} **to this group and make it admin for enabling all the features of userbot**",
-       )
-   except BaseException:
-      print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
+        )
+    except BaseException:
+        print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
 
 
 if len(argv) not in (1, 3, 4):
@@ -96,7 +95,6 @@ if Config.ENABLE_ASSISTANTBOT == "ENABLE":
 else:
     sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Installed Sucessfully !")
     sed.info("You Can Visit @Dark_Fussion_chat For Any Support Or Doubts")
-
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
