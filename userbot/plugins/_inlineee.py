@@ -305,14 +305,14 @@ async def lightning_pugins_query_hndlr(lightning):
                link_preview=False,
                buttons=[ 
                 [custom.Button.inline("✘ Status ✘", data="stta")],
-                [custom.Button.inline("✘ Ⴆαƈƙ ✘", data="lghtback")]],
+                [custom.Button.inline("✘ Ⴆαƈƙ ✘", data="{}_next({})".format(lightning_lol, lightning_plugins_pages")]],
          )
     else:
            await lightning.edit(
             message=lightning_is_best,
             buttons=[
                 [custom.Button.inline("✘ Check Status ✘", data="stta")],
-                [custom.Button.inline("✘ Ⴆαƈƙ ✘", data="lghtback")],
+                [custom.Button.inline("✘ Ⴆαƈƙ ✘", data="{}_next({})".format(lightning_lol, lightning_plugins_pages")],
             ],
         )
 
