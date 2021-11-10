@@ -42,7 +42,7 @@ LIGHTNING_PM = os.environ.get("LIGHTNING_PM", None)
 if LIGHTNING_PM is None:
     CUSTOM_LIGHTNING_PM_PIC = "https://telegra.ph/file/53aed76a90e38779161b1.jpg"
 else:
-    CUSTOM_LIGHTNING_PM_PIC = LIGHTNING_PM
+    CUSTOM_LIGHTNING_PM_PIC == LIGHTNING_PM
 FUCK_OFF_WARN = f"**Ewww Blocked You As You Spammed {LIGHTNINGUSER}'s DM\n\n **IDC**"
 
 
