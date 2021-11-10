@@ -3,7 +3,6 @@ import logging
 import os
 from pathlib import Path
 from sys import argv
-from ..core.session import catub
 from userbot import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
 import sys
 from asyncio.exceptions import CancelledError
@@ -12,20 +11,7 @@ from pathlib import Path
 
 import requests
 from telethon import Button, functions, types, utils
-
 from userbot import BOTLOG, BOTLOG_CHATID, PM_LOGGER_GROUP_ID
-
-from ..Config import Config
-from ..core.logger import logging
-from ..core.session import catub
-from ..helpers.utils import install_pip
-from ..sql_helper.global_collection import (
-    del_keyword_collectionlist,
-    get_item_collectionlist,
-)
-from ..sql_helper.globals import addgvar, delgvar, gvarstatus
-from .pluginmanager import load_module
-from .tools import create_supergroup
 import telethon.utils
 from telethon import TelegramClient
 
