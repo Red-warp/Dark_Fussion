@@ -111,10 +111,4 @@ async def fusion_is_on():
                 caption=f"**Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend** {CMD_HNDLR}alive to see if the bot is working.\n\nAdd @{BOTNAME} to this group and make it admin for enabling all the features of userbot")
     except Exception as e:
         print(str(e))
-ter deploying 🤐😅         pass
-n_is_on())
-
-if len(sys.argv) not in (1, 3, 4):
-    bot.disconnect()
-else:
     bot.run_until_disconnected()
