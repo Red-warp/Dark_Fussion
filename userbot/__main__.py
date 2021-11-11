@@ -19,12 +19,12 @@ LOAD_MYBOT = Var.LOAD_MYBOT
 sed = logging.getLogger("Dark Fussion")
 fusion_pic = "https://te.legra.ph/file/56615a80e56dcca9dcfa0.jpg"
 
-#async def add_bot(bot_token):
+async def add_bot(bot_token):
     await bot.start(bot_token)
     bot.me = await bot.get_me()
     bot.uid = telethon.utils.get_peer_id(bot.me)
 
-#async def startup_log_all_done():
+async def startup_log_all_done():
     try:
         await bot.send_message(
             TELE,
