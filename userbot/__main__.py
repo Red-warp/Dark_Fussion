@@ -101,14 +101,3 @@ if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:
     bot.run_until_disconnected()   
-
-async def fusion_is_on():
-    try:
-        if Config.LOGGER_ID != 0:
-            await bot.send_file(
-                Config.LOGGER_ID,
-                fusion_pic,
-                caption=f"**Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend** {CMD_HNDLR}alive to see if the bot is working.\n\nAdd @{BOTNAME} to this group and make it admin for enabling all the features of userbot")
-    except Exception as e:
-        print(str(e))
-    bot.run_until_disconnected()
