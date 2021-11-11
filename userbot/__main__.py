@@ -17,6 +17,7 @@ TELE = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
 LOAD_MYBOT = Var.LOAD_MYBOT
 sed = logging.getLogger("Dark Fussion")
+fufion_pic = ""
 
 async def add_bot(bot_token):
     await bot.start(bot_token)
@@ -100,3 +101,32 @@ if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:
     bot.run_until_disconnected()   
+
+async def fusion_is_on():
+    try:
+        if Config.LOGGER_ID != 0:
+            await bot.send_file(
+                Config.LOGGER_ID,
+                PYTHON_PIC,
+                caption=f"**Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend** {CMD_HNDLR}alive to see if the bot is working.\n\nAdd @{BOTNAME} to this group and make it admin for enabling all the features of userbot")
+    except Exception as e:
+        print(str(e))
+
+# Join PythonBot Channel after deploying 🤐😅
+    try:
+        await bot(JoinChannelRequest("@Python_Updata"))
+    except BaseException:
+        pass
+
+    try:
+        await bot(JoinChannelRequest("@Python_Userbot_Support"))
+    except BaseException:
+         pass
+
+
+bot.loop.create_task(python_is_on())
+
+if len(sys.argv) not in (1, 3, 4):
+    bot.disconnect()
+else:
+    bot.run_until_disconnected()
