@@ -17,7 +17,7 @@ TELE = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
 LOAD_MYBOT = Var.LOAD_MYBOT
 sed = logging.getLogger("Dark Fussion")
-fufion_pic = "https://te.legra.ph/file/56615a80e56dcca9dcfa0.jpg"
+fusion_pic = "https://te.legra.ph/file/56615a80e56dcca9dcfa0.jpg"
 
 async def add_bot(bot_token):
     await bot.start(bot_token)
