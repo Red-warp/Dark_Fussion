@@ -12,7 +12,7 @@ import sys
 from uniborg.util import lightning_cmd
 
 
-@borg.on(lightning_cmd(pattern="restart"))
+@borg.on(lightning_cmd(pattern="reload"))
 async def _(event):
     await event.edit(
         "Black Lightning restarted successfully. Wait for 2-3 minutes to complete all processes."
