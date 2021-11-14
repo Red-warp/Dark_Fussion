@@ -21,10 +21,6 @@ fusion_pic = "https://te.legra.ph/file/56615a80e56dcca9dcfa0.jpg"
 
 from telethon.tl import functions
 
-async def add_bot(bot_token,tgbot):
-            await tgbot(
-                functions.channels.InviteToChannelRequest(channel=TELE, users=[bot_token])
-            )
 
 async def startup_log_all_done():
     try:
@@ -46,12 +42,20 @@ else:
         bot.tgbot = TelegramClient(
             "TG_BOT_TOKEN", api_id=Var.APP_ID, api_hash=Var.API_HASH
         ).start(bot_token=Var.TG_BOT_TOKEN_BF_HER)
+        
+
+
         print("Initialisation finished, no errors")
         print("Starting Userbot")
-        bot.loop.run_until_complete(add_bot(Var.TG_BOT_USER_NAME_BF_HER,bot))
+        
         print("Startup Completed")
     else:
         bot.start()
+
+     username=(await bot.get_me()).username
+     await bot(
+                functions.channels.InviteToChannelRequest(channel=TELE, users=[username])
+            )
 
 path = "userbot/plugins/*.py"
 files = glob.glob(path)
