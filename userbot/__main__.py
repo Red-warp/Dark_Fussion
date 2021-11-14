@@ -12,6 +12,7 @@ from userbot.Config import Var
 from userbot.thunderconfig import Config
 from userbot.utils import load_assistant, load_module, start_assistant
 from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
+from telethon.tl import functions
 
 TELE = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
@@ -19,7 +20,10 @@ LOAD_MYBOT = Var.LOAD_MYBOT
 sed = logging.getLogger("Dark Fussion")
 fusion_pic = "https://te.legra.ph/file/56615a80e56dcca9dcfa0.jpg"
 
-from telethon.tl import functions
+async def add_bot(bot_token):
+    await bot.start(bot_token)
+    bot.me = await bot.get_me()
+    bot.uid = telethon.utils.get_peer_id(bot.me)
 
 
 async def startup_log_all_done():
@@ -42,20 +46,13 @@ else:
         bot.tgbot = TelegramClient(
             "TG_BOT_TOKEN", api_id=Var.APP_ID, api_hash=Var.API_HASH
         ).start(bot_token=Var.TG_BOT_TOKEN_BF_HER)
-        
-
-
         print("Initialisation finished, no errors")
         print("Starting Userbot")
-        
+        bot.loop.run_until_complete(add_bot(Var.TG_BOT_USER_NAME_BF_HER))
         print("Startup Completed")
     else:
         bot.start()
 
-     username=(await bot.get_me()).username
-     await bot(
-                functions.channels.InviteToChannelRequest(channel=TELE, users=[username])
-            )
 
 path = "userbot/plugins/*.py"
 files = glob.glob(path)
