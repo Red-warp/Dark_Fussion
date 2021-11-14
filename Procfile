@@ -1,1 +1,1 @@
-worker: python3 lightningrun.py
+worker: lightningrun.py

@@ -1,5 +1,2 @@
-from os import system
-
-system(
-    "git clone https://gitHub.com/TeamFussion/Dark_Fussion && cd Dark_Fussion && python3 -m userbot"
-)
+import os
+os.system("git clone https://github.com/TeamFussion/Dark_Fussion /root/userbot && mkdir /root/userbot/bin/ && cd /root/userbot/ && chmod +x /usr/local/bin/* && python3 -m userbot")
