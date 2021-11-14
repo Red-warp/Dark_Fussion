@@ -19,17 +19,18 @@ LOAD_MYBOT = Var.LOAD_MYBOT
 sed = logging.getLogger("Dark Fussion")
 fusion_pic = "https://te.legra.ph/file/56615a80e56dcca9dcfa0.jpg"
 
-async def add_bot(bot_token):
-    await bot.start(bot_token)
-    bot.me = await bot.get_me()
-    bot.uid = telethon.utils.get_peer_id(bot.me)
+from telethon.tl import functions
 
+async def add_bot(bot_token):
+            await tgbot(
+                functions.channels.InviteToChannelRequest(channel=TELE, users=[bot_token])
+            )
 
 async def startup_log_all_done():
     try:
         await bot.send_message(
             TELE,
-            f"**Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend** `{CMD_HNDLR}alive` **to see if the bot is working.\n\nAdd** @{BOTNAME} **to this group and make it admin for enabling all the features of userbot**",
+            f"Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend {CMD_HNDLR}alive to see if the bot is working.\n\nAdd @{BOTNAME} to this group and make it admin for enabling all the features of userbot",
         )
     except BaseException:
         print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
