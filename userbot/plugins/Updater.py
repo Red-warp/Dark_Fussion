@@ -1,4 +1,4 @@
-"""from os import remove, execle, path, makedirs, getenv, environ
+from os import remove, execle, path, makedirs, getenv, environ
 from shutil import rmtree
 
 import sys, os
@@ -185,4 +185,3 @@ async def upstream(ups):
         args = [sys.executable, "-m", "userbot"]
         execle(sys.executable, *args, environ)
         return
-"""
