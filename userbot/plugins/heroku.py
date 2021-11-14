@@ -1,4 +1,4 @@
-#LegendBot
+
 import asyncio
 import math
 import os
