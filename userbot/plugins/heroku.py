@@ -4,9 +4,8 @@ import math
 import os
 import heroku3
 import requests
-from userbot.cmdhelp import CmdHelp
-from userbot.Config import Config
-from LEGENDBOT.utils import admin_cmd, sudo_cmd, edit_or_reply
+from heroku_config import Var
+from userbot.utils import admin_cmd, sudo_cmd, edit_or_reply
 from userbot.cmdhelp import CmdHelp
 import urllib3
 from . import *
@@ -16,17 +15,16 @@ mention = f"[{DEFAULTUSER}](tg://user?id={USERID})"
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # =====================================
 
-Heroku = heroku3.from_key(Config.HEROKU_API_KEY)
+Heroku = heroku3.from_key(Var.HEROKU_API_KEY)
 Heroku = heroku3.from_key(Var.HEROKU_API_KEY)
 heroku_api = "https://api.heroku.com"
-HEROKU_APP_NAME = Config.HEROKU_APP_NAME
-HEROKU_API_KEY = Config.HEROKU_API_KEY
-LEGEND_STRING = "Protected By LEGENDBOT"
+HEROKU_APP_NAME = Var.HEROKU_APP_NAME
+HEROKU_API_KEY = Var.HEROKU_API_KEY
 Heroku = heroku3.from_key(Var.HEROKU_API_KEY)
 heroku_api = "https://api.heroku.com"
 
 @borg.on(
-    admin_cmd(pattern="(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", outgoing=True)
+    lightning_cmd(pattern="(set|get|del) var(?: |$)(.*)(?: |$)([\s\S]*)", outgoing=True)
 )
 async def variable(var):
     if var.fwd_from:
