@@ -1,7 +1,6 @@
 import glob
 from sys import argv
 from telethon import TelegramClient
-from thunderbot.utils import load_module, start_mybot, load_pmbot
 from pathlib import Path
 import telethon.utils
 from thunderbot import CMD_HNDLR
