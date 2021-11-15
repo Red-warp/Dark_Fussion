@@ -19,7 +19,6 @@ LOAD_MYBOT = Var.LOAD_MYBOT
 sed = logging.getLogger("Dark Fussion")
 fusion_pic = "https://te.legra.ph/file/56615a80e56dcca9dcfa0.jpg"
 
-
 async def startup_log_all_done():
     try:
         await bot.send_message(
@@ -50,10 +49,15 @@ else:
     else:
         bot.start()
 
+
+async def run(bot):
     username=(await bot.get_me()).username
     await bot(
                 functions.channels.InviteToChannelRequest(channel=TELE, users=[username])
             )
+
+
+bot.loop.run_until_complete(run(bot))
 
 
 path = "userbot/plugins/*.py"
