@@ -51,50 +51,37 @@ else:
     else:
         bot.start()
 
-path = "userbot/plugins/*.py"
+path = 'userbot/plugins/*.py'
 files = glob.glob(path)
 for name in files:
     with open(name) as f:
         path1 = Path(f.name)
         shortname = path1.stem
-        try:
-            
-         load_module(shortname.replace(".py", ""))
-        except Exception:
-            pass
-print("Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed! ")
+        load_module(shortname.replace(".py", ""))
 
-print("Setting up Đ₳Ɽ₭ Ƒմʂʂìօղ")
+print("Thunderuserbot has been deployed! ")
 
+print("Setting up Assisting Bot")
+path = "userbot/plugins/assistant/*.py"
+files = glob.glob(path)
+for name in files:
+    with open(name) as f:
+        path1 = Path(f.name)
+        shortname = path1.stem
+        start_mybot(shortname.replace(".py", ""))
 
-if Config.ENABLE_ASSISTANTBOT == "ENABLE":
+if LOAD_MYBOT == "True":
     path = "userbot/plugins/assistant/*.py"
     files = glob.glob(path)
     for name in files:
         with open(name) as f:
             path1 = Path(f.name)
             shortname = path1.stem
-            try:
-                
-            
-             load_assistant(shortname.replace(".py", ""))
-            except Exception:
-                pass
-    sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Deployed Successfully !")
-    sed.info("╔════❰ Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ ❱═❍⊱❁۪۪")
-    sed.info("║┣⪼ Ⲟⲱⲛⲉʀ - Ƒմʂʂìօղ ᴜꜱᴇʀ ")
-    sed.info("║┣⪼ Ⲋⲧⲁⲧυⲋ - Ⲟⲛⳑⲓⲛⲉ")
-    sed.info("║┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - 1.2.0")   
-    sed.info("║┣⪼ Ⳙⲣⲧⲓⲙⲉ - 00h:00m:4s ")
-    sed.info("║┣⪼ Ⲃⲟⲧ Ⲣⲓⲛⳋ - 0.006")
-    sed.info("║┣⪼ Ⲣⲩⲧⲏⲟⲛ - 3.9.2")
-    sed.info("║┣⪼ Ⲧⲉⳑⲉⲧⲏⲟⲛ - 1.17.0 ")
-    sed.info("║┣⪼ ✨Đ₳Ɽ₭ Ƒմʂʂìօղ✨")
-    sed.info("║╰━━━━━━━━━━━━━━━➣ ")
-    sed.info("╚══════════════════❍⊱❁۪۪")
-else:
-    sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Installed Sucessfully !")
-    sed.info("You Can Visit @Dark_Fussion_chat For Any Support Or Doubts")
+            load_pmbot(shortname.replace(".py", ""))
+    print("Assisting Bot set up completely!")
+
+print("Thunderuserbot has been started without any issue! Please visit @thunderuserbot on telegram for more")
+bot.loop.run_until_complete(startup_log_all_done())
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
