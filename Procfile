@@ -1,1 +1,1 @@
-worker: python3 -m userbot
+worker: lightningrun.py
