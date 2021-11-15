@@ -1,24 +1,52 @@
 import glob
-import logging
-import os
-from pathlib import Path
+from thunderbot import bot
 from sys import argv
-
-import telethon.utils
 from telethon import TelegramClient
+from thunderbot.thunderbotConfig import Var
+from thunderbot.utils import load_module, start_mybot, load_pmbot
+from pathlib import Path
+import telethon.utils
+from thunderbot import CMD_HNDLR
 
-from userbot import CMD_HNDLR, bot
-from userbot.Config import Var
-from userbot.thunderconfig import Config
-from userbot.utils import load_assistant, load_module, start_assistant
-from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
-from telethon.tl import functions
-
-TELE = Var.PRIVATE_GROUP_ID
+THUND = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
 LOAD_MYBOT = Var.LOAD_MYBOT
-sed = logging.getLogger("Dark Fussion")
-fusion_pic = "https://te.legra.ph/file/56615a80e56dcca9dcfa0.jpg"
+logo = """
+       $$$$$$"
+      .$$$$$$"
+     .$$$$$$"
+    4$$$$$$$$$$$$$"
+   z$$$$$$$$$$$$$"
+   """ """"3$$$$$"
+         z$$$$P
+        d$$$$"
+      .$$$$$"
+     z$$$$$"
+    z$$$$P
+   d$$$$$$$$$$"
+  *******$$$"
+       .$$$"
+      .$$"
+     4$P"
+    z$"
+   zP
+  z"
+ /    ThunderGang
+████████╗██╗  ██╗██╗   ██╗███╗   ██╗██████╗ ███████╗██████╗ 
+╚══██╔══╝██║  ██║██║   ██║████╗  ██║██╔══██╗██╔════╝██╔══██╗
+   ██║   ███████║██║   ██║██╔██╗ ██║██║  ██║█████╗  ██████╔╝
+   ██║   ██╔══██║██║   ██║██║╚██╗██║██║  ██║██╔══╝  ██╔══██╗
+   ██║   ██║  ██║╚██████╔╝██║ ╚████║██████╔╝███████╗██║  ██║
+   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝
+                                                            
+██╗   ██╗███████╗███████╗██████╗ ██████╗  ██████╗ ████████╗
+██║   ██║██╔════╝██╔════╝██╔══██╗██╔══██╗██╔═══██╗╚══██╔══╝
+██║   ██║███████╗█████╗  ██████╔╝██████╔╝██║   ██║   ██║   
+██║   ██║╚════██║██╔══╝  ██╔══██╗██╔══██╗██║   ██║   ██║   
+╚██████╔╝███████║███████╗██║  ██║██████╔╝╚██████╔╝   ██║   
+ ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝╚═════╝  ╚═════╝    ╚═╝   
+                                                           
+"""
 
 async def add_bot(bot_token):
     await bot.start(bot_token)
@@ -28,13 +56,9 @@ async def add_bot(bot_token):
 
 async def startup_log_all_done():
     try:
-        await bot.send_message(
-            TELE,
-            f"Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend {CMD_HNDLR}alive to see if the bot is working.\n\nAdd @{BOTNAME} to this group and make it admin for enabling all the features of userbot",
-        )
+        await bot.send_message(THUND, f"**ThunderUserbot has been started**")
     except BaseException:
         print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
-
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
@@ -42,9 +66,10 @@ else:
     bot.tgbot = None
     if Var.TG_BOT_USER_NAME_BF_HER is not None:
         print("Initiating Inline Bot")
-        # ForTheGreatrerGood of beautification
         bot.tgbot = TelegramClient(
-            "TG_BOT_TOKEN", api_id=Var.APP_ID, api_hash=Var.API_HASH
+            "TG_BOT_TOKEN",
+            api_id=Var.APP_ID,
+            api_hash=Var.API_HASH
         ).start(bot_token=Var.TG_BOT_TOKEN_BF_HER)
         print("Initialisation finished, no errors")
         print("Starting Userbot")
@@ -53,51 +78,38 @@ else:
     else:
         bot.start()
 
-
-path = "userbot/plugins/*.py"
+path = 'thunderbot/plugins/*.py'
 files = glob.glob(path)
 for name in files:
     with open(name) as f:
         path1 = Path(f.name)
         shortname = path1.stem
-        try:
-            
-         load_module(shortname.replace(".py", ""))
-        except Exception:
-            pass
-print("Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed! ")
+        load_module(shortname.replace(".py", ""))
 
-print("Setting up Đ₳Ɽ₭ Ƒմʂʂìօղ")
+print("Thunderuserbot has been deployed! ")
 
+print("Setting up Assisting Bot")
+path = "thunderbot/plugins/lightningbot/*.py"
+files = glob.glob(path)
+for name in files:
+    with open(name) as f:
+        path1 = Path(f.name)
+        shortname = path1.stem
+        start_mybot(shortname.replace(".py", ""))
 
-if Config.ENABLE_ASSISTANTBOT == "ENABLE":
-    path = "userbot/plugins/assistant/*.py"
+if LOAD_MYBOT == "True":
+    path = "thunderbot/plugins/lightningbot/pmsparkbot/*.py"
     files = glob.glob(path)
     for name in files:
         with open(name) as f:
             path1 = Path(f.name)
             shortname = path1.stem
-            try:
-                
-            
-             load_assistant(shortname.replace(".py", ""))
-            except Exception:
-                pass
-    sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Deployed Successfully !")
-    sed.info("╔════❰ Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ ❱═❍⊱❁۪۪")
-    sed.info("║┣⪼ Ⲟⲱⲛⲉʀ - Ƒմʂʂìօղ ᴜꜱᴇʀ ")
-    sed.info("║┣⪼ Ⲋⲧⲁⲧυⲋ - Ⲟⲛⳑⲓⲛⲉ")
-    sed.info("║┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - 1.2.0")   
-    sed.info("║┣⪼ Ⳙⲣⲧⲓⲙⲉ - 00h:00m:4s ")
-    sed.info("║┣⪼ Ⲃⲟⲧ Ⲣⲓⲛⳋ - 0.006")
-    sed.info("║┣⪼ Ⲣⲩⲧⲏⲟⲛ - 3.9.2")
-    sed.info("║┣⪼ Ⲧⲉⳑⲉⲧⲏⲟⲛ - 1.17.0 ")
-    sed.info("║┣⪼ ✨Đ₳Ɽ₭ Ƒմʂʂìօղ✨")
-    sed.info("║╰━━━━━━━━━━━━━━━➣ ")
-    sed.info("╚══════════════════❍⊱❁۪۪")
-else:
-    sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Installed Sucessfully !")
-    sed.info("You Can Visit @Dark_Fussion_chat For Any Support Or Doubts")
+            load_pmbot(shortname.replace(".py", ""))
+    print("Assisting Bot set up completely!")
+
+print(logo)
+print("Thunderuserbot has been started without any issue! Please visit @thunderuserbot on telegram for more")
+bot.loop.run_until_complete(startup_log_all_done())
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
