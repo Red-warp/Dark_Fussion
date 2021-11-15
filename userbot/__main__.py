@@ -1,5 +1,4 @@
 import glob
-from thunderbot import bot
 from sys import argv
 from telethon import TelegramClient
 from thunderbot.thunderbotConfig import Var
