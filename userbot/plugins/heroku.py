@@ -1,4 +1,4 @@
-
+"""
 import asyncio
 import math
 import os
@@ -195,4 +195,4 @@ async def _(event):
     LEGEND_data = app.get_log()
     await eor(event, LEGEND_data)
 
-
+"""
