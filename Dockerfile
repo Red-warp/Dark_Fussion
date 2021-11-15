@@ -1,4 +1,4 @@
-FROM teamfussion/dark_fussion:slim-buster
+FROM teamfussion/dark_fussion
 
 #clonning repo 
 RUN git clone https://github.com/teamfussion/dark_fussion.git /root/userbot
