@@ -28,7 +28,7 @@ async def add_bot(bot_token):
 
 async def startup_log_all_done():
     try:
-        await bot.send_message(THUND, f"**ThunderUserbot has been started**")
+        await bot.send_message(TELE, f"**ThunderUserbot has been started**")
     except BaseException:
         print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
 
