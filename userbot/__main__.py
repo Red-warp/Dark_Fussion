@@ -1,9 +1,16 @@
 import glob
-from sys import argv
-from telethon import TelegramClient
+import logging
+import os
 from pathlib import Path
+from sys import argv
+
 import telethon.utils
-from thunderbot import CMD_HNDLR
+from telethon import TelegramClient
+
+from userbot import CMD_HNDLR, bot
+from userbot.Config import Var
+from userbot.thunderconfig import Config
+from userbot.utils import load_assistant, load_module, start_assistant
 
 THUND = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
