@@ -14,14 +14,15 @@ from userbot.utils import load_assistant, load_module, start_assistant
 from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
 from telethon.tl import functions
 
+BOTTOKEN = Var.TG_BOT_TOKEN_BF_HER
 TELE = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
 LOAD_MYBOT = Var.LOAD_MYBOT
 sed = logging.getLogger("Dark Fussion")
 fusion_pic = "https://te.legra.ph/file/56615a80e56dcca9dcfa0.jpg"
 
-async def add_bot{BOTNAME}:
-    await bot.start{BOTNAME}
+async def add_bot{BOTTOKEN}:
+    await bot.start{BOTTOKEN}
     bot.me = await bot.get_me()
     bot.uid = telethon.utils.get_peer_id(bot.me)
 
