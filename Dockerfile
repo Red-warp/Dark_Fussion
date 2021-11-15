@@ -1,7 +1,7 @@
 FROM teamfussion/dark_fussion
 
 #clonning repo 
-RUN git clone https://github.com/teamfussion/dark_fussion.git /root/userbot
+RUN git clone https://github.com/teamfussion/dark_fussion /root/userbot
 #working directory 
 WORKDIR /root/userbot
 
