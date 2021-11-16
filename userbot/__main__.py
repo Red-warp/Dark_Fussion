@@ -12,6 +12,7 @@ from userbot.Config import Var
 from userbot.thunderconfig import Config
 from userbot.utils import load_assistant, load_module, start_assistant
 from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
+from telethon.tl import functions
 
 TELE = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
