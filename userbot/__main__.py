@@ -20,46 +20,6 @@ LOAD_MYBOT = Var.LOAD_MYBOT
 sed = logging.getLogger("Dark Fussion")
 fusion_pic = "https://te.legra.ph/file/56615a80e56dcca9dcfa0.jpg"
 
-async def startup_log_all_done():
-    try:
-        await bot.send_message(
-            TELE,
-            f"Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend {CMD_HNDLR}alive to see if the bot is working.\n\nAdd @{BOTNAME} to this group and make it admin for enabling all the features of userbot",
-        )
-    except BaseException:
-        print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
-
-
-if len(argv) not in (1, 3, 4):
-    bot.disconnect()
-else:
-    bot.tgbot = None
-    if Var.TG_BOT_USER_NAME_BF_HER is not None:
-        print("Initiating Inline Bot")
-        # ForTheGreatrerGood of beautification
-        bot.tgbot = TelegramClient(
-            "TG_BOT_TOKEN", api_id=Var.APP_ID, api_hash=Var.API_HASH
-        ).start(bot_token=Var.TG_BOT_TOKEN_BF_HER)
-        
-
-
-        print("Initialisation finished, no errors")
-        print("Starting Userbot")
-        
-        print("Startup Completed")
-    else:
-        bot.start()
-
-
-async def run(bot):
-    username=(await bot.get_me()).username
-    await bot(
-                functions.channels.InviteToChannelRequest(channel=TELE, users=[username])
-            )
-
-
-bot.loop.run_until_complete(run(bot))
-
 
 path = "userbot/plugins/*.py"
 files = glob.glob(path)
