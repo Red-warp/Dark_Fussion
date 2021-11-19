@@ -37,12 +37,12 @@ async def fastpurger(purg):
       #  "`Fast purge complete!\n`Purged " + str(count) + " messages.",
   #  )
 
-    if BOTLOG:
-        await purg.client.send_message(
-            BOTLOG_CHATID, "Purge of " + str(count) + " messages done successfully."
-        )
-    await sleep(2)
-    await done.delete()
+   # if BOTLOG:
+     #   await purg.client.send_message(
+      #      BOTLOG_CHATID, "Purge of " + str(count) + " messages done successfully."
+     #   )
+  #  await sleep(2)
+  #  await done.delete()
 
 
 # @register(outgoing=True, pattern="^.purgeme")
