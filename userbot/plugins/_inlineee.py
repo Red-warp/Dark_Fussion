@@ -131,7 +131,7 @@ async def inline_handler(lightning):
                 [Button.url("🧑‍💻 Uᴘᴅᴀᴛᴇs 🧑‍💻", "https://t.me/DarkFussion"),
                 Button.url("🙋‍♂️ Sᴜᴘᴘᴏʀᴛ 🙋‍♂️", "https://t.me/Dark_Fussion_chat")],  
                 [Button.url("⚙ Sᴇᴛᴛɪɴɢs ⚙" ,"https:/t.me/")],
-                [custom.Button.inlinr("🚫 Cʟᴏsᴇ 🚫" , data="close_fucker_bccc_ash")],
+              #  [custom.Button.inlinr("🚫 Cʟᴏsᴇ 🚫" , data="close_fucker_bccc_ash")],
           
            ],
         )
@@ -468,7 +468,7 @@ async def lmaao(lightning):
                 [Button.url("🧑‍💻 Uᴘᴅᴀᴛᴇs 🧑‍💻", "https://t.me/DarkFussion"),
                 Button.url("🙋‍♂️ Sᴜᴘᴘᴏʀᴛ 🙋‍♂️", "https://t.me/Dark_Fussion_chat")],  
                 [Button.url("⚙ Sᴇᴛᴛɪɴɢs ⚙" ,"https:/t.me/")],
-                [custom.Button.inlinr("🚫 Cʟᴏsᴇ 🚫" , data="close_fucker_bccc_ash")],
+              #  [custom.Button.inlinr("🚫 Cʟᴏsᴇ 🚫" , data="close_fucker_bccc_ash")],
             ],
         )
     else:
