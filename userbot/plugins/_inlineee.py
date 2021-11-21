@@ -77,6 +77,79 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 
 
 
+@borg.on(lightning_cmd(pattern="xnxx?(.*)"))
+async def _(event):
+    if event.fwd_from:
+        return
+    input_str = event.pattern_match.group(1)
+    await event.get_reply_message()
+    chat = "@SeXn1bot"
+    await event.edit("```Checking...```")
+    async with event.client.conversation(chat) as conv:
+        try:
+            response = conv.wait_event(
+                events.NewMessage(incoming=True, from_users=264121194)
+            )
+            await event.client.send_message(chat, "💋2016 Videolar🔞{}".format(input_str))
+            response = await response
+        except YouBlockedUserError:
+            await event.reply("```Unblock @SeXn1bot```")
+            return
+        if response.text.startswith("I can't find that"):
+            await event.edit("😐")
+        else:
+            await event.delete()
+            await event.client.send_file(event.chat_id, response.message)
+
+
+@borg.on(lightning_cmd(pattern="picx?(.*)"))
+async def _(event):
+    if event.fwd_from:
+        return
+    input_str = event.pattern_match.group(1)
+    await event.get_reply_message()
+    chat = "@SeXn1bot"
+    await event.edit("```Checking...```")
+    async with event.client.conversation(chat) as conv:
+        try:
+            response = conv.wait_event(
+                events.NewMessage(incoming=True, from_users=264121194)
+            )
+            await event.client.send_message(chat, "♨️Old photo👙{}".format(input_str))
+            response = await response
+        except YouBlockedUserError:
+            await event.reply("```Unblock @SeXn1bot```")
+            return
+        if response.text.startswith("I can't find that"):
+            await event.edit("😐")
+        else:
+            await event.delete()
+            await event.client.send_file(event.chat_id, response.message)
+
+
+@borg.on(lightning_cmd(pattern="les?(.*)"))
+async def _(event):
+    if event.fwd_from:
+        return
+    input_str = event.pattern_match.group(1)
+    await event.get_reply_message()
+    chat = "@SeXn1bot"
+    await event.edit("```Checking...```")
+    async with event.client.conversation(chat) as conv:
+        try:
+            response = conv.wait_event(
+                events.NewMessage(incoming=True, from_users=264121194)
+            )
+            await event.client.send_message(chat, "🔞Uz_sex♨️{}".format(input_str))
+            response = await response
+        except YouBlockedUserError:
+            await event.reply("```Unblock @SeXn1bot```")
+            return
+        if response.text.startswith("I can't find that"):
+            await event.edit("😐")
+        else:
+            await event.delete()
+            await event.client.send_file(event.chat_id, response.message)
 
 
 BOT_MSG = os.environ.get("BOT_MSG", None)
@@ -106,6 +179,14 @@ LIGHTNING_BOT_PIC = (
     else "https://te.legra.ph/file/1b87bff0d89a0ba1f71f4.jpg"
 )
 
+
+
+
+
+
+
+
+
 @tgbot.on(events.InlineQuery)
 async def inline_handler(lightning):
     builder = lightning.builder
@@ -126,13 +207,10 @@ async def inline_handler(lightning):
             file="https://te.legra.ph/file/de1eb7e29a6553d8e3670.jpg",
             text=f"** Bᴏᴛ Oғ {LIGHTNINGUSER}\n\n Mᴀɪɴ Mᴇɴᴜ\n Pʟᴜɢɪɴs ~ {len(CMD_LIST)}\n\n Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n╭━━━━━━━━━━━━━━━➣\n┣⪼ Ⲟⲱⲛⲉʀ - {LIGHTNINGUSER}\n┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - 1.2.7\n┣⪼ Ⳙⲣⲧⲓⲙⲉ - 2m.42s\n┣⪼ Ⲣⲩⲧⲏⲟⲛ - 3.9.96\n┣⪼ Ⲧⲉⳑⲉⲧⲏⲟⲛ - 1.23.0\n╰━━━━━━━━━━━━━━━➣** ",
             buttons=[
-                [custom.Button.inline("🔌 Pʟᴜɢɪɴs 🔌", data="what?"),
-                custom.Button.inline("📍 Pɪɴɢ 📍", data="bitch")],
-                [Button.url("🧑‍💻 Uᴘᴅᴀᴛᴇs 🧑‍💻", "https://t.me/DarkFussion"),
-                Button.url("🙋‍♂️ Sᴜᴘᴘᴏʀᴛ 🙋‍♂️", "https://t.me/Dark_Fussion_chat")],  
-                [Button.url("⚙ Sᴇᴛᴛɪɴɢs ⚙" ,"https:/t.me")],
-                [custom.Button.inline("🚫 Cʟᴏsᴇ 🚫" , data="close_fucker_bccc_ash")],
-          
+                [custom.Button.inline("✘ Pʟᴜɢɪɴs ✘", data="what?"),
+                custom.Button.inline("✘ Pɪɴɢ ✘", data="bitch")],
+                [Button.url("✘ Uᴘᴅᴀᴛᴇs ✘", "https://t.me/DarkFussion"),
+                Button.url("✘ Sᴜᴘᴘᴏʀᴛ ✘", "https://t.me/Dark_Fussion_chat")],  
            ],
         )
         await lightning.answer([result])
@@ -463,12 +541,10 @@ async def lmaao(lightning):
         await lightning.edit(
             f"** Bᴏᴛ Oғ {LIGHTNINGUSER}\n\n Mᴀɪɴ Mᴇɴᴜ\n Pʟᴜɢɪɴs ~ {len(CMD_LIST)}\n\n Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n╭━━━━━━━━━━━━━━━➣\n┣⪼ Ⲟⲱⲛⲉʀ - {LIGHTNINGUSER}\n┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - 1.2.7\n┣⪼ Ⳙⲣⲧⲓⲙⲉ - 2m.42s\n┣⪼ Ⲣⲩⲧⲏⲟⲛ - 3.9.96\n┣⪼ Ⲧⲉⳑⲉⲧⲏⲟⲛ - 1.23.0\n╰━━━━━━━━━━━━━━━➣**",
             buttons=[
-                [custom.Button.inline("🔌 Pʟᴜɢɪɴs 🔌", data="what?"),
-                custom.Button.inline("📍 Pɪɴɢ 📍", data="bitch")],
-                [Button.url("🧑‍💻 Uᴘᴅᴀᴛᴇs 🧑‍💻", "https://t.me/DarkFussion"),
-                Button.url("🙋‍♂️ Sᴜᴘᴘᴏʀᴛ 🙋‍♂️", "https://t.me/Dark_Fussion_chat")],  
-                [Button.url("⚙ Sᴇᴛᴛɪɴɢs ⚙" ,"https:/t.me")],
-                [custom.Button.inline("🚫 Cʟᴏsᴇ 🚫" , data="close_fucker_bccc_ash")],
+                [custom.Button.inline("✘ ᴘʟᴜɢɪɴs ✘", data="what?"),
+                custom.Button.inline("✘ Pɪɴɢ ✘", data="bitch")],
+                [Button.url("✘ Uᴘᴅᴀᴛᴇs ✘", "https://t.me/DarkFussion"),
+                 Button.url("✘ Sᴜᴘᴘᴏʀᴛ ✘", "https://t.me/Dark_Fussion_chat")],
             ],
         )
     else:
