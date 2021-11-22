@@ -125,7 +125,7 @@ else:
          pass
 
 
-bot.loop.create_task(darkfussion_is_on())
+bot.loop.create_task(lightning_is_on())
 
 if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
