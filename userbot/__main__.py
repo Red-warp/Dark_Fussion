@@ -66,9 +66,9 @@ print(f"""
 
 async def jarvis_is_on():
     try:
-        if Config.LOGGER_ID != 0:
+        if Config.COMBINED_GROUP_ID != 0:
             await bot.send_file(
-                Config.LOGGER_ID,
+                Config.COMBINED_GROUP_ID,
                 JARVIS_PIC,
                 caption=f"DEPLOYED JARVIS BOT",
             )
