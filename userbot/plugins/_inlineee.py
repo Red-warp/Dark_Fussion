@@ -544,15 +544,22 @@ async def lmaao(lightning):
         await lightning.edit(
             f"** Bᴏᴛ Oғ {LIGHTNINGUSER}\n\n Mᴀɪɴ Mᴇɴᴜ\n Pʟᴜɢɪɴs ~ {len(CMD_LIST)}\n\n Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ\n╭━━━━━━━━━━━━━━━➣\n┣⪼ Ⲟⲱⲛⲉʀ - {LIGHTNINGUSER}\n┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - 1.2.7\n┣⪼ Ⳙⲣⲧⲓⲙⲉ - 2m.42s\n┣⪼ Ⲣⲩⲧⲏⲟⲛ - 3.9.96\n┣⪼ Ⲧⲉⳑⲉⲧⲏⲟⲛ - 1.23.0\n╰━━━━━━━━━━━━━━━➣**",
             buttons=[
-                [custom.Button.inline(" ᴘʟᴜɢɪɴs ✘", data="what?"),
-                custom.Button.inline("✘ Pɪɴɢ ✘", data="bitch")],
-                [Button.url("✘ Uᴘᴅᴀᴛᴇs ✘", "https://t.me/DarkFussion"),
-                 Button.url("✘ Sᴜᴘᴘᴏʀᴛ ✘", "https://t.me/Dark_Fussion_chat")],
+                [custom.Button.inline("🔌 Pʟᴜɢɪɴs 🔌", data="what?"),
+                custom.Button.inline("📍 Pɪɴɢ 📍", data="bitch")],
+                [Button.url("🧑‍💻 Uᴘᴅᴀᴛᴇs 🧑‍💻", "https://t.me/DarkFussion"),
+                Button.url("💓 Sᴜᴘᴘᴏʀᴛ 💓", "https://t.me/Dark_Fussion_chat")],
+                [Button.url("⚙ Sᴇᴛᴛɪɴɢs ⚙" , "https://t.me/Red_warp")],
+                [custom.Button.inline("🚫 Cʟᴏsᴇ 🚫", data="close?"),
             ],
         )
     else:
         fukoff = "You Don't belong to my master's category. So, why should i follow your orders\nHence, Fuck off Noob" 
         await lightning.answer(fukoff, alert=True)
+
+@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close?"))) 
+async def lmaao(lightning):
+    if lightning.query.user_id == bot.uid:
+        await lightning.delete()
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fussion_bc_fucker")))
 async def lightning_is_better(lightning):
