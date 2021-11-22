@@ -102,7 +102,7 @@ else:
     bot.run_until_disconnected()               
                 
                 
-    async def darkfussion_is_on():
+    async def lightning_is_on():
     try:
         if Config.COMBINED_GROUP_ID != 0:
             await bot.send_file(
