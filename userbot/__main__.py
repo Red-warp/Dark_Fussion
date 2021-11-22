@@ -100,10 +100,9 @@ else:
 
 async def jarvis_is_on():
     try:
-        if Config.LOGGER_ID != 0:
+        if Config.COMBINED_GROUP_ID != 0:
             await bot.send_file(
-                Config.LOGGER_ID,
-                JARVIS_PIC,
+                Config.COMBINED_GROUP_ID,
                 caption=f"DEPLOYED JARVIS BOT",
             )
     except Exception as e:
