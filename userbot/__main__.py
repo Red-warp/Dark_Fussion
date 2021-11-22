@@ -1,94 +1,104 @@
-from userbot import bot
-from sys import argv
-import sys
-from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
-import os
-from telethon import TelegramClient
-from var import Var
-from userbot.Config import Config
-from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
-from userbot.utils import load_module
-from userbot import LOAD_PLUG, LOGS, JARVISversion
-from pathlib import Path
-import asyncio
 import glob
-import telethon.utils
+import logging
+import os
+from pathlib import Path
+from sys import argv
 
-JARVIS_PIC ="https://te.legra.ph/file/7aa60202b95b798a2a4bb.jpg"
+import telethon.utils
+from telethon import TelegramClient
+
+from userbot import CMD_HNDLR, bot
+from userbot.Config import Var
+from userbot.thunderconfig import Config
+from userbot.utils import load_assistant, load_module, start_assistant
+from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
+from telethon.tl import functions
+
+TELE = Var.PRIVATE_GROUP_ID
+BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
+LOAD_MYBOT = Var.LOAD_MYBOT
+sed = logging.getLogger("Dark Fussion")
+fusion_pic = "https://te.legra.ph/file/56615a80e56dcca9dcfa0.jpg"
 
 async def add_bot(bot_token):
+    await bot.start(bot_token)
+    bot.me = await bot.get_me()
+    bot.uid = telethon.utils.get_peer_id(bot.me)
+
+
+async def startup_log_all_done():
     try:
-        await bot.start(bot_token)
-        bot.me = await bot.get_me()
-        bot.uid = telethon.utils.get_peer_id(bot.me)
-    except Exception as e:
-        print(f"STRING_SESSION - {str(e)}")
-        sys.exit()
-        
-        
-if len(sys.argv) not in (1, 3, 4):
+        await bot.send_message(
+            TELE,
+            f"Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend {CMD_HNDLR}alive to see if the bot is working.\n\nAdd @{BOTNAME} to this group and make it admin for enabling all the features of userbot",
+        )
+    except BaseException:
+        print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
+
+
+if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:
     bot.tgbot = None
     if Var.TG_BOT_USER_NAME_BF_HER is not None:
         print("Initiating Inline Bot")
+        # ForTheGreatrerGood of beautification
         bot.tgbot = TelegramClient(
-            "TG_BOT_TOKEN_BF_HER",
-            api_id=Var.APP_ID,
-            api_hash=Var.API_HASH
-        ).start(bot_token=Var.TG_BOT_TOKEN_BF_HER
-      #  print("Initialisation finished with no errors")
-       # print("Starting Userbot")
+            "TG_BOT_TOKEN", api_id=Var.APP_ID, api_hash=Var.API_HASH
+        ).start(bot_token=Var.TG_BOT_TOKEN_BF_HER)
+        print("Initialisation finished, no errors")
+        print("Starting Userbot")
         bot.loop.run_until_complete(add_bot(Var.TG_BOT_USER_NAME_BF_HER))
         print("Startup Completed")
     else:
         bot.start()
-print("Loading Modules / Plugins")
 
-async def main_pl():
-  import glob
-  path = 'userbot/plugins/*.py'
-  files = glob.glob(path)
-  for name in files:
+path = "userbot/plugins/*.py"
+files = glob.glob(path)
+for name in files:
     with open(name) as f:
-      path1 = Path(f.name)
-      shortname = path1.stem
-      load_module(shortname.replace(".py", ""))
+        path1 = Path(f.name)
+        shortname = path1.stem
+        try:
+            
+         load_module(shortname.replace(".py", ""))
+        except Exception:
+            pass
+print("Đ₳Ɽ₭ Ƒմʂʂìօղ has been deployed! ")
 
-bot.loop.run_until_complete(main_pl())
-print(f"""
- ________________
-|                    |
-|JARVIS-BOT TURNED ON|
-|____________________|""")
-
-
-
-async def jarvis_is_on():
-    try:
-        if Config.COMBINED_GROUP_ID != 0:
-            await bot.send_file(
-                Config.COMBINED_GROUP_ID,
-                JARVIS_PIC,
-                caption=f"DEPLOYED JARVIS BOT",
-            )
-    except Exception as e:
-        print(str(e))
-
-    try:
-        await bot(JoinChannelRequest("@Jarvis_Support_Official"))
-    except BaseException:
-        pass
-
-    try:
-        await bot(JoinChannelRequest("@Jarvis_Support_Official"))
-    except BaseException:
-         pass
+print("Setting up Đ₳Ɽ₭ Ƒմʂʂìօղ")
 
 
-bot.loop.create_task(jarvis_is_on())
+if Config.ENABLE_ASSISTANTBOT == "ENABLE":
+    path = "userbot/plugins/assistant/*.py"
+    files = glob.glob(path)
+    for name in files:
+        with open(name) as f:
+            path1 = Path(f.name)
+            shortname = path1.stem
+            try:
+                
+            
+             load_assistant(shortname.replace(".py", ""))
+            except Exception:
+                pass
+    sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Deployed Successfully !")
+    sed.info("╔════❰ Ⲃⲟⲧ Ⲓⲛϝⲟʀⲙⲁⲧⲓⲟⲛ ❱═❍⊱❁۪۪")
+    sed.info("║┣⪼ Ⲟⲱⲛⲉʀ - Ƒմʂʂìօղ ᴜꜱᴇʀ ")
+    sed.info("║┣⪼ Ⲋⲧⲁⲧυⲋ - Ⲟⲛⳑⲓⲛⲉ")
+    sed.info("║┣⪼ Ⲃⲟⲧ Ⳳⲉʀⲋⲓⲟⲛ - 1.2.0")   
+    sed.info("║┣⪼ Ⳙⲣⲧⲓⲙⲉ - 00h:00m:4s ")
+    sed.info("║┣⪼ Ⲃⲟⲧ Ⲣⲓⲛⳋ - 0.006")
+    sed.info("║┣⪼ Ⲣⲩⲧⲏⲟⲛ - 3.9.2")
+    sed.info("║┣⪼ Ⲧⲉⳑⲉⲧⲏⲟⲛ - 1.17.0 ")
+    sed.info("║┣⪼ ✨Đ₳Ɽ₭ Ƒմʂʂìօղ✨")
+    sed.info("║╰━━━━━━━━━━━━━━━➣ ")
+    sed.info("╚══════════════════❍⊱❁۪۪")
+else:
+    sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Installed Sucessfully !")
+    sed.info("You Can Visit @Dark_Fussion_chat For Any Support Or Doubts")
 
-if len(sys.argv) not in (1, 3, 4):
+if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:
     bot.run_until_disconnected()
