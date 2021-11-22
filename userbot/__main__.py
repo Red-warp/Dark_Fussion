@@ -101,13 +101,13 @@ else:
     bot.run_until_disconnected()               
                 
                 
-    async def python_is_on():
+    async def darkfussion_is_on():
     try:
-        if Config.LOGGER_ID != 0:
+        if Config.PRIVATE_GROUP_ID != 0:
             await bot.send_file(
                 Config.LOGGER_ID,
                 PYTHON_PIC,
-                caption=f"#START \n\nDeployed PYTHONBOT Successfully\n\n**PYTHONBOT- {PYTHONversion}**\n\nType `{l1}python` or `{l1}pyalive` to check! \n\nJoin [PythonBot Channel](t.me/Python_Updata) for Updates & [PythonBot Chat](t.me/Python_Userbot_Support) for any query regarding PythonBot",
+                caption=f"#START \n\nDeployed PYTHONBOT Successfully",
             )
     except Exception as e:
         print(str(e))
@@ -124,7 +124,7 @@ else:
          pass
 
 
-bot.loop.create_task(python_is_on())
+bot.loop.create_task(darkfussion_is_on())
 
 if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
