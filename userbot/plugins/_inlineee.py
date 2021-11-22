@@ -559,12 +559,7 @@ async def lmaao(lightning):
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"close?"))) 
 async def lmaao(lightning):
     if lightning.query.user_id == bot.uid:
-        await lightning.edit(
-f"** Hᴇʟᴘ Mᴇɴᴜ Cʟᴏsᴇᴅ **"
-            buttons=[
-              [custom.Button.inline("💫 Oᴘᴇɴ Aɢᴀɪɴ 💫", data="wtshit")],   
-            ],
-        )
+        await lightning.delete()
 
 @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"fussion_bc_fucker")))
 async def lightning_is_better(lightning):
