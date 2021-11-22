@@ -562,7 +562,7 @@ async def lmaao(lightning):
         await lightning.edit(
 f"** Hᴇʟᴘ Mᴇɴᴜ Cʟᴏsᴇᴅ **"
             buttons=[
-              [custom.Button.inline("💫 Oᴘᴇɴ Aɢᴀɪɴ 💫", data="wtshit"),   
+              [custom.Button.inline("💫 Oᴘᴇɴ Aɢᴀɪɴ 💫", data="wtshit")],   
             ],
         )
 
