@@ -16,6 +16,7 @@ TELE = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
 LOAD_MYBOT = Var.LOAD_MYBOT
 sed = logging.getLogger("Black Lightning")
+PYTHON_PIC = "https://te.legra.ph/file/56615a80e56dcca9dcfa0.jpg"
 
 async def add_bot(bot_token):
     await bot.start(bot_token)
@@ -103,9 +104,9 @@ else:
                 
     async def darkfussion_is_on():
     try:
-        if Config.PRIVATE_GROUP_ID != 0:
+        if Config.COMBINED_GROUP_ID != 0:
             await bot.send_file(
-                Config.LOGGER_ID,
+                Config.COMBINED_GROUP_ID,
                 PYTHON_PIC,
                 caption=f"#START \n\nDeployed PYTHONBOT Successfully",
             )
