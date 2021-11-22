@@ -12,7 +12,6 @@ from userbot.Config import Var
 from userbot.thunderconfig import Config
 from userbot.utils import load_assistant, load_module, start_assistant
 from telethon.tl.functions.channels import InviteToChannelRequest, JoinChannelRequest
-from telethon.tl import functions
 
 TELE = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
@@ -24,7 +23,7 @@ async def add_bot(bot_token):
     await bot.start(bot_token)
     bot.me = await bot.get_me()
     bot.uid = telethon.utils.get_peer_id(bot.me)
-
+"""
 
 async def startup_log_all_done():
     try:
@@ -52,6 +51,7 @@ else:
         print("Startup Completed")
     else:
         bot.start()
+"""
 
 path = "userbot/plugins/*.py"
 files = glob.glob(path)
@@ -98,7 +98,31 @@ else:
     sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Installed Sucessfully !")
     sed.info("You Can Visit @Dark_Fussion_chat For Any Support Or Doubts")
 
-if len(argv) not in (1, 3, 4):
+async def jarvis_is_on():
+    try:
+        if Config.LOGGER_ID != 0:
+            await bot.send_file(
+                Config.LOGGER_ID,
+                JARVIS_PIC,
+                caption=f"DEPLOYED JARVIS BOT",
+            )
+    except Exception as e:
+        print(str(e))
+
+    try:
+        await bot(JoinChannelRequest("@Jarvis_Support_Official"))
+    except BaseException:
+        pass
+
+    try:
+        await bot(JoinChannelRequest("@Jarvis_Support_Official"))
+    except BaseException:
+         pass
+
+
+bot.loop.create_task(jarvis_is_on())
+
+if len(sys.argv) not in (1, 3, 4):
     bot.disconnect()
 else:
     bot.run_until_disconnected()
