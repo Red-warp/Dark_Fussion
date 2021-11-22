@@ -560,9 +560,9 @@ async def lmaao(lightning):
 async def lmaao(lightning):
     if lightning.query.user_id == bot.uid:
         await lightning.edit(
-f"** Help Menu Closed **"
+f"** Hᴇʟᴘ Mᴇɴᴜ Cʟᴏsᴇᴅ **"
             buttons=[
-                [custom.Button.inline("🔌 Open Again 🔌", data="wtshit"),
+              [custom.Button.inline("💫 Oᴘᴇɴ Aɢᴀɪɴ 💫", data="wtshit"),   
             ],
         )
 
