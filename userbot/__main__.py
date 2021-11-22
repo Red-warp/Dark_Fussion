@@ -119,7 +119,6 @@ async def jarvis_is_on():
          pass
 
 
-bot.loop.create_task(jarvis_is_on())
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:
