@@ -101,7 +101,35 @@ else:
     bot.run_until_disconnected()               
                 
                 
-               
+    async def python_is_on():
+    try:
+        if Config.LOGGER_ID != 0:
+            await bot.send_file(
+                Config.LOGGER_ID,
+                PYTHON_PIC,
+                caption=f"#START \n\nDeployed PYTHONBOT Successfully\n\n**PYTHONBOT- {PYTHONversion}**\n\nType `{l1}python` or `{l1}pyalive` to check! \n\nJoin [PythonBot Channel](t.me/Python_Updata) for Updates & [PythonBot Chat](t.me/Python_Userbot_Support) for any query regarding PythonBot",
+            )
+    except Exception as e:
+        print(str(e))
+
+# Join PythonBot Channel after deploying 🤐😅
+    try:
+        await bot(JoinChannelRequest("@Python_Updata"))
+    except BaseException:
+        pass
+
+    try:
+        await bot(JoinChannelRequest("@Python_Userbot_Support"))
+    except BaseException:
+         pass
+
+
+bot.loop.create_task(python_is_on())
+
+if len(sys.argv) not in (1, 3, 4):
+    bot.disconnect()
+else:
+    bot.run_until_disconnected()           
                 
                 
                 
