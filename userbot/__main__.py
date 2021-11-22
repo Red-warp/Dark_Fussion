@@ -114,15 +114,7 @@ else:
         print(str(e))
 
 # Join PythonBot Channel after deploying 🤐😅
-    try:
-        await bot(JoinChannelRequest("@Python_Updata"))
-    except BaseException:
-        pass
-
-    try:
-        await bot(JoinChannelRequest("@Python_Userbot_Support"))
-    except BaseException:
-         pass
+  
 
 
 bot.loop.create_task(lightning_is_on())
