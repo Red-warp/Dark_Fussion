@@ -104,9 +104,9 @@ else:
                 
     async def lightning_is_on():
     try:
-        if Config.COMBINED_GROUP_ID != 0:
+        if Config.PRIVATE_GROUP_ID != 0:
             await bot.send_file(
-                Config.COMBINED_GROUP_ID,
+                Config.PRIVATE_GROUP_ID,
                 PYTHON_PIC,
                 caption=f"#START \n\nDeployed PYTHONBOT Successfully",
             )
