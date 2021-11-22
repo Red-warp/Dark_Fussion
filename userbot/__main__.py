@@ -47,45 +47,14 @@ print("Loading Modules / Plugins")
 
 async def main_pl():
   import glob
-  path = 'userbot/*.py'
+  path = 'userbot/plugins/*.py'
   files = glob.glob(path)
   for name in files:
     with open(name) as f:
       path1 = Path(f.name)
       shortname = path1.stem
       load_module(shortname.replace(".py", ""))
-"""
-async def assistant():
-    path = "userbot/plugins/assistant/*.py"
-    files = glob.glob(path)
-    for name in files:
-      with open(name) as f:
-        path1 = Path(f.name)
-        shortname = path1.stem
-        start_assistant(shortname.replace(".py", ""))
-        extra_repo = "https://github.com/JARVIS-USERBOT/JARVIS-BOT"
-        try:
-            os.system(f"git clone {extra_repo}")  
-        except BaseException:
-            pass
-        import glob
-        LOGS.info("Loading Addons")
-        path = "JARVIS-DATA-BASE/*.py"
-        files = glob.glob(path)
-        for name in files:
-            with open(name) as ex:
-                path2 = Path(ex.name)
-                shortname = path2.stem
-                try:
-                    load_addons(shortname.replace(".py", ""))
-                    if not shortname.startswith("__") or shortname.startswith("_"):
-                        LOGS.info(f"[JARVIS-1.0] - Addons -  Installed - {shortname}")
-                except Exception as e:
-                    LOGS.warning(f"[JARVIS-1.0] - Addons - ERROR - {shortname}")
-                    LOGS.warning(str(e))
-    else:
-        print("Addons Not Loading")
-"""
+
 bot.loop.run_until_complete(main_pl())
 print(f"""
  ________________
