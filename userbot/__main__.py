@@ -98,6 +98,7 @@ else:
     sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Installed Sucessfully !")
     sed.info("You Can Visit @Dark_Fussion_chat For Any Support Or Doubts")
 
+bot.loop.create_task(startup_log_all_done())
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:
