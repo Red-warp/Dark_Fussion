@@ -40,6 +40,7 @@ async def startupmessage():
     Start up message in telegram logger group
     """
     try:
+    if Config.PRIVATE_GROUP_ID != 0:
     await bot.send_file(
                 TELE,
                 "https://telegra.ph/file/4e3ba8e8f7e535d5a2abe.jpg",
