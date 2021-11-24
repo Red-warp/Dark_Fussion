@@ -28,9 +28,10 @@ async def add_bot(bot_token):
 
 async def startup_log_all_done():
     try:
-        await bot.send_message(
+        if Config.PRIVATE_GROUP_ID != 0:
+             await bot.send_file(
             TELE,
-           # fusion_pic,
+            fusion_pic,
             message = f"**Your Dark Fussion Userbot has been started successfully**",
             buttons = [[Button.url("Support" , "https://t.me/Darkfussion")],],
         )
