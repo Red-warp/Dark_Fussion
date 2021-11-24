@@ -26,7 +26,7 @@ async def add_bot(bot_token):
     bot.uid = telethon.utils.get_peer_id(bot.me)
 
 
-async def startup_log_all_done():
+async def Fussion_is_on():
     try:
         await bot.send_message(
             TELE,
@@ -101,7 +101,7 @@ else:
     sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Installed Sucessfully !")
     sed.info("You Can Visit @Dark_Fussion_chat For Any Support Or Doubts")
 
-bot.loop.create_task(startupmessage())
+bot.loop.create_task(Fussion_is_on())
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:
