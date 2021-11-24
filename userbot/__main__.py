@@ -48,8 +48,8 @@ async def startupmessage():
                 buttons=[(Button.url("Support", "https://t.me/catuserbot"),)],
             )
 
-if len(argv) not in (1, 3, 4):
-    bot.disconnect()
+#if len(argv) not in (1, 3, 4):
+#    bot.disconnect()
 else:
     bot.tgbot = None
     if Var.TG_BOT_USER_NAME_BF_HER is not None:
