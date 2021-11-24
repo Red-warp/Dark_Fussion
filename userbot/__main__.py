@@ -30,9 +30,7 @@ async def startup_log_all_done():
     try:
         await bot.send_message(
             TELE,
-            "https://te.legra.ph/file/1b87bff0d89a0ba1f71f4.jpg",
-            f"**Your Dark Fussion Userbot has been started successfully.**",
-            buttons=[[Button.url("Support" , "https://t.me/Darkfussion")],],
+            f"@Red_warp\n\nĐ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend {CMD_HNDLR}alive to see if the bot is working.\n\nAdd @{BOTNAME} to this group and make it admin for enabling all the features of userbot",
         )
     except BaseException:
         print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
@@ -40,7 +38,6 @@ async def startup_log_all_done():
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
-
 else:
     bot.tgbot = None
     if Var.TG_BOT_USER_NAME_BF_HER is not None:
