@@ -30,10 +30,10 @@ async def startup_log_all_done():
     try:
         if Config.PRIVATE_GROUP_ID != 0:
              await bot.send_file(
-            TELE,
-            fusion_pic,
-            message = f"**Your Dark Fussion Userbot has been started successfully**",
-            buttons = [[Button.url("Support" , "https://t.me/Darkfussion")],],
+               TELE,
+               fusion_pic,
+               caption = f"**Your Dark Fussion Userbot has been started successfully**",
+               buttons = [[Button.url("Support" , "https://t.me/Darkfussion")],],
         )
     except BaseException:
         print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
