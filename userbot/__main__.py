@@ -32,7 +32,7 @@ async def startup_log_all_done():
             TELE,
             "https://te.legra.ph/file/1b87bff0d89a0ba1f71f4.jpg",
             f"**Your Dark Fussion Userbot has been started successfully.**",
-            buttons=[[Button.url("Support" , "https://t.me/Darkfussion)],]
+            buttons=[[Button.url("Support" , "https://t.me/Darkfussion)],],
         )
     except BaseException:
         print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
