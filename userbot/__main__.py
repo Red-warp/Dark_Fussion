@@ -28,9 +28,10 @@ async def add_bot(bot_token):
 
 async def startup_log_all_done():
     try:
-        await bot.send_message(
+        await bot.send_file(
             TELE,
-            f"@Red_warp\n\nĐ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend {CMD_HNDLR}alive to see if the bot is working.\n\nAdd @{BOTNAME} to this group and make it admin for enabling all the features of userbot",
+            fusion_pic
+            f"**Your Dark Fussion Userbot has been started successfully**",
         )
     except BaseException:
         print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
