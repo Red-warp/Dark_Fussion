@@ -26,31 +26,21 @@ async def add_bot(bot_token):
     bot.uid = telethon.utils.get_peer_id(bot.me)
 
 
-#async def startup_log_all_done():
-   # try:
-  #      await bot.send_message(
-    #        TELE,
-    #        f"@Red_warp\n\nĐ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend {CMD_HNDLR}alive to see if the bot is working.\n\nAdd @{BOTNAME} to this group and make it admin for enabling all the features of userbot",
-   #     )
-   # except BaseException:
-   #     print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
-
-async def startupmessage():
-    """
-    Start up message in telegram logger group
-    """
+async def startup_log_all_done():
     try:
-        if Config.PRIVATE_GROUP_ID != 0:
-            await bot.send_file(
-                TELE,
-                "https://telegra.ph/file/4e3ba8e8f7e535d5a2abe.jpg",
-                caption="Your CatUserbot has been started successfully.",
-                buttons=[(Button.url("Support", "https://t.me/catuserbot"),)],
-            )
+        await bot.send_message(
+            TELE,
+            "https://te.legra.ph/file/1b87bff0d89a0ba1f71f4.jpg",
+            f"**Your Dark Fussion Userbot has been started successfully.**",
+            buttons=[[Button.url("Support" , "https://t.me/Darkfussion)],]
+        )
+    except BaseException:
+        print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
 
-#if len(argv) not in (1, 3, 4):
-#    bot.disconnect()
-'''
+
+if len(argv) not in (1, 3, 4):
+    bot.disconnect()
+
 else:
     bot.tgbot = None
     if Var.TG_BOT_USER_NAME_BF_HER is not None:
@@ -65,7 +55,7 @@ else:
         print("Startup Completed")
     else:
         bot.run_until_disconnected()
-'''
+
 path = "userbot/plugins/*.py"
 files = glob.glob(path)
 for name in files:
