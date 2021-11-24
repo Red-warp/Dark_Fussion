@@ -26,15 +26,26 @@ async def add_bot(bot_token):
     bot.uid = telethon.utils.get_peer_id(bot.me)
 
 
-async def startup_log_all_done():
-    try:
-        await bot.send_message(
-            TELE,
-            f"@Red_warp\n\nĐ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend {CMD_HNDLR}alive to see if the bot is working.\n\nAdd @{BOTNAME} to this group and make it admin for enabling all the features of userbot",
+#async def startup_log_all_done():
+   # try:
+  #      await bot.send_message(
+    #        TELE,
+    #        f"@Red_warp\n\nĐ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend {CMD_HNDLR}alive to see if the bot is working.\n\nAdd @{BOTNAME} to this group and make it admin for enabling all the features of userbot",
         )
-    except BaseException:
-        print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
+   # except BaseException:
+   #     print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
 
+async def startupmessage():
+    """
+    Start up message in telegram logger group
+    """
+    try:
+    await bot.send_file(
+                TELE,
+                "https://telegra.ph/file/4e3ba8e8f7e535d5a2abe.jpg",
+                caption="Your CatUserbot has been started successfully.",
+                buttons=[(Button.url("Support", "https://t.me/catuserbot"),)],
+            )
 
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
@@ -98,7 +109,7 @@ else:
     sed.info("Đ₳Ɽ₭ Ƒմʂʂìօղ Has Been Installed Sucessfully !")
     sed.info("You Can Visit @Dark_Fussion_chat For Any Support Or Doubts")
 
-bot.loop.create_task(startup_log_all_done())
+#bot.loop.create_task(startup_log_all_done())
 if len(argv) not in (1, 3, 4):
     bot.disconnect()
 else:
