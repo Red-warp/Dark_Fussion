@@ -576,7 +576,8 @@ async def lightning_is_better(lightning):
     await lightning.edit("😛 Bye idiot")
     await bot.send_message(
         LIGHT_LOGS,
-        f"#Spammer\n\nHᴇʟʟᴏ {LIGHTNINGUSER},\nNɪʙʙᴀ Tʀʏɪɴɢ Tᴏ Sᴘᴀᴍ..😁😏\n\n**Sᴏ Bʟᴏᴄᴋᴇᴅ** 😏\n\nSᴏʀʀʏ Fᴏʀ Dɪsᴛᴜʀʙɪɴɢ Yᴏᴜ..! 😁,\nHᴀᴠᴇ ᴀ Nɪᴄᴇ Dᴀʏ 🙂" , buttons=[[Button.url("Spammer", "(tg://user?id={lightning_id})")], ]
+        f"#Spammer\n\nHᴇʟʟᴏ {LIGHTNINGUSER},\nNɪʙʙᴀ Tʀʏɪɴɢ Tᴏ Sᴘᴀᴍ..😁😏\n\n**Sᴏ Bʟᴏᴄᴋᴇᴅ** 😏\n\nSᴏʀʀʏ Fᴏʀ Dɪsᴛᴜʀʙɪɴɢ Yᴏᴜ..! 😁,\nHᴀᴠᴇ ᴀ Nɪᴄᴇ Dᴀʏ 🙂" , 
+        buttons=[[Button.url("Spammer", "tg://user?id={lightning_id}")],],
     )
 
 
