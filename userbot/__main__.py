@@ -30,7 +30,7 @@ async def startup_log_all_done():
     try:
         await bot.send_file(
             TELE,
-            fusion_pic
+            fusion_pic,
             f"**Your Dark Fussion Userbot has been started successfully**",
         )
     except BaseException:
