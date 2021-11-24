@@ -28,7 +28,7 @@ async def add_bot(bot_token):
 
 async def startup_log_all_done():
     try:
-        await bot.send_file(
+        await bot.send_message(
             TELE,
            # fusion_pic,
             f"**Your Dark Fussion Userbot has been started successfully**",
