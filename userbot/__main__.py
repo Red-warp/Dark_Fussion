@@ -31,7 +31,7 @@ async def add_bot(bot_token):
   #      await bot.send_message(
     #        TELE,
     #        f"@Red_warp\n\nĐ₳Ɽ₭ Ƒմʂʂìօղ has been deployed.\nSend {CMD_HNDLR}alive to see if the bot is working.\n\nAdd @{BOTNAME} to this group and make it admin for enabling all the features of userbot",
-        )
+   #     )
    # except BaseException:
    #     print("Either PRIVATE_GROUP_ID is wrong or you have left the group.")
 
