@@ -41,7 +41,7 @@ async def startupmessage():
     """
     try:
         if Config.PRIVATE_GROUP_ID != 0:
-    await bot.send_file(
+            await bot.send_file(
                 TELE,
                 "https://telegra.ph/file/4e3ba8e8f7e535d5a2abe.jpg",
                 caption="Your CatUserbot has been started successfully.",
