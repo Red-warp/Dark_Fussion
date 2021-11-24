@@ -31,7 +31,7 @@ async def startup_log_all_done():
         await bot.send_message(
             TELE,
            # fusion_pic,
-            f"**Your Dark Fussion Userbot has been started successfully**",
+            message = f"**Your Dark Fussion Userbot has been started successfully**",
             buttons = [[Button.url("Support" , "https://t.me/Darkfussion")],],
         )
     except BaseException:
