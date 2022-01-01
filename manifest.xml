@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Lockscreen version="1" frameRate="30"  displayDesktop="false" screenWidth="1080" id="lime" vibrate="false">
+<Var expression="1" name="notification"/>
+   
+	<ExternalCommands>
+		<Trigger action="resume">
+			<Command target="anim1.animation" value="stop"/>
+			<Command target="anim1.animation" value="play"/>
+			<Command target="anim33.animation" value="stop"/>
+			<Command target="anim33.animation" value="play"/>
+		</Trigger>
+	</ExternalCommands>
+<Image align="center" alignV="center" h="#screen_height" src="atom_clock_anim.jpg" w="780" x="#screen_width/2" y="#screen_height/2"/>
+	
+	<Var name="jd_aml_1">
+		<VariableAnimation>
+			<AniFrame time="0" value="1"/>
+			<AniFrame time="500" value="0"/>
+			<AniFrame time="999999999" value="0"/>
+		</VariableAnimation>
+	</Var> 
+    <Var expression="#battery_level" name="time3" threshold="1">
+		<Trigger>
+			<Command target="battery_b1.animation" value="stop"/>
+			<Command target="battery_b1.animation" value="play"/>
+			<Command target="battery_b2.animation" value="stop"/>
+			<Command target="battery_b2.animation" value="play"/>			
+			<Command condition="eq(#battery_level%10,0)" target="battery_a1.animation" value="stop"/>
+			<Command condition="eq(#battery_level%10,0)" target="battery_a1.animation" value="play"/>
+			<Command condition="eq(#battery_level%10,0)" target="battery_a2.animation" value="stop"/>
+			<Command condition="eq(#battery_level%10,0)" target="battery_a2.animation" value="play"/>
+		</Trigger>
+	</Var>
+
+	<Var const="true" expression="1" name="style" persist="true"/>
+	<Var const="true" expression="0" name="showStyle" persist="true"/>
+	<Group name="group_styles" visibility="#showStyle" x="0" y="(#screen_height-1920)/2+0">
+	</Group>
+	
+	 <Var name="charge_ani">
+    	<VariableAnimation >
+    		<AniFrame value="0" time="0" />
+    		<AniFrame value="27" time="1300"/>
+     	</VariableAnimation>
+    </Var>
+    <Var name="notification" expression="1"/>
+	<ExternalCommands>
+	  <Trigger action="resume">			
+		 <VariableCommand name="js" expression="0"/>  
+     <VariableCommand name="ujs" expression="0"/> 
+	  </Trigger>
+  </ExternalCommands>  	 
+  
+  <Var name="bg_id" expression="0" const="true"/>  
+  <Var name="tp_id" expression="0" const="true"/>
+  <Var name="zp_id" expression="0" const="true"/> 
+	
+  <Var name="dt">
+		<VariableAnimation>
+			<AniFrame value="0" time="0"/>
+			<AniFrame value="15" time="2800"/>	
+		</VariableAnimation>
+	</Var> 		
+	
+	<Var name="qp" expression="ifelse(gt(#screen_height,1920),(#screen_height-1920),0)"/>
+	<VariableBinders>
+    <ContentProviderBinder name="weather1" columns="_id,city_name,city_name_en,city_name_tw" countName="hasWeather" uri="content://com.oppo.weather.provider.data/attent_city" notifyUri="content://com.oppo.weather.provider.data/attent_city" where="current=1" >
+      <Variable name="cityid" column="_id" type="int"/>
+      <Variable name="cityname" column="city_name" type="string"/>
+      <Variable name="cityname_en" column="city_name_en" type="string"/>
+      <Variable name="cityname_tw" column="city_name_tw" type="string"/>
+      <Variable name="timeZone" column="time_zone" type="int"/>
+    </ContentProviderBinder>
+    <ContentProviderBinder name="weather2" columns="weather_id,current_weather,current_temp,current_wind_direct,current_wind_power,day_temp,night_temp,day_weather_id,night_weather_id" countName="hasWeather" uri="content://com.oppo.weather.provider.data/weather_info" 
+            notifyUri="content://com.oppo.weather.provider.data/weather_info" whereExp="'city_id='+#cityid+' and weather_index=1'" dependency="weather1">
+      <Variable name="weather_type" column="weather_id" type="int"/>
+      <Variable name="cur_weather" column="current_weather" type="string"/>
+      <Variable name="cur_weather_temp" column="current_temp" type="int"/>
+      <Variable name="day_temp" column="day_temp" type="int"/>
+      <Variable name="night_temp" column="night_temp" type="int"/>
+      <Variable name="day_weather_type" column="day_weather_id" type="int"/>
+      <Variable name="night_weather_type" column="night_weather_id" type="int"/>
+    </ContentProviderBinder>
+  </VariableBinders>
+  <VarArray type="number">
+    <Vars>
+      <Var name="weather_type_number" index="#weather_type"/>
+    </Vars>
+    <Items>
+      <Item value="0"/>
+      <Item value="1"/>
+      <Item value="2"/>
+      <Item value="2"/>
+      <Item value="3"/>
+      <Item value="3"/>
+      <Item value="3"/>
+      <Item value="3"/>
+      <Item value="3"/>
+      <Item value="3"/>
+      <Item value="3"/>
+      <Item value="3"/>
+      <Item value="3"/>
+      <Item value="3"/>
+      <Item value="4"/>
+      <Item value="4"/>
+      <Item value="4"/>
+      <Item value="4"/>
+      <Item value="4"/>
+      <Item value="5"/>
+      <Item value="3"/>
+      <Item value="6"/>
+      <Item value="6"/>
+      <Item value="6"/>
+      <Item value="6"/>
+      <Item value="3"/>
+      <Item value="3"/>
+      <Item value="3"/>
+      <Item value="3"/>
+      <Item value="3"/>
+      <Item value="4"/>
+      <Item value="4"/>
+      <Item value="4"/>
+    </Items>
+  </VarArray>
+  <Var name="set_wallpaer" expression="0" const="true" />
+  <Var name="cc_y" expression="490" />
+  <Var name="cc_vis" expression="0" const="true" />
+  <Var name="gogogo" expression="1" const="true" />
+  <Var name="sysset" expression="0" const="true"/>
+  <Var name="move_y" expression="-min(#unlocker.move_y,0)" />
+  <Var name="jianrong" expression="ifelse(lt(#screen_height,1920),120,0)" const="true" />
+  <Var name="appset" expression="0" const="true" />
+  <Var name="flag_app" expression="0" const="true" />
+  <Var name="app_ease_time" expression="min((#time-#appset)*3,1000)/1000" />
+  <Var name="app_ease" expression="-(#app_ease_time-1)*(#app_ease_time-1)*(#app_ease_time-1)" />
+  <Var name="app_open" expression="ifelse(#flag_app,-#app_ease+1,#app_ease)" />
+  <Var name="shijian" expression="#time_format" />
+
+  <Image y="0" src="bg1.jpg" visibility="gt(-#unlocker.move_y,0)"/>
+	<Image y="0" src="bg.jpg" alpha="255+ifelse(gt(#unlocker.move_y,0),0,#unlocker.move_y)"/>
+
+
+<Var expression="#screen_width" name="kc1"/>
+<Var expression="#screen_width/2" name="w"/>
+<Var const="true" expression="#screen_height" name="h"/>
+  
+
+ <Var name="charge_ani">
+    	<VariableAnimation >
+    		<AniFrame value="0" time="0" />
+    		<AniFrame value="24" time="1000"/>
+     	</VariableAnimation>
+    </Var>
+    
+    <Group visibility="eq(#battery_state,1)+eq(#battery_state,3)" >
+
+  
+    	<Image x="540" y="1390" align="center" alignV="center" src="vivo/themes_gallery.png" srcid="#charge_ani" />
+    	<Image x="540" y="1390" align="center" alignV="center" src="sac/sac2.png" />
+
+    	<Image x="540" y="#screen_height-380"  align="center" alignV="center" src="lizi/kgd_wired_charging_lizi_loop.png" srcid="#charge_ani" />     
+
+       	<Image x="540" y="1440" align="center" alignV="center" src="vivo/funtouch.png" />
+    	<Image x="540" y="1472" align="center" alignV="center" src="sac/logo.png" />
+
+    	<Text x="540" y="1320" align="center" alignV="center" color="#ffffff" size="82" format="%d%%" paras="#battery_level" typeface="VIVOSans.ttf" />
+    
+<Image align="center" alignV="bottom" src="cd/cd.png" x="540" y="#screen_height">
+<AlphaAnimation> 
+<Alpha a="255" time="0"/>
+<Alpha a="0" time="1500"/>
+<Alpha a="255" time="3000"/>
+</AlphaAnimation>
+</Image>   
+        
+<Image name="star_01" src="cd/c_0.png">
+<PositionAnimation> 
+<Position time="0" x="540" y="#screen_height+20"/> 
+<Position time="6000" x="540" y="#screen_height+20-#screen_height/2"/> 
+</PositionAnimation> 
+</Image> 
+
+<Image name="star_01" src="cd/c_1.png">
+<PositionAnimation> 
+<Position time="0" x="540" y="#screen_height+20"/> 
+<Position time="500" x="540" y="#screen_height+20"/> 
+<Position time="6500" x="540" y="#screen_height+20-#screen_height/2"/> 
+</PositionAnimation> 
+</Image> 
+
+<Image name="star_01" src="cd/c_2.png">
+<PositionAnimation> 
+<Position time="0" x="540" y="#screen_height+20"/> 
+<Position time="1000" x="540" y="#screen_height+20"/> 
+<Position time="7000" x="540" y="#screen_height+20-#screen_height/2"/> 
+</PositionAnimation> 
+</Image> 
+
+<Image name="star_01" src="cd/c_3.png">
+<PositionAnimation> 
+<Position time="0" x="540" y="#screen_height+20"/> 
+<Position time="2000" x="540" y="#screen_height+20"/> 
+<Position time="7500" x="540" y="#screen_height+20-#screen_height/2"/> 
+</PositionAnimation> 
+</Image> 
+
+<Image name="star_01" src="cd/c_3.png">
+<PositionAnimation> 
+<Position time="0" x="540-10" y="#screen_height+20"/> 
+<Position time="200" x="540-10" y="#screen_height+20"/> 
+<Position time="8700" x="540-10" y="#screen_height+20-#screen_height/2"/> 
+</PositionAnimation> 
+</Image>
+
+<Image name="star_01" src="cd/c_1.png">
+<PositionAnimation> 
+<Position time="0" x="540-10" y="#screen_height+20"/> 
+<Position time="600" x="540-10" y="#screen_height+20"/> 
+<Position time="7300" x="540-10" y="#screen_height+20-#screen_height/2"/> 
+</PositionAnimation> 
+</Image>
+
+<Image name="star_01" src="cd/c_0.png">
+<PositionAnimation> 
+<Position time="0" x="540-10" y="#screen_height+20"/> 
+<Position time="1200" x="540-10" y="#screen_height+20"/> 
+<Position time="8600" x="540-10" y="#screen_height+20-#screen_height/2"/> 
+</PositionAnimation> 
+</Image>
+
+<Image name="star_01" src="cd/c_2.png">
+<PositionAnimation> 
+<Position time="0" x="540-10" y="#screen_height+20"/> 
+<Position time="2000" x="540-10" y="#screen_height+20"/> 
+<Position time="10600" x="540-10" y="#screen_height+20-#screen_height/2"/> 
+</PositionAnimation> 
+</Image>
+
+<Image name="star_01" src="cd/c_0.png">
+<PositionAnimation> 
+<Position time="0" x="540+20" y="#screen_height+20"/> 
+<Position time="400" x="540+20" y="#screen_height+20"/> 
+<Position time="6500" x="540+20" y="#screen_height+20-#screen_height/2"/> 
+</PositionAnimation> 
+</Image> 
+
+<Image name="star_01" src="cd/c_3.png">
+<PositionAnimation> 
+<Position time="0" x="540+20" y="#screen_height+20"/> 
+<Position time="1400" x="540+20" y="#screen_height+20"/> 
+<Position time="8500" x="540+20" y="#screen_height+20-#screen_height/2"/> 
+</PositionAnimation> 
+
+
+
+
+</Image>  
+  
+
+    
+    
+    
+  </Group>
+  <Group y="#screen_height-2340" visibility="ifelse(gt(-#unlocker.move_y,0),0,1)">
+      
+      
+	<Var name="varr">
+		<VariableAnimation>
+			<AniFrame value="0" time="100"/>
+			<AniFrame value="20" time="140"/>
+			<AniFrame value="40" time="180"/>
+			<AniFrame value="20" time="220"/>
+			<AniFrame value="0" time="300"/>
+			<AniFrame value="0" time="6000000"/>
+		</VariableAnimation>
+	</Var>
+
+
+	
+	<!-- Time display -->
+        		<Var name="hour" expression="ifelse(#time_format,#hour24,#hour12,#hour12,12)" />    
+	 <Image name="timg00"   x="325" y="1070"  src="td/1/time.png" srcid="int(#hour/10)"/>			
+   <Image name="timg11"   x="415" y="1070"  src="td/1/time.png" srcid="int(#hour%10)" />	
+   <Image name="timgdot"   x="485" y="1080"  src="td/1/time_dot.png"  />	
+   <Image name="timg22"   x="555" y="1070"   src="td/1/time.png" srcid="int(#minute/10)" />			
+   <Image name="timg33"   x="645" y="1070"  src="td/1/time.png" srcid="int(#minute%10)" />	
+	 
+	 <DateTime x="535" y="1260" align="center" alignV="center" centerX="0" centerY="0" color = "#ffe9e9e9" size="41" format="dd, EEE MMMM" />
+
+
+
+<Image h="780" name="anim1" w="780" x="170" y="360">
+			<SourcesAnimation>
+					<Source src="anim1/atom_clock_anim_0.jpg" time="0"/>
+<Source src="anim1/atom_clock_anim_1.jpg" time="30"/>
+<Source src="anim1/atom_clock_anim_2.jpg" time="60"/>				    
+<Source src="anim1/atom_clock_anim_3.jpg" time="90"/>
+<Source src="anim1/atom_clock_anim_4.jpg" time="120"/>
+<Source src="anim1/atom_clock_anim_5.jpg" time="150"/>
+<Source src="anim1/atom_clock_anim_6.jpg" time="180"/>
+<Source src="anim1/atom_clock_anim_7.jpg" time="210"/>
+<Source src="anim1/atom_clock_anim_8.jpg" time="240"/>
+<Source src="anim1/atom_clock_anim_9.jpg" time="270"/>
+<Source src="anim1/atom_clock_anim_10.jpg" time="300"/>
+<Source src="anim1/atom_clock_anim_11.jpg" time="330"/>
+<Source src="anim1/atom_clock_anim_12.jpg" time="360"/>
+<Source src="anim1/atom_clock_anim_13.jpg" time="390"/>
+<Source src="anim1/atom_clock_anim_14.jpg" time="420"/>
+<Source src="anim1/atom_clock_anim_15.jpg" time="450"/>
+<Source src="anim1/atom_clock_anim_16.jpg" time="480"/>
+<Source src="anim1/atom_clock_anim_17.jpg" time="510"/>
+<Source src="anim1/atom_clock_anim_18.jpg" time="540"/>
+<Source src="anim1/atom_clock_anim_19.jpg" time="570"/>
+<Source src="anim1/atom_clock_anim_20.jpg" 
+time="600"/>
+<Source src="anim1/atom_clock_anim_21.jpg"
+ time="630"/>
+<Source src="anim1/atom_clock_anim_22.jpg" time="660"/>
+<Source src="anim1/atom_clock_anim_23.jpg" time="690"/>
+<Source src="anim1/atom_clock_anim_24.jpg" time="720"/>
+<Source src="anim1/atom_clock_anim_25.jpg" time="750"/>
+<Source src="anim1/atom_clock_anim_26.jpg" time="780"/>
+<Source src="anim1/atom_clock_anim_27.jpg" time="810"/>
+<Source src="anim1/atom_clock_anim_28.jpg" time="840"/>
+<Source src="anim1/atom_clock_anim_29.jpg" time="870"/>
+<Source src="anim1/atom_clock_anim_30.jpg" time="900"/>
+<Source src="anim1/atom_clock_anim_31.jpg" time="930"/>
+<Source src="anim1/atom_clock_anim_32.jpg" time="960"/>
+<Source src="anim1/atom_clock_anim_33.jpg" time="990"/>
+<Source src="anim1/atom_clock_anim_34.jpg" time="1020"/>
+<Source src="anim1/atom_clock_anim_35.jpg" time="1050"/>
+<Source src="anim1/atom_clock_anim_36.jpg" time="1080"/>
+<Source src="anim1/atom_clock_anim_37.jpg" time="1110"/>
+<Source src="anim1/atom_clock_anim_38.jpg" time="1140"/>
+<Source src="anim1/atom_clock_anim_39.jpg" time="1170"/>
+<Source src="anim1/atom_clock_anim_40.jpg" time="1200"/>
+<Source src="anim1/atom_clock_anim_41.jpg" time="1230"/>
+<Source src="anim1/atom_clock_anim_42.jpg" time="1260"/>
+<Source src="anim1/atom_clock_anim_43.jpg" time="1290"/>
+<Source src="anim1/atom_clock_anim_44.jpg" time="1320"/>
+<Source src="anim1/atom_clock_anim_45.jpg" time="1350"/>
+<Source src="anim1/atom_clock_anim_46.jpg" time="1380"/>
+<Source src="anim1/atom_clock_anim_47.jpg" time="1410"/>
+<Source src="anim1/atom_clock_anim_48.jpg" time="1440"/>
+<Source src="anim1/atom_clock_anim_49.jpg" time="1470"/>
+<Source src="anim1/atom_clock_anim_50.jpg" time="1500"/>
+<Source src="anim1/atom_clock_anim_51.jpg" time="1530"/>
+<Source src="anim1/atom_clock_anim_52.jpg" time="1560"/>
+<Source src="anim1/atom_clock_anim_53.jpg" time="1590"/>
+<Source src="anim1/atom_clock_anim_54.jpg" time="1620"/>
+<Source src="anim1/atom_clock_anim_55.jpg" time="1650"/>
+<Source src="anim1/atom_clock_anim_56.jpg" time="1680"/>
+<Source src="anim1/atom_clock_anim_57.jpg" time="1710"/>
+<Source src="anim1/atom_clock_anim_58.jpg" time="1740"/>
+<Source src="anim1/atom_clock_anim_59.jpg" time="1770"/>
+<Source src="anim1/atom_clock_anim_60.jpg" time="1800"/>
+<Source src="anim1/atom_clock_anim_61.jpg" time="1830"/>
+<Source src="anim1/atom_clock_anim_62.jpg" time="1860"/>
+<Source src="anim1/atom_clock_anim_63.jpg" time="1890"/>
+<Source src="anim1/atom_clock_anim_64.jpg" time="1920"/>
+<Source src="anim1/atom_clock_anim_65.jpg" time="1950"/>
+<Source src="anim1/atom_clock_anim_66.jpg" time="1980"/>
+<Source src="anim1/atom_clock_anim_67.jpg" time="2010"/>
+<Source src="anim1/atom_clock_anim_68.jpg" time="2040"/>
+<Source src="anim1/atom_clock_anim_69.jpg" time="2070"/>
+<Source src="anim1/atom_clock_anim_70.jpg" time="2100"/>
+<Source src="anim1/atom_clock_anim_71.jpg" time="2130"/>
+<Source src="anim1/atom_clock_anim_72.jpg" time="2160"/>
+<Source src="anim1/atom_clock_anim_73.jpg" time="2190"/>
+<Source src="anim1/atom_clock_anim_74.jpg" time="2220"/>
+<Source src="anim1/atom_clock_anim_75.jpg" time="2250"/>
+<Source src="anim1/atom_clock_anim_76.jpg" time="2280"/>
+<Source src="anim1/atom_clock_anim_77.jpg" time="2310"/>
+<Source src="anim1/atom_clock_anim_78.jpg" time="2340"/>
+<Source src="anim1/atom_clock_anim_79.jpg" time="2370"/>
+<Source src="anim1/atom_clock_anim_80.jpg" time="2400"/>
+<Source src="anim1/atom_clock_anim_81.jpg" time="2430"/>
+<Source src="anim1/atom_clock_anim_82.jpg" time="2460"/>
+<Source src="anim1/atom_clock_anim_83.jpg" time="2490"/>
+<Source src="anim1/atom_clock_anim_84.jpg" time="2520"/>
+<Source src="anim1/atom_clock_anim_85.jpg" time="2250"/>
+<Source src="anim1/atom_clock_anim_86.jpg" time="2580"/>
+<Source src="anim1/atom_clock_anim_87.jpg" time="2610"/>
+<Source src="anim1/atom_clock_anim_88.jpg" time="2640"/>
+<Source src="anim1/atom_clock_anim_89.jpg" time="2670"/>
+<Source src="anim1/atom_clock_anim_90.jpg" time="2700"/>
+<Source src="anim1/atom_clock_anim_90.jpg" time="100000000000000"/>
+			</SourcesAnimation>
+		</Image>
+
+	<Button x="60" y="130" w="1080" h="350" visibility="not(#oXa)">
+        <Triggers>
+            <Trigger action="double">
+                <VariableCommand name="choise_wall" expression="ifelse(6-#choise_wall,#choise_wall+1,1)" persist="true" />
+                <IntentCommand action="choose_wallpaper" broadcast="true" delay="100">
+                    <Extra name="extra_wallpaper" type="int" expression="ifelse(#choose_wallp,#choose_wallp,#choise_wall)" />
+                </IntentCommand>
+            </Trigger>
+        </Triggers>
+    </Button>
+    
+    
+</Group>
+  <Group alpha="255-#move_y/1.6">
+    <Button x="940" y="#screen_height-64-#jianrong" w="125" h="125">
+      <Normal>
+        <Image x="978" y="#screen_height-64-#jianrong" src="camera.png" alignV="center" alpha="255-#move_y/1.6" />
+      </Normal>
+      <Pressed>
+        <Image x="978" y="#screen_height-64-#jianrong" src="camera.png" alignV="center" alpha="120-#move_y/1.6" />
+      </Pressed>
+      <Triggers>
+        <Trigger action="up">
+          <IntentCommand action="android.intent.action.MAIN" package="com.oppo.camera" class="com.oppo.camera.Camera" />
+          <ExternCommand command="unlock" />
+        </Trigger>
+      </Triggers>
+    </Button>
+  </Group>
+  
+
+	<Button x="0" y="0" w="1080" h="1920">
+		<Triggers>
+			<Trigger target="music" action="double" property="visibility" value="toggle"/>
+		</Triggers>
+	</Button>
+   
+	
+	<MusicControl name="music" x="0" y="688" autoShow="true" enableProgress="true" 
+    
+    enableLyric="true" 
+	visibility="false" >
+		<Var name="progress" expression="ifelse(#music.music_state,ifelse(#music.music_duration,#music.music_position/#music.music_duration,0),#progress)" />
+		<Image x="0" y="0" src="music/music_bg.png" />
+		<Text x="124" y="112"  textExp="ifelse(isnull(@music.title),'Không Có Tên Bài Hát',@music.title)" size="40" color="#ffffff" alpha="200" w="400" marqueeSpeed="30" marqueeGap="2" />
+		<Text x="124" y="170"  textExp="ifelse(isnull(@music.artist),'Không Biết Tên',@music.artist)" size="30" color="#ffffff" alpha="150" w="360" marqueeSpeed="30" marqueeGap="2" />
+		<Button x="124" y="112" w="280" h="84">
+			<Triggers>
+				<Trigger action="double">
+					<IntentCommand action="android.intent.action.MAIN" package="com.miui.player" class="com.miui.player.ui.MusicBrowserActivity" />
+					<ExternCommand command="unlock"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+		<Image x="560" y="110" src="music/prev.png" />
+		<Image x="860" y="110" src="music/next.png" />
+		
+      
+      
+      
+      
+		
+		
+		
+		
+		<Image x="710" y="110" src="music/pause.png" visibility="#music.music_state" />
+      
+      
+		
+		
+		<Image x="710" y="110" src="music/play.png"
+visibility="not(#music.music_state)" />
+      
+		
+		
+		<Group x="709" y="109" w="100" h="100" layered="true">
+			<Circle x="50" y="50" r="49"  strokeColor="#ff0bd8e5" strokeAlign="inner" weight="3"  />
+			<Arc	x="50" y="50" w="98" h="98" startAngle="-90" sweep="-360*(1-#progress)" close="true" fillColor="#ff000000" xfermode="clear" />
+		</Group>
+		<Button name="music_prev"	x="530" y="80" w="150" h="150" />
+		<Button name="music_next"	x="830" y="80" w="150" h="150" />
+		
+  
+		
+		<Button name="music_play"	x="680" y="80" w="150" h="150" />
+		<Button name="music_pause"	x="680" y="80" w="150" h="150" />
+	</MusicControl>
+	<Group y="120*(#raw_screen_height==2040)">
+    
+    
+    
+
+		
+		
+	
+
+	</Group>
+
+<Group x="0" y="0">
+<Image align="center" src="Themes_gallery_fingerprint.png" x="#w" y="#h-470">
+      <AlphaAnimation>
+        <Alpha a="0" time="0"/>
+        <Alpha a="120" time="600"/>
+        <Alpha a="200" time="1200"/>
+        <Alpha a="0" time="2000"/>
+      </AlphaAnimation>
+    </Image>
+<Var const="true" expression="800" name="scan_time"/>
+   <Var expression="min(#scan_time,#unlock_flag*(#time_sys-#touch_begin_time))" name="unlock_time"/>
+
+
+   <Var name="vantay_id">
+      <VariableAnimation>
+        <AniFrame time="30" value="0"/>
+        <AniFrame time="60" value="1"/>
+        <AniFrame time="90" value="2"/>
+        <AniFrame time="120" value="3"/>
+        <AniFrame time="150" value="4"/>
+        <AniFrame time="180" value="5"/>
+        <AniFrame time="210" value="6"/>
+        <AniFrame time="240" value="7"/>
+        <AniFrame time="270" value="8"/>
+        <AniFrame time="300" value="9"/>
+        <AniFrame time="330" value="10"/>
+        <AniFrame time="360" value="11"/>
+        <AniFrame time="390" value="12"/>
+        <AniFrame time="420" value="13"/>
+        <AniFrame time="450" value="14"/>
+        <AniFrame time="480" value="15"/>
+        <AniFrame time="510" value="16"/>
+        <AniFrame time="540" value="17"/>
+        <AniFrame time="570" value="18"/>
+        <AniFrame time="600" value="19"/>
+        <AniFrame time="630" value="20"/>
+        <AniFrame time="660" value="21"/>
+        <AniFrame time="690" value="22"/>
+        <AniFrame time="720" value="23"/>
+        <AniFrame time="750" value="24"/>
+        <AniFrame time="780" value="25"/>
+        <AniFrame time="810" value="26"/>
+        <AniFrame time="840" value="27"/>
+        <AniFrame time="870" value="28"/>
+        <AniFrame time="900" value="29"/>
+        <AniFrame time="930" value="30"/>
+        <AniFrame time="960" value="31"/>
+        <AniFrame time="990" value="32"/>
+        <AniFrame time="1020" value="33"/>
+        <AniFrame time="1050" value="34"/>
+        <AniFrame time="1080" value="35"/>
+        <AniFrame time="1110" value="36"/>
+        <AniFrame time="1140" value="37"/>
+        <AniFrame time="1170" value="38"/>
+        <AniFrame time="1200" value="39"/>
+        <AniFrame time="1230" value="40"/>
+        <AniFrame time="1260" value="41"/>
+        <AniFrame time="1290" value="42"/>
+        <AniFrame time="1320" value="43"/>
+        <AniFrame time="1350" value="44"/>
+        <AniFrame time="1380" value="45"/>
+        <AniFrame time="1410" value="46"/>
+        <AniFrame time="1440" value="47"/>
+        <AniFrame time="1470" value="48"/>
+        <AniFrame time="1500" value="49"/>
+        <AniFrame time="1530" value="50"/>
+     <AniFrame time="1560" value="51"/>
+        <AniFrame time="1590" value="52"/>
+        <AniFrame time="1620" value="53"/>
+        <AniFrame time="1650" value="54"/>
+        <AniFrame time="1680" value="55"/>
+        <AniFrame time="1710" value="56"/>
+        <AniFrame time="1740" value="57"/>
+        <AniFrame time="1770" value="58"/>
+        <AniFrame time="1800" value="59"/>
+        <AniFrame time="1830" value="60"/>
+   <AniFrame time="1860" value="61"/>
+        <AniFrame time="1890" value="62"/>
+        <AniFrame time="1920" value="63"/>
+        <AniFrame time="1950" value="64"/>
+        <AniFrame time="1980" value="65"/>
+        <AniFrame time="2010" value="66"/>
+        <AniFrame time="2040" value="67"/>
+        <AniFrame time="2070" value="68"/>
+        <AniFrame time="2100" value="69"/>
+    
+       
+        <AniFrame time="100000000000000000" value="69"/>
+      </VariableAnimation>
+   </Var>
+   
+   
+   
+<Image align="center" name="scan_finger" src="Themesgallery/finger_press_gala.png" srcid="#vantay_id" visibility="false" x="#screen_width/2" y="#h-720"/>
+<Image align="center" name="scan_finger" src="vantay3d_2/fingerprint_element2.png" srcid="#vantay_id" visibility="false" x="#screen_width/2" y="#h-565"/>
+
+<Button h="150" w="150" x="465" y="#h-470">
+<Triggers>
+<Trigger action="down">
+<VariableCommand const="true" expression="1" name="unlock_flag"/>
+<Command target="scan_finger.visibility" value="true"/><Command target="vantay_id.animation" value="play"/></Trigger><Trigger action="up">
+<ExternCommand command="unlock" condition="eq(#unlock_time,#scan_time)"/>
+<Command target="scan_finger.visibility" value="false"/>
+<VariableCommand const="true" expression="0" name="unlock_flag"/>
+</Trigger>
+<Trigger action="cancel">
+<VariableCommand const="true" expression="0" name="unlock_flag"/>
+<Command target="scan_finger.visibility" value="false"/>
+</Trigger>
+</Triggers>
+</Button>
+  
+  
+  
+  </Group>
+	
+  <Unlocker name="unlocker" bounceInitSpeed="1000" bounceAccelation="1000">
+    <StartPoint x="#touch_begin_x" y="#touch_begin_y" w="1" h="1"/>
+    <EndPoint x="ifelse(lt(#unlocker.move_y,-300),#touch_x,-1)" y="ifelse(lt(#unlocker.move_y,-200),#touch_y,-1)" w="1" h="1"/>
+  </Unlocker>
+
+
+
+	<Group y="#screen_height-1920" visibility="ifelse(gt(-#unlocker.move_y,0),0,1)">
+	   <Image x="983" y="1800" align="center" alignV="center" src="xj.png"/>
+   	<Image x="96" y="1800" align="center" alignV="center" src="dh.png"/>
+  
+		<Image x="540" y="1830" align="center" alignV="center" src="s.png" alpha="125+130*cos(#time/480)">
+    <Image x="#k/2" y="1400" align="center" alignV="center" src="face.png" srcid="int(#face)"/>
+		<PositionAnimation> 
+				<Position x="0" y="0" time="0"/>  
+				<Position x="0" y="-5" time="500"/>  
+				<Position x="0" y="0" time="1000"/>  
+				<Position x="0" y="5" time="1500"/>  
+				<Position x="0" y="0" time="2000"/>  
+			</PositionAnimation>
+		</Image>
+	</Group>
+
+	<Group y="#screen_height-1920">
+		
+		<Button x="950" y="1782" w="86" h="86">
+			<Triggers>
+				<Trigger action="up">
+					<IntentCommand action="android.intent.action.MAIN" package="com.android.camera" class="com.android.camera.CameraActivity" condition="gt(#touch_begin_y-#touch_y,250)"/>
+					<ExternCommand command="unlock" condition="gt(#touch_begin_y-#touch_y,250)"/>
+				</Trigger>
+			</Triggers>
+		</Button>	
+	</Group>
+
+
+
+</Lockscreen>
+
+
+<!-- Made By themes gallery -->
