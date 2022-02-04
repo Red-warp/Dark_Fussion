@@ -512,38 +512,27 @@
 
 	<Group  visibility="eq(#btModule,0)" >
 		<!--电话-->
-		<Image x="196" y="#screen_height-190" align="center" alignV="center" w="144*(1+0.2*#touchAni*eq(#btID,3))" h="144*(1+0.2*#touchAni*eq(#btID,3))" src="call.png"/>
-		<Button x="196-100" y="#screen_height-190-100" w="200" h="200" visibility="#btBt" >
-			<Triggers>
-				<Trigger action="down">
-					<VariableCommand expression="3" name="btID" />
-					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
-					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
-				</Trigger>
-				<Trigger action="up">
-					<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.android.settings" class="com.android.settings" condition="#BtnVis"/>
-					<ExternCommand command="unlock" condition="#BtnVis"/>
-				</Trigger>
-			</Triggers>
-		</Button>
 
 		<!--相机-->
-		<Image x="1090-206" y="#screen_height-190" align="center" alignV="center" w="144*(1+0.2*#touchAni*eq(#btID,4))" h="144*(1+0.2*#touchAni*eq(#btID,4))"  src="camera.png"/>
-		<Button x="1096-206-100" y="#screen_height-190-100" w="200" h="200" visibility="#btBt" >
-			<Triggers>
-				<Trigger action="down">
-					<VariableCommand expression="4" name="btID" />
-					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
-					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
-				</Trigger>
-				<Trigger action="up">
-					<IntentCommand action="android.media.action.STILL_IMAGE_CAMERA" category="android.intent.category.DEFAULT" condition="#BtnVis"/>
-					<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER"  class="com.oppo.camera.Camera" package="com.oppo.camera" condition="#BtnVis"/>
-					<ExternCommand command="unlock" condition="#BtnVis"/>
-				</Trigger>
-			</Triggers>
-		</Button>
-
+		<Image x="130" y="1629+#qp" src="bh.png" />  
+  <Button x="130" y="1629+#qp" w="150" h="150"> 
+    <Triggers> 
+      <Trigger action="up"> 
+        <IntentCommand action="android.intent.action.MAIN"  package="com.android.dialer" class="com.android.dialer.TwelveKeyDialer"/>
+        <ExternCommand command="unlock"/> 
+      </Trigger> 
+    </Triggers> 
+  </Button>  
+  <!--点击进入相机-->
+  <Image x="803" y="1629+#qp" src="xj.png" />  
+  <Button x="803" y="1629+#qp" w="150" h="150"> 
+    <Triggers> 
+      <Trigger action="up"> 
+        <IntentCommand action="android.intent.action.MAIN" package="com.android.camera" class="com.android.camera.CameraActivity"/>  
+        <ExternCommand command="unlock"/> 
+      </Trigger> 
+    </Triggers> 
+  </Button>  
 	</Group>
 
 
