@@ -412,16 +412,13 @@
 <!--Time-->
 <Var name="timeModule" expression="2" persist="true"/>
 <Group x="#DeskMove" visibility="eq(#timeModule,2)" >
-	<Time x="#w/2" y="400" align="center" alignV="center" src="time/t/time.png"/>
+	<Image x="507" y="172" src="suo.png" /> 
 	
-        <Image x="330" y="#screen_height/2-790" align="center" alignV="center" src="time/t1/time.png" srcid="ifelse(#time_format,#hour24/10,#hour12/10)"/>
-		<Image x="450" y="#screen_height/2-790" align="center" alignV="center" src="time/t1/time.png" srcid="ifelse(#time_format,#hour24%10,#hour12%10)"/>
-		<Image x="540" y="#screen_height/2-790" align="center" alignV="center" src="time/t1/time_dot.png"/>
-		<Image x="630" y="#screen_height/2-790" align="center" alignV="center" src="time/t1/time.png" srcid="int(#minute/10)"/>
-		<Image x="750" y="#screen_height/2-790" align="center" alignV="center" src="time/t1/time.png" srcid="int(#minute%10)"/>
-
-	<DateTime x="#w/2" y="563" align="center" alignV="center" size="60" bold="false" color="#ffffff" format="EEEE, dd MMMM" typeface="ios font by themes gallery.ttf"/>	  
-	<DateTime x="#w/2" y="634" align="center" alignV="center" size="48" bold="true" color="#ffffff" format="NNNN"/>
+	<Time x="540" y="429" align="center" alignV="center" src="time/number.png"/>
+  <DateTime x="540" y="611" align="center" alignV="center" color="#ffffff" size="60" format="EEEE,dd MMMM"/>
+  <Text x="540" y="693" align="right" alignV="center" color="#ffffff" size="40" format="%s%s" paras="@jia,@zi"/>
+  
+  <DateTime x="540" y="693" color="#ffffff" size="0"  alignV="center" format="NNNN" />
 </Group>
 
 
