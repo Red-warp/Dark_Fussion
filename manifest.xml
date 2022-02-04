@@ -1,1240 +1,1545 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<Lockscreen displayDesktop="false" frameRate="60" screenWidth="1080" version="1">
-  <ExternalCommands>
-    <Trigger action="init,resume">
-
-<Var expression="1" name="notification"/>
- <Var const="true" expression="#screen_width" name="sw"/>
- <Var const="true" expression="#screen_height" name="sh"/>
- <Var const="true" expression="#screen_height-1920" name="sy"/>
- <!-- bg-->
- <Wallpaper src="Rk_Themes.jpg"/>
-
-
-      <AnimationCommand command="play(0,0)" target="lightmove"/>
-      <AnimationCommand command="play" target="lightmove"/>
-	  	<VariableCommand name="musicVisi" expression="1" delay="1" condition="#music_control.music_state==1"/>
-    </Trigger>
-    <Trigger action="resume">
-		    <AnimationCommand target="sp" command="play" />
-      <AnimationCommand command="play" target="lockScreenInit"/>
-      <AnimationCommand command="play(0,0)" target="DefaultLockScreen_UnlockBack"/>
-      <!-- 从相机界面退出后默认界面复位 -->
-
-      <MultiCommand condition="#defaultScreen_x{0">
-        <VariableCommand expression="0" name="DefaultLockScreen_move_x1"/>
-        <VariableCommand expression="0" name="DefaultLockScreen_move_x2"/>
-        <AnimationCommand command="play" target="DefaultLockScreen_move_go"/>
-        <AnimationCommand command="play(0,0)" target="DefaultLockScreen_UnlockBack"/>
-      </MultiCommand>
-    </Trigger>
-    <!-- 防误触 -->
-
-    <Trigger action="init">
-      <VariableCommand expression="1" name="unlockButtonSwitch"/>
-      <VariableCommand expression="&apos;Slide to enter the camera&apos;" name="cameraHint" type="string"/>
-      <VariableCommand expression="&apos;  &apos;" name="unlockStr" type="string"/>
-    </Trigger>
-    <Trigger action="resume,pause">
-	  		
-		<AnimationCommand target="AmusicVisi" command="play(0,0)" />
-<VariableCommand name="musicVisi" expression="1" condition="#music_control.music_state==1"/>
-<VariableCommand name="musicVisi" expression="0" condition="#music_control.music_state==0"/>
-      <VariableCommand expression="0" name="hasLockScreen_moveX"/>
-      <VariableCommand expression="0" name="hasLockScreen_moveY"/>
-      <VariableCommand expression="0" name="hasLockScreen_moveA"/>
-      <VariableCommand expression="0" name="hasLockScreen_moveB"/>
-      <AnimationCommand command="play(0,0)" target="hasLockScreen_moveAn"/>
-      <VariableCommand expression="0" name="hasLockScreen_unlockA"/>
-      <AnimationCommand command="play(0,0)" target="hasLockScreen_unlockAn"/>
-      <VariableCommand expression="0" name="hasLockScreen_moveX_SW"/>
-      <VariableCommand expression="0" name="hasLockScreen_moveY_SW"/>
-      <ExternCommand command="disableChargeAnim" numPara="1"/>
-    </Trigger>
-
-    <Trigger action="pause">
-	    <AnimationCommand target="sp" command="play(0,0)" />
-		
-    </Trigger>
-
-  </ExternalCommands>
-  <VariableBinders>
-   <ContentProviderBinder uri="content://weather/weather" columns="city_name,publish_time,temperature,temperature_range,description,weather_type,wind,humidity" dependency="weather" uriFormat="content://weather/daily_weather/%s" uriParas="@city_id" countName="hasweather"> 
-<Variable name="weather_id" type="int" column="weather_type" /> 
-<Variable name="weather_location" type="string" column="city_name" /> 
-<Variable name="weather_temperature" type="string" column="temperature" /> 
-<Variable name="weather_temperature" type="int" column="temperature" /> 
-<Variable name="weather_temperature_range" type="string" column="temperature_range" />
- <Variable name="weather_description" type="string" column="description" /> 
- <Variable name="weather_wind" type="string" column="wind" /> 
- <Variable name="weather_humidity" type="string" column="humidity" />
- <Variable name="weather_temperature_str" type="string" column="temperature" /> 
- <Variable name="weather_wind" type="string" column="wind" /> 
- <Variable name="weather_publish_time" type="long" column="publish_time" /> 
- <Variable name="weather_id1" type="int" column="weather_type" row="1" />
- <Variable name="weather_id2" type="int" column="weather_type" row="2" /> 
- <Variable name="weather_id3" type="int" column="weather_type" row="3" />
- <Variable name="weather_temphigh1" type="int" column="tmphighs" row="1" /> 
- <Variable name="weather_templow1" type="int" column="tmplows" row="1" /> 
- <Variable name="weather_temphigh2" type="int" column="tmphighs" row="2" /> 
- <Variable name="weather_templow2" type="int" column="tmplows" row="2" /> 
- <Variable name="weather_temphigh3" type="int" column="tmphighs" row="3" /> 
- <Variable name="weather_templow3" type="int" column="tmplows" row="3" /> 
- </ContentProviderBinder> 
-
-   
-
-    <ContentProviderBinder columns="city_id,city_name,weather_type,aqilevel,description,temperature,forecast_type,tmphighs,tmplows,wind,humidity,sunrise,sunset,pressure,weathernamesfrom,forecast_type,publish_time" countName="hascreen_widtheather" name="WeatherProvider" uri="content://weather/actualWeatherData/1">
-      <Variable column="city_id" name="weather_city_id" type="string"/>
-      <Variable column="city_name" name="weather_location" type="string"/>
-      <Variable column="weather_type" name="weather_id" type="int"/>
-      <Variable column="temperature" name="weather_temperature" type="string"/>
-	   <Variable name="weather_temperature" type="int" column="temperature" row="0"/>
-      <Variable column="aqilevel" name="weather_aqi" type="int"/>
-      <Variable column="sunrise" name="weather_sunrise" type="int"/>
-      <Variable column="sunset" name="weather_sunset" type="int"/>
-      <Variable column="forecast_type" name="weather_forecast_type" type="int"/>
-      <Variable column="wind" name="weather_wind" type="string"/>
-      <Variable column="pressure" name="weather_pressure" type="int"/>
-      <Variable column="humidity" name="weather_humidity" type="int"/>
-      <Variable column="weather_type" name="weather_type" type="string[]"/>
-      <Variable column="description" name="weather_description" type="string"/>
-      <Variable column="weathernamesfrom" name="weather_weathernamesfrom" type="string[]"/>
-      <Variable column="tmphighs" name="weather_temphigh" type="string[]"/>
-      <Variable column="tmplows" name="weather_templow" type="string[]"/>
-      <Variable column="publish_time" name="weather_publish_time" type="string"/>
-	      <Variable name="cjl_weatherAqi" type="int" column="aqilevel" />
-      <Trigger>
-   
-
-				<VariableCommand name="cjl_airQuality" expression="ifelse(#cjl_weatherAqi }= 0 ** #cjl_weatherAqi{50,'Air: excellent', #cjl_weatherAqi }= 50 ** #cjl_weatherAqi{100,'Air: good', #cjl_weatherAqi }= 100 ** #cjl_weatherAqi{150,'Air: light', #cjl_weatherAqi }= 150 ** #cjl_weatherAqi{200,'Air: Neutral', #cjl_weatherAqi }= 200 ** #cjl_weatherAqi{300,'Air: heavy pollution', #cjl_weatherAqi }= 300 ** #cjl_weatherAqi {= 500,'Air: Severe pollution ',' Get information abnormalities')" type="string" />
-
-<VariableCommand name="cjl_weatherOutId" expression="ifelse(#nameholder_weatherId}25 || #nameholder_weatherId{0,0, (#nameholder_weatherId }= 4 ** #nameholder_weatherId {= 6 || #nameholder_weatherId }= 8 ** #nameholder_weatherId {= 11 || #nameholder_weatherId == 25),4,#nameholder_weatherId }= 13 ** #nameholder_weatherId {= 17,13 ,#nameholder_weatherId }= 18 ** #nameholder_weatherId {= 21 || #nameholder_weatherId == 23,18,#nameholder_weatherId)" />
-		
+﻿<?xml version="1.0" encoding="utf-8"?>
 	
-        <VariableCommand expression="90*(((#hour24-8)*3600000+#minute*60000+#second*1000)/#weather_sunset)-45" name="weather_sun_rotation"/>
-        <VariableCommand expression="max(min(#weather_sun_rotation,45),-45)+45" name="weather_rot_angle"/>
-      </Trigger>
-    </ContentProviderBinder>
-    <ContentProviderBinder columns="aqi,pm25,pm10,so2,no2" countName="hascreen_widtheatherinfo" dependency="WeatherProvider" uriFormat="content://weatherinfo/aqi/%s" uriParas="@weather_city_id">
-      <Variable column="pm25" name="weather_pm25" type="int"/>
-      <Variable column="no2" name="weather_no2" type="int"/>
-      <Variable column="pm10" name="weather_pm10" type="int"/>
-      <Variable column="so2" name="weather_so2" type="int"/>
-    </ContentProviderBinder>
-    <ContentProviderBinder columns="status" countName="hasResult" name="CountService" uriFormat="content://com.miui.maml.provider/analytics/%s" uriParas="@countParas"/>
-   
-   
-    <ContentProviderBinder columns="status" countName="hasResult" name="DefaultLockScreen_CountService" uriFormat="content://com.miui.maml.provider/analytics/%s" uriParas="@DefaultLockScreen_countParas"/>
+<!-- DEVELOPED BY © THEMES GALLERY-->
 	
-  <ContentProviderBinder name="data" uri="content://keyguard.notification/notifications" columns="icon,title,content,time,info,subtext,key" countName="hasnotifications">
-			<List name="notification_list" />
-		</ContentProviderBinder>
-		
-
-    <!--Step-->
-
-    <ContentProviderBinder columns="_id,_begin_time,_end_time,_mode,_steps" countName="hassteps" name="MiStep" uri="content://com.miui.providers.steps/item" whereFormat="_begin_time&gt;=&apos;%d&apos;" whereParas="int((#time_sys-#hour24*3600000-#minute*60000-#second*1000)/1000)*1000">
-      <Variable column="_steps" name="Mi_step" type="string[]"/>
-      <Variable column="_begin_time" name="Mi_begin_time" type="string[]"/>
-      <Variable column="_end_time" name="Mi_end_time" type="string[]"/>
-      <Trigger>
-        <VariableCommand expression="0" name="step_today"/>
-        <LoopCommand count="#hassteps" indexName="__s">
-          <VariableCommand expression="#step_today+int(@Mi_step[#__s])" name="step_today"/>
-        </LoopCommand>
-      </Trigger>
-    </ContentProviderBinder>
-
-  </VariableBinders>
-  <VarArray type="string">
- <Vars> 
- <Var name="tqdc" index="#weather_id" /> 
- </Vars>
- <Items>
- <Item value="晴天" />
- <Item value="多云" />
- <Item value="阴天" />
- <Item value="雾天" />
- <Item value="暴雨" />
- <Item value="暴雨" /> 
- <Item value="暴雨" /> 
- <Item value="阵雨" /> 
- <Item value="阵雨" />
- <Item value="大雨" />
- <Item value="中雨" />
- <Item value="小雨" />
- <Item value="雨雪" /> 
- <Item value="暴雪" /> 
- <Item value="阵雪" />
- <Item value="大雪" />
- <Item value="中雪" /> 
- <Item value="小雪" />
- <Item value="沙暴" />
- <Item value="尘暴" />
- <Item value="沙尘" /> 
- <Item value="扬沙" />
- <Item value="冰雹" /> 
- <Item value="浮尘" /> 
- <Item value="雾霾" />
- </Items> 
- </VarArray>
-  <!-- 变量 -->
-  <!-- 是否加入上滑解锁功能 -->
-
-  <Var expression="1" name="UnlockCondition"/>
-  <!-- 是否加入负一屏功能 -->
-
-  <Var expression="#fyp" name="LeftScreenCondition"/>
-  <!-- 右滑至负一屏时的黑色遮罩层 -->
-
-  <Var expression="128" name="BlackAlpha"/>
-  <!-- 负一屏x坐标 -->
-
-  <Var expression="0" name="LeftScreenX"/>
-  <!-- 负一屏y坐标 -->
-
-  <Var expression="150" name="LeftScreenY"/>
-  <!-- 负一屏天气icon字体颜色 -->
-
-  <Var expression="&apos;#ffffff&apos;" name="WeatherIcoColor" type="string"/>
-  <!-- 负一屏透明度 -->
-
-  <Var expression="255" name="LeftScreenAlpha"/>
-  <Var const="true" expression="#screen_width" name="sw"/>
-  <Var const="true" expression="#screen_height" name="sh"/>
-  <Var const="true" expression="ifelse(#bg_color,&apos;#000000&apos;,&apos;#ffffff&apos;)" name="bgcolor" type="string"/>
-  <Var expression="ifelse(#color,&apos;#000000&apos;,&apos;#ffffff&apos;)" name="text_main" type="string"/>
-  
- 
-
-  <!-- Music module -->
-
-  
-  
-
-	  <Wallpaper src="Rk_Themes.jpg"/>
-	  	<Var name="WH1" expression="ge(#hour24,5)*le(#hour24,8)"/>
-<Var name="WH2" expression="ge(#hour24,9)*le(#hour24,10)"/>
-<Var name="WH3" expression="ge(#hour24,11)*le(#hour24,13)"/>
-<Var name="WH4" expression="ge(#hour24,14)*le(#hour24,17)"/>
-<Var name="WH5" expression="ge(#hour24,18)*le(#hour24,19)"/>
-<Var name="WH6" expression="ge(#hour24,20)*le(#hour24,23)"/>
-<Var name="WH7" expression="ge(#hour24,0)*le(#hour24,4)"/>
-<Group x="0+#defaultScreen_x">
-	
-	<Image name="now" x="80" y="316" align="left" alignV="center" src="time/nowtime.png" pivotX="#now.bmp_width/2" pivotY="#now.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"  />
-			
-		<Var expression="ifelse(#time_format,#hour24,#hour12,#hour12,12)" name="hour"/>
-    <Image  name="hour1"  align="left" alignV="center" src="time/time.png" srcid="#hour/10" x="78" y="400" pivotX="#hour1.bmp_width/2" pivotY="#hour1.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
-    <Image  name="hour2" align="left" alignV="center" src="time/time.png" srcid="#hour%10" x="#hour1.bmp_width+90" y="400" pivotX="#hour2.bmp_width/2" pivotY="#hour2.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
-	<Image  name="dian1" align="left" alignV="center" src="time/time_dot.png"  x="#hour1.bmp_width+#hour2.bmp_width+100" y="400" pivotX="#dian1.bmp_width/2" pivotY="#dian1.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
-    <Image name="minute1"  align="left" alignV="center" src="time/time.png" srcid="int(#minute/10)" x="#hour1.bmp_width+#hour2.bmp_width+#dian1.bmp_width+110" y="400" pivotX="#minute1.bmp_width/2" pivotY="#minute1.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
-    <Image name="minute2" align="left" alignV="center" src="time/time.png" srcid="int(#minute%10)" x="#minute1.bmp_width+#hour1.bmp_width+#hour2.bmp_width+#dian1.bmp_width+120" y="400" pivotX="#minute2.bmp_width/2" pivotY="#minute2.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
-	<Image  name="dian2" align="left" alignV="center" src="time/time_dot.png"  x="#minute2.bmp_width+#minute1.bmp_width+#hour1.bmp_width+#hour2.bmp_width+#dian1.bmp_width+130" y="400" pivotX="#dian2.bmp_width/2" pivotY="#dian2.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
-    <Image name="second1" src="time/time.png" align="left" alignV="center" srcid="int(#second/10)" x="#dian2.bmp_width+#minute2.bmp_width+#minute1.bmp_width+#hour1.bmp_width+#hour2.bmp_width+#dian1.bmp_width+140" y="400" pivotX="#second1.bmp_width/2" pivotY="#second1.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
-    <Image name="second2" src="time/time.png" align="left" alignV="center" srcid="#second%10" x="#second1.bmp_width+#dian2.bmp_width+#minute2.bmp_width+#minute1.bmp_width+#hour1.bmp_width+#hour2.bmp_width+#dian1.bmp_width+150" y="400" pivotX="#second2.bmp_width/2" pivotY="#second2.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
-		
-		
-		
-<Image name="month1"  align="left" alignV="center"  src="rq/time.png"  x="78" y="495" srcid="int((#month+1)/10)" pivotX="#month1.bmp_width/2" pivotY="#month1.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)" />
-
-<Image name="month2" src="rq/time.png" align="left" alignV="center" x="#month1.bmp_width+87" y="495" srcid="int((#month+1)%10)" pivotX="#month2.bmp_width/2" pivotY="#month2.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)" />
-
-<Image name="dian3" src="rq/y.png" align="left" alignV="center" x="#month2.bmp_width+#month1.bmp_width+97" y="495" pivotX="#dian3.bmp_width/2" pivotY="#dian3.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
+<Lockscreen version="1" vibrate="false" frameRate="90" screenWidth="1080" displayDesktop="true">
 
 
-<Image name="date1" align="left" alignV="center"  x="#month1.bmp_width+#month2.bmp_width+#dian3.bmp_width+107" y="495" src="rq/time.png"  srcid="int(#date/10)" pivotX="#date1.bmp_width/2" pivotY="#date1.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)" />
 
-<Image name="date2" align="left" alignV="center" x="#month1.bmp_width+#month2.bmp_width+#dian3.bmp_width+5+#date1.bmp_width+117" y="495" src="rq/time.png"  srcid="#date%10" pivotX="#date2.bmp_width/2" pivotY="#date2.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)" />
+<Var name="notification" expression="1"/> 
 
-<Image name="dian4" align="left" alignV="center" src="rq/r.png" x="#month1.bmp_width+#month2.bmp_width+#dian3.bmp_width+5+#date1.bmp_width+#date2.bmp_width+127" y="495" pivotX="#dian4.bmp_width/2" pivotY="#dian4.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
+<VariableBinders> 
+	<SensorBinder type="accelerometer">
+		<Variable index="0" name="gx"/>
+		<Variable index="1" name="gy"/>
+	</SensorBinder>
+</VariableBinders> 
 
-<Image name="dian5" align="left" alignV="center" src="rq/dian.png" x="#month1.bmp_width+#month2.bmp_width+#dian3.bmp_width+5+#date1.bmp_width+#date2.bmp_width+#dian4.bmp_width+137" y="495" pivotX="#dian5.bmp_width/2" pivotY="#dian5.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
-
-<Image name="img_week" x="#month1.bmp_width+#month2.bmp_width+#dian3.bmp_width+5+#date1.bmp_width+#date2.bmp_width+#dian4.bmp_width+#dian5.bmp_width+147" y="495" align="left" alignV="center" src="rq/week.png" srcid="#day_of_week" pivotX="#img_week.bmp_width/2" pivotY="#img_week.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
 
 
-<Image name="why1" x="82" align="left" alignV="center"  y="580" src="why/wh_1.png" visibility="#WH1" pivotX="#why1.bmp_width/2" pivotY="#why1.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
-<Image name="why2" x="82" align="left" alignV="center"  y="580" src="why/wh_2.png" visibility="#WH2" pivotX="#why2.bmp_width/2" pivotY="#why2.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
-<Image name="why3" x="82" align="left" alignV="center"  y="580" src="why/wh_3.png" visibility="#WH3" pivotX="#why3.bmp_width/2" pivotY="#why3.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
-<Image name="why4" x="82" align="left" alignV="center"  y="580" src="why/wh_4.png" visibility="#WH4" pivotX="#why4.bmp_width/2" pivotY="#why4.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
-<Image name="why5" x="82" align="left" alignV="center"  y="580" src="why/wh_5.png" visibility="#WH5" pivotX="#why5.bmp_width/2" pivotY="#why5.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
-<Image name="why6" x="82" align="left" alignV="center"  y="580" src="why/wh_6.png" visibility="#WH6" pivotX="#why6.bmp_width/2" pivotY="#why6.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
-<Image name="why7" x="82" align="left" alignV="center"  y="580" src="why/wh_7.png" visibility="#WH7" pivotX="#why7.bmp_width/2" pivotY="#why7.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"/>
+<ExternalCommands>
+	<Trigger action="resume">	
+		<VariableCommand name="OpenBt" expression="#time" condition="#OpenOn"/>
+		<VariableCommand name="OpenF" expression="1" condition="#OpenOn"/>
 
-<Var name="_musicani" >
-<VariableAnimation loop="false" initPause="true">
-<AniFrame value="0" time="0" easeType="QuadEaseOut"/>
-<AniFrame value="1" time="500"/>
-</VariableAnimation>
+	    <VariableCommand name="bYBt" expression="#time" condition="eq(#battery_state,1)+eq(#battery_state,3)"/>
+		<VariableCommand name="bYF" expression="1" condition="eq(#battery_state,1)+eq(#battery_state,3)"/>
+
+
+		<VariableCommand name="cal_width" expression="880" />
+		<VariableCommand name="grid_w" expression="#cal_width/7" />
+		<VariableCommand name="grid_x" expression="(#cal_width-6*#grid_w)/2+(#w-#cal_width)/2" />
+		<VariableCommand name="grid_y" expression="2578-6" />
+		<VariableCommand name="current_year" expression="#year" />
+		<VariableCommand name="current_month" expression="#month" />
+		<VariableCommand name="current_date" expression="#date" />      
+		<VariableCommand name="current_week" expression="#day_of_week" />
+
+
+	</Trigger>
+
+	<Trigger action="pause">	
+
+
+		<VariableCommand name="DeskMove_Ok" expression="0"/>
+   		<VariableCommand name="DeskBeginTime" expression="0"/>
+		<VariableCommand name="DeskFlag" expression="0"/>
+		<VariableCommand name="DeskMove1" expression="0"/>
+		<VariableCommand name="DeskMove2" expression="0"/>
+
+
+		<VariableCommand name="PanelMove_Ok" expression="0"/>
+   		<VariableCommand name="PanelBT" expression="0"/>
+		<VariableCommand name="PanelFlag" expression="0"/>
+		<VariableCommand name="PanelMove1" expression="0"/>
+		<VariableCommand name="PanelMove2" expression="0"/>
+		<VariableCommand name="eFlag1" expression="0"/>
+		<VariableCommand name="eBT1" expression="0"/>
+		<VariableCommand name="eFlag2" expression="0"/>
+		<VariableCommand name="eBT2" expression="0"/>
+		<VariableCommand name="eFlag3" expression="0"/>
+		<VariableCommand name="eBT3" expression="0"/>
+		<VariableCommand name="eFlag4" expression="0"/>
+		<VariableCommand name="eBT4" expression="0"/>
+		<VariableCommand name="eFlag5" expression="0"/>
+		<VariableCommand name="eBT5" expression="0"/>
+		<VariableCommand name="eFlag6" expression="0"/>
+		<VariableCommand name="eBT6" expression="0"/>
+
+	    <VariableCommand name="BatBt" expression="0" />
+		<VariableCommand name="BatF" expression="0" />
+
+		<VariableCommand name="OpenBt" expression="0"/>
+		<VariableCommand name="OpenF" expression="0"/>
+
+		<VariableCommand name="SetBt" expression="0"/>
+	    <VariableCommand name="SetFlag" expression="0"/>
+	    <VariableCommand name="Set1Bt" expression="0"/>
+	    <VariableCommand name="Set1Flag" expression="0"/>
+	    <VariableCommand name="Set2Bt" expression="0"/>
+	    <VariableCommand name="Set2Flag" expression="0"/>
+	    <VariableCommand name="Set3Bt" expression="0" />
+	    <VariableCommand name="Set3Flag" expression="0" />
+
+	    <VariableCommand name="UnlockMove" expression="0" />
+
+	    <VariableCommand name="DjsBt" expression="0"/>
+		<VariableCommand name="DjsF" expression="0"/>
+		<VariableCommand name="Djs1Bt" expression="0"/>
+		<VariableCommand name="Djs1F" expression="0"/>
+	</Trigger>
+</ExternalCommands>
+
+
+
+<VarArray type="string"> 
+	<Vars> 
+		<Var name="weekcn" index="#day_of_week-1" /> 
+	</Vars> 
+	<Items> 
+		<Item value="Sunday" /> 
+     <Item value="Monday" />
+     <Item value="Tuesday" />
+     <Item value="Wednesday" /> 
+     <Item value="Thursday" />
+     <Item value="Friday" /> 
+     <Item value="Saturday" />
+	</Items> 
+</VarArray>
+
+
+<Slider name="slideMove" bounceInitSpeed="1000000" bounceAcceleration="1000000">
+	<StartPoint x="0" y="0" w="1080" h="#h"/>
+	<EndPoint x="0" y="-#h" w="1080" h="-#h">
+	</EndPoint>
+</Slider>
+
+
+<Var name="w" expression="#screen_width" const="true"/>
+<Var name="h" expression="#screen_height" const="true"/>
+<Var name="BtnVis" expression="gt(#touch_begin_x-#touch_x,-20)*lt(#touch_begin_x-#touch_x,20)*gt(#touch_begin_y-#touch_y,-20)*lt(#touch_begin_y-#touch_y,20)" />
+<Var name="verticalVis" expression="le(#slideMove.move_x*#slideMove.move_x,#slideMove.move_y*#slideMove.move_y)"/>
+<Var name="horizontalVis" expression="ge(#slideMove.move_x*#slideMove.move_x,#slideMove.move_y*#slideMove.move_y)"/>
+
+
+
+
+
+<Var name="Play">
+	<VariableAnimation>
+		<AniFrame value="1" time="0" />
+		<AniFrame value="1" time="400" />
+	</VariableAnimation>
 </Var>
-<!-- 负一屏图标 -->
- <Image align="center" alignV="center"  name="LeftIcon" pivotX="#LeftIcon.bmp_width/2" pivotY="#LeftIcon.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)" src="src/left_icon.png" visibility="#LeftScreenCondition" x="#IcoMarginW" y="#screen_height-(#IcoMarginH)"/>
-<Button x="110" y="#sh-(100)" align="center" alignV="center"  w="150" h="150">
+<Var name="touchBt" expression="0" const="true" />
+<Var name="touchF" expression="0" const="true" />
+<Var name="touchDur" expression="(min(max(#time-#touchBt,0),900)/900)*#Play" />
+<Var name="touchAni" expression="ifelse(#touchF,1 - (1 - #touchDur)*(1 - #touchDur)*(1 - #touchDur)*(1 - #touchDur),1-(1 - (1 - #touchDur)*(1 - #touchDur)*(1 - #touchDur)*(1 - #touchDur)))" />
 
-<Pressed>
- <Image align="center" alignV="center"  name="LeftIcon" pivotX="#LeftIcon.bmp_width/2" pivotY="#LeftIcon.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)" src="src/left_icon.png" visibility="#LeftScreenCondition" x="#IcoMarginW" y="#screen_height-(#IcoMarginH)" w="130" h="130"/>
-</Pressed>
-<Triggers>
-<Trigger action="up,pause">
-<AnimationCommand target="_musicani" command="play" condition="#_musicani==0"/>
-<AnimationCommand target="_musicani" command="play(500,0)" condition="#_musicani==1"/>
-<AnimationCommand target="panel_framerate_controller" command="play"/>
-</Trigger>
-</Triggers>
+
+
+
+
+
+<Var name="OpenOn" expression="1" const="true" />
+<Var name="OpenBt" expression="0" const="true" />
+<Var name="OpenF" expression="0" const="true" />
+<Var name="OpenDur" expression="(min(max(#time-#OpenBt,0),1500)/1500)*#Play" />
+<Var name="OpenAni" expression="ifelse(#OpenF,1 - (1 - #OpenDur)*(1 - #OpenDur)*(1 - #OpenDur)*(1 - #OpenDur),1-(1 - (1 - #OpenDur)*(1 - #OpenDur)*(1 - #OpenDur)*(1 - #OpenDur)))" />
+
+
+
+
+
+
+
+<Var name="cdModule" expression="1" const="true" />
+<Var name="BatBt" expression="0" const="true" />
+<Var name="BatF" expression="0" const="true" />
+<Var name="BatDur" expression="(min(max(#time-#BatBt,0),300)/300)*#Play" />
+<Var name="BatAni" expression="ifelse(#BatF,1 - (1 - #BatDur)*(1 - #BatDur)*(1 - #BatDur)*(1 - #BatDur),1-(1 - (1 - #BatDur)*(1 - #BatDur)*(1 - #BatDur)*(1 - #BatDur)))" />
+
+<Var name="bYBt" expression="0" const="true" />
+<Var name="bYF" expression="0" const="true" />
+<Var name="bYDur" expression="(min(max(#time-#bYBt,0),1500)/1500)*#Play" />
+<Var name="bYAni" expression="ifelse(#bYF,1 - (1 - #bYDur)*(1 - #bYDur)*(1 - #bYDur)*(1 - #bYDur),1-(1 - (1 - #bYDur)*(1 - #bYDur)*(1 - #bYDur)*(1 - #bYDur)))" />
+
+<Var expression="eq(#battery_state,1)+eq(#battery_state,3)" threshold="1">
+    <Trigger condition="eq(#battery_state,1)+eq(#battery_state,3)">
+		<VariableCommand name="bYBt" expression="#time" />
+		<VariableCommand name="bYF" expression="1" />
+	</Trigger>
+</Var>
+
+
+
+
+
+
+<!--VAr 1-->
+
+<Var const="true" name="cal_width" expression="880" />
+<Var const="true" name="grid_w" expression="#cal_width/7" />
+<Var const="true" name="grid_x" expression="(#cal_width-6*#grid_w)/2+(#w-#cal_width)/2" />
+<Var const="true" name="grid_y" expression="2578" />
+<Var const="true" name="grid_h" expression="105" />
+<Var const="true" name="current_year" expression="#year" />
+<Var const="true" name="current_month" expression="#month" />
+<Var const="true" name="current_date" expression="#date" />
+<Var const="true" name="current_week" expression="#day_of_week" />
+<Var name="day_week" expression="#current_week+(1-#current_date)%7" />
+<Var name="day1_week" expression="ifelse(le(#day_week,0),7+#day_week,#day_week)" />
+<Var name="leap_year" expression="eq((#current_year%4),0)*ne((#current_year%100),0)+eq((#current_year%400),0)" />
+<Var name="display29" expression="#leap_year+ne((#current_month+1),2)" />
+<Var name="display30" expression="ne((#current_month+1),2)" />
+<Var name="display31" expression="eq((#current_month+1),1)+eq((#current_month+1),3)+eq((#current_month+1),5)+eq((#current_month+1),7)+eq((#current_month+1),8)+eq((#current_month+1),10)+eq((#current_month+1),12)" />
+
+
+<Var name="month_max_day" expression="ifelse((eq((#current_month+1),1)+eq((#current_month+1),3)+eq((#current_month+1),5)+eq((#current_month+1),7)+eq((#current_month+1),8)+eq((#current_month+1),10)+eq((#current_month+1),12)),31,(eq((#current_month+1),4)+eq((#current_month+1),6)+eq((#current_month+1),9)+eq((#current_month+1),11)),30,eq((#current_month+1),2)*#leap_year,29,28)" />
+<Var name="last_month" expression="ifelse(#current_month,#current_month,12)" />
+<Var name="last_month_max_day" expression="ifelse((eq(#last_month,1)+eq(#last_month,3)+eq(#last_month,5)+eq(#last_month,7)+eq(#last_month,8)+eq(#last_month,10)+eq(#last_month,12)),31,(eq(#last_month,4)+eq(#last_month,6)+eq(#last_month,9)+eq(#last_month,11)),30,eq(#last_month,2)*#leap_year,29,28)" />
+
+<Var const="true" name="week_var" expression="0" />
+<Var const="true" name="maxmonth_var" expression="0" />
+<Var const="true" name="month_var" expression="0" />
+<Var const="true" name="year_var" expression="0" />
+
+
+
+
+
+
+
+
+
+
+<!-- var 2-->
+<Var name="DjsBt" expression="0" const="true" />
+<Var name="DjsF" expression="0" const="true" />
+<Var name="DjsDur" expression="(min(max(#time-#DjsBt,0),500)/500)*#Play" />
+<Var name="DjsAni" expression="ifelse(#DjsF,1 - (1 - #DjsDur)*(1 - #DjsDur)*(1 - #DjsDur)*(1 - #DjsDur),1-(1 - (1 - #DjsDur)*(1 - #DjsDur)*(1 - #DjsDur)*(1 - #DjsDur)))" />
+
+
+<Var name="Djs1Bt" expression="0" const="true" />
+<Var name="Djs1F" expression="0" const="true" />
+<Var name="Djs1Dur" expression="(min(max(#time-#Djs1Bt,0),900)/900)*#Play" />
+<Var name="Djs1Ani" expression="ifelse(#Djs1F,1 - (1 - #Djs1Dur)*(1 - #Djs1Dur)*(1 - #Djs1Dur)*(1 - #Djs1Dur),1-(1 - (1 - #Djs1Dur)*(1 - #Djs1Dur)*(1 - #Djs1Dur)*(1 - #Djs1Dur)))" />
+
+<Var name="timerID" expression="0" const="true" />
+<VarArray type="string"> 
+	<Vars> 
+		<Var name="timerText" index="#timerID" /> 
+	</Vars> 
+	<Items> 
+		<Item value="entrance exam" /> 
+     <Item value="postgraduate exam" />
+     <Item value="anniversary" />
+     <Item value="Day Holiday" /> 
+     <Item value="National Day" /> 
+     <Item value="Valentine's Day" /> 
+     <Item value="birthday" /> 
+     <Item value="appointment" /> 
+     <Item value="target" />
+	</Items> 
+</VarArray> 
+
+<Var name="_maxDay" expression="ifelse((eq(#EventMonth,1)+eq(#EventMonth,3)+eq(#EventMonth,5)+eq(#EventMonth,7)+eq(#EventMonth,8)+eq(#EventMonth,10)+eq(#EventMonth,12)),31,(eq(#EventMonth,4)+eq(#EventMonth,6)+eq(#EventMonth,9)+eq(#EventMonth,11)),30,eq(#EventMonth,2)*#isEventLeapYear,29,28)" />
+
+
+
+
+<Var name="EventYear" expression="2020" type="int" const="true"/>
+<Var name="EventMonth" expression="7" type="int" const="true"/>
+<Var name="EventDate" expression="7" type="int" const="true"/>
+<Var name="EventHour" expression="0" type="int" const="true"/>
+<Var name="EventMin" expression="0" type="int" const="true"/>
+
+<Var name="nowTimerDate" expression="(ge(#month,1)*31+(28+eq((#year%4),0)*ne((#year%100),0)+eq((#year%400),0))*ge(#month,2)+ge(#month,3)*31+ge(#month,4)*30+ge(#month,5)*31+ge(#month,6)*30+ge(#month,7)*31+ge(#month,8)*31+ge(#month,9)*30+ge(#month,10)*31+ge(#month,11)*30+ge(#month,12)*31)+(365*#year+int(#year/4)+int(#year/400)-int(#year/100))+#date-1" />
+<Var name="nowTimerMin" expression="#hour24*60+#minute+1" />
+
+<Var name="EventTimerDate" expression="(gt(#EventMonth,1)*31+(28+eq((#EventYear%4),0)*ne((#EventYear%100),0)+eq((#EventYear%400),0))*gt(#EventMonth,2)+gt(#EventMonth,3)*31+gt(#EventMonth,4)*30+gt(#EventMonth,5)*31+gt(#EventMonth,6)*30+gt(#EventMonth,7)*31+gt(#EventMonth,8)*31+gt(#EventMonth,9)*30+gt(#EventMonth,10)*31+gt(#EventMonth,11)*30+gt(#EventMonth,12)*31)+(365*#EventYear+int(#EventYear/4)+int(#EventYear/400)-int(#EventYear/100))+#EventDate-1" />
+<Var name="EventTimerMin" expression="#EventHour*60+#EventMin" />
+
+<Var name="isPast" expression="ge(#EventTimerDate*1440+#EventTimerMin,#nowTimerDate*1440+#nowTimerMin)" />
+<Var name="TimerDate" expression="ifelse(#isPast,int(abs(#EventTimerDate-#nowTimerDate)-gt(#nowTimerMin,#EventTimerMin)),int(abs(#EventTimerDate-#nowTimerDate)-gt(#EventTimerMin,#nowTimerMin)))" />
+
+
+
+
+
+
+
+<Var name="PanelSwitch" expression="1" const="true"/>
+<Var name="PanelFlag" expression="0" const="true"/>
+<Var name="PanelBT" expression="0" const="true"/>
+<Var name="PanelDur" expression="(min((#time-#PanelBT),500)/500)*#Play" />
+<Var name="PanelDurAni" expression="ifelse(#PanelFlag,1 - (1 - #PanelDur)*(1 - #PanelDur)*(1 - #PanelDur)*(1 - #PanelDur),1-(1 - (1 - #PanelDur)*(1 - #PanelDur)*(1 - #PanelDur)*(1 - #PanelDur)))" />
+<Var name="PanelMove" expression="max(min(ifelse(#PanelMove_Ok*#verticalVis*lt(#DeskMove,540),#slideMove.move_y,0)+#PanelMoveGo,1080*#PanelSwitch),0)" />
+<Var name="PanelMoveGo" expression="ifelse(#PanelFlag,#PanelMove1+abs(#PanelMove2-#PanelMove1)*#PanelDurAni,#PanelMove1+abs(#PanelMove2-#PanelMove1)*(#PanelDurAni-1))"/>
+
+<Var name="eBT1" expression="0" const="true" />
+<Var name="eFlag1" expression="0" const="true" />
+<Var name="eDur1" expression="(min(max(#time-#eBT1,0),700)/700)*#Play" />
+<Var name="eMoveY1" expression="ifelse(#eFlag1,1 + (1.70158+1) * (#eDur1 - 1)*(#eDur1 - 1)*(#eDur1 - 1)+ 1.70158 * (#eDur1 - 1)* (#eDur1 - 1),1-(1 + (1.70158+1) * (#eDur1 - 1)*(#eDur1 - 1)*(#eDur1 - 1)+ 1.70158 * (#eDur1 - 1)* (#eDur1 - 1)))" />
+<Var name="eAlpha1" expression="ifelse(#eFlag1,#eDur1,(1 - #eDur1))" />
+
+<Var name="eBT2" expression="0" const="true" />
+<Var name="eFlag2" expression="0" const="true" />
+<Var name="eDur2" expression="(min(max(#time-#eBT2,0),700)/700)*#Play" />
+<Var name="eMoveY2" expression="ifelse(#eFlag2,1 + (1.70158+1) * (#eDur2 - 1)*(#eDur2 - 1)*(#eDur2 - 1)+ 1.70158 * (#eDur2 - 1)* (#eDur2 - 1),1-(1 + (1.70158+1) * (#eDur2 - 1)*(#eDur2 - 1)*(#eDur2 - 1)+ 1.70158 * (#eDur2 - 1)* (#eDur2 - 1)))" />
+<Var name="eAlpha2" expression="ifelse(#eFlag2,#eDur2,(1 - #eDur2))" />
+
+<Var name="eBT3" expression="0" const="true" />
+<Var name="eFlag3" expression="0" const="true" />
+<Var name="eDur3" expression="(min(max(#time-#eBT3,0),700)/700)*#Play" />
+<Var name="eMoveY3" expression="ifelse(#eFlag3,1 + (1.70158+1) * (#eDur3 - 1)*(#eDur3 - 1)*(#eDur3 - 1)+ 1.70158 * (#eDur3 - 1)* (#eDur3 - 1),1-(1 + (1.70158+1) * (#eDur3 - 1)*(#eDur3 - 1)*(#eDur3 - 1)+ 1.70158 * (#eDur3 - 1)* (#eDur3 - 1)))" />
+<Var name="eAlpha3" expression="ifelse(#eFlag3,#eDur3,(1 - #eDur3))" />
+
+<Var name="eBT4" expression="0" const="true" />
+<Var name="eFlag4" expression="0" const="true" />
+<Var name="eDur4" expression="(min(max(#time-#eBT4,0),700)/700)*#Play" />
+<Var name="eMoveY4" expression="ifelse(#eFlag4,1 + (1.70158+1) * (#eDur4 - 1)*(#eDur4 - 1)*(#eDur4 - 1)+ 1.70158 * (#eDur4 - 1)* (#eDur4 - 1),1-(1 + (1.70158+1) * (#eDur4 - 1)*(#eDur4 - 1)*(#eDur4 - 1)+ 1.70158 * (#eDur4 - 1)* (#eDur4 - 1)))" />
+<Var name="eAlpha4" expression="ifelse(#eFlag4,#eDur4,(1 - #eDur4))" />
+
+<Var name="eBT5" expression="0" const="true" />
+<Var name="eFlag5" expression="0" const="true" />
+<Var name="eDur5" expression="(min(max(#time-#eBT5,0),700)/700)*#Play" />
+<Var name="eMoveY5" expression="ifelse(#eFlag5,1 + (1.70158+1) * (#eDur5 - 1)*(#eDur5 - 1)*(#eDur5 - 1)+ 1.70158 * (#eDur5 - 1)* (#eDur5 - 1),1-(1 + (1.70158+1) * (#eDur5 - 1)*(#eDur5 - 1)*(#eDur5 - 1)+ 1.70158 * (#eDur5 - 1)* (#eDur5 - 1)))" />
+<Var name="eAlpha5" expression="ifelse(#eFlag5,#eDur5,(1 - #eDur5))" />
+
+<Var name="eBT6" expression="0" const="true" />
+<Var name="eFlag6" expression="0" const="true" />
+<Var name="eDur6" expression="(min(max(#time-#eBT6,0),700)/700)*#Play" />
+<Var name="eMoveY6" expression="ifelse(#eFlag6,1 + (1.70158+1) * (#eDur6 - 1)*(#eDur6 - 1)*(#eDur6 - 1)+ 1.70158 * (#eDur6 - 1)* (#eDur6 - 1),1-(1 + (1.70158+1) * (#eDur6 - 1)*(#eDur6 - 1)*(#eDur6 - 1)+ 1.70158 * (#eDur6 - 1)* (#eDur6 - 1)))" />
+<Var name="eAlpha6" expression="ifelse(#eFlag6,#eDur6,(1 - #eDur6))" />
+
+<Var name="yc">
+	<VariableAnimation>
+		<AniFrame time="0" value="255" />
+		<AniFrame time="500" value="0" />
+		<AniFrame time="1500" value="0" />
+		<AniFrame time="2000" value="255" />
+		<AniFrame time="200000000000" value="255" />
+	</VariableAnimation>
+</Var>
+<Var name="GRot">
+	<VariableAnimation initPause="true" loop="false">
+		<AniFrame time="0" value="0" />
+		<AniFrame time="500" value="360" />
+		<AniFrame time="500000000000" value="360" />
+	</VariableAnimation>
+</Var>
+
+
+
+
+
+
+
+
+
+
+
+
+<Button x="0" y="0"  w="#w" h="#h">
+	<Triggers>
+		<Trigger action="up">
+			<VariableCommand name="DeskMove_Ok" expression="0"/>
+			<VariableCommand name="PanelMove_Ok" expression="0"/>
+			<VariableCommand name="FypMoveFlag" expression="0"/>
+			<VariableCommand name="touchBt" expression="#time"/>
+			<VariableCommand name="touchF" expression="0"/>
+			<VariableCommand expression="0" name="appid" delay="300"/>
+			<VariableCommand expression="0" name="btID" delay="300"/>
+			<VariableCommand expression="0" name="fid" delay="300"/>
+			<VariableCommand expression="0" name="setid" delay="300"/>
+			<VariableCommand name="pid" expression="0" delay="300" />
+			<VariableCommand name="djsid" expression="0" delay="300" />
+			<VariableCommand expression="0" name="touch_x" delay="10"/>
+			<VariableCommand expression="0" name="touch_y" delay="10"/>
+			<VariableCommand expression="0" name="touch_begin_x" delay="10"/>
+			<VariableCommand expression="0" name="touch_begin_y" delay="10"/>
+		</Trigger>
+	</Triggers>
 </Button>
 
-<!-- <MusicControl name="music_control" defAlbumCover="default_album_cover.png" enableLyric="true" updateLyricInterval="80"  visibility="#_musicani" alpha="255*#_musicani" pivotX="#music_control.bmp_width/2" pivotY="#music_control.bmp_height/2" scale="1/(1-#DefaultScreen_y/60)"> -->
+
+<Var name="UnLockOn" expression="ifelse(ge(#touch_begin_y-#touch_y,300),1,0)*#verticalVis*eq(#PanelMove,0)*eq(#SetAlpha,0)*not(#DeskMove)"/>
+<Var name="UnlockMove" expression="min(#unlocker.move_y,0)*#verticalVis*eq(#PanelMove,0)*eq(#SetAlpha,0)*not(#DeskMove)"/>
+<Unlocker name="unlocker" bounceInitSpeed="2000" bounceAcceleration="3000" >
+	<StartPoint x="#touch_begin_x" y="#touch_begin_y" w="1" h="1"/>
+	<EndPoint x="ifelse(#UnLockOn,#touch_x,-1)" y="ifelse(#UnLockOn,#touch_y,-1)" w="1" h="1"/>
+</Unlocker>
 
 
 
 
-<!-- <Text x="500" align="left" alignV="center" size="48" bold="ture" color="#ffffff" y="670" textExp="ifelse(len(@music_control.title),@music_control.title,'NO Music')" w="300" marqueeSpeed="30" /> -->
+<!--Var 3-->
+<Var name="DeskFyp" expression="1" const="true"/>
+<Var name="DeskFlag" expression="0" const="true"/>
+<Var name="DeskBeginTime" expression="0" const="true"/>
+<Var name="DeskDurTime" expression="(min((#time-#DeskBeginTime),350)/350)*#Play" />
+<Var name="DeskDurAni" expression="ifelse(#DeskFlag,1 - (1 - #DeskDurTime)*(1 - #DeskDurTime)*(1 - #DeskDurTime)*(1 - #DeskDurTime),(1 - #DeskDurTime)*(1 - #DeskDurTime)*(1 - #DeskDurTime)*(1 - #DeskDurTime))" />
+<Var name="DeskMove" expression="max(min(ifelse(#DeskMove_Ok*#horizontalVis,#slideMove.move_x,0)+#DeskMoveGo,1080*#DeskFyp),0)" />
+<Var name="DeskMoveGo" expression="ifelse(#DeskFlag,#DeskMove1+abs(#DeskMove2-#DeskMove1)*#DeskDurAni,#DeskMove1+abs(#DeskMove2-#DeskMove1)*(#DeskDurAni-1))"/>
+
+<Button x="0" y="0" w="#w" h="#h" visibility="#DeskFyp*eq(#PanelMove,0)*eq(#SetAlpha,0)*eq(#DjsAni,0)" >
+	<Triggers>
+		<Trigger action="down">
+			<VariableCommand name="DeskMove_Ok" expression="1"/>
+		</Trigger>
+		<Trigger action="up">
+			<VariableCommand name="DeskMove_Ok" expression="0"/>
+			<VariableCommand name="DeskBeginTime" expression="#time" condition="ne(abs(#touch_x-#touch_begin_x),0)*#horizontalVis"/>
+			<VariableCommand name="DeskFlag" expression="1" condition="gt(#touch_x-#touch_begin_x,200)*#horizontalVis"/>
+			<VariableCommand name="DeskFlag" expression="0" condition="gt(#touch_x-#touch_begin_x,0)*le(#touch_x-#touch_begin_x,200)*#horizontalVis"/>
+			<VariableCommand name="DeskFlag" expression="0" condition="lt(#touch_x-#touch_begin_x,-200)*#horizontalVis"/>
+			<VariableCommand name="DeskFlag" expression="1" condition="ge(#touch_x-#touch_begin_x,-200)*lt(#touch_x-#touch_begin_x,0)*#horizontalVis"/>
+			<VariableCommand name="DeskMove1" expression="min(max(#DeskMove2+(#touch_x-#touch_begin_x),0),1080)" condition="#horizontalVis"/>
+			<VariableCommand name="DeskMove2" expression="ifelse(gt(abs(#touch_x-#touch_begin_x),200),max(min(#DeskMove2+ifelse(gt(#touch_x,#touch_begin_x),1,-1)*1080,1080),0),#DeskMove2)" condition="#horizontalVis"/>
+		</Trigger>
+	</Triggers>
+</Button>
+<!--Wallpaper-->
+<Var name="GravityOn" expression="0" const="true"/>
+
+<Wallpaper src="wall/wall.jpg"/>
+<Image x="#w/2+ifelse(#GravityOn,#gx*10,0)" y="#h/2+ifelse(#GravityOn,#gy*18,0)" w="#w*ifelse(#OpenOn,1.5-0.3*#OpenAni-0.2*eq(#GravityOn,0),1.2-0.2*eq(#GravityOn,0))" h="2640*ifelse(#OpenOn,1.5-0.3*#OpenAni-0.2*eq(#GravityOn,0),1.2-0.2*eq(#GravityOn,0))" align="center" alignV="center" src="wall/wall.jpg"/>
+<Image x="#w/2+ifelse(#GravityOn,#gx*10,0)" y="#h/2+ifelse(#GravityOn,#gy*18,0)" w="#w*ifelse(#OpenOn,1.5-0.3*#OpenAni-0.2*eq(#GravityOn,0),1.2-0.2*eq(#GravityOn,0))" h="2640*ifelse(#OpenOn,1.5-0.3*#OpenAni-0.2*eq(#GravityOn,0),1.2-0.2*eq(#GravityOn,0))" alpha="(355-355*#OpenAni)*#OpenOn-#UnlockMove/3" align="center" alignV="center" src="wall/blur.jpg"/>
+<Image src="wall/black.jpg" alpha="(180-180*#OpenAni)" visibility="#OpenOn" />
 
 
-<!-- <Button name="music_prev" x="65" y="670"  alignV="center" align="left" w="120" h="120">
-<Normal> -->
-  
-<Image x="80" align="left"  alignV="center" y="670" src="music/yybj.png" alpha="150"/>
-
-<Image x="105" y="670"  alignV="center" align="left" src="music/s.png" w="37" h="37"/>
-
-<Image x="250" y="670"  alignV="center" align="left" src="music/ks.png"  w="37" h="37" />
-
-<Image x="395" y="670"  alignV="center" align="left" src="music/x.png" w="37" h="37"/>
-
-
-
+<!--Time-->
+<Var name="timeModule" expression="2" persist="true"/>
+<Group x="#DeskMove" visibility="eq(#timeModule,2)" >
+	<Time x="#w/2" y="400" align="center" alignV="center" src="time/t/time.png"/>
 	
-<!-- </MusicControl> -->
+        <Image x="330" y="#screen_height/2-790" align="center" alignV="center" src="time/t1/time.png" srcid="ifelse(#time_format,#hour24/10,#hour12/10)"/>
+		<Image x="450" y="#screen_height/2-790" align="center" alignV="center" src="time/t1/time.png" srcid="ifelse(#time_format,#hour24%10,#hour12%10)"/>
+		<Image x="540" y="#screen_height/2-790" align="center" alignV="center" src="time/t1/time_dot.png"/>
+		<Image x="630" y="#screen_height/2-790" align="center" alignV="center" src="time/t1/time.png" srcid="int(#minute/10)"/>
+		<Image x="750" y="#screen_height/2-790" align="center" alignV="center" src="time/t1/time.png" srcid="int(#minute%10)"/>
+
+	<DateTime x="#w/2" y="563" align="center" alignV="center" size="60" bold="false" color="#ffffff" format="EEEE, dd MMMM" typeface="ios font by themes gallery.ttf"/>	  
+	<DateTime x="#w/2" y="634" align="center" alignV="center" size="48" bold="true" color="#ffffff" format="NNNN"/>
+</Group>
+
+
+<Group x="#DeskMove" visibility="eq(#timeModule,1)" >
+	<ImageNumber name="t21"  x="-1000" y="-800" alpha="0"  src="time/t2/time.png" number="#hour12/10" />
+	<ImageNumber name="t22" x="-1000" y="-800" alpha="0"  src="time/t2/time.png" number="#hour12%10" />
+	<ImageNumber name="t23" x="-1000" y="-800" alpha="0" src="time/t2/time.png" number="#minute/10" />
+	<ImageNumber name="t24" x="-1000" y="-800" alpha="0" src="time/t2/time.png" number="#minute%10" />
+
+	<Text x="83" y="310" alignV="center" size="72" bold="true" color="#ffffff" format="%s" paras="@halo"/> 
+	<Time name="t2"  x="78" y="645" alignV="center" src="time/t2/time.png"/>
+	<ImageNumber x="78+32+#t21.bmp_width+#t22.bmp_width+#t23.bmp_width+#t24.bmp_width" y="423" alignV="center"  src="time/t2/am.png" number="gt(#hour,12)"/>
+	<DateTime x="120" y="590" alignV="center" size="52" bold="false" color="#ffffff" format="EEEE, MMMM dd" typeface="ios font by themes gallery.ttf"/>	  
+	<DateTime x="78" y="622" alignV="center" size="42" bold="true" color="#ffffff" format="NNNN"/>	  
+ 
+</Group>
+
+<!-- <Group x="#DeskMove" visibility="eq(#timeModule,1)" >
+	<ImageNumber x="220-60" y="292" align="center" alignV="center"  src="time/t3/time.png" number="#hour12/10" />
+	<ImageNumber x="220+60" y="292" align="center" alignV="center"  src="time/t3/time.png" number="#hour12%10" />
+	<ImageNumber x="220-60" y="470" align="center" alignV="center"  src="time/t3/time.png" number="#minute/10" />
+	<ImageNumber x="220+60" y="470" align="center" alignV="center"  src="time/t3/time.png" number="#minute%10" />
+
+	<ImageNumber x="340" y="505" alignV="center"  src="time/t3/a.png" number="gt(#hour,12)"/>
+	<DateTime x="120" y="606" alignV="center" size="48" bold="true" color="#ffffff" format="dd MMM yyyy"/>	  
+	<DateTime x="120" y="675"  alignV="center" size="48" bold="true" color="#ffffff" format="NNNN"/>	  
+</Group> -->
+<Group x="#DeskMove" visibility="eq(#timeModule,0)" >
+	<ImageNumber x="180" y="390" align="center" alignV="center"  src="time/t3/w/time.png" number="#hour12/10" />
+	<ImageNumber x="273" y="390" align="center" alignV="center"  src="time/t3/w/time.png" number="#hour12%10" />
+	<ImageNumber x="180" y="570" align="center" alignV="center"  src="time/t3/w/time.png" number="#minute/10" />
+	<ImageNumber x="273" y="570" align="center" alignV="center"  src="time/t3/w/time.png" number="#minute%10" />
+	<DateTime x="140" y="670" alignV="center" size="45" bold="true" color="#ffffff" format="dd MMM yyyy"/>	  
+	<DateTime x="140" y="730"  alignV="center" size="42" bold="true" color="#ffffff" format="NNNN"/>
+    
+</Group> 
 
 
 
 
-		<!-- #noticeDown	When the notification button is pressed, the value is 1, the unlock does not display 1, change it to 0 when it is released, and other areas can be unlocked. -->
 
-	<!-- Notice -->
-	<Group x="0" y="0" visibility="#hasnotifications" >
-		<Button x="0" y="0" w="1080" h="#screen_height">
+
+
+
+
+
+
+
+
+
+<!--底部模块-->
+<Var name="btModule" expression="0" const="true"/>
+<Var name="btBt" expression="eq(#PanelMove,0)*eq(#SetAlpha,0)*eq(#DeskMove,0)"/>
+<Group x="#DeskMove">
+
+	<Group  visibility="eq(#btModule,1)" >
+		<Image x="80" y="#h-75" align="center" alignV="center" w="61*(1+0.5*#touchAni*eq(#btID,1))" h="66*(1+0.5*#touchAni*eq(#btID,1))" src="phone.png"/>
+		<Button x="0" y="#h-150" w="150" h="150" visibility="#btBt" >
 			<Triggers>
-				<Trigger action="up,cancel" >
-					<VariableCommand name="noticeDown" expression="0"/>
+				<Trigger action="down">
+					<VariableCommand expression="1" name="btID" />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.android.dialer" class="com.android.dialer.TwelveKeyDialer" condition="#BtnVis"/>
+					<ExternCommand command="unlock" condition="#BtnVis"/>
 				</Trigger>
 			</Triggers>
 		</Button>
-			
-		<List name="notification_list" x="0" y="700+(#screen_height-1920)/4+#unlocker.move_y" w="1080" maxHeight="3*237" data="icon:bitmap,title:string,content:string,time:string,info:string,subtext:string,key:int" visibility="#hasnotifications">
-		<Item x="0" y="0" w="1080" h="237">
-				<Button x="0" y="0" w="1080" h="180" >
-					<Normal>
-						<Image x="0" y="0" src="notice/notice_bg.png" />
-					</Normal>
-					<Pressed>
-						<Image x="0" y="0" src="notice/notice_bg.png" alpha="120" />
-					</Pressed>
-					<Image x="935" y="95" src="notice/notice_close.png" />
-					<Image name="notification_icon" x="75" y="50" w="140" h="140" />
-					<Text name="notification_title" x="250" y="65" size="32" color="#FF000000" bold="true" w="500" h="36" marqueeSpeed="30" />
-					<Text name="notification_content" x="250" y="140" size="28" color="#E8000000" w="590" h="42" marqueeSpeed="30" />
-					<Text name="notification_time" x="900" y="65" size="32" align="right" color="#ff000000"  />
-					<Triggers>
-						<Trigger action="down">
-							<VariableCommand name="noticeDown" expression="1"/>
-						</Trigger>
-						<Trigger action="up">
-							<IntentCommand action="com.miui.app.ExtraStatusBarManager.action_remove_keyguard_notification" broadcast="true">
-								<Extra name="com.miui.app.ExtraStatusBarManager.extra_notification_key" type="int" expression="#notification_list.key" />
-								<Extra name="com.miui.app.ExtraStatusBarManager.extra_notification_click" type="int" expression="#touch_begin_x {= 800" />
-							</IntentCommand>
-						</Trigger>
-					</Triggers>
-				</Button>
-			</Item>
-			<AttrDataBinders>
-				<AttrDataBinder target="notification_icon" attr="bitmap" data="icon" />
-				<AttrDataBinder target="notification_title" attr="text" data="title" />
-				<AttrDataBinder target="notification_content" attr="text" data="content" />
-				<AttrDataBinder target="notification_time" attr="text" data="time" />
-			</AttrDataBinders>
-		</List>
+
+		<Image x="#w-77" y="#h-75" align="center" alignV="center" w="55*(1+0.5*#touchAni*eq(#btID,2))" h="55*(1+0.5*#touchAni*eq(#btID,2))" src="cam.png"/>
+		<Button x="#w-77" y="#h-150" w="150" h="150" visibility="#btBt" >
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand expression="2" name="btID" />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<IntentCommand action="android.media.action.STILL_IMAGE_CAMERA" category="android.intent.category.DEFAULT" condition="#BtnVis"/>
+					<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER"  class="com.oppo.camera.Camera" package="com.oppo.camera" condition="#BtnVis"/>
+					<ExternCommand command="unlock" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+	
 	</Group>
 
-	<!-- Charging -->
-		<Group  name="cd1" visibility="eq(#battery_state,1)+eq(#battery_state,3)"  >
-<Rectangle x="540" align="center" alignV="center" y="#screen_height-85"  w="230" h="16" fillColor="#ffffff"  cornerRadius="6.0,6.0" />
-<Rectangle x="423" align="left" alignV="center" y="#screen_height-85"  w="232*#battery_level/100" h="20" fillColor="#15ea98" cornerRadius="8.0,8.0"   />
-<Text x="540" align="center" alignV="center" y="#screen_height-125"  size="30" fontFamily="miui-bold" color="#ffffff" textExp="'Charging+'+#battery_level+'%'" />
-</Group>
-  </Group>
-  
 
-  <Var name="lockScreenInit">
-    <VariableAnimation initPause="true" loop="false">
-      <Item time="0" value="0"/>
-      <Item time="100" value="100"/>
-      <Triggers>
-        <Trigger action="end" condition="#lockScreenInit==100">
-          <VariableCommand expression="&apos;exposureMainScreenPage&apos;" name="countAction" type="string"/>
-          <BinderCommand command="refresh" delay="10" name="CountService"/>
-        </Trigger>
-      </Triggers>
-    </VariableAnimation>
-  </Var>
-  <Var expression="#DefaultScreen_x==1080" threshold="1">
-    <Trigger condition="#DefaultScreen_x==1080 ** abs(#touch_x-#touch_begin_x)}300">
-      <VariableCommand expression="&apos;exposureNegtiveScreenPage&apos;" name="countAction" type="string"/>
-      <BinderCommand command="refresh" delay="10" name="CountService"/>
-    </Trigger>
-  </Var>
-  <!-- 初始化负一屏参数 -->
-<Var name="hour" expression="ifelse(#time_format,#hour24,#hour12,#hour12,12)" />
-	 <Var name="fypan_dh19">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-  <!-- 负一屏黑色遮罩 -->
 
-	  
-  <Group alpha="#LeftScreenAlpha" visibility="#defaultScreen_x}0**1" x="-1080+#defaultScreen_x+#LeftScreenX">
-	
-<Wallpaper blur="30" />
-      
-<Group y="500+#fypmovey" alignV="center">
-
-			 <Var name="fypan_dh1">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh2">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh3">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh4">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh5">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh6">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh7">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh8">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh9">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh10">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh11">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh12">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh13">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh14">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-			 <Var name="fypan_dh15">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh16">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh17">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh18">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-				 <Var name="fypan_dh19">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="400" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="800" />
-				</VariableAnimation>
-			</Var>
-			
-	<Group x="90" y="-110" >
-
-				<Rectangle  cornerRadius="55"  fillColor="#000000" w="896" h="192" alpha="100" visibility="eq(#gsmh,0)"/>
-
-				<Rectangle  cornerRadius="55"  fillColor="#ffffff" w="896" h="192" alpha="100" visibility="eq(#gsmh,1)"/>
-				
-				
-			<!-- Mute -->
-		
-			
-				<Button x="39" y="20" w="156" h="156" alignChildren="true">
-								<Image  x="78" y="78" align="center" alignV="center" w="115" h="115" src="kjgnsc/ringmode.png" srcid="#ring_mode" scale="#fypan_dh1" pivotX="57.5" pivotY="57.5"  />
-								<Triggers>
-								<Trigger action="up">
-									<Command target="RingMode" value="toggle"/>
-								</Trigger>
-								<Trigger action="down" >
-						<Command target="fypan_dh1.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh1.animation" value="play(300,700)" />
-					</Trigger>
-							</Triggers>
-						</Button>
-						<!-- Data -->
-					<Button x="206" y="20" w="156" h="156" alignChildren="true">
-				<Image x="78" y="78" align="center" alignV="center" w="115" h="115" srcExp="'kjgnsc/data_' + ifelse(#data_state,'on','off') + '.png'" scale="#fypan_dh2" pivotX="57.5" pivotY="57.5"/>
+	<Group  visibility="eq(#btModule,0)" >
+		<!--电话-->
+		<Image x="196" y="#screen_height-190" align="center" alignV="center" w="144*(1+0.2*#touchAni*eq(#btID,3))" h="144*(1+0.2*#touchAni*eq(#btID,3))" src="call.png"/>
+		<Button x="196-100" y="#screen_height-190-100" w="200" h="200" visibility="#btBt" >
 			<Triggers>
-								<Trigger action="up">
-									<Command target="Data" value="toggle"/>
-								</Trigger>
-								<Trigger action="down" >
-						<Command target="fypan_dh2.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh2.animation" value="play(300,700)" />
-					</Trigger>
-							</Triggers>
-			</Button>
-		
-					<!-- wifi -->
-			<Button x="373" y="20" w="156" h="156" alignChildren="true">
-				
-				<Image x="78" y="78" align="center" alignV="center" w="115" h="115" srcExp="'kjgnsc/wifi_' + ifelse(#wifi_state,'on','off') + '.png'" scale="#fypan_dh3" pivotX="57.5" pivotY="57.5"/>
-			
-				<Triggers>
-								<Trigger action="up">
-									<Command target="Wifi" value="toggle"/>
-								</Trigger>
-								<Trigger action="down" >
-						<Command target="fypan_dh3.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh3.animation" value="play(300,700)" />
-					</Trigger>
-							</Triggers>
-			</Button>
-			
-			<!-- bluetooth -->
-			<Button x="540" y="20" w="156" h="156" alignChildren="true">
-				<Image x="78" y="78" align="center" alignV="center" w="115" h="115" srcExp="'kjgnsc/bluetooth_' + ifelse(#bluetooth_state,'on','off') + '.png'" scale="#fypan_dh4" pivotX="57.5" pivotY="57.5"/>
-				
-				<Triggers>
-								<Trigger action="up">
-									<Command target="Bluetooth" value="toggle"/>
-								</Trigger>
-								<Trigger action="down" >
-						<Command target="fypan_dh4.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh4.animation" value="play(300,700)" />
-					</Trigger>
-							</Triggers>
-			</Button>
-			
-			<Button x="707" y="20" w="156" h="156" alignChildren="true">
-				
-			<Image x="78" y="78" align="center" alignV="center" w="115" h="115" scale="#fypan_dh5" pivotX="57.5" pivotY="57.5" srcExp="'kjgnsc/torch_'+ ifelse(#TORCH,'p','n') + '.png'" />
-			<Triggers>
-			
-				<Trigger action="up,cancel" >
-
-					<VariableCommand name="TORCH" expression="int(#TORCH+1)%2" />
-					<VariableCommand name="torch2_down" expression="0" delay="400" />
-					<IntentCommand action="miui.intent.action.TOGGLE_TORCH" broadcast="true" >
-						<Extra name="miui.intent.extra.IS_ENABLE" type="boolean" expression="#TORCH" />
-					</IntentCommand>
+				<Trigger action="down">
+					<VariableCommand expression="3" name="btID" />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
 				</Trigger>
-					<Trigger action="down" >
-						<Command target="fypan_dh5.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh5.animation" value="play(300,700)" />
-					</Trigger>
-			</Triggers>
-			</Button>
-				</Group>
-		<Group x="90" y="140" w="426" h="426" >
-		<Group scale="#fypan_dh6" pivotX="213" pivotY="213" >
-
-				<Rectangle  cornerRadius="55"  fillColor="#000000" w="426" h="426" alpha="100" visibility="eq(#gsmh,0)" />
-	
-				<Rectangle  cornerRadius="55"  fillColor="#ffffff" w="426" h="426" alpha="100" visibility="eq(#gsmh,1)" />
-				</Group>
-			   <Image align="left" x="50" y="95"  name="kq" w="110" h="110" alignV="center" src="kjgnsc/kq.png" />
-						
-				
-						
-						<Text x="#kq.bmp_width+30" y="105" align="left" alignV="center" color="#ffffff" size="50" textExp="@cjl_airQuality" w="200" marqueeSpeed="30" />
-				
-	                    <Image align="left" x="50" y="215"  name="gps" w="110" h="110" alignV="center" src="kjgnsc/gps.png" />
-						
-						<Text x="#gps.bmp_width+30" y="220" align="left" alignV="center" color="#ffffff" size="50" textExp="@weather_location" bold="ture" w="200" marqueeSpeed="30" />
-		
-						<Image name="cjl_weatherIcon" align="left" x="55" y="330"  alignV="center" src="WeatherCard_src/weather.png" w="95" h="95" srcid="#cjl_weatherOutId"/>
-					
-						<Text x="#cjl_weatherIcon.bmp_width+30" y="335" align="left" alignV="center" color="#ffffff" size="50" textExp="@weather_temperature" bold="ture" w="200" marqueeSpeed="30"  />
-						
-				
-			
-	
-				
-<Button x="0" y="0" w="426" h="426"  alignChildren="true">
-	
-		<Triggers>
-				<Trigger action="up"  >
-	
-					<ExternCommand command="unlock"/>
-					<IntentCommand action="android.intent.action.MAIN" package="com.miui.weather2" class="com.miui.weather2.ActivityWeatherCycle"/>	
-							<IntentCommand action="com.miui.weather.widget_weather_detail"/>
+				<Trigger action="up">
+					<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.android.settings" class="com.android.settings" condition="#BtnVis"/>
+					<ExternCommand command="unlock" condition="#BtnVis"/>
 				</Trigger>
-				<Trigger action="down" >
-						<Command target="fypan_dh6.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh6.animation" value="play(300,700)" />
-					</Trigger>
 			</Triggers>
 		</Button>
-			
+
+		<!--相机-->
+		<Image x="1090-206" y="#screen_height-190" align="center" alignV="center" w="144*(1+0.2*#touchAni*eq(#btID,4))" h="144*(1+0.2*#touchAni*eq(#btID,4))"  src="camera.png"/>
+		<Button x="1096-206-100" y="#screen_height-190-100" w="200" h="200" visibility="#btBt" >
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand expression="4" name="btID" />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<IntentCommand action="android.media.action.STILL_IMAGE_CAMERA" category="android.intent.category.DEFAULT" condition="#BtnVis"/>
+					<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER"  class="com.oppo.camera.Camera" package="com.oppo.camera" condition="#BtnVis"/>
+					<ExternCommand command="unlock" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+	</Group>
+
+
+<Image x="540" y="180" align="center" alignV="center" src="lock.png"/>
+
+
+    <Image x="540" y="#h-27" align="center" alignV="center" alpha="180" src="line.png" >
+  	  <PositionAnimation>
+			<Position  x="0" y="0" time="0" />
+			<Position  x="0" y="-42" time="380"/>
+			<Position  x="0" y="-42" time="550"/>
+			<Position  x="0" y="0" time="2550"/>
+			<Position  x="0" y="0" time="4000"/>
+		</PositionAnimation>
+	</Image>
+</Group>
+
+
+
+
+
+<!--负一屏模块-->
+<Var name="FypMoveY" expression="max(min(ifelse(#FypMoveFlag*#verticalVis*eq(#DeskMove,1080),(#touch_y-#FypTBeginy),0)+#FypMove,0),-(2800-#h))" />
+
+<Button h="#h" w="1080" x="-1080+#DeskMove" y="0" visibility="eq(#DeskMove,1080)*eq(#DjsAni,0)" >
+	<Triggers>
+		<Trigger action="down">
+			<VariableCommand name="FypMoveFlag" expression="1" condition="eq(#DeskMove,1080)"/>
+			<VariableCommand name="FypTBeginy" expression="#touch_y" condition="eq(#DeskMove,1080)"/>
+		</Trigger>
+		<Trigger action="up">
+			<VariableCommand name="FypMoveFlag" expression="0"/>
+			<VariableCommand name="FypMove" expression="max(min(#FypMove+#touch_y-#FypTBeginy,0),-(2800+#h))" persist="true" condition="#verticalVis"/>
+		</Trigger>
+	</Triggers>
+</Button>
+
+<Var name="fypBtvis" expression="eq(#DeskMove,1080)*eq(#DjsAni,0)" />
+
+<Image x="540+#x1*10*#GravityOn" y="#h/2+#y1*18*#GravityOn" align="center" alignV="center"  w="#w*ifelse(#OpenOn,1.5-0.3*#OpenAni-0.2*eq(#GravityOn,0),1.2-0.2*eq(#GravityOn,0))" h="2640*ifelse(#OpenOn,1.5-0.3*#OpenAni-0.2*eq(#GravityOn,0),1.2-0.2*eq(#GravityOn,0))" alpha="#DeskMove/2" src="wall/blur.jpg"  visibility="#DeskMove/2"/>
+
+<Group x="-1080+#DeskMove" y="#FypMoveY" visibility="ne(#DeskMove,0)" >
+
+	<Text name="at" x="86" y="205" alignV="center" color="#ffffff" size="100" textExp="@halo"/>
+
+	<!--头像-->
+	<Image x="913" y="213" align="center" alignV="center" w="148*(1-0.1*#touchAni*eq(#fid,1))" h="148*(1-0.1*#touchAni*eq(#fid,1))" src="fyp/tx.png"/>
+	<Button x="913-75" y="213-75" w="150" h="150" visibility="#fypBtvis" >
+		<Triggers>
+			<Trigger action="down">
+				<VariableCommand name="fid" expression="1"  />
+				<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+				<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+			</Trigger>
+			<Trigger action="up">
+				<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.android.contacts" class="com.android.contacts.DialtactsContactsEntryActivity" condition="#BtnVis"/>
+				<ExternCommand command="unlock" condition="#BtnVis"/>
+			</Trigger>
+		</Triggers>
+	</Button>
+	
+	<Image x="70+470" y="151+65+#tempY" align="center" alignV="center" w="940*(1-0.1*#touchAni*eq(#fid,1))" h="130*(1-0.1*#touchAni*eq(#fid,1))" src="fyp/seach.png" />
+	<Button x="70" y="151+#tempY" w="940" h="130" visibility="#fypBtvis" >
+		<Triggers>
+			<Trigger action="down">
+				<VariableCommand name="fid" expression="1"  />
+				<VariableCommand name="touchBt" expression="#time"/>
+				<VariableCommand name="touchF" expression="1"/>
+			</Trigger>
+			<Trigger action="up">
+				<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.vivo.browser" class="com.vivo.browser.BrowserActivity" condition="#BtnVis"/>
+				<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.vivo.browser" class="com.vivo.browser.MainActivity" condition="#BtnVis"/>
+				<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.android.browser" class="com.android.browser.BrowserActivity" condition="#BtnVis"/>
+				<ExternCommand command="unlock" condition="#BtnVis"/>
+			</Trigger>
+		</Triggers>
+	</Button>
+	
+	<!--Widgets-->
 		
+	<Image x="540" y="200" align="center" alignV="center" w="1020*(1-0.1*#touchAni*eq(#fid,2))" h="180*(1-0.1*#touchAni*eq(#fid,2))" src="fyp/search.png"/>
+
+   <Image x="70" y="860" src="fyp/diy.png" />
+   
+   <Image x="70" y="1872" src="fyp/themesgallery_1.png" />
+
+<Image x="570" y="1872" src="fyp/themesgallery_0.png" />
+   
+   <Image x="570" y="1366" src="fyp/brvp.png" />
+   
+   <Image x="570" y="860+#tempY" src="fyp/bg.png" />
+	<Image x="688" y="950+#tempY" src="fyp/bat.png" />
+	<Image x="621" y="903+#tempY" src="fyp/c.png" srcid="#battery_level/10"/>
+	<Text x="633" y="1109+#tempY"  color="#000000" size="80" format="%d%%" paras="#battery_level"/>
+
+   <Image x="0" y="366+220+#tempY" align="center" alignV="center" w="440*(1-0.1*#touchAni*eq(#fid,2))" h="440*(1-0.1*#touchAni*eq(#fid,2))" src="fyp/ksm.png" />
+	<Button x="0" y="366+#tempY" w="440" h="440" visibility="#fypBtvis" >
+		<Triggers>
+			<Trigger action="down">
+				<VariableCommand name="fid" expression="2"  />
+				<VariableCommand name="touchBt" expression="#time"/>
+				<VariableCommand name="touchF" expression="1"/>
+			</Trigger>
+			<Trigger action="up">
+				<IntentCommand action="android.intent.action.MAIN" package="com.iqoo.secure" class="com.iqoo.secure" condition="#BtnVis"/>
+				<ExternCommand command="unlock" condition="#BtnVis"/>
+			</Trigger>
+		</Triggers>
+	</Button>
+<Image x="354" y="333" src="cd/bg.png"/>
+	<Image x="354" y="333" src="cd/bg.png" srcid="#battery_level/6%18"/>
+
+	
+  <Image x="540" y="600" align="center" alignV="center" w="1020*(1-0.1*#touchAni*eq(#fid,2))" h="450*(1-0.1*#touchAni*eq(#fid,2))" src="jb/app1.png"/>
+
+<Image x="540" y="1100" align="center" alignV="center" w="1020*(1-0.1*#touchAni*eq(#fid,2))" h="450*(1-0.1*#touchAni*eq(#fid,2))" src="jb/app2.png"/>
+
+
+
+<Image x="540" y="1600" align="center" alignV="center" w="1020*(1-0.1*#touchAni*eq(#fid,2))" h="450*(1-0.1*#touchAni*eq(#fid,2))" src="jb/app3.png"/>
+
+<Image x="540" y="2100" align="center" alignV="center" w="1020*(1-0.1*#touchAni*eq(#fid,2))" h="450*(1-0.1*#touchAni*eq(#fid,2))" src="jb/app4.png"/>
+
+<Image x="70" y="860+#tempY" src="fyp/tg1.png" />
+	
+	<Text x="124" y="966+#tempY" color="#000000" size="80" textExp="#date"/>
+	<Image x="127" y="1114+#tempY" src="fyp/line.png" />
+	<Text x="154" y="1112+#tempY" color="#000000" size="36" text="Today"/>
+	<DateTime x="124" y="915+#tempY" size="48" bold="true" color="#ff0000" format="EEEE"/>
+    <DateTime x="124" y="1179+#tempY" size="36" bold="true" color="#000000" format="dd MMM yyyy"/>
+
+	<Button x="540-450" y="472-54" w="900" h="108" visibility="#fypBtvis" >
+		<Triggers>
+			<Trigger action="down">
+				<VariableCommand name="fid" expression="2"  />
+				<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+				<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+			</Trigger>
+			<Trigger action="up">
+				<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.vivo.browser" class="com.vivo.browser.BrowserActivity" condition="#BtnVis"/>
+				<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.vivo.browser" class="com.vivo.browser.MainActivity" condition="#BtnVis"/>
+				<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.android.browser" class="com.android.browser.BrowserActivity" condition="#BtnVis"/>
+				<ExternCommand command="unlock" condition="#BtnVis"/>
+			</Trigger>
+		</Triggers>
+	</Button>
+
+
+
+
+	<Group x="70" y="1366+#tempY" pivotX="220" pivotY="220" scale="1-0.1*#touchAni*eq(#fid,3)">
+		<Image x="0" y="0" src="fyp/wbg.png" />
+	</Group>
+	<Button x="70" y="1360+#tempY" w="440" h="440" visibility="#fypBtvis" >
+		<Triggers>
+			<Trigger action="down">
+				<VariableCommand name="fid" expression="3"  />
+				<VariableCommand name="touchBt" expression="#time"/>
+				<VariableCommand name="touchF" expression="1"/>
+			</Trigger>
+			<Trigger action="up">
+				<IntentCommand action="android.intent.action.MAIN" package="com.vivo.weather" class="com.vivo.weather.WeatherMain" condition="#BtnVis"/>
+				<ExternCommand command="unlock" condition="#BtnVis"/>
+			</Trigger>
+		</Triggers>
+	</Button>
+	
+	<Group x="70" y="170" pivotX="220" pivotY="220" scale="1-0.1*#touchAni*eq(#fid,4)">
+		<Image x="0" y="170" src="fyp/ks.png" />
+	</Group>
+	<Button x="70" y="170" w="440" h="440" visibility="#fypBtvis" >
+		<Triggers>
+			<Trigger action="down">
+				<VariableCommand name="fid" expression="3"  />
+				<VariableCommand name="touchBt" expression="#time"/>
+				<VariableCommand name="touchF" expression="1"/>
+			</Trigger>
+			<Trigger action="up">
+				<IntentCommand action="android.intent.action.MAIN" package="com.vivo.imanager" class="com.vivo.imanager" condition="#BtnVis"/>
+				<ExternCommand command="unlock" condition="#BtnVis"/>
+			</Trigger>
+		</Triggers>
+	</Button>
+
+
+</Group>
+
+
+
+
+
+
+<Var name="DjsBtVis" expression="eq(#DjsAni,1)"/>
+<Group visibility="ne(#DjsAni,0)" alpha="255*#DjsAni">
+
+	<Image x="0" y="0" w="#w" h="#h" src="djs/w.png" />
+
+	<Group y="-200*(1-#DjsAni)" >
+		<Image x="79" y="262" src="djs/t1.png" />
+		<Image x="186" y="463" align="center" alignV="center" w="200*(1-0.1*#touchAni*eq(#djsid,1))" h="90*(1-0.1*#touchAni*eq(#djsid,1))"  src="djs/gk.png" srcid="eq(#timerID,0)"/>
+		<Button x="186-100" y="463-45" w="200" h="90" visibility="#DjsBtVis" >
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="1"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="timerID" expression="0" persist="true" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+
+		<Image x="422" y="463" align="center" alignV="center" w="200*(1-0.1*#touchAni*eq(#djsid,2))" h="90*(1-0.1*#touchAni*eq(#djsid,2))"  src="djs/ky.png" srcid="eq(#timerID,1)"/>
+		<Button x="422-100" y="463-45" w="200" h="90" visibility="#DjsBtVis" >
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="2"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="timerID" expression="1" persist="true" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+
+		<Image x="684" y="463" align="center" alignV="center" w="250*(1-0.1*#touchAni*eq(#djsid,3))" h="90*(1-0.1*#touchAni*eq(#djsid,3))"  src="djs/jn.png" srcid="eq(#timerID,2)"/>
+		<Button x="684-125" y="463-45" w="250" h="90" visibility="#DjsBtVis" >
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="3"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="timerID" expression="2" persist="true" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+
+		<Image x="221" y="591" align="center" alignV="center" w="270*(1-0.1*#touchAni*eq(#djsid,4))" h="90*(1-0.1*#touchAni*eq(#djsid,4))"  src="djs/wy.png" srcid="eq(#timerID,3)"/>
+		<Button x="221-135" y="591-45" w="270" h="90" visibility="#DjsBtVis" >
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="4"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="timerID" expression="3" persist="true" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+
+		<Image x="539" y="591" align="center" alignV="center" w="270*(1-0.1*#touchAni*eq(#djsid,5))" h="90*(1-0.1*#touchAni*eq(#djsid,5))"  src="djs/gq.png" srcid="eq(#timerID,4)"/>
+		<Button x="539-135" y="591-45" w="270" h="90" visibility="#DjsBtVis" >
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="5"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="timerID" expression="4" persist="true" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+		<Image x="840" y="591" align="center" alignV="center" w="237*(1-0.1*#touchAni*eq(#djsid,6))" h="90*(1-0.1*#touchAni*eq(#djsid,6))"  src="djs/qrj.png" srcid="eq(#timerID,5)"/>
+		<Button x="840-115" y="591-45" w="237" h="90" visibility="#DjsBtVis" >
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="6"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="timerID" expression="5" persist="true" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+		<Image x="182" y="725" align="center" alignV="center" w="194*(1-0.1*#touchAni*eq(#djsid,7))" h="90*(1-0.1*#touchAni*eq(#djsid,7))"  src="djs/qrj.png" srcid="eq(#timerID,6)"/>
+		<Button x="182-97" y="725-45" w="194" h="90" visibility="#DjsBtVis" >
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="7"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="timerID" expression="6" persist="true" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+		<Image x="418" y="725" align="center" alignV="center" w="194*(1-0.1*#touchAni*eq(#djsid,8))" h="90*(1-0.1*#touchAni*eq(#djsid,8))"  src="djs/yh.png" srcid="eq(#timerID,7)"/>
+		<Button x="418-97" y="725-45" w="194" h="90" visibility="#DjsBtVis" >
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="8"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="timerID" expression="7" persist="true" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+
+		<Image x="654" y="725" align="center" alignV="center" w="194*(1-0.1*#touchAni*eq(#djsid,9))" h="90*(1-0.1*#touchAni*eq(#djsid,9))"  src="djs/mb.png" srcid="eq(#timerID,8)"/>
+		<Button x="654-97" y="725-45" w="194" h="90" visibility="#DjsBtVis" >
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="9"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="timerID" expression="8" persist="true" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+
+
+		
+
+
+
+
+		<Image x="79" y="880" src="djs/t2.png" />
+
+
+		<Text x="243" y="1054-6" align="center" alignV="center" color="#000000" size="40" textExp="int(#EventYear)"/>
+		<Image x="368" y="1054" align="center" alignV="center" w="40*(1-0.1*#touchAni*eq(#djsid,10))" h="40*(1-0.1*#touchAni*eq(#djsid,10))" src="djs/add.png" />
+		<Button x="368-40" y="1054-40" w="80" h="80">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="10"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="EventYear" expression="int(#EventYear)+1" persist="true"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+		<Image x="117" y="1054" align="center" alignV="center" w="40*(1-0.1*#touchAni*eq(#djsid,11))" h="40*(1-0.1*#touchAni*eq(#djsid,11))" src="djs/jh.png" />
+		<Button x="117-40" y="1054-40" w="80" h="80">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="11"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="EventYear" expression="int(#EventYear)-1" persist="true"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+
+
+		<Text x="735" y="1054-6" align="center" alignV="center" color="#000000" size="40" textExp="int(#EventMonth)"/>
+		<Image x="861" y="1054" align="center" alignV="center" w="40*(1-0.1*#touchAni*eq(#djsid,12))" h="40*(1-0.1*#touchAni*eq(#djsid,12))" src="djs/add.png" />
+		<Button x="861-40" y="1054-40" w="80" h="80">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="12"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="EventMonth" expression="ifelse(gt(#EventMonth,12),1,#EventMonth+1)" persist="true"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+		<Image x="610" y="1054" align="center" alignV="center" w="40*(1-0.1*#touchAni*eq(#djsid,13))" h="40*(1-0.1*#touchAni*eq(#djsid,13))" src="djs/jh.png" />
+		<Button x="610-40" y="1054-40" w="80" h="80">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="13"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="EventMonth" expression="ifelse(lt(#EventMonth,1),12,#EventMonth-1)" persist="true"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+
+
+
+
+		<Text x="243" y="1224-6" align="center" alignV="center" color="#000000" size="40" textExp="int(#EventDate)"/>
+		<Image x="368" y="1224" align="center" alignV="center" w="40*(1-0.1*#touchAni*eq(#djsid,14))" h="40*(1-0.1*#touchAni*eq(#djsid,14))" src="djs/add.png" />
+		<Button x="368-40" y="1224-40" w="80" h="80">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="14"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="EventDate" expression="ifelse(gt(#EventDate,28),1,#EventDate+1)" type="int" persist="true" condition="eq(#_maxDay,28)"/>
+					<VariableCommand name="EventDate" expression="ifelse(gt(#EventDate,29),1,#EventDate+1)" type="int" persist="true" condition="eq(#_maxDay,29)"/>
+					<VariableCommand name="EventDate" expression="ifelse(gt(#EventDate,30),1,#EventDate+1)" type="int" persist="true" condition="eq(#_maxDay,30)"/>
+					<VariableCommand name="EventDate" expression="ifelse(gt(#EventDate,31),1,#EventDate+1)" type="int" persist="true" condition="eq(#_maxDay,31)"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+		<Image x="117" y="1224" align="center" alignV="center" w="40*(1-0.1*#touchAni*eq(#djsid,15))" h="40*(1-0.1*#touchAni*eq(#djsid,15))" src="djs/jh.png" />
+		<Button x="117-40" y="1224-40" w="80" h="80">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="15"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="EventDate" expression="ifelse(lt(#EventDate,1),28,#EventDate-1)" type="int" persist="true" condition="eq(#_maxDay,28)"/>
+					<VariableCommand name="EventDate" expression="ifelse(lt(#EventDate,1),29,#EventDate-1)" type="int" persist="true" condition="eq(#_maxDay,29)"/>
+					<VariableCommand name="EventDate" expression="ifelse(lt(#EventDate,1),30,#EventDate-1)" type="int" persist="true" condition="eq(#_maxDay,30)"/>
+					<VariableCommand name="EventDate" expression="ifelse(lt(#EventDate,1),31,#EventDate-1)" type="int" persist="true" condition="eq(#_maxDay,31)"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+
+
+		<Text x="735" y="1224-6" align="center" alignV="center" color="#000000" size="40" textExp="int(#EventHour)"/>
+		<Image x="861" y="1224" align="center" alignV="center" w="40*(1-0.1*#touchAni*eq(#djsid,16))" h="40*(1-0.1*#touchAni*eq(#djsid,16))" src="djs/add.png" />
+		<Button x="861-40" y="1224-40" w="80" h="80">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="16"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="EventHour" expression="ifelse(eq(#EventHour,23),0,(#EventHour+1)%24)" type="int" persist="true"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+		<Image x="610" y="1224" align="center" alignV="center" w="40*(1-0.1*#touchAni*eq(#djsid,17))" h="40*(1-0.1*#touchAni*eq(#djsid,17))" src="djs/jh.png" />
+		<Button x="610-40" y="1224-40" w="80" h="80">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="17"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="EventHour" expression="ifelse(eq(#EventHour,0),23,(#EventHour-1)%24)" type="int" persist="true"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+
+		<Text x="243" y="1395-6" align="center" alignV="center" color="#000000" size="40" textExp="int(#EventMin)"/>
+		<Image x="368" y="1395" align="center" alignV="center" w="40*(1-0.1*#touchAni*eq(#djsid,18))" h="40*(1-0.1*#touchAni*eq(#djsid,18))" src="djs/add.png" />
+		<Button x="368-40" y="1395-40" w="80" h="80">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="18"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="EventMin" expression="ifelse(eq(#EventMin,59),0,(#EventMin+1)%60)" type="int" persist="true"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+		<Image x="117" y="1395" align="center" alignV="center" w="40*(1-0.1*#touchAni*eq(#djsid,19))" h="40*(1-0.1*#touchAni*eq(#djsid,19))" src="djs/jh.png" />
+		<Button x="117-40" y="1395-40" w="80" h="80">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="djsid" expression="19"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<VariableCommand name="EventMin" expression="ifelse(eq(#EventMin,0),59,(#EventMin-1)%60)" type="int" persist="true"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+
+
+	</Group>
+
+
+	<Image x="916" y="#h-166" align="center" alignV="center" w="140*(#Djs1Ani-0.1*#touchAni*eq(#djsid,10))" h="140*(#Djs1Ani-0.1*#touchAni*eq(#djsid,10))" alpha="255*#Djs1Ani"  src="djs/qd.png"/>
+	<Button x="916-70" y="#h-166-70" w="140" h="140" visibility="#DjsBtVis" >
+		<Triggers>
+			<Trigger action="down">
+				<VariableCommand name="djsid" expression="10"  />
+				<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+				<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+			</Trigger>
+			<Trigger action="up">
+				<VariableCommand name="DjsF" expression="0" condition="#BtnVis" delay="60"/>
+				<VariableCommand name="DjsBt" expression="#time" condition="#BtnVis" delay="60"/>
+				<VariableCommand name="Djs1F" expression="0" condition="#BtnVis" />
+				<VariableCommand name="Djs1Bt" expression="#time" condition="#BtnVis" />
+			</Trigger>
+		</Triggers>
+	</Button>
+	
+
+</Group>
+
+
+
+
+
+
+
+
+
+<!--控制面板模块-->
+
+
+<Button x="0" y="100" w="#w" h="#h" visibility="#PanelSwitch*eq(#DeskMove,0)" >
+	<Triggers>
+		<Trigger action="down">
+			<VariableCommand name="PanelMove_Ok" expression="1"/>
+		</Trigger>
+		<Trigger action="up">
+			<VariableCommand name="PanelMove_Ok" expression="0"/>
+			<VariableCommand name="PanelBT" expression="#time" condition="ne(abs(#touch_y-#touch_begin_y),0)*#verticalVis"/>
+			<VariableCommand name="PanelFlag" expression="1" condition="gt(#touch_y-#touch_begin_y,200)*#verticalVis"/>
+			<VariableCommand name="PanelFlag" expression="0" condition="gt(#touch_y-#touch_begin_y,0)*le(#touch_y-#touch_begin_y,200)*#verticalVis"/>
+			<VariableCommand name="PanelFlag" expression="0" condition="lt(#touch_y-#touch_begin_y,-200)*#verticalVis"/>
+			<VariableCommand name="PanelFlag" expression="1" condition="ge(#touch_y-#touch_begin_y,-200)*lt(#touch_y-#touch_begin_y,0)*#verticalVis"/>
+			<VariableCommand name="PanelMove1" expression="min(max(#PanelMove2+(#touch_y-#touch_begin_y),0),1080)" condition="#verticalVis"/>
+			<VariableCommand name="PanelMove2" expression="ifelse(gt(abs(#touch_y-#touch_begin_y),200),max(min(#PanelMove2+ifelse(gt(#touch_y,#touch_begin_y),1,-1)*1080,1080),0),#PanelMove2)" condition="#verticalVis"/>
+
+			<VariableCommand name="eFlag1" expression="1" condition="gt(#touch_y-#touch_begin_y,200)*#verticalVis*lt(#eAlpha6,1)"/>
+			<VariableCommand name="eBT1" expression="#time" condition="gt(#touch_y-#touch_begin_y,200)*#verticalVis*lt(#eAlpha6,1)"/>
+			<VariableCommand name="eFlag1" expression="0" condition="lt(#touch_y-#touch_begin_y,-200)*#verticalVis"/>
+			<VariableCommand name="eBT1" expression="0" condition="lt(#touch_y-#touch_begin_y,-200)*#verticalVis"/>
+
+			<VariableCommand name="eFlag2" expression="1" condition="gt(#touch_y-#touch_begin_y,200)*#verticalVis*lt(#eAlpha6,1)" delay="30"/>
+			<VariableCommand name="eBT2" expression="#time" condition="gt(#touch_y-#touch_begin_y,200)*#verticalVis*lt(#eAlpha6,1)" delay="30"/>
+			<VariableCommand name="eFlag2" expression="0" condition="lt(#touch_y-#touch_begin_y,-200)*#verticalVis"/>
+			<VariableCommand name="eBT2" expression="0" condition="lt(#touch_y-#touch_begin_y,-200)*#verticalVis"/>
+
+			<VariableCommand name="eFlag3" expression="1" condition="gt(#touch_y-#touch_begin_y,200)*#verticalVis*lt(#eAlpha6,1)" delay="60"/>
+			<VariableCommand name="eBT3" expression="#time" condition="gt(#touch_y-#touch_begin_y,200)*#verticalVis*lt(#eAlpha6,1)" delay="60"/>
+			<VariableCommand name="eFlag3" expression="0" condition="lt(#touch_y-#touch_begin_y,-200)*#verticalVis"/>
+			<VariableCommand name="eBT3" expression="0" condition="lt(#touch_y-#touch_begin_y,-200)*#verticalVis"/>
+
+			<VariableCommand name="eFlag4" expression="1" condition="gt(#touch_y-#touch_begin_y,200)*#verticalVis*lt(#eAlpha6,1)" delay="90"/>
+			<VariableCommand name="eBT4" expression="#time" condition="gt(#touch_y-#touch_begin_y,200)*#verticalVis*lt(#eAlpha6,1)"  delay="90"/>
+			<VariableCommand name="eFlag4" expression="0" condition="lt(#touch_y-#touch_begin_y,-200)*#verticalVis"/>
+			<VariableCommand name="eBT4" expression="0" condition="lt(#touch_y-#touch_begin_y,-200)*#verticalVis"/>
+
+			<VariableCommand name="eFlag5" expression="1" condition="gt(#touch_y-#touch_begin_y,200)*#verticalVis*lt(#eAlpha6,1)"  delay="120"/>
+			<VariableCommand name="eBT5" expression="#time" condition="gt(#touch_y-#touch_begin_y,200)*#verticalVis*lt(#eAlpha6,1)"  delay="120"/>
+			<VariableCommand name="eFlag5" expression="0" condition="lt(#touch_y-#touch_begin_y,-200)*#verticalVis"/>
+			<VariableCommand name="eBT5" expression="0" condition="lt(#touch_y-#touch_begin_y,-200)*#verticalVis"/>
+
+			<VariableCommand name="eFlag6" expression="1" condition="gt(#touch_y-#touch_begin_y,200)*#verticalVis*lt(#eAlpha6,1)"  delay="150"/>
+			<VariableCommand name="eBT6" expression="#time" condition="gt(#touch_y-#touch_begin_y,200)*#verticalVis*lt(#eAlpha6,1)" delay="150"/>
+			<VariableCommand name="eFlag6" expression="0" condition="lt(#touch_y-#touch_begin_y,-200)*#verticalVis"/>
+			<VariableCommand name="eBT6" expression="0" condition="lt(#touch_y-#touch_begin_y,-200)*#verticalVis"/>
+
+		</Trigger>
+	</Triggers>
+</Button>
+
+<Var name="PanelBtnVis" expression="eq(#PanelMove,1080)"/>
+
+<Image x="#w/2+ifelse(#GravityOn,#gx*10,0)" y="#h/2+ifelse(#GravityOn,#gy*18,0)" w="#w*ifelse(#OpenOn,1.5-0.3*#OpenAni-0.2*eq(#GravityOn,0),1.2-0.2*eq(#GravityOn,0))" h="2640*ifelse(#OpenOn,1.5-0.3*#OpenAni-0.2*eq(#GravityOn,0),1.2-0.2*eq(#GravityOn,0))" alpha="#PanelMove/2" align="center" alignV="center" src="wall/blur.jpg"/>
+
+
+<Group x="0" y="-300+#PanelMove/1080*300" alpha="#PanelMove/2-255" visibility="ne(#PanelMove,0)" >
+
+	<!--扫一扫-->
+	<Group y="-200+200*#eMoveY1"  alpha="500*#eAlpha1">
+		<Image x="88" y="1580" pivotX="199/2" pivotY="199/2" scale="0.8+0.2*#eAlpha1+0.1*#touchAni*eq(#pid,1)" src="p/11.png"/>
+		<Button x="88" y="1580" w="199" h="198" visibility="#PanelBtnVis" >
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="pid" expression="1"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.vivo.scanner" class="com.vivo.scanner.view.CaptureActivity"/>
+					<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.vivo.browser" class="com.vivo.browser.ui.module.dbarcode.CaptureActivity" condition="#BtnVis"/>
+					<ExternCommand command="unlock" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+	</Group>
+
+
+	<Group y="-200+200*#eMoveY2"  alpha="500*#eAlpha2">
+		<!--一键锁屏-->
+		<Image x="88" y="1345" pivotX="199/2" pivotY="199/2" scale="0.8+0.2*#eAlpha2+0.1*#touchAni*eq(#pid,2)" src="p/7.png"/>
+		<Button x="88" y="1345" w="199" h="198" visibility="#PanelBtnVis">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="pid" expression="2"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.android.bbk.lockscreen3" class="com.android.bbk.lockscreen3.LockScreenActivity" condition="#BtnVis"/>
+				
+				</Trigger>
+			</Triggers>
+		</Button>
+
+		<!--时钟-->
+		<Image x="323" y="1345" pivotX="199/2" pivotY="199/2" scale="0.8+0.2*#eAlpha2+0.1*#touchAni*eq(#pid,3)" src="p/8.png"/>
+		<Button x="323" y="1345" w="199" h="198" visibility="#PanelBtnVis" >
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="pid" expression="3"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<IntentCommand action="android.intent.action.MAIN" package="com.android.BBKClock" class="com.android.BBKClock.Timer" condition="#BtnVis"/>
+					<ExternCommand command="unlock" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+		<!--计算器-->
+		<Image x="558" y="1345" pivotX="199/2" pivotY="199/2" scale="0.8+0.2*#eAlpha2+0.1*#touchAni*eq(#pid,4)" src="p/9.png"/>
+		<Button x="558" y="1345" w="199" h="198" visibility="#PanelBtnVis" >
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="pid" expression="4"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.android.bbkcalculator" class="com.android.bbkcalculator.Calculator" condition="#BtnVis"/>
+					<ExternCommand command="unlock" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+		<!--camera-->
+		<Image x="793" y="1345" pivotX="199/2" pivotY="199/2" scale="0.8+0.2*#eAlpha2+0.1*#touchAni*eq(#pid,5)" src="p/cam.png"/>
+		<Button x="793" y="1345" w="199" h="198" visibility="#PanelBtnVis" >
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="pid" expression="5"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<IntentCommand action="android.intent.action.MAIN" package="com.android.camera" class="com.android.camera.CameraActivity" condition="#BtnVis"/>
+					<ExternCommand command="unlock" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+	
+	<Image x="88" y="1579" pivotX="199/2" pivotY="199/2" scale="0.8+0.2*#eAlpha2+0.1*#touchAni*eq(#pid,5)" src="mobileversal/4.png"/>
+
+<Image x="323" y="1579" pivotX="199/2" pivotY="199/2" scale="0.8+0.2*#eAlpha2+0.1*#touchAni*eq(#pid,5)" src="mobileversal/3.png"/>
+		
+<Image x="558" y="1579" pivotX="199/2" pivotY="199/2" scale="0.8+0.2*#eAlpha2+0.1*#touchAni*eq(#pid,5)" src="mobileversal/2.png"/>
+		
+<Image x="793" y="1579" pivotX="199/2" pivotY="199/2" scale="0.8+0.2*#eAlpha2+0.1*#touchAni*eq(#pid,5)" src="mobileversal/1.png"/>
+		
+	</Group>
+
+	<Group y="-200+200*#eMoveY3"  alpha="500*#eAlpha3">
+
+		<Image x="558" y="876" pivotX="199/2" pivotY="434/2" scale="0.8+0.2*#eAlpha3+0.1*#touchAni*eq(#pid,6)" src="p/bat.png" srcid="#battery_level/10"/>
+		<Button x="558" y="876" w="199" h="434" visibility="#PanelBtnVis">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="pid" expression="6"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.iqoo.powersaving" class="com.iqoo.powersaving.PowerSavingManagerActivity" condition="#BtnVis" />
+					<ExternCommand command="unlock" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+
+
+		<Image x="793" y="876" pivotX="199/2" pivotY="434/2" scale="0.8+0.2*#eAlpha3+0.1*#touchAni*eq(#pid,7)" src="p/v.png"/>
+		<Button x="793" y="876" w="199" h="434" visibility="#PanelBtnVis">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="pid" expression="7"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.android.settings" class="com.android.settings.Settings$SoundSettingActivity" condition="#BtnVis" />
+					<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.android.settings" class="com.vivo.settings.VivoSubSettings" condition="#BtnVis" />
+					<ExternCommand command="unlock" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+		<!--视频-->
+		<Image x="88" y="1111" pivotX="434/2" pivotY="199/2" scale="0.8+0.2*#eAlpha3+0.1*#touchAni*eq(#pid,8)" src="p/3.png"/>
+		<Button x="88" y="1111" w="434" h="198" visibility="#PanelBtnVis">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="pid" expression="8"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<IntentCommand  action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.android.VideoPlayer" class="com.android.VideoPlayer.VideoPlayer" condition="#BtnVis"/>
+					<IntentCommand  action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.android.VideoPlayer" class="com.vivo.video.app.home.HomeActivity" condition="#BtnVis"/>
+					<ExternCommand command="unlock" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+	</Group>
+
+	<Group y="-200+200*#eMoveY4"  alpha="500*#eAlpha4">
+
+		<Group x="88" y="876" pivotX="199/2" pivotY="199/2" scale="0.8+0.2*#eAlpha4+0.1*#touchAni*eq(#pid,9)">
+			<Image x="0" y="0" src="p/2.png" srcid="#GravityOn" />
+			<Image x="0" y="0" src="p/lock.png" srcid="#GravityOn" />
+			<Image x="0" y="0" src="p/lock_rot.png" pivotX="199/2" pivotY="199/2" rotation="#GRot" srcid="#GravityOn" />
+			<Button x="0" y="0" w="199" h="199" visibility="#PanelBtnVis">
+				<Triggers>
+					<Trigger action="down">
+						<VariableCommand name="pid" expression="9"  />
+						<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+						<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+					</Trigger>
+					<Trigger action="up">
+						<VariableCommand name="GravityOn" expression="not(#GravityOn)" persist="true"/>
+						<Command target="GRot.animation" value="play" />
+						<Command target="yc.animation" value="play" />
+					</Trigger>
+				</Triggers>
+			</Button>
+		
+		</Group>
+
+		<!--天气-->
+		<Image x="323" y="876" pivotX="199/2" pivotY="199/2" scale="0.8+0.2*#eAlpha4+0.1*#touchAni*eq(#pid,10)" src="p/t.png" />
+		<Button x="323" y="876" w="198" h="198" visibility="#PanelBtnVis">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="pid" expression="10"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
+				<Trigger action="up">
+					<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.vivo.weather" class="com.vivo.weather.WeatherMain" condition="#BtnVis"/>
+					<ExternCommand command="unlock" condition="#BtnVis"/>
+				</Trigger>
+			</Triggers>
+		</Button>
+
+	</Group>
+	<Group y="-200+200*#eMoveY5"  alpha="500*#eAlpha5">
+
+		<Group x="88" y="406" pivotX="434/2" pivotY="434/2" scale="0.8+0.2*#eAlpha5">
+			<Image x="0" y="0" src="p/1.png" />
+			<!--设置飞行模式-->
+			<Button x="41" y="42" w="158" h="158" visibility="#PanelBtnVis">
+				<Triggers>
+					<Trigger action="up">
+						<IntentCommand action="android.intent.action.MAIN" package="com.android.settings" class="com.android.settings.Settings" condition="#BtnVis" />
+						<ExternCommand command="unlock" condition="#BtnVis"/>
+					</Trigger>
+				</Triggers>
+			</Button>
+			<!--数据-->
+			<Button x="235" y="42" w="158" h="158" visibility="#PanelBtnVis">
+				<Triggers>
+					<Trigger action="up">
+						<IntentCommand action="android.intent.action.MAIN" package="com.android.tethersettings" class="com.android.tethersettings.Settings$TetherSettingsActivity" condition="#BtnVis"/>
+						<ExternCommand command="unlock" condition="#BtnVis"/>
+					</Trigger>
+				</Triggers>
+			</Button>
+			<!--wifi-->
+			<Button x="41" y="235" w="158" h="158" visibility="#PanelBtnVis">
+				<Triggers>
+					<Trigger action="up">
+						<IntentCommand action="android.intent.action.MAIN" package="com.android.wifisettings" class="com.android.wifisettings.Settings$WifiSettingsActivity" condition="#BtnVis"/>
+						<ExternCommand command="unlock" condition="#BtnVis"/>
+					</Trigger>
+				</Triggers>
+			</Button>
+
+			<!--蓝牙-->
+			<Button x="235" y="235" w="158" h="158" visibility="#PanelBtnVis">
+				<Triggers>
+					<Trigger action="up">
+						<IntentCommand action="android.intent.action.MAIN" package="com.android.bluetoothsettings" class="com.android.bluetoothsettings.Settings$BluetoothSettingsActivity" condition="#BtnVis"/>
+						<ExternCommand command="unlock" condition="#BtnVis"/>
+					</Trigger>
+				</Triggers>
+			</Button>
 
 		</Group>
-		
-		<!-- 音乐 -->
-		<MusicControl name="music_m" x="558" y="140" w="426" h="426" enableLyric="true" scale="#music_animation" pivotX="215" pivotY="215" updateLyricInterval="100" >
 
-				<Rectangle  cornerRadius="55"  fillColor="#000000" w="426" h="426" alpha="100" visibility="eq(#gsmh,0)" />
+	</Group>
 
-				<Rectangle  cornerRadius="55"  fillColor="#ffffff" w="426" h="426" alpha="100" visibility="eq(#gsmh,1)" />
-			<Text x="216" y="122" align="center" alignV="center"  textExp="ifelse(len(@music_control.title),@music_control.title,'Music')" size="43" color="#ffffff" w="390" marqueeSpeed="30" bold="true" />
-			<Text x="216" y="176" align="center" alignV="center" textExp="ifelse(len(@music_control.artist),@music_control.artist,' ')" size="43" color="#ffffff" w="410" alpha="255*0.5" marqueeSpeed="30"/>
-			 <Var name="music_animation">
-				<VariableAnimation initPause="true" loop="false">
-					<AniFrame value="1" time="0" easeType="QuartEaseOut" />
-					<AniFrame value="1.1" time="300" easeType="QuartEaseOut" />
-					<AniFrame value="1" time="700" />
-				</VariableAnimation>
-			</Var>
-			<Button x="344" w="70" h="70" alignChildren="true">
-				<Normal>
-					<Image src="kjgnsc/an.png" x="26" y="54" w="65" h="65" align="center" alignV="center" alpha="255*0.4" />
-				</Normal>
-				<Pressed>
-					<Image src="kjgnsc/an.png" x="26" y="54" w="65" h="65" align="center" alignV="center"/>
-				</Pressed>
-				<Triggers>
-					<Trigger action="up" >
-						
-		 <IntentCommand action="android.intent.action.MAIN" class="com.miui.player.ui.MusicBrowserActivity" condition="eq(#yyxzq,0)" package="com.miui.player"/>
-  <IntentCommand action="android.intent.action.MAIN" class="com.netease.cloudmusic.activity.LoadingActivity" condition="eq(#yyxzq,1)" package="com.netease.cloudmusic"/>
-          <IntentCommand action="android.intent.action.MAIN" class="com.tencent.qqmusic.activity.AppStarterActivity" condition="eq(#yyxzq,2)" package="com.tencent.qqmusic"/>
-         
-          <IntentCommand action="android.intent.action.MAIN" class="fm.xiami.main.SplashActivity" condition="eq(#yyxzq,3)" package="fm.xiami.main"/>
-         <IntentCommand action="android.intent.action.MAIN" class="com.kugou.android.app.splash.SplashActivity" condition="eq(#yyxzq,4)" package="com.kugou.android"/>
-		 	<IntentCommand action="android.intent.action.MAIN" package="cn.kuwo.player" class="cn.kuwo.player.activities.EntryActivity" condition="eq(#yyxzq,5)"/>
-			<IntentCommand action="android.intent.action.MAIN" package="com.apple.android.music" class="com.apple.android.music.onboarding.activities.SplashActivity" condition="eq(#yyxzq,6)"/>
-						<ExternCommand command="unlock"/>
-					</Trigger>
-				</Triggers>
-			</Button>
-			<Button w="432" h="288" alignChildren="true">
-				<Triggers>
-					<Trigger action="down" >
-						<Command target="music_animation.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="music_animation.animation" value="play(300,700)" />
-					</Trigger>
-				</Triggers>
-			</Button>
-			<Button name="music_prev" x="4" y="252" w="130" h="130" alignChildren="true">
-				<Normal>
-					<Image src="kjgnsc/sys.png" align="center" alignV="center" x="84" y="72"/>
-				</Normal>
-				<Pressed>
-					<Image src="kjgnsc/sys.png" align="center" alignV="center" x="84" y="72" alpha="153" />
-				</Pressed>
-			</Button>
-			<Button name="music_play" x="144" y="252" w="130" h="130" alignChildren="true">
-				<Normal>
-					<Image src="kjgnsc/ks.png" align="center" alignV="center" x="76" y="72" />
-				</Normal>
-				<Pressed>
-					<Image src="kjgnsc/ks.png" align="center" alignV="center" x="76" y="72" alpha="153" />
-				</Pressed>
-			</Button>
-			<Button name="music_pause" x="144" y="252" w="130" h="130" alignChildren="true">
-				<Normal>
-					<Image src="kjgnsc/zt.png" align="center" alignV="center" x="72" y="72" />
-				</Normal>
-				<Pressed>
-					<Image src="kjgnsc/zt.png" align="center" alignV="center" x="72" y="72" alpha="153" />
-				</Pressed>
-			</Button>
-			<Button name="music_next" x="280" y="252" w="130" h="130" alignChildren="true">
-				<Normal>
-					<Image src="kjgnsc/xys.png" align="center" alignV="center" x="60" y="72"/>
-				</Normal>
-				<Pressed>
-					<Image src="kjgnsc/xys.png" align="center" alignV="center" x="60" y="72" alpha="153" />
-				</Pressed>
-			</Button>
-		</MusicControl>
-		
-		
-		
-	
-		<!-- Recording screen-->
-		<Button x="90" y="628" w="192" h="192"  alignChildren="true">
-		<Group scale="#fypan_dh7" pivotX="96" pivotY="96" >
-
-				<Rectangle  cornerRadius="55"  fillColor="#000000" w="192" h="192" alpha="100" visibility="eq(#gsmh,0)" />
-
-				<Rectangle  cornerRadius="55"  fillColor="#ffffff" w="192" h="192" alpha="100" visibility="eq(#gsmh,1)" />
-				</Group>
-			<Image x="100" y="100" align="center" alignV="center" src="kjgnsc/screenrecorder_n.png" />
-			
-		<Triggers>
-				<Trigger action="up"  >
-	
-					<ExternCommand command="unlock"/>
-					<IntentCommand action="android.intent.action.MAIN" package="com.miui.screenrecorder" class="com.miui.screenrecorder.activity.ScreenRecorderHomeActivity"/>
+	<Group x="558" y="406-200+200*#eMoveY5" alpha="500*#eAlpha5" pivotX="434/2" pivotY="434/2" scale="0.8+0.2*#eAlpha5+0.1*#touchAni*eq(#pid,11)">
+		<Image x="0" y="0" src="p/m.png" />
+		<Text x="774-558" y="534-406-8" color="#ffffff" size="53" align="center" alignV="center" textExp="ifelse(eq(#PanelMusicApp,0),'Music',eq(#PanelMusicApp,1),'Cool Dog Music',eq(#PanelMusicApp,2),'Cool Me Music',eq(#PanelMusicApp,3), 'zarchiver
+Music',eq(#PanelMusicApp,4),'NetEase Cloud Music',eq(#PanelMusicApp,5),'cloud Music',eq(#PanelMusicApp,5),'Ali Planet','Domi Music' )"/>
+		<Button x="940-558-30" y="54-30" w="60" h="60" visibility="#PanelBtnVis" >
+			<Triggers>
+				<Trigger action="up">
+					<VariableCommand name="PanelMusicApp" expression="(#PanelMusicApp+1)%7" persist="true"/>
 				</Trigger>
-				<Trigger action="down" >
-						<Command target="fypan_dh7.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh7.animation" value="play(300,700)" />
-					</Trigger>
 			</Triggers>
 		</Button>
-				<!-- Xiaodi classmate -->
-		<Button x="324" y="628" w="192" h="192" pivotX="99" pivotY="99" scale="1+#scale_12x*#tsmclient_down" alignChildren="true">
-		<Group scale="#fypan_dh8" pivotX="96" pivotY="96" >
+		<!--音乐-->
+		<Button x="0" y="114" w="434" h="320"  visibility="#PanelBtnVis">
+			<Triggers>
+				<Trigger action="down">
+					<VariableCommand name="pid" expression="11"  />
+					<VariableCommand name="touchBt" expression="#time" condition="#BtnVis"/>
+					<VariableCommand name="touchF" expression="1" condition="#BtnVis"/>
+				</Trigger>
 
-				<Rectangle  cornerRadius="55"  fillColor="#000000" w="192" h="192" alpha="100" visibility="eq(#gsmh,0)" />
+				<Trigger action="up">
+					<IntentCommand action="android.intent.action.MAIN" category="android.intent.category.LAUNCHER" package="com.android.bbkmusic" class="com.android.bbkmusic.WidgetToTrackActivity" condition="#BtnVis*eq(#PanelMusicApp,0)" />
 
-				<Rectangle  cornerRadius="55"  fillColor="#ffffff" w="192" h="192" alpha="100" visibility="eq(#gsmh,1)" />
-				</Group>
-			<Image x="100" y="100" align="center" alignV="center" src="kjgnsc/voiceassist_n.png" />
-				<Triggers>
-				
-				<Trigger action="up" >
-				<IntentCommand  package="com.miui.voiceassist" class="com.miui.voiceassist.CTAAlertActivity" />
-					<IntentCommand action="android.intent.action.ASSIST" category="android.intent.category.DEFAULT" />
+
+					<IntentCommand action="android.intent.action.MAIN" package="com.kugou.android" class="com.kugou.android.app.splash.SplashActivity" condition="#BtnVis*eq(#PanelMusicApp,1)" />
+
+					<IntentCommand action="android.intent.action.MAIN" package="com.ting.mp3.android" class="com.baidu.music.ui.splash.SplashActivity" condition="#BtnVis*eq(#PanelMusicApp,5)"/> 
+					<IntentCommand action="android.intent.action.MAIN" package="cn.kuwo.player" class="cn.kuwo.player.activities.EntryActivity" condition="#BtnVis*eq(#PanelMusicApp,2)"/>
+					<IntentCommand action="android.intent.action.MAIN" package="com.netease.cloudmusic" class="com.netease.cloudmusic.activity.LoadingActivity" condition="#BtnVis*eq(#PanelMusicApp,4)" />
+					<IntentCommand action="android.intent.action.MAIN" package="com.duomi.android" class="com.duomi.android.DMLauncher" condition="#BtnVis*eq(#PanelMusicApp,7)" />
+
+					<IntentCommand action="android.intent.action.MAIN" package="com.tencent.qqmusic" class="com.tencent.qqmusic.activity.AppStarterActivity" condition="#BtnVis*eq(#PanelMusicApp,3)" />
+
+					<IntentCommand action="android.intent.action.MAIN" package="com.sds.android.ttpod" class="com.ali.music.entertainment.presentation.view.splash.SplashActivity" condition="#BtnVis*eq(#PanelMusicApp,6)" />
 					
+					<ExternCommand command="unlock" condition="#BtnVis"/>
 				</Trigger>
-				<Trigger action="down" >
-						<Command target="fypan_dh8.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh8.animation" value="play(300,700)" />
-					</Trigger>
 			</Triggers>
 		</Button>
-		<!-- Deport -->
-			<Button x="558" y="628" w="432" h="198" alignChildren="true">
-			<Group x="0" y="0"  scale="#fypan_dh9" pivotX="96" pivotY="96" >
 
-				<Rectangle  cornerRadius="55"  fillColor="#000000" w="430" h="196" alpha="100" visibility="eq(#gsmh,0)" />
+	</Group>
 
-				<Rectangle  cornerRadius="55"  fillColor="#ffffff" w="430" h="196" alpha="100" visibility="eq(#gsmh,1)" />
-				</Group>
-				
-			<Image x="125" y="99" align="center" alignV="center" src="kjgnsc/tp.png" />
-			<Text x="190" y="99" alignV="center" size="38" color="#ffffff" bold="ture" text="Screen mirror"/>
-			<Triggers>
-	<Trigger action="up" >
-					<ExternCommand command="unlock"/>
-					<IntentCommand action="android.intent.action.MAIN" package="com.milink.service" class="com.milink.ui.activity.JumpActivity"/>
-				</Trigger>
-				<Trigger action="down" >
-						<Command target="fypan_dh9.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh9.animation" value="play(300,700)" />
-					</Trigger>
-			</Triggers>
-		</Button>
-		
 
-		<!-- 支付宝付款码 -->
-		<Button x="558" y="872" w="192" h="192" pivotX="99" pivotY="99" scale="1+#scale_12x*#pay_down" alignChildren="true">
-			<Group scale="#fypan_dh10" pivotX="96" pivotY="96" >
 
-				<Rectangle  cornerRadius="55"  fillColor="#000000" w="192" h="192" alpha="100" visibility="eq(#gsmh,0)" />
+	<Group y="-200+200*#eMoveY6"  alpha="500*#eAlpha6">
+		<Group y="304" pivotX="540" pivotY="40" scale="0.8+0.2*#eAlpha6" alpha="#yc">
+			<DateTime x="100" y="0" alignV="center" color="#ffffff" size="42" format="dd MMM yyyy"/>  
+			<Image x="931" y="3" align="center" alignV="center" src="p/100.png" visibility="eq(#battery_level,100)"/>
+			<Image x="931" y="3" align="center" alignV="center" src="p/90.png" visibility="lt(#battery_level,100)*ge(#battery_level,90)"/>
+			<Image x="931" y="3" align="center" alignV="center" src="p/80.png" visibility="lt(#battery_level,90)*ge(#battery_level,80)"/>
+			<Image x="931" y="3" align="center" alignV="center" src="p/70.png" visibility="lt(#battery_level,80)*ge(#battery_level,70)"/>
+			<Image x="931" y="3" align="center" alignV="center" src="p/60.png" visibility="lt(#battery_level,70)*ge(#battery_level,60)"/>
+			<Image x="931" y="3" align="center" alignV="center" src="p/50.png" visibility="lt(#battery_level,60)*ge(#battery_level,50)"/>
+			<Image x="931" y="3" align="center" alignV="center" src="p/40.png" visibility="lt(#battery_level,50)*ge(#battery_level,40)"/>
+			<Image x="931" y="3" align="center" alignV="center" src="p/30.png" visibility="lt(#battery_level,40)*ge(#battery_level,30)"/>
+			<Image x="931" y="3" align="center" alignV="center" src="p/20.png" visibility="lt(#battery_level,30)*ge(#battery_level,20)"/>
+			<Image x="931" y="3" align="center" alignV="center" src="p/10.png" visibility="lt(#battery_level,20)*ge(#battery_level,0)"/>
+			<Text x="880" y="0" align="right" alignV="center"  color="#ffffff" size="42" bold="true" format="%d%%" paras="#battery_level"/>
+		</Group>
 
-				<Rectangle  cornerRadius="55"  fillColor="#ffffff" w="192" h="192" alpha="100" visibility="eq(#gsmh,1)" />
-				</Group>
-			<Image x="100" y="100" align="center" alignV="center" src="kjgnsc/zfbfkm.png"  />
-			<Triggers>
+		<Text x="540" y="304" align="center" alignV="center" color="#ffffff" size="44" alpha="255-#yc" text="Gravity : ON" visibility="#GravityOn" />
+		<Text x="540" y="304" align="center" alignV="center" color="#ffffff" size="44" alpha="255-#yc" text="Gravity : OFF" visibility="not(#GravityOn)" />
+	</Group>
 
-				<Trigger action="up">
-		
-					<IntentCommand action="android.intent.action.MAIN" package="com.eg.android.AlipayGphone" class="com.eg.android.AlipayGphone.FastStartActivity" />
-<ExternCommand command="unlock"/>
-				</Trigger>
-						<Trigger action="down" >
-						<Command target="fypan_dh10.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh10.animation" value="play(300,700)" />
-					</Trigger>
-			</Triggers>
-		</Button>
-		
+</Group>
 
-		<!-- 微信付款码 -->
-		<Button x="792" y="872" w="192" h="192" pivotX="99" pivotY="99" scale="1+#scale_12x*#pay_down" alignChildren="true">
-			<Group scale="#fypan_dh11" pivotX="96" pivotY="96" >
 
-				<Rectangle  cornerRadius="55"  fillColor="#000000" w="192" h="192" alpha="100" visibility="eq(#gsmh,0)" />
 
-				<Rectangle  cornerRadius="55"  fillColor="#ffffff" w="192" h="192" alpha="100" visibility="eq(#gsmh,1)" />
-				</Group>
-			<Image x="100" y="100" align="center" alignV="center" src="kjgnsc/wxfkm.png" />
-			<Triggers>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--设置模块-->
+
+
+
+
+<!--充电模块-->
+
+<Group alpha="255-255*#BatAni" visibility="(eq(#battery_state,1)+eq(#battery_state,3))*ne(#BatAni,1)">
+	<Button x="0" y="0" w="#w" h="#h">
+		<Triggers>
 			<Trigger action="up">
-<IntentCommand action="android.intent.action.MAIN" package="com.tencent.mm" class="com.tencent.mm.plugin.offline.ui.WalletOfflineCoinPurseUI"/>
-<ExternCommand command="unlock"/>
-</Trigger>
-				<Trigger action="down" >
-						<Command target="fypan_dh11.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh11.animation" value="play(300,700)" />
-					</Trigger>
-			</Triggers>
-		</Button>
-		
-		
-		
-		<!--运动步数-->
-		<Button x="90" y="872" w="432" h="198" alignChildren="true">
-			<Group x="0" y="0"  scale="#fypan_dh12" pivotX="96" pivotY="96" >
-		
-				<Rectangle  cornerRadius="55"  fillColor="#000000" w="430" h="196" alpha="100" visibility="eq(#gsmh,0)" />
-
-				<Rectangle  cornerRadius="55"  fillColor="#ffffff" w="430" h="196" alpha="100" visibility="eq(#gsmh,1)" />
-				</Group>
-			<Image x="125" y="99" name="wal" align="center" alignV="center" src="kjgnsc/walk.png" />
-		
-				
-				<Text x="#wal.bmp_width+155" y="99" align="center" alignV="center" color="#ffffff" size="50" textExp="#step_today+' '+'步'"/>
-			
-			<Triggers>
-	<Trigger action="up" >
-					<ExternCommand command="unlock"/>
-					<IntentCommand action="android.intent.action.MAIN" package="com.xiaomi.hm.health" class="com.xiaomi.hm.health.activity.StartUpActivity"/>
-				</Trigger>
-				<Trigger action="down" >
-						<Command target="fypan_dh12.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh12.animation" value="play(300,700)" />
-					</Trigger>
-			</Triggers>
-		</Button>
-		<!-- 主题设计-->
-		<Button x="90" y="1116" w="192" h="192" pivotX="99" pivotY="99" scale="1+#scale_12x*#recorder_down" alignChildren="true">
-<Group scale="#fypan_dh13" pivotX="96" pivotY="96" >
-
-				<Rectangle  cornerRadius="55"  fillColor="#000000" w="192" h="192" alpha="100" visibility="eq(#gsmh,0)" />
-	
-				<Rectangle  cornerRadius="55"  fillColor="#ffffff" w="192" h="192" alpha="100" visibility="eq(#gsmh,1)" />
-					</Group>
-				<Image x="100" y="100" align="center" alignV="center" src="kjgnsc/settings_n.png" />
-			<Triggers>
-
-				<Trigger action="up" >
-
-					<ExternCommand command="unlock"/>
-					<IntentCommand action="android.intent.action.MAIN" package="com.android.thememanager" class="miui.maml.MamlConfigSettings">
-						<Extra name="maml_code" type="string" expression="'lockstyle'"/>
-					</IntentCommand>
-				</Trigger>
->	<Trigger action="down" >
-						<Command target="fypan_dh13.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh13.animation" value="play(300,700)" />
-					</Trigger>
-			</Triggers>
-	
-		</Button>
-		<!-- Clock -->
-		<Button x="324" y="1116" w="192" h="192" pivotX="99" pivotY="99" scale="1+#scale_12x*#clock_down" alignChildren="true">
-		<Group scale="#fypan_dh14" pivotX="96" pivotY="96" >
-		
-				<Rectangle  cornerRadius="55"  fillColor="#000000" w="192" h="192" alpha="100" visibility="eq(#gsmh,0)" />
-
-				<Rectangle  cornerRadius="55"  fillColor="#ffffff" w="192" h="192" alpha="100" visibility="eq(#gsmh,1)" />
-					</Group>
-			<Image x="100" y="100" align="center" alignV="center" src="kjgnsc/nz.png" />
-						<Triggers>
-				
-				<Trigger action="up" >
-	<IntentCommand action="android.intent.action.MAIN" package="com.android.deskclock" class="com.android.deskclock.DeskClockTabActivity" />
-					<ExternCommand command="unlock"/>
-			
-				</Trigger>
-					<Trigger action="down" >
-						<Command target="fypan_dh14.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh14.animation" value="play(300,700)" />
-					</Trigger>
-			</Triggers>
-		</Button>
-		<!-- 支付宝扫一扫 -->
-		<Button x="558" y="1116" w="192" h="192" pivotX="99" pivotY="99" scale="1+#scale_12x*#calculator_down" alignChildren="true">
-			<Group scale="#fypan_dh15" pivotX="96" pivotY="96" >
-
-				<Rectangle  cornerRadius="55"  fillColor="#000000" w="192" h="192" alpha="100" visibility="eq(#gsmh,0)" />
-
-				<Rectangle  cornerRadius="55"  fillColor="#ffffff" w="192" h="192" alpha="100" visibility="eq(#gsmh,1)" />
-					</Group>
-		
-	<Image x="100" y="100" align="center" alignV="center" src="kjgnsc/zfbsys.png" />
-			<Triggers>
-
-				<Trigger action="up" >
-<IntentCommand action="android.intent.action.MAIN" class="com.alipay.mobile.scan.as.main.MainCaptureActivity" package="com.eg.android.AlipayGphone"/>
-<ExternCommand command="unlock"/>
-				</Trigger>
-					<Trigger action="down" >
-						<Command target="fypan_dh15.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh15.animation" value="play(300,700)" />
-					</Trigger>
-			</Triggers>
-		</Button>
-		
-
-	
-		
-		
-	<!-- 微信扫一扫 -->
-		<Button x="792" y="1116" w="192" h="192" pivotX="99" pivotY="99" scale="1+#scale_12x*#theme_down" alignChildren="true">
-		<Group scale="#fypan_dh16" pivotX="96" pivotY="96" >
-
-				<Rectangle  cornerRadius="55"  fillColor="#000000" w="192" h="192" alpha="100" visibility="eq(#gsmh,0)" />
-
-				<Rectangle  cornerRadius="55"  fillColor="#ffffff" w="192" h="192" alpha="100" visibility="eq(#gsmh,1)" />
-					</Group>
-		<Image x="100" y="100" align="center" alignV="center" src="kjgnsc/wxsys.png" />
-			<Triggers>
-			
-				<Trigger action="up">
-<IntentCommand action="android.intent.action.MAIN" class="com.tencent.mm.plugin.scanner.ui.BaseScanUI" package="com.tencent.mm"/>
-<ExternCommand command="unlock"/>
-</Trigger>
-<Trigger action="down" >
-						<Command target="fypan_dh16.animation" value="play(0,300)" />
-					</Trigger>
-					<Trigger action="up" >
-						<Command target="fypan_dh16.animation" value="play(300,700)" />
-					</Trigger>
-	            
-			</Triggers>
+				<VariableCommand name="BatBt" expression="#time" />
+				<VariableCommand name="BatF" expression="1" />
+			</Trigger>
+		</Triggers>
 	</Button>
-    </Group>
-	 </Group>
+	<Image x="0" y="0" w="#w" h="#h" src="num/black.png" />
+	<Group visibility="eq(#cdModule,0)" >
+		<Image x="1080" y="#h+10-(#battery_level/100)*#h*#bYAni" align="right" src="num/g.png">
+			<PositionAnimation>
+				<Position  x="0" time="0" />
+				<Position  x="1080" time="1230"/>
+			</PositionAnimation>
+		</Image>
+		<Image x="1080" y="#h-(#battery_level/100)*#h*#bYAni" align="right" alpha="160" src="num/g.png">
+			<PositionAnimation>
+				<Position  x="0" time="0" />
+				<Position  x="1080" time="2160"/>
+			</PositionAnimation>
+		</Image>
 
+
+		<Image x="540" y="#h/2" align="center" alignV="center" src="num/t.png" />
+		<ImageNumber x="540" y="#h/2-120" align="center" alignV="center" src="num/time.png" number="#battery_level" />
+	</Group>
 	
 
+	<Group visibility="eq(#cdModule,1)">
+		<Image x="540" y="#screen_height" align="center" alignV="bottom" src="cd/bglight.png">
+			<AlphaAnimation loop="ture">
+				<Alpha a="0" time="0"/>
+				<Alpha a="240" time="1000"/>
+				<Alpha a="0" time="2000"/>
+			</AlphaAnimation>
+		</Image>
+		<Image x="540" y="#screen_height" align="center" alignV="bottom" src="cd/top.png" />
+		
+		<Image x="540" y="#screen_height+270-800*((#time/1800)%1)" align="center" alignV="bottom" src="cd/line.png" />
+		<Image x="540-15" y="#screen_height+270-800*(((#time-200)/1200)%1)" align="center" alignV="bottom" src="cd/line.png" />
+		<Image x="540+15" y="#screen_height+270-800*(((#time-300)/600)%1)" align="center" alignV="bottom" src="cd/line.png" />
+		<Image x="540+30" y="#screen_height+270-800*(((#time-600)/1800)%1)" align="center" alignV="bottom" src="cd/line.png" />
+		<Image x="540-30" y="#screen_height+270-800*(((#time-400)/1200)%1)" align="center" alignV="bottom" src="cd/line.png" />
+
+		<Image x="540" y="#screen_height-1014" align="center" alignV="center" src="cd/c.png" pivotX="290" pivotY="290" rotation="(#time/2)%360"/>
+		<Image x="540" y="#screen_height-993" align="center" alignV="center" src="cd/t.png" />
+		<Image x="540" y="#screen_height-916" align="center" alignV="center" src="cd/sd.png">
+			<SizeAnimation>
+				<Size w="80" h="80" time="0"/>
+				<Size w="70" h="70" time="1000"/>
+				<Size w="80" h="80" time="2000"/>
+			</SizeAnimation>
+		</Image>
+		<Group x="540-(84+#cdw.bmp_width)/2">
+			<ImageNumber name="cdw" x="0" y="#screen_height-1020" space="10" src="cd/cn.png" alignV="center" number="#battery_level"/>
+			<Image name="cd4per" x="10+#cdw.bmp_width" y="#screen_height-1020" alignV="center" src="cd/cn_per.png" />
+		</Group>
 	
-  <!-- Bottom -->
-
-  <Group  visibility="#defaultScreen_x != 1080" x="#defaultScreen_x+#defaultScreen_a+#defaultScreen_x" y="#sh-(100)">
-    <!-- 负一屏图标 -->
+	</Group>
 
 
+	<Group y="#h/2" visibility="eq(#cdModule,2)">
+		<Image x="540" y="0" align="center" alignV="center" w="1000" h="1000" src="cddh/cddh.png" srcid="#time/50%50"/>
+		<Image x="540" y="70" align="center" alignV="center"  src="cddh/t.png"/>
+		<ImageNumber name="b2w"  x="540" y="-44" align="center" alignV="center" src="cddh/time.png" space="5" number="#battery_level"/>
+		<Image x="560+#b2w.bmp_width/2" y="-22" alignV="center" src="cddh/per.png" />
+	
+	</Group>
+	
 
-        <Image align="center" alignV="center" src="left_icon.png"  alpha="240" x="110" y="0"/>
-
-
-    <!-- Sliding unlock -->
-
-
-    <!-- Right camera icon -->
-
-    <Group x="1080-(100)+#hasLockScreen_springingAn+#nameholder_springingA">
-      <Group alpha="min(100,#hasLockScreen_hintAn+100*(#nameholder_springingA != 0))">
-
-          <Text align="right" alignV="center" color="#ffffff"  size="33" text="@cameraHint" x="-55" y="-1.4"/>
-        
+</Group>
 
 
 
 
-      </Group>
-	  
-	  
-	  
 
 
-          <Image align="center" alignV="center" src="camera.png" alpha="240" x="-10" y="0"/>
 
-    </Group>
-  </Group>
 
-  <!-- 右相机页 -->
+<Var name="spOn" expression="0" const="true" />
+<Image x="0" y="0" w="#w" h="#h" src="set/1.png" visibility="#spOn"/>
 
-  <Rectangle fillColor="#000000" h="#sh" visibility="#defaultScreen_a{0" w="1080" x="1080+#defaultScreen_a+#defaultScreen_x"/>
-  <Image alignV="bottom" srcExp="&apos;DefaultFrame_src/cam_bg_&apos;+int(#sh==1920)+&apos;.png&apos;" visibility="#defaultScreen_a{0" x="1080+#defaultScreen_a" y="#sh"/>
-  <!-- 左右滑屏按钮 -->
-
-  <Group visibility="(#defaultScreen_y==0**#DefaultLockScreen_init_tools_ani==0)*(1)*(#noticeDown==0)">
-    <!-- 左右移动变量，预留50像素判断是向左右滑动还是上下滑动，当滑动距离超过50时#defaultScreen_x变量才不为0-->
-
-    <Var expression="max(min(ifelse(#touch_x}#touch_begin_x,max(#DefaultLockScreen_touch_move-50,0),min(#DefaultLockScreen_touch_move+50,0))+#DefaultLockScreen_move_go,1080*#LeftScreenCondition),0)" name="defaultScreen_x"/>
-    <Var name="DefaultLockScreen_move_go">
-      <VariableAnimation initPause="true" loop="false">
-        <Item easeType="QuartEaseOut" time="0" value="#DefaultLockScreen_move_x1"/>
-        <Item time="350" value="#DefaultLockScreen_move_x2"/>
-      </VariableAnimation>
-    </Var>
-    <Button h="#sh" w="1080" x="0" y="0">
-      <Triggers>
-        <Trigger action="move">
-          <VariableCommand expression="int(#touch_x-#touch_begin_x)" name="DefaultLockScreen_touch_move"/>
-        </Trigger>
-        <!-- 判断回弹 -->
-
-        <Trigger action="up,cancel">
-          <VariableCommand expression="#DefaultLockScreen_move_x2+ifelse(#touch_x}#touch_begin_x,max(#DefaultLockScreen_touch_move-50,0),min(#DefaultLockScreen_touch_move+50,0))" name="DefaultLockScreen_move_x1"/>
-          <VariableCommand expression="ifelse(abs(#touch_x-#touch_begin_x)}300,max(min(#DefaultLockScreen_move_x2+ifelse(#touch_x}#touch_begin_x,1,-1)*1080,1080),0),#DefaultLockScreen_move_x2)" name="DefaultLockScreen_move_x2"/>
-          <AnimationCommand command="play" condition="#DefaultLockScreen_touch_move!=0" target="DefaultLockScreen_move_go"/>
-          <VariableCommand expression="0" name="DefaultLockScreen_touch_move"/>
-        </Trigger>
-        <!-- 不解锁进入相机界面 -->
-
-        <Trigger action="up,cancel" condition="abs(#touch_x-#touch_begin_x)}300">
-          <IntentCommand action="android.intent.action.MAIN" class="com.android.camera.Camera" condition="#touch_begin_x-#touch_x}300 ** #defaultScreen_x{0" package="com.android.camera">
-            <Extra expression="1" name="ShowCameraWhenLocked" type="boolean"/>
-            <Extra expression="1" name="StartActivityWhenLocked" type="boolean"/>
-          </IntentCommand>
-        </Trigger>
-      </Triggers>
-    </Button>
-  </Group>
-  <!-- 防误触 -->
-  <!-- 滑动 -->
-
-  <Var expression="max(min(#hasLockScreen_moveX+int(#hasLockScreen_moveAn),0),-1080)" name="defaultScreen_a"/>
-  <Var expression="#hasLockScreen_unlockAn+#hasLockScreen_moveY" name="defaultScreen_y"/>
-  <Var name="hasLockScreen_moveAn">
-    <VariableAnimation initPause="true" loop="false">
-      <Item easeType="QuartEaseOut" time="0" value="#hasLockScreen_moveA"/>
-      <Item time="500" value="#hasLockScreen_moveB"/>
-      <Triggers>
-        <Trigger action="end">
-          <VariableCommand expression="#hasLockScreen_moveB" name="hasLockScreen_moveA"/>
-          <IntentCommand action="android.intent.action.MAIN" class="com.android.camera.Camera" condition="#hasLockScreen_moveAn == -1080" package="com.android.camera">
-            <Extra expression="1" name="ShowCameraWhenLocked" type="boolean"/>
-            <Extra expression="1" name="StartActivityWhenLocked" type="boolean"/>
-          </IntentCommand>
-        </Trigger>
-      </Triggers>
-    </VariableAnimation>
-  </Var>
-  <!-- 解锁回弹 -->
-
-  <Var name="hasLockScreen_unlockAn">
-    <VariableAnimation initPause="true" loop="false">
-      <Item easeType="SineEaseOut" time="0" value="#hasLockScreen_unlockA"/>
-      <Item time="200" value="0"/>
-    </VariableAnimation>
-  </Var>
-  <Var name="hasLockScreen_hintAn">
-    <VariableAnimation initPause="true" loop="false">
-      <Item time="0" value="0"/>
-      <Item time="300" value="160"/>
-      <Item time="1200" value="160"/>
-    </VariableAnimation>
-  </Var>
-  <Var name="hasLockScreen_springingAn">
-    <VariableAnimation initPause="true" loop="false">
-      <Item easeType="BounceEaseOut" time="0" value="#nameholder_springingA"/>
-      <Item time="600" value="0"/>
-    </VariableAnimation>
-  </Var>
-  <!-- 动态帧率 -->
-
-  <FramerateController initPause="true" loop="false" name="hasLockScreen_framerateAni">
-    <ControlPoint frameRate="60" time="0"/>
-    <ControlPoint frameRate="60" time="2000"/>
-    <ControlPoint frameRate="30" time="2001"/>
-  </FramerateController>
-  <Button h="#sh" visibility="#unlockButtonSwitch ** (#noticeDown==0)" w="1080" x="0" y="0">
-    <Triggers>
-      <Trigger action="down">
-        <AnimationCommand command="play" target="hasLockScreen_framerateAni"/>
-      </Trigger>
-      <Trigger action="move">
-        <AnimationCommand command="play" condition="#frame_rate { 55" target="hasLockScreen_framerateAni"/>
-        <MultiCommand condition="#hasLockScreen_moveX_SW == 0 ** #hasLockScreen_moveY_SW == 0">
-          <VariableCommand condition="(#hasLockScreen_moveX_SW == 0) ** ((#touch_y-#touch_begin_y) { -50)" expression="1" name="hasLockScreen_moveY_SW"/>
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-          <VariableCommand condition="(#hasLockScreen_moveY_SW == 0) ** (abs(#touch_begin_x-#touch_x) } 50)" expression="1" name="hasLockScreen_moveX_SW"/>
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-          <VariableCommand condition="#hasLockScreen_moveX_SW" expression="((#touch_x } #touch_begin_x)*2-1)*50" name="nameholder_offsetX"/>
-        </MultiCommand>
-        <VariableCommand condition="#hasLockScreen_moveY_SW" expression="min(0,int(#touch_y-#touch_begin_y+50))" name="hasLockScreen_moveY"/>
-        <MultiCommand condition="#hasLockScreen_moveX_SW">
-          <VariableCommand expression="(#touch_begin_y { (#sh-(100)*2)) ** (int(#hasLockScreen_moveAn+#touch_x-(#touch_begin_x+#nameholder_offsetX)) { 0)" name="hasLockScreen_leftMoveSW"/>
-          <VariableCommand expression="max(-50,#hasLockScreen_leftMoveSW*int(#touch_x-#touch_begin_x+50))" name="nameholder_springingA"/>
-          <VariableCommand expression="int(#touch_x-(#touch_begin_x+#nameholder_offsetX))" name="hasLockScreen_moveX"/>
-          <VariableCommand condition="#hasLockScreen_leftMoveSW" expression="max(#hasLockScreen_moveX,0)" name="hasLockScreen_moveX"/>
-        </MultiCommand>
-      </Trigger>
-      <Trigger action="up,cancel">
-        <AnimationCommand command="play" target="hasLockScreen_framerateAni"/>
-        <MultiCommand condition="#hasLockScreen_moveY_SW ** #UnlockCondition">
-          <ExternCommand command="unlock" condition="#hasLockScreen_moveY {= -350"/>
-          <VariableCommand expression="#hasLockScreen_moveY {= -350" name="hasLockScreen_unlockSW"/>
-          <MultiCommand condition="#hasLockScreen_moveY } -350">
-            <VariableCommand expression="#hasLockScreen_moveY" name="hasLockScreen_unlockA"/>
-            <VariableCommand expression="0" name="hasLockScreen_moveY"/>
-            <AnimationCommand command="play" target="hasLockScreen_unlockAn"/>
-          </MultiCommand>
-        </MultiCommand>
-        <MultiCommand condition="#hasLockScreen_moveX_SW">
-          <VariableCommand expression="((#touch_x } #touch_begin_x)*2-1)*(abs(#hasLockScreen_moveX) } 200)*(#defaultScreen_x { 1080)*(#defaultScreen_x } -1080)" name="hasLockScreen_direction"/>
-          <MultiCommand condition="#hasLockScreen_moveX != 0">
-            <VariableCommand expression="#defaultScreen_x" name="hasLockScreen_moveA"/>
-            <VariableCommand expression="#hasLockScreen_moveB+#hasLockScreen_direction*1080*#LeftScreenCondition" name="hasLockScreen_moveB"/>
-            <VariableCommand expression="0" name="hasLockScreen_moveX"/>
-            <AnimationCommand command="play" target="hasLockScreen_moveAn"/>
-          </MultiCommand>
-          <MultiCommand condition="#hasleLockScreen_direction == 0 ** #touch_x { #touch_begin_x">
-            <AnimationCommand command="play(1200,0)" target="hasLockScreen_hintAn"/>
-            <AnimationCommand command="play" target="hasLockScreen_springingAn"/>
-            <VariableCommand expression="0" name="nameholder_springingA"/>
-          </MultiCommand>
-        </MultiCommand>
-        <VariableCommand expression="0" name="nameholder_offsetX"/>
-        <VariableCommand condition="!#hasLockScreen_unlockSW" expression="0" name="hasLockScreen_moveY_SW"/>
-        <VariableCommand expression="0" name="hasLockScreen_moveX_SW"/>
-      </Trigger>
-    </Triggers>
-  </Button>
-
-  <Button x="0" y="0" w="#screen_width" h="#screen_height">
-  <Triggers>
-      <Trigger action="down"> 
-      <VariableCommand name="un" expression="1"/> 
-        </Trigger> 
-    <Trigger action="up">
-      <VariableCommand name="un" expression="0"/>  
-      <ExternCommand command="unlock" condition="ge(#touch_begin_y-#touch_y,300)"/>
-    </Trigger>
-  </Triggers>
-</Button>
 
 </Lockscreen>
